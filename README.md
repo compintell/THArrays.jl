@@ -13,7 +13,7 @@ A Julia Interface for PyTorch.
    cd csrc
    mkdir build
    cd build
-   cmake -DCMAKE_PREFIX_PATH=/home/kdr2/Work/julia/JTorch.jl/csrc/libtorch ..
+   cmake -DCMAKE_PREFIX_PATH=/abs/path/to/libtorch ..
    make jtorch
    ```
 
@@ -30,18 +30,10 @@ A Julia Interface for PyTorch.
    #  0.295039  0.0344955  0.571507   0.751713   0.418774
    #  0.973963  0.849245   0.538734   0.0260422  0.17664
 
-  t = Tensor(c)
-  # PyTorch Tensor:
-  # 0.2929  0.4783  0.0135  0.7791  0.0510
-  # 0.2950  0.0345  0.5715  0.7517  0.4188
-  # 0.9740  0.8492  0.5387  0.0260  0.1766
-  # [ CPUFloatType{3,5} ]
-  ```
-
-## Notes
-   For this version, the Tensor instance and the Julia array share the
-   underlying data, if you update the element of the julia array, the
-   Tensor instance will also be updated. And, you must ensure that the
-   lifespan of the Julia array is longer then the Tensor
-   instance. Tensors with copied data and shares nothing with julia
-   arrays will be implemented later.
+   t = Tensor(c)
+   # PyTorch Tensor:
+   # 0.2929  0.4783  0.0135  0.7791  0.0510
+   # 0.2950  0.0345  0.5715  0.7517  0.4188
+   # 0.9740  0.8492  0.5387  0.0260  0.1766
+   # [ CPUFloatType{3,5} ]
+   ```
