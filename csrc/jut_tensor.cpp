@@ -5,7 +5,7 @@
 
 extern "C" {
     torch::Tensor* tensor_from_data(void *data, int64_t *size_data, size_t dim);
-    void tensor_destory(torch::Tensor *tensor);
+    void tensor_destroy(torch::Tensor *tensor);
     void print_tensor(torch::Tensor *tensor);
     const char* tensor_to_string(torch::Tensor *tensor);
 }
@@ -18,7 +18,8 @@ torch::Tensor* tensor_from_data(void *data, int64_t *size_data, size_t dim) {
     return new torch::Tensor(res.clone());
 }
 
-void tensor_destory(torch::Tensor *tensor) {
+void tensor_destroy(torch::Tensor *tensor) {
+    // std::cout << "DEBUG: Tensor " << tensor << " is destroyed!\n";
     if(tensor) delete tensor;
 }
 

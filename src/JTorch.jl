@@ -10,7 +10,7 @@ function __init__()
     Libdl.dlopen(joinpath(PROJECT_DIR, "csrc/build/libjtorch"))
 end
 
-struct Tensor
+mutable struct Tensor
     pointer::Ptr
 end
 
@@ -20,7 +20,13 @@ function Tensor(array::AbstractArray{Float32, N}) where N
     ptr = ccall((:tensor_from_data, :libjtorch),
                 Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Clonglong}, Csize_t),
                 row_major, dims, length(dims))
-    Tensor(ptr)
+    ret = Tensor(ptr)
+    finalizer(ret) do t
+        ccall((:tensor_destroy, :libjtorch),
+              Ptr{UInt8}, (Ptr{Cvoid},),
+              t.pointer)
+    end
+    return ret
 end
 
 function Base.string(t::Tensor)
