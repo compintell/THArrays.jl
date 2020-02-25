@@ -1,0 +1,16 @@
+name = "JTorch"
+uuid = "3ba4a88b-5b67-4a96-bb04-131d22fbab27"
+license = "MIT"
+desc = "Julia interface of PyTorch"
+repo = "https://github.com/yebai/JTorch.jl.git"
+version = "0.0.1"
+
+[deps]
+Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
