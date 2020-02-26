@@ -5,7 +5,7 @@
 
 extern "C" {
     // creation and repr
-    torch::Tensor* tensor_from_data(void *data, int64_t *size_data, size_t dim, int grad);
+    torch::Tensor* tensor_from_data(void *data, size_t datalen, int64_t *size_data, size_t dim, int grad);
     void tensor_destroy(torch::Tensor *tensor);
     const char* tensor_to_string(torch::Tensor *tensor);
 
@@ -20,12 +20,17 @@ extern "C" {
 
 
 // creation and repr
-torch::Tensor* tensor_from_data(void *data, int64_t *size_data, size_t dim, int grad) {
+torch::Tensor* tensor_from_data(void *data, size_t datalen, int64_t *size_data, size_t dim, int grad) {
     // TODO:
     //  - Deal with element type, now only works for the detault type (float32)
     c10::ArrayRef<int64_t> sizes(size_data, dim);
     // TODO: copy and deleter
-    torch::Tensor res = torch::from_blob(data, sizes, torch::requires_grad(grad));
+    uint8_t *buf = new uint8_t[datalen];
+    memcpy(buf, data, datalen);
+    torch::Tensor res = torch::from_blob(
+        buf, sizes,
+        [=](void *p) -> void { delete[] buf; },
+        torch::requires_grad(grad));
     return new torch::Tensor(res);
 }
 

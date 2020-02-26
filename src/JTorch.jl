@@ -18,7 +18,7 @@ mutable struct Tensor
         ret = new(p)
         finalizer(ret) do t
             ccall((:tensor_destroy, :libjtorch),
-                  Ptr{UInt8}, (Ptr{Cvoid},),
+                  Ptr{Cvoid}, (Ptr{Cvoid},),
                   t.pointer)
         end
         return ret
@@ -31,8 +31,8 @@ function Tensor(array::AbstractArray{Float32, N}; requires_grad=false) where N
     row_major = permutedims(array, collect(length(dims):-1:1))
     grad = requires_grad ? 1 : 0
     ptr = ccall((:tensor_from_data, :libjtorch),
-                Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Clonglong}, Csize_t, Cint),
-                row_major, dims, length(dims), grad)
+                Ptr{Cvoid}, (Ptr{Cvoid}, Csize_t, Ptr{Clonglong}, Csize_t, Cint),
+                row_major, sizeof(array), dims, length(dims), grad)
     Tensor(ptr)
 end
 
@@ -48,6 +48,7 @@ end
 function Base.show(io::IO, t::Tensor)
     write(io, "PyTorch Tensor:\n")
     write(io, string(t))
+    write(io, "\n")
 end
 
 function Base.display(t::Tensor)
