@@ -1,6 +1,6 @@
 # JTorch
 
-A Julia Interface for PyTorch.
+A Julia interface for PyTorch's C++ backend.
 
 ## Getting Started
 
