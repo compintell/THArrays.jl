@@ -101,10 +101,14 @@ function grad(a::Tensor{T}) where T
     Tensor{T}(ptr)
 end
 
-function backward(a::Tensor)
+function backward(a::Tensor, g::Union{Ptr{Nothing}, Tensor}=C_NULL;
+                  keep_graph::Bool=false, create_graph::Bool=false)
+    if g isa Tensor
+        g = g.pointer
+    end
     ccall((:tensor_method_backward, :libjtorch),
-          Ptr{Cvoid}, (Ptr{Cvoid},),
-          a.pointer)
+          Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+          a.pointer, g, keep_graph, create_graph)
     nothing
 end
 

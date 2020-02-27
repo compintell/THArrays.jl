@@ -13,7 +13,7 @@ extern "C" {
     // methods on Tensor
     torch::Tensor* tensor_method_sum(torch::Tensor *t);
     torch::Tensor* tensor_method_grad(torch::Tensor *t);
-    void tensor_method_backward(torch::Tensor *t);
+    void tensor_method_backward(torch::Tensor *t, torch::Tensor *g, bool keep_graph, bool create_graph);
 
     // operators
     torch::Tensor* tensor_op_add(torch::Tensor *a, torch::Tensor *b);
@@ -84,8 +84,14 @@ torch::Tensor* tensor_method_grad(torch::Tensor *t) {
     return new torch::Tensor(g);
 }
 
-void tensor_method_backward(torch::Tensor *t) {
-    t->backward();
+void tensor_method_backward(
+    torch::Tensor *t, torch::Tensor *g,
+    bool keep_graph=false, bool create_graph=false) {
+    if (g) {
+        t->backward(*g, keep_graph, create_graph);
+    } else {
+        t->backward({}, keep_graph, create_graph);
+    }
 }
 
 // operators
