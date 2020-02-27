@@ -1,11 +1,12 @@
 #include <torch/torch.h>
 
+#include <map>
 #include <sstream>
 #include <iostream>
 
 extern "C" {
     // creation and repr
-    torch::Tensor* tensor_from_data(void *data, size_t datalen, int64_t *size_data, size_t dim, int grad);
+    torch::Tensor* tensor_from_data(void *data, size_t datalen, int tid, int64_t *size_data, size_t dim, int grad);
     void tensor_destroy(torch::Tensor *tensor);
     const char* tensor_to_string(torch::Tensor *tensor);
 
@@ -19,18 +20,40 @@ extern "C" {
 }
 
 
+std::map<int, torch::ScalarType> TYPE_MAP_REV = \
+    {
+     {0,  torch::kByte}, // _(uint8_t, Byte) /* 0 */
+     {1,  torch::kChar}, // _(int8_t, Char) /* 1 */
+     {2,  torch::kShort}, // _(int16_t, Short) /* 2 */
+     {3,  torch::kInt}, // _(int, Int) /* 3 */
+     {4,  torch::kLong}, // _(int64_t, Long) /* 4 */
+     {5,  torch::kHalf}, // _(at::Half, Half) /* 5 */
+     {6,  torch::kFloat}, // _(float, Float) /* 6 */
+     {7,  torch::kDouble}, // _(double, Double) /* 7 */
+     {8,  torch::kComplexHalf}, // _(at::ComplexHalf, ComplexHalf) /* 8 */
+     {9,  torch::kComplexFloat}, // _(std::complex<float>, ComplexFloat) /* 9 */
+     {10, torch::kComplexDouble}, // _(std::complex<double>, ComplexDouble) /* 10 */
+     {11, torch::kBool}, // _(bool, Bool) /* 11 */
+     // {12, torch::kQInt8}, // _(c10::qint8, QInt8) /* 12 */
+     // {13, torch::kQUint8}, // _(c10::quint8, QUInt8) /* 13 */
+     // {14, torch::kQInt32}, // _(c10::qint32, QInt32) /* 14 */
+     // {15, torch::kBFloat16}, // _(at::BFloat16, BFloat16) /* 15 */
+    };
+
 // creation and repr
-torch::Tensor* tensor_from_data(void *data, size_t datalen, int64_t *size_data, size_t dim, int grad) {
-    // TODO:
-    //  - Deal with element type, now only works for the detault type (float32)
+torch::Tensor* tensor_from_data(
+    void *data, size_t datalen, int tid,
+    int64_t *size_data, size_t dim,
+    int grad) {
     c10::ArrayRef<int64_t> sizes(size_data, dim);
-    // TODO: copy and deleter
+
     uint8_t *buf = new uint8_t[datalen];
     memcpy(buf, data, datalen);
+
     torch::Tensor res = torch::from_blob(
         buf, sizes,
         [=](void *p) -> void { delete[] buf; },
-        torch::requires_grad(grad));
+        at::dtype(TYPE_MAP_REV[tid]).requires_grad(grad));
     return new torch::Tensor(res);
 }
 
