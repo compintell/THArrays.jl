@@ -9,9 +9,9 @@ target_link_libraries(example-app "${TORCH_LIBRARIES}")
 set_property(TARGET example-app PROPERTY CXX_STANDARD 14)
 
 
-add_library(jtorch SHARED jut_tensor.cpp)
-target_link_libraries(jtorch "${TORCH_LIBRARIES}")
-set_property(TARGET jtorch PROPERTY CXX_STANDARD 14)
+add_library(torch_capi SHARED torch_capi_tensor.h torch_capi_tensor.cpp)
+target_link_libraries(torch_capi "${TORCH_LIBRARIES}")
+set_property(TARGET torch_capi PROPERTY CXX_STANDARD 14)
 
 # The following code block is suggested to be used on Windows.
 # According to https://github.com/pytorch/pytorch/issues/25457,

@@ -16,10 +16,10 @@ A Julia interface for PyTorch's C++ backend.
    mkdir build
    cd build
    cmake -DCMAKE_PREFIX_PATH=/abs/path/to/libtorch ..
-   make jtorch
+   make torch_capi
    ```
 
-   After that, ensure you can find a file named `libjtorch.so` under
+   After that, ensure you can find a file named `libtorch_capi.so` under
    the `csrc/build` directory.
 4. Run an example:
 

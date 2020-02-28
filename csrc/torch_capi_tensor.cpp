@@ -1,26 +1,11 @@
-#include <torch/torch.h>
-
 #include <map>
 #include <sstream>
 #include <iostream>
 
-extern "C" {
-    // creation and repr
-    torch::Tensor* tensor_from_data(void *data, size_t datalen, int tid, int64_t *size_data, size_t dim, int grad);
-    void tensor_destroy(torch::Tensor *tensor);
-    const char* tensor_to_string(torch::Tensor *tensor);
-
-    // methods on Tensor
-    torch::Tensor* tensor_method_sum(torch::Tensor *t);
-    torch::Tensor* tensor_method_grad(torch::Tensor *t);
-    void tensor_method_backward(torch::Tensor *t, torch::Tensor *g, bool keep_graph, bool create_graph);
-
-    // operators
-    torch::Tensor* tensor_op_add(torch::Tensor *a, torch::Tensor *b);
-}
+#include "torch_capi_tensor.h"
 
 
-std::map<int, torch::ScalarType> TYPE_MAP_REV = \
+const std::map<int, torch::ScalarType> TYPE_MAP_REV =   \
     {
      {0,  torch::kByte}, // _(uint8_t, Byte) /* 0 */
      {1,  torch::kChar}, // _(int8_t, Char) /* 1 */
@@ -53,7 +38,7 @@ torch::Tensor* tensor_from_data(
     torch::Tensor res = torch::from_blob(
         buf, sizes,
         [=](void *p) -> void { delete[] buf; },
-        at::dtype(TYPE_MAP_REV[tid]).requires_grad(grad));
+        at::dtype(TYPE_MAP_REV.at(tid)).requires_grad(grad));
     return new torch::Tensor(res);
 }
 

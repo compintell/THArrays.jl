@@ -8,7 +8,7 @@ export Tensor,
 const PROJECT_DIR = (@__DIR__) |> dirname
 
 function __init__()
-    Libdl.dlopen(joinpath(PROJECT_DIR, "csrc/build/libjtorch"))
+    Libdl.dlopen(joinpath(PROJECT_DIR, "csrc/build/libtorch_capi"))
 end
 
 const TYPE_MAP = Dict{Type, Int32}(
@@ -42,7 +42,7 @@ mutable struct Tensor{T}
         end
         ret = new(T, p)
         finalizer(ret) do t
-            ccall((:tensor_destroy, :libjtorch),
+            ccall((:tensor_destroy, :libtorch_capi),
                   Ptr{Cvoid}, (Ptr{Cvoid},),
                   t.pointer)
         end
@@ -59,7 +59,7 @@ function Tensor(array::Array{T, N}; requires_grad=false) where {T, N}
     dims = collect(size(array))
     row_major = permutedims(array, collect(N:-1:1))
     grad = requires_grad ? 1 : 0
-    ptr = ccall((:tensor_from_data, :libjtorch),
+    ptr = ccall((:tensor_from_data, :libtorch_capi),
                 Ptr{Cvoid},
                 (Ptr{Cvoid}, Csize_t, Cint, Ptr{Clonglong}, Csize_t, Cint),
                 row_major, sizeof(array), TYPE_MAP[T], dims, N, grad)
@@ -67,7 +67,7 @@ function Tensor(array::Array{T, N}; requires_grad=false) where {T, N}
 end
 
 function Base.string(t::Tensor)
-    str = ccall((:tensor_to_string, :libjtorch),
+    str = ccall((:tensor_to_string, :libtorch_capi),
                 Ptr{UInt8}, (Ptr{Cvoid},),
                 t.pointer)
     ret = unsafe_string(str)
@@ -88,14 +88,14 @@ end
 # methods
 
 function Base.sum(a::Tensor{T}) where T
-    ptr = ccall((:tensor_method_sum, :libjtorch),
+    ptr = ccall((:tensor_method_sum, :libtorch_capi),
                 Ptr{Cvoid}, (Ptr{Cvoid},),
                 a.pointer)
     Tensor{T}(ptr)
 end
 
 function grad(a::Tensor{T}) where T
-    ptr = ccall((:tensor_method_grad, :libjtorch),
+    ptr = ccall((:tensor_method_grad, :libtorch_capi),
                 Ptr{Cvoid}, (Ptr{Cvoid},),
                 a.pointer)
     Tensor{T}(ptr)
@@ -106,7 +106,7 @@ function backward(a::Tensor, g::Union{Ptr{Nothing}, Tensor}=C_NULL;
     if g isa Tensor
         g = g.pointer
     end
-    ccall((:tensor_method_backward, :libjtorch),
+    ccall((:tensor_method_backward, :libtorch_capi),
           Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
           a.pointer, g, keep_graph, create_graph)
     nothing
@@ -115,7 +115,7 @@ end
 # operators
 
 function Base.:+(a::Tensor{T}, b::Tensor{T}) where T
-    ptr = ccall((:tensor_op_add, :libjtorch),
+    ptr = ccall((:tensor_op_add, :libtorch_capi),
                 Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}),
                 a.pointer, b.pointer)
     Tensor{T}(ptr)
