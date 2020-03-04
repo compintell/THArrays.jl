@@ -1,4 +1,4 @@
-module JTorch
+module Torch
 
 using Libdl
 

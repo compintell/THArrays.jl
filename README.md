@@ -1,4 +1,4 @@
-# JTorch
+# Torch
 
 A Julia interface for PyTorch's C++ backend.
 
@@ -24,7 +24,7 @@ A Julia interface for PyTorch's C++ backend.
 4. Run an example:
 
    ```julia
-   using JTorch
+   using Torch
 
    c = rand(3, 5)
    # 3×5 Array{Float64,2}:

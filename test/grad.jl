@@ -1,4 +1,4 @@
-using JTorch
+using Torch
 
 a = rand(3, 2)
 b = rand(3, 2)
