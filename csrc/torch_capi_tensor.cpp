@@ -4,8 +4,9 @@
 
 #include "torch_capi_tensor.h"
 
+#include <c10/core/ScalarType.h>
 
-const std::map<int, torch::ScalarType> TYPE_MAP_REV =   \
+std::map<int, torch::ScalarType> TYPE_MAP_REV = \
     {
      {0,  torch::kByte}, // _(uint8_t, Byte) /* 0 */
      {1,  torch::kChar}, // _(int8_t, Char) /* 1 */
@@ -55,6 +56,33 @@ const char* tensor_to_string(torch::Tensor *tensor) {
     memcpy(res, str.c_str(), str.length());
     res[str.length()] = 0;
     return res;
+}
+
+// retrieve Tensor info
+int8_t tensor_method_dtype(torch::Tensor *tensor) {
+    c10:: ScalarType t = c10::typeMetaToScalarType(tensor->dtype());
+    return static_cast<int8_t>(t);
+}
+
+int64_t tensor_method_ndimension(torch::Tensor *tensor) {
+    return tensor->ndimension();
+}
+
+void tensor_method_sizes(torch::Tensor *tensor, int64_t *buf) {
+    int64_t *p = buf;
+    torch::IntArrayRef sizes = tensor->sizes();
+    for (auto sz : sizes) {
+        *p = sz;
+        p++;
+    }
+}
+
+void* tensor_method_data_ptr(torch::Tensor *tensor) {
+    return tensor->data_ptr();
+}
+
+void tensor_method_data_copy(torch::Tensor *tensor, void *buf, size_t len) {
+    memcpy(buf, tensor->data_ptr(), len);
 }
 
 

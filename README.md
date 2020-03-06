@@ -5,8 +5,8 @@ A Julia interface for PyTorch's C++ backend.
 ## Getting Started
 
 1. Download
-- For Linux: https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.4.0%2Bcpu.zip
-- For Mac: https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.4.0.zip
+   - For Linux: https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.4.0%2Bcpu.zip
+   - For Mac: https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.4.0.zip
 
 2. Unzip the downloaded zip to somewhere, say, `csrc/libtorch` or
    `/abs/path/to/libtorch`

@@ -1,15 +1,11 @@
+// -*- mode: c++ -*-
+
 #ifndef _TORCH_CAPI_TENSOR_H
 #define _TORCH_CAPI_TENSOR_H
 
-#include <torch/torch.h>
+#include "torch_capi.h"
 
-#ifdef _OS_WINDOWS_
-#  define STDCALL __stdcall
-#  define CAPI_DLLEXPORT __declspec(dllexport)
-#else
-#  define STDCALL
-#  define CAPI_DLLEXPORT __attribute__ ((visibility("default")))
-#endif
+#include <torch/torch.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -20,6 +16,13 @@ extern "C" {
         void *data, size_t datalen, int tid, int64_t *size_data, size_t dim, int grad);
     CAPI_DLLEXPORT void tensor_destroy(torch::Tensor *tensor);
     CAPI_DLLEXPORT const char* tensor_to_string(torch::Tensor *tensor);
+
+    // retrive array info
+    CAPI_DLLEXPORT int8_t tensor_method_dtype(torch::Tensor *tensor);
+    int64_t tensor_method_ndimension(torch::Tensor *tensor);
+    void tensor_method_sizes(torch::Tensor *tensor, int64_t *buf);
+    void* tensor_method_data_ptr(torch::Tensor *tensor);
+    void tensor_method_data_copy(torch::Tensor *tensor, void *buf, size_t len);
 
     // methods on Tensor
     CAPI_DLLEXPORT torch::Tensor* tensor_method_sum(torch::Tensor *t);
