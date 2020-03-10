@@ -18,7 +18,7 @@ mutable struct Scalar{T}
 end
 
 
-function Scalar{T}(s::U) where {T <: Number, U<:Number}
+function Scalar{T}(s::U) where {T<:Number, U<:Number}
     if !haskey(TYPE_MAP, T)
         error("Type $T is not supported.")
     end
@@ -29,7 +29,7 @@ function Scalar{T}(s::U) where {T <: Number, U<:Number}
     Scalar{T}(ptr)
 end
 
-Scalar(s::T) where T = Scalar{T}(convert(T, s))
+Scalar(s::T) where T = Scalar{T}(s)
 
 function value(s::Scalar{T}) where T
     data = T[zero(T)]

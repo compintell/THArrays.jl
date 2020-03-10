@@ -12,7 +12,9 @@ set_property(TARGET example-app PROPERTY CXX_STANDARD 14)
 add_library(torch_capi SHARED
     torch_capi.h
     torch_capi_scalar.h torch_capi_scalar.cpp
-    torch_capi_tensor.h torch_capi_tensor.cpp)
+    torch_capi_tensor.h torch_capi_tensor.cpp
+    torch_api.cpp torch_api.h torch_api_generated.cpp.h torch_api_generated.h)
+
 target_link_libraries(torch_capi "${TORCH_LIBRARIES}")
 set_property(TARGET torch_capi PROPERTY CXX_STANDARD 14)
 
