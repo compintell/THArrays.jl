@@ -21,7 +21,8 @@ A Julia interface for PyTorch's C++ backend.
 
    After that, ensure you can find a file named `libtorch_capi.so` under
    the `csrc/build` directory.
-4. Run an example:
+4. Run `julia src/api_generator.jl` to generate `src/autogen-methods.jl`
+5. Run an example:
 
    ```julia
    using Torch

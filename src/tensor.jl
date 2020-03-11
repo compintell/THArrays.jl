@@ -69,9 +69,9 @@ function Base.size(t::Tensor{T, N}) where {T, N}
                    t.pointer)
     @assert N == n_dims "Dimension mismatch!"
     sizes = zeros(Int64, n_dims)
-    n_dims = ccall((:tensor_method_sizes, :libtorch_capi),
-                   Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
-                   t.pointer, sizes)
+    ccall((:tensor_method_sizes, :libtorch_capi),
+          Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+          t.pointer, sizes)
     tuple(sizes...)
 end
 
@@ -84,17 +84,24 @@ function Base.convert(::Type{Array}, t::Tensor{T, N}) where {T, N}
     permutedims(ret, collect(N:-1:1))
 end
 
+function tensor_from_ptr(p::Ptr)
+    n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
+                   Clonglong, (Ptr{Cvoid},),
+                   p)
+    # sizes = zeros(Int64, n_dims)
+    # ccall((:tensor_method_sizes, :libtorch_capi),
+    #       Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+    #       p, sizes)
+    dtype = ccall((:tensor_method_dtype, :libtorch_capi),
+          Cint, (Ptr{Cvoid},),
+          p)
+    Tensor{REVERSE_TYPE_MAP[dtype], n_dims}(p)
+end
+
 # methods
 
 function Base.sum(a::Tensor{T, N}) where {T, N}
     ptr = ccall((:tensor_method_sum, :libtorch_capi),
-                Ptr{Cvoid}, (Ptr{Cvoid},),
-                a.pointer)
-    Tensor{T, N}(ptr)
-end
-
-function grad(a::Tensor{T, N}) where {T, N}
-    ptr = ccall((:tensor_method_grad, :libtorch_capi),
                 Ptr{Cvoid}, (Ptr{Cvoid},),
                 a.pointer)
     Tensor{T, N}(ptr)

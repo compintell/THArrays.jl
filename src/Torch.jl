@@ -37,5 +37,6 @@ const REVERSE_TYPE_MAP = Dict(reverse(p) for p in TYPE_MAP)
 
 include("tensor.jl")
 include("scalar.jl")
+include("autogen-methods.jl")
 
 end
