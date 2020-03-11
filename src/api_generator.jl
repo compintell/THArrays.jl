@@ -23,7 +23,7 @@ const PROJECT_DIR = (@__DIR__) |> dirname
 const CPP_API_FILE = joinpath(PROJECT_DIR, "csrc", "torch_api_generated.cpp.h")
 const JUL_API_FILE = joinpath(PROJECT_DIR, "src", "autogen-methods.jl")
 
-const FUNC_SIG_REG = r"(\w+)\s+atg_(\w+)\((.+)\)\s*{"
+const FUNC_SIG_REG = r"(\w+)\s+\*?atg_(\w+)\((.+)\)\s*{"
 
 const JULIA_KEYWORDS = Set(["function", "end"])
 
@@ -81,19 +81,19 @@ end
 
 function julia_source(f::APIFunction)
     if f.output_count > 1000
-        @warn "can't translate function [$(f.cpp_signature)], ignored."
+        @warn "E1: can't translate function [$(f.cpp_signature)], ignored."
         return "# $(f.func_name) ignored"
     end
 
     if f.return_type != "void" || length(f.args) < 1 ||
         f.args[1].second != "tensor*"
-        @warn "can't translate function [$(f.cpp_signature)], ignored."
+        @warn "E2: can't translate function [$(f.cpp_signature)], ignored."
         return "# $(f.func_name) ignored"
     end
 
     for arg in f.args
         if !haskey(C_TYPE_MAP, arg.second)
-            @warn "can't translate function [$(f.cpp_signature)], ignored."
+            @warn "E3: can't translate function [$(f.cpp_signature)], ignored."
             return "# $(f.func_name) ignored"
         end
     end
@@ -185,6 +185,7 @@ end
 
 
 function main()
+    count = 0
     source_lines = readlines(CPP_API_FILE)
     output = open(JUL_API_FILE, "w")
     func_match = nothing
@@ -197,6 +198,7 @@ function main()
                 write(output, julia_source(f))
                 write(output, "\n\n")
                 output_count = 0
+                count += 1
             end
             func_match = m
         end
@@ -204,8 +206,7 @@ function main()
         if func_match != nothing # in a function
             if match(r"out__\[\d+\]\s*=\s*new", line) != nothing
                 output_count += 1
-            end
-            if match(r"out__\[\D+\]\s*=\s*new", line) != nothing
+            elseif match(r"out__\[\D+\]\s*=\s*new", line) != nothing
                 output_count += 1001
             end
         end
@@ -215,9 +216,12 @@ function main()
         f = APIFunction(func_match, output_count)
         write(output, julia_source(f))
         write(output, "\n\n")
+        count += 1
     end
 
     close(output)
+
+    print("$(count) methods generated!\n")
 end
 
 main()
