@@ -41,9 +41,9 @@ const C_TYPE_MAP = Dict(
 
 const J_TYPE_MAP = Dict(
     "void"     => "Any",
-    "tensor*"  => "Array{Ptr}",
+    "tensor*"  => "Array{Tensor{T,N}}",
     "tensor"   => "Tensor",
-    "scalar"   => "Scalar",
+    "scalar"   => "TorchNumber",
     "int"      => "Int",
     "int*"     => "Array{Int}",
     "int64_t"  => "Int64",
@@ -103,12 +103,17 @@ function julia_source(f::APIFunction)
     ]
     if Symbol(f.func_name) in names(Base)
         push!(lines, "import Base.$(f.func_name)")
+    else
+        push!(lines, "export $(f.func_name)")
     end
 
     output_init = join(repeat(["0"], f.output_count), ", ")
+    para_type = any(x -> x.second == "tensor*", f.args[2:end]) ?
+        " where {T,N}" : ""
 
-    push!(lines, "function $(f.func_name)($(julia_args(f)))")
+    push!(lines, "function $(f.func_name)($(julia_args(f)))$(para_type)")
     push!(lines, "    outputs__ = Int[$(output_init)]")
+    push!(lines, julia_locals(f))
     push!(lines, "    ccall((:atg_$(f.func_name), :libtorch_capi),")
     push!(lines, "          Cvoid, ($(ccall_args(f))),")
     push!(lines, "          pointer(outputs__), $(ccall_julia_args(f)))")
@@ -125,6 +130,18 @@ function julia_args(f::APIFunction)
     join(args, ", ")
 end
 
+function julia_locals(f::APIFunction)
+    lines = []
+    for p in f.args[2:end]
+        if p.second == "scalar"
+            push!(lines, "    $(p.first)_s_ = Scalar($(p.first))")
+        elseif p.second == "tensor*"
+            push!(lines, "    $(p.first)_ta_ = map(x->x.pointer, $(p.first))")
+        end
+    end
+    join(lines, "\n")
+end
+
 function ccall_args(f::APIFunction)
     length(f.args) == 1 && return C_TYPE_MAP[f.args[1].sceond] * ","
     args = map(p -> C_TYPE_MAP[p.second], f.args)
@@ -133,7 +150,9 @@ end
 
 function ccall_julia_args(f::APIFunction)
     args = map(f.args[2:end]) do p
-        p.second in ("tensor", "scalar") && return "$(p.first).pointer"
+        p.second == "tensor"  && return "$(p.first).pointer"
+        p.second == "scalar"  && return "$(p.first)_s_.pointer"
+        p.second == "tensor*" && return "$(p.first)_ta_"
         return p.first
     end
     join(args, ", ")

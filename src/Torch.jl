@@ -2,7 +2,7 @@ module Torch
 
 using Libdl
 
-export Tensor, Scalar,
+export TorchNumber, Tensor, Scalar,
     grad, backward
 
 const PROJECT_DIR = (@__DIR__) |> dirname
@@ -34,6 +34,10 @@ const TYPE_MAP = Dict{Type, Int32}(
 )
 
 const REVERSE_TYPE_MAP = Dict(reverse(p) for p in TYPE_MAP)
+
+TorchNumber = Union{Float16, Float32, Float64,
+                    Bool,
+                    Int8, Int16, Int32, Int64}
 
 include("tensor.jl")
 include("scalar.jl")

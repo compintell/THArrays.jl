@@ -18,7 +18,7 @@ mutable struct Scalar{T}
 end
 
 
-function Scalar{T}(s::U) where {T<:Number, U<:Number}
+function Scalar{T}(s::U) where {T<:TorchNumber, U<:TorchNumber}
     if !haskey(TYPE_MAP, T)
         error("Type $T is not supported.")
     end
