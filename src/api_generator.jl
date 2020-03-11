@@ -124,16 +124,26 @@ function julia_source(f::APIFunction)
 end
 
 function julia_args(f::APIFunction)
-    args = map(f.args[2:end]) do p
-        "$(p.first)::$(J_TYPE_MAP[p.second])"
+    args = []
+    for i in 2:length(f.args)
+        p = f.args[i]
+        if endswith(p.first, "_len") && endswith(f.args[i-1].first, "_data")
+            nothing
+        else
+            push!(args, "$(p.first)::$(J_TYPE_MAP[p.second])")
+        end
     end
     join(args, ", ")
 end
 
 function julia_locals(f::APIFunction)
     lines = []
-    for p in f.args[2:end]
-        if p.second == "scalar"
+
+    for i in 2:length(f.args)
+        p = f.args[i]
+        if endswith(p.first, "_len") && endswith(f.args[i-1].first, "_data")
+            push!(lines, "    $(p.first) = length($(f.args[i-1].first))")
+        elseif p.second == "scalar"
             push!(lines, "    $(p.first)_s_ = Scalar($(p.first))")
         elseif p.second == "tensor*"
             push!(lines, "    $(p.first)_ta_ = map(x->x.pointer, $(p.first))")
