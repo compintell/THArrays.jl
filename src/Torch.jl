@@ -12,7 +12,7 @@ function __init__()
 end
 
 
-const TYPE_MAP = Dict{Type, Int32}(
+const TYPE_MAP = Dict{Type, Int64}(
     ### float
     Float16 => 5,
     Float32 => 6,
@@ -42,5 +42,6 @@ TorchNumber = Union{Float16, Float32, Float64,
 include("tensor.jl")
 include("scalar.jl")
 include("autogen-methods.jl")
+include("julia-style-methods.jl")
 
 end

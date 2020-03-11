@@ -13,7 +13,7 @@ extern "C" {
 
     // creation and repr
     CAPI_DLLEXPORT torch::Tensor* tensor_from_data(
-        void *data, size_t datalen, int tid, int64_t *size_data, size_t dim, int grad);
+        void *data, size_t datalen, int64_t tid, int64_t *size_data, size_t dim, int grad);
     CAPI_DLLEXPORT void tensor_destroy(torch::Tensor *tensor);
     CAPI_DLLEXPORT const char* tensor_to_string(torch::Tensor *tensor);
 

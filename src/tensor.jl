@@ -31,7 +31,7 @@ function Tensor{T}(array::Array{U, N}; requires_grad=false) where {T, U, N}
     grad = requires_grad ? 1 : 0
     ptr = ccall((:tensor_from_data, :libtorch_capi),
                 Ptr{Cvoid},
-                (Ptr{Cvoid}, Csize_t, Cint, Ptr{Clonglong}, Csize_t, Cint),
+                (Ptr{Cvoid}, Csize_t, Clonglong, Ptr{Clonglong}, Csize_t, Cint),
                 row_major, sizeof(array), TYPE_MAP[T], dims, N, grad)
     Tensor{T, N}(ptr)
 end
@@ -100,13 +100,6 @@ end
 
 # methods
 
-function Base.sum(a::Tensor{T, N}) where {T, N}
-    ptr = ccall((:tensor_method_sum, :libtorch_capi),
-                Ptr{Cvoid}, (Ptr{Cvoid},),
-                a.pointer)
-    Tensor{T, N}(ptr)
-end
-
 function backward(a::Tensor, g::Union{Ptr{Nothing}, Tensor}=C_NULL;
                   keep_graph::Bool=false, create_graph::Bool=false)
     if g isa Tensor
@@ -116,13 +109,4 @@ function backward(a::Tensor, g::Union{Ptr{Nothing}, Tensor}=C_NULL;
           Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
           a.pointer, g, keep_graph, create_graph)
     nothing
-end
-
-# operators
-
-function Base.:+(a::Tensor{T, N}, b::Tensor{T, N}) where {T, N}
-    ptr = ccall((:tensor_op_add, :libtorch_capi),
-                Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}),
-                a.pointer, b.pointer)
-    Tensor{T, N}(ptr)
 end

@@ -28,7 +28,7 @@ std::map<int, torch::ScalarType> TYPE_MAP_REV = \
 
 // creation and repr
 torch::Tensor* tensor_from_data(
-    void *data, size_t datalen, int tid,
+    void *data, size_t datalen, int64_t tid,
     int64_t *size_data, size_t dim,
     int grad) {
     c10::ArrayRef<int64_t> sizes(size_data, dim);
