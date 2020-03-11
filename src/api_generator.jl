@@ -101,8 +101,8 @@ function julia_source(f::APIFunction)
     lines = [
         "# $(f.cpp_signature)"
     ]
-    if !(Symbol(f.func_name) in names(Base))
-        push!(lines, "export $(f.func_name)")
+    if Symbol(f.func_name) in names(Base)
+        push!(lines, "import Base.$(f.func_name)")
     end
 
     output_init = join(repeat(["0"], f.output_count), ", ")
