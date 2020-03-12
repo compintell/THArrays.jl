@@ -4,25 +4,10 @@ A Julia interface for PyTorch's C++ backend.
 
 ## Getting Started
 
-1. Download
-   - For Linux: https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.4.0%2Bcpu.zip
-   - For Mac: https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.4.0.zip
-
-2. Unzip the downloaded zip to somewhere, say, `csrc/libtorch` or
-   `/abs/path/to/libtorch`
-3. Build the shared library:
-   ```sh
-   cd csrc
-   mkdir build
-   cd build
-   cmake -DCMAKE_PREFIX_PATH=/abs/path/to/libtorch ..
-   make torch_capi
-   ```
-
-   After that, ensure you can find a file named `libtorch_capi.so` under
-   the `csrc/build` directory.
-4. Run `julia src/api_generator.jl` to generate `src/autogen-methods.jl`
-5. Run an example:
+1. Build the package: run `julis deps/build.jl` or use `Pkg.build`.
+   The build script will download the libtorch zip file, compile the
+   shared library, and generate many Julia methods.
+2. Run an example:
 
    ```julia
    using Torch
