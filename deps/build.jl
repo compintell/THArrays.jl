@@ -5,7 +5,7 @@ const JULIA_API_GENERATOR = joinpath(PROJECT_DIR, "src/api_generator.jl")
 
 const LIBTORCH_URL = @static if Sys.islinux()
     "https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.4.0%2Bcpu.zip"
-elseif Sys.isaaple()
+elseif Sys.isaple()
     "https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.4.0.zip"
 elseif Sys.iswindows()
     "https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-1.4.0.zip"
