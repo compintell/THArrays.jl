@@ -3,12 +3,22 @@
 #include<torch/script.h>
 #include<vector>
 
+#include <dlfcn.h>
+
 #include "torch_api.h"
+
+using namespace std;
 
 #define caml_failwith(x) throw(x)
 #define caml_invalid_argument(x) throw(x)
 
-using namespace std;
+void (*error_handler)(const char *str) = NULL;
+void set_error_handler(const char *sym, size_t len) {
+    char hsym[32];
+    memcpy(hsym, sym, len);
+    hsym[len] = 0;
+    error_handler = (void (*)(const char*))dlsym(RTLD_DEFAULT, hsym);
+}
 
 void at_manual_seed(int64_t seed) {
   torch::manual_seed(seed);

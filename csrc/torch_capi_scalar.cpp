@@ -28,6 +28,8 @@ torch::Scalar* scalar_from_data(void *data, int tid) {
         return new torch::Scalar(*(int32_t*)data);
     case torch::kLong:
         return new torch::Scalar(*(int64_t*)data);
+    default:
+        return new torch::Scalar(0);
     }
     return new torch::Scalar(0);
 }
@@ -60,6 +62,8 @@ void scalar_value(torch::Scalar *scalar, int tid, void *data) {
     case torch::kLong:
         *(int64_t*)data = scalar->to<int64_t>();
         break;
+    default:
+        return;
     }
 }
 

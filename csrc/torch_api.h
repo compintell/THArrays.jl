@@ -10,7 +10,16 @@ typedef torch::optim::Optimizer *optimizer;
 typedef torch::jit::script::Module *module;
 typedef torch::jit::IValue *ivalue;
 
-#define PROTECT(x) x
+extern void (*error_handler)(const char *str);
+void set_error_handler(const char *sym, size_t len);
+
+#define PROTECT(x) \
+  try { \
+    x \
+  } catch (const exception& e) { \
+    if(error_handler) error_handler(e.what());\
+    throw(e); \
+  }
 
 #else
 typedef void *tensor;

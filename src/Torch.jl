@@ -9,6 +9,10 @@ const PROJECT_DIR = (@__DIR__) |> dirname
 
 function __init__()
     Libdl.dlopen(joinpath(PROJECT_DIR, "csrc/build/libtorch_capi"))
+    err_handler = "jl_error"
+    ccall((:set_error_handler, :libtorch_capi),
+          Cvoid, (Cstring, Csize_t),
+          pointer(err_handler), length(err_handler))
 end
 
 
