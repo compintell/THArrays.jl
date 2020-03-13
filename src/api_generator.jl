@@ -103,10 +103,15 @@ function julia_source(f::APIFunction)
     lines = [
         "# $(f.cpp_signature)"
     ]
+    # in-place op: pow_ -> pow!, pow_1 -> pow1!, ...
+    jl_fname = f.func_name
+    sufix_m = match(r"(\w+)_(\d*)$", jl_fname)
+    sufix_m != nothing && (jl_fname = "$(sufix_m[1])$(sufix_m[2])!")
+
     if Symbol(f.func_name) in names(Base)
-        push!(lines, "import Base.$(f.func_name)")
+        push!(lines, "import Base.$(jl_fname)")
     else
-        push!(lines, "export $(f.func_name)")
+        push!(lines, "export $(jl_fname)")
     end
 
     start = f.args[1].first == "out__" ? 2 : 1
@@ -114,7 +119,7 @@ function julia_source(f::APIFunction)
         " where {T,N}" : ""
     ccall_ret = start == 1 ? "Ptr{Int}" : "Cvoid"
 
-    push!(lines, "function $(f.func_name)($(julia_args(f)))$(para_type)")
+    push!(lines, "function $(jl_fname)($(julia_args(f)))$(para_type)")
     push!(lines, julia_locals(f))
     push!(lines, "    __cret = ccall((:atg_$(f.func_name), :libtorch_capi),")
     push!(lines, "                 $(ccall_ret), ($(ccall_args(f))),")
@@ -178,10 +183,6 @@ end
 
 function return_statement(f::APIFunction)
     if f.return_type == "void" && f.args[1].first == "out__"
-        if f.output_count == 1
-            return "    return tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))"
-        end
-
         lines = []
         for i in 1:f.output_count
             push!(lines,
