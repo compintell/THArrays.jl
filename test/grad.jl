@@ -5,7 +5,7 @@ b = rand(3, 2)
 
 ta = Tensor(a, requires_grad=true)
 tb = Tensor(b)
-tc = (ta + ta + tb)
+tc = ta^2 + 3ta + sin(tb) - tb
 
 tg = Tensor(ones(3, 2))
 
