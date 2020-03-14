@@ -108,8 +108,10 @@ function julia_source(f::APIFunction)
     sufix_m = match(r"(\w+)_(\d*)$", jl_fname)
     sufix_m != nothing && (jl_fname = "$(sufix_m[1])$(sufix_m[2])!")
 
-    if Symbol(f.func_name) in names(Base)
-        push!(lines, "import Base.$(jl_fname)")
+    if Symbol(jl_fname) in names(Base)
+        if !in(jl_fname, ["div"])
+            push!(lines, "import Base.$(jl_fname)")
+        end
     else
         push!(lines, "export $(jl_fname)")
     end

@@ -1,4 +1,4 @@
-mutable struct Tensor{T, N}
+mutable struct Tensor{T, N} <: AbstractArray{T, N}
     type::Type
     ndims::Int64
     pointer::Ptr
@@ -40,6 +40,29 @@ function Tensor(array::Array{T, N}; requires_grad=false) where {T, N}
     Tensor{T}(array, requires_grad=requires_grad)
 end
 
+function tensor_from_ptr(p::Ptr)
+    n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
+                   Clonglong, (Ptr{Cvoid},),
+                   p)
+    # sizes = zeros(Int64, n_dims)
+    # ccall((:tensor_method_sizes, :libtorch_capi),
+    #       Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+    #       p, sizes)
+    dtype = ccall((:tensor_method_dtype, :libtorch_capi),
+          Cint, (Ptr{Cvoid},),
+          p)
+    Tensor{REVERSE_TYPE_MAP[dtype], n_dims}(p)
+end
+
+function Base.convert(::Type{Array}, t::Tensor{T, N}) where {T, N}
+    dims = size(t)
+    ret = Array{T, N}(undef, reverse(dims))
+    ccall((:tensor_method_data_copy, :libtorch_capi),
+          Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Csize_t),
+          t.pointer, ret, sizeof(T) * prod(dims))
+    permutedims(ret, collect(N:-1:1))
+end
+
 function Base.string(t::Tensor)
     str = ccall((:tensor_to_string, :libtorch_capi),
                 Ptr{UInt8}, (Ptr{Cvoid},),
@@ -75,27 +98,19 @@ function Base.size(t::Tensor{T, N}) where {T, N}
     tuple(sizes...)
 end
 
-function Base.convert(::Type{Array}, t::Tensor{T, N}) where {T, N}
-    dims = size(t)
-    ret = Array{T, N}(undef, reverse(dims))
-    ccall((:tensor_method_data_copy, :libtorch_capi),
-          Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Csize_t),
-          t.pointer, ret, sizeof(T) * prod(dims))
-    permutedims(ret, collect(N:-1:1))
+function _tensor_indices(t::Tensor, I)
+    indices = map(collect, to_indices(t, I))
+    indices = map(x -> (isempty(size(x)) ? [x[]] : x) .- 1, indices)
+    tidx = map(Tensor, indices)
+    collect(tidx)
 end
 
-function tensor_from_ptr(p::Ptr)
-    n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
-                   Clonglong, (Ptr{Cvoid},),
-                   p)
-    # sizes = zeros(Int64, n_dims)
-    # ccall((:tensor_method_sizes, :libtorch_capi),
-    #       Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
-    #       p, sizes)
-    dtype = ccall((:tensor_method_dtype, :libtorch_capi),
-          Cint, (Ptr{Cvoid},),
-          p)
-    Tensor{REVERSE_TYPE_MAP[dtype], n_dims}(p)
+function Base.getindex(t::Tensor, I...)
+    index(t, _tensor_indices(t, I))
+end
+
+function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
+    index_put!(t, _tensor_indices(t, I), v, 0)
 end
 
 # methods
