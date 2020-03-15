@@ -1,4 +1,7 @@
 using Torch
+using Random
+
+Random.seed!(0);
 
 a = rand(3, 2)
 b = rand(3, 2)

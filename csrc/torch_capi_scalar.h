@@ -12,9 +12,9 @@ extern "C" {
 #endif
 
     // creation and repr
-    CAPI_DLLEXPORT torch::Scalar* scalar_from_data(void *data, int tid);
+    CAPI_DLLEXPORT torch::Scalar* scalar_from_data(void *data, int8_t tid);
     CAPI_DLLEXPORT void scalar_value(
-        torch::Scalar *scalar, int tid, void *data);
+        torch::Scalar *scalar, int8_t tid, void *data);
     CAPI_DLLEXPORT void scalar_destroy(torch::Scalar *scalar);
 
 #ifdef __cplusplus

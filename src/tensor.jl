@@ -31,7 +31,7 @@ function Tensor{T}(array::Array{U, N}; requires_grad=false) where {T, U, N}
     grad = requires_grad ? 1 : 0
     ptr = ccall((:tensor_from_data, :libtorch_capi),
                 Ptr{Cvoid},
-                (Ptr{Cvoid}, Csize_t, Clonglong, Ptr{Clonglong}, Csize_t, Cint),
+                (Ptr{Cvoid}, Csize_t, Cchar, Ptr{Clonglong}, Csize_t, Cint),
                 row_major, sizeof(array), TYPE_MAP[T], dims, N, grad)
     Tensor{T, N}(ptr)
 end
@@ -49,7 +49,7 @@ function tensor_from_ptr(p::Ptr)
     #       Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
     #       p, sizes)
     dtype = ccall((:tensor_method_dtype, :libtorch_capi),
-          Cint, (Ptr{Cvoid},),
+          Cchar, (Ptr{Cvoid},),
           p)
     Tensor{REVERSE_TYPE_MAP[dtype], n_dims}(p)
 end
@@ -83,8 +83,11 @@ function Base.display(t::Tensor)
 end
 
 # array interface
-Base.eltype(::Type{Tensor{T, N}}) where {T, N} = T
+Base.eltype(::Type{Tensor{T}}) where {T} = T
 Base.ndims(t::Tensor{T, N}) where {T, N} = N
+
+eltype_id(::Tensor{T}) where {T} = Int(TYPE_MAP[T])
+eltype_id(::Type{T}) where {T <: TorchNumber} = Int(TYPE_MAP[T])
 
 function Base.size(t::Tensor{T, N}) where {T, N}
     n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
@@ -106,14 +109,41 @@ function _tensor_indices(t::Tensor, I)
 end
 
 function Base.getindex(t::Tensor, I...)
-    index(t, _tensor_indices(t, I))
+    ts = _tensor_indices(t, I)
+    ret = t
+    for i in 1:length(ts)
+        ret = index_select(ret, i - 1, ts[i])
+    end
+    ret
 end
+Base.getindex(t::Tensor{T}) where T = item(t)
 
 function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
-    index_put!(t, _tensor_indices(t, I), v, 0)
+    @assert length(I) > 0  "no indices given"
+    ts = _tensor_indices(t, I)
+    ret = t
+    for i in 1:(length(ts) - 1)
+        ret = narrow(ret, i - 1, ts[i][1][], length(ts[i]))
+    end
+    index_copy!(ret, length(ts) - 1, ts[end], v)
+    v
+end
+
+function Base.iterate(t::Tensor, state=(eachindex(t),))
+    y = iterate(state...)
+    y === nothing && return nothing
+    t[y[1]][], (state[1], Base.tail(y)...)
 end
 
 # methods
+function item(t::Tensor{T,N}) where {T,N}
+    @assert (N == 0 || N == 1) "N must be 0 or 1"
+    data = T[zero(T)]
+    ccall((:tensor_method_item, :libtorch_capi),
+          Cvoid, (Ptr{Cvoid}, Cchar, Ptr{Cvoid}),
+          t.pointer, TYPE_MAP[T], data)
+    return data[1]
+end
 
 function backward(a::Tensor, g::Union{Ptr{Nothing}, Tensor}=C_NULL;
                   keep_graph::Bool=false, create_graph::Bool=false)

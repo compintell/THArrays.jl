@@ -6,10 +6,10 @@
 
 #include <c10/core/ScalarType.h>
 
-extern std::map<int, torch::ScalarType> TYPE_MAP_REV;
+extern std::map<int8_t, torch::ScalarType> TYPE_MAP_REV;
 
 // creation and repr
-torch::Scalar* scalar_from_data(void *data, int tid) {
+torch::Scalar* scalar_from_data(void *data, int8_t tid) {
     torch::ScalarType t = TYPE_MAP_REV.at(tid);
     switch (t) {
     case torch::kHalf:
@@ -35,7 +35,7 @@ torch::Scalar* scalar_from_data(void *data, int tid) {
 }
 
 
-void scalar_value(torch::Scalar *scalar, int tid, void *data) {
+void scalar_value(torch::Scalar *scalar, int8_t tid, void *data) {
     torch::ScalarType t = TYPE_MAP_REV.at(tid);
     switch (t) {
     case torch::kHalf:

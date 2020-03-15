@@ -6,7 +6,7 @@
 
 #include <c10/core/ScalarType.h>
 
-std::map<int, torch::ScalarType> TYPE_MAP_REV = \
+std::map<int8_t, torch::ScalarType> TYPE_MAP_REV = \
     {
      {0,  torch::kByte}, // _(uint8_t, Byte) /* 0 */
      {1,  torch::kChar}, // _(int8_t, Char) /* 1 */
@@ -28,7 +28,7 @@ std::map<int, torch::ScalarType> TYPE_MAP_REV = \
 
 // creation and repr
 torch::Tensor* tensor_from_data(
-    void *data, size_t datalen, int64_t tid,
+    void *data, size_t datalen, int8_t tid,
     int64_t *size_data, size_t dim,
     int grad) {
     c10::ArrayRef<int64_t> sizes(size_data, dim);
@@ -87,14 +87,36 @@ void tensor_method_data_copy(torch::Tensor *tensor, void *buf, size_t len) {
 
 
 // methods on Tensor
-torch::Tensor* tensor_method_sum(torch::Tensor *t) {
-    torch::Tensor sum = t->sum();
-    return new torch::Tensor(sum);
-}
-
-torch::Tensor* tensor_method_grad(torch::Tensor *t) {
-    torch::Tensor g = t->grad();
-    return new torch::Tensor(g);
+void tensor_method_item(torch::Tensor *t, int8_t tid, void *data) {
+    torch::ScalarType type = TYPE_MAP_REV.at(tid);
+    switch (type) {
+    case torch::kHalf:
+        *(at::Half*)data = t->item<at::Half>();
+        break;
+    case torch::kFloat:
+        *(float*)data = t->item<float>();
+        break;
+    case torch::kDouble:
+        *(double*)data = t->item<double>();
+        break;
+    case torch::kBool:
+        *(bool*)data = t->item<bool>();
+        break;
+    case torch::kChar:
+        *(int8_t*)data = t->item<int8_t>();
+        break;
+    case torch::kShort:
+        *(int16_t*)data = t->item<int16_t>();
+        break;
+    case torch::kInt:
+        *(int32_t*)data = t->item<int32_t>();
+        break;
+    case torch::kLong:
+        *(int64_t*)data = t->item<int64_t>();
+        break;
+    default:
+        return;
+    }
 }
 
 void tensor_method_backward(

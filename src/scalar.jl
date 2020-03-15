@@ -24,7 +24,7 @@ function Scalar{T}(s::U) where {T<:TorchNumber, U<:TorchNumber}
     end
     data = T[convert(T, s)]
     ptr = ccall((:scalar_from_data, :libtorch_capi),
-                Ptr{Cvoid}, (Ptr{Cvoid}, Cint),
+                Ptr{Cvoid}, (Ptr{Cvoid}, Cchar),
                 data, TYPE_MAP[T])
     Scalar{T}(ptr)
 end
@@ -34,7 +34,7 @@ Scalar(s::T) where T = Scalar{T}(s)
 function value(s::Scalar{T}) where T
     data = T[zero(T)]
     ccall((:scalar_value, :libtorch_capi),
-          Cvoid, (Ptr{Cvoid}, Cint, Ptr{Cvoid}),
+          Cvoid, (Ptr{Cvoid}, Cchar, Ptr{Cvoid}),
           s.pointer, TYPE_MAP[T], data)
     return data[1]
 end

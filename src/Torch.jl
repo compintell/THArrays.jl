@@ -3,7 +3,7 @@ module Torch
 using Libdl
 
 export TorchNumber, Tensor, Scalar,
-    grad, backward
+    eltype_id, grad, backward
 
 const PROJECT_DIR = (@__DIR__) |> dirname
 
@@ -16,7 +16,7 @@ function __init__()
 end
 
 
-const TYPE_MAP = Dict{Type, Int64}(
+const TYPE_MAP = Dict{Type, Int8}(
     ### float
     Float16 => 5,
     Float32 => 6,

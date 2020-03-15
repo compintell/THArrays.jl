@@ -25,3 +25,5 @@ Base.div(t::Tensor, n::TorchNumber, r::RoundingMode=RoundToZero) = t / n
 Base.div(a::Tensor{T, N}, b::Tensor{T, N}, r::RoundingMode=RoundToZero) where {T, N} = div(a, b)
 
 Base.:^(t::Tensor, r::TorchNumber) = pow(t, r)
+
+Base.:(==)(t1::Tensor, t2::Tensor) = Torch.all(eq1(t1, t2))[]
