@@ -1,5 +1,5 @@
 const PROJECT_DIR = (@__DIR__) |> dirname
-const TORCH_LIB_FILE = joinpath(PROJECT_DIR, "csrc/libtorch/lib/libtorch.so")
+const TORCH_LIB_DIR = joinpath(PROJECT_DIR, "csrc/libtorch/lib")
 const TORCH_LIB_BUILD_DIR = joinpath(PROJECT_DIR, "csrc/build")
 const JULIA_API_GENERATOR = joinpath(PROJECT_DIR, "src/api_generator.jl")
 
@@ -13,12 +13,12 @@ else
     error("Your OS $(Sys.MACHINE) is not supported.")
 end
 
-if !isfile(TORCH_LIB_FILE)
+if !isdir(TORCH_LIB_DIR)
     zipfile = download(LIBTORCH_URL)
     cd(joinpath(PROJECT_DIR, "csrc")) do
         run(`unzip $(zipfile)`)
     end
-    isfile(TORCH_LIB_FILE) || error("Failed to get libtorch.")
+    isdir(TORCH_LIB_DIR) || error("Failed to get libtorch.")
 end
 
 isdir(TORCH_LIB_BUILD_DIR) || mkdir(TORCH_LIB_BUILD_DIR)
