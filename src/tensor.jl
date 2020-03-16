@@ -40,6 +40,21 @@ function Tensor(array::Array{T, N}; requires_grad=false) where {T, N}
     Tensor{T}(array, requires_grad=requires_grad)
 end
 
+# 0-dim Tensor
+function Tensor(s::T; requires_grad=false) where {T <: TorchNumber}
+    data = T[s]
+    grad = requires_grad ? 1 : 0
+    ptr = ccall((:tensor_from_data, :libtorch_capi),
+                Ptr{Cvoid},
+                (Ptr{Cvoid}, Csize_t, Cchar, Ptr{Clonglong}, Csize_t, Cint),
+                data, sizeof(T), TYPE_MAP[T], C_NULL, 0, grad)
+    Tensor{T, 0}(ptr)
+end
+
+function Tensor(a0::Array{T, 0}; requires_grad=false) where {T <: TorchNumber}
+    Tensor(a0[])
+end
+
 function tensor_from_ptr(p::Ptr)
     n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
                    Clonglong, (Ptr{Cvoid},),
@@ -102,9 +117,9 @@ function Base.size(t::Tensor{T, N}) where {T, N}
 end
 
 function _tensor_indices(t::Tensor, I)
-    indices = map(collect, to_indices(t, I))
-    indices = map(x -> (isempty(size(x)) ? [x[]] : x) .- 1, indices)
-    tidx = map(Tensor, indices)
+    indices = collect.(to_indices(t, I))
+    indices = map(x -> x .- 1, indices)
+    tidx = Tensor.(indices)
     collect(tidx)
 end
 
@@ -120,6 +135,8 @@ Base.getindex(t::Tensor{T}) where T = item(t)
 
 function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
     @assert length(I) > 0  "no indices given"
+    @assert(!any(i -> i isa StepRange, I),
+            "StepRange indices are not supported in Tensor assignment")
     ts = _tensor_indices(t, I)
     ret = t
     for i in 1:(length(ts) - 1)
@@ -128,6 +145,7 @@ function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
     index_copy!(ret, length(ts) - 1, ts[end], v)
     v
 end
+Base.setindex!(t::Tensor, v, I...) = setindex!(t, Tensor(v), I...)
 
 function Base.iterate(t::Tensor, state=(eachindex(t),))
     y = iterate(state...)
@@ -137,7 +155,8 @@ end
 
 # methods
 function item(t::Tensor{T,N}) where {T,N}
-    @assert (N == 0 || N == 1) "N must be 0 or 1"
+    @assert(N == 0 || N == 1 || size(t) == (1,1),
+            "The Tensor must contain only one element.")
     data = T[zero(T)]
     ccall((:tensor_method_item, :libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Cchar, Ptr{Cvoid}),
