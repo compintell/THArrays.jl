@@ -4,7 +4,7 @@ A Julia interface for PyTorch's C++ backend.
 
 ## Getting Started
 
-1. Build the package: run `julis deps/build.jl` or use `Pkg.build`.
+1. Build the package: run `julia deps/build.jl` or use `Pkg.build`.
    The build script will download the libtorch zip file, compile the
    shared library, and generate many Julia methods.
 2. Run an example:

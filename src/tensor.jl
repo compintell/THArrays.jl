@@ -118,34 +118,48 @@ end
 
 function _tensor_indices(t::Tensor, I)
     indices = collect.(to_indices(t, I))
+    shape = collect(Iterators.flatten(size.(indices)))
     indices = map(x -> x .- 1, indices)
-    tidx = Tensor.(indices)
-    collect(tidx)
+    collect(indices), shape
 end
 
 function Base.getindex(t::Tensor, I...)
-    ts = _tensor_indices(t, I)
+    ts, shape = _tensor_indices(t, I)
     ret = t
     for i in 1:length(ts)
-        ret = index_select(ret, i - 1, ts[i])
+        ret = index_select(ret, i - 1, Tensor(ts[i]))
     end
-    ret
+    all(x -> x == 1, size(ret)) && shape == Union{}[] && return ret[]
+    sret = new_zeros(ret, shape, eltype_id(ret), -1)
+    reshape_as(ret, sret)
 end
 Base.getindex(t::Tensor{T}) where T = item(t)
+Base.getindex(t::Tensor, i::Int64) = t[eachindex(t)[i]][]
+Base.getindex(t::Tensor, I::UnitRange{Int64}) = map(i->t[i][], eachindex(t)[I])
 
 function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
     @assert length(I) > 0  "no indices given"
     @assert(!any(i -> i isa StepRange, I),
             "StepRange indices are not supported in Tensor assignment")
-    ts = _tensor_indices(t, I)
+    ts, _1 = _tensor_indices(t, I)
     ret = t
     for i in 1:(length(ts) - 1)
-        ret = narrow(ret, i - 1, ts[i][1][], length(ts[i]))
+        ret = narrow(ret, i - 1, ts[i][1], length(ts[i]))
     end
-    index_copy!(ret, length(ts) - 1, ts[end], v)
+    dshape = length.(ts)
+    index_copy!(ret, length(ts) - 1, Tensor(ts[end]), reshape(v, dshape))
     v
 end
-Base.setindex!(t::Tensor, v, I...) = setindex!(t, Tensor(v), I...)
+Base.setindex!(t::Tensor{T}, v::Array, I...) where T = setindex!(t, Tensor{T}(v), I...)
+Base.setindex!(t::Tensor{T}, v, i::Int64) where T = setindex!(t, Tensor{T}([v]), (eachindex(t)[i].I)...)
+function Base.setindex!(t::Tensor{T}, v::Array, I::UnitRange{Int64}) where T
+    indices = eachindex(t)[I]
+    @assert length(v) == length(indices)
+    for idx in 1:length(v)
+        setindex!(t, Tensor{T}(v[[idx]]), (indices[idx].I)...)
+    end
+end
+
 
 function Base.iterate(t::Tensor, state=(eachindex(t),))
     y = iterate(state...)
@@ -153,9 +167,17 @@ function Base.iterate(t::Tensor, state=(eachindex(t),))
     t[y[1]][], (state[1], Base.tail(y)...)
 end
 
+Base.cat(I::Vararg{Tensor}; dims) = cat(collect(I), dims)
+Base.vcat(I::Vararg{Tensor}) = cat(collect(I), 0)
+Base.hcat(I::Vararg{Tensor}) = cat(collect(I), 1)
+function Base.hvcat(rows::Tuple{Vararg{Int}}, I::Vararg{Tensor,N}) where N
+    # TODO
+    error("not implemented yet.")
+end
+
 # methods
 function item(t::Tensor{T,N}) where {T,N}
-    @assert(N == 0 || N == 1 || size(t) == (1,1),
+    @assert(N == 0 || prod(size(t)) == 1,
             "The Tensor must contain only one element.")
     data = T[zero(T)]
     ccall((:tensor_method_item, :libtorch_capi),
