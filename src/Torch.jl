@@ -3,18 +3,22 @@ module Torch
 using Libdl
 
 export TorchNumber, Tensor, Scalar,
+    handle_error_in_julia,
     eltype_id, grad, backward
 
 const PROJECT_DIR = (@__DIR__) |> dirname
 
 function __init__()
+    push!(Libdl.DL_LOAD_PATH, joinpath(PROJECT_DIR, "csrc/build"))
     Libdl.dlopen(joinpath(PROJECT_DIR, "csrc/build/libtorch_capi"))
+end
+
+function handle_error_in_julia()
     err_handler = "jl_error"
     ccall((:set_error_handler, :libtorch_capi),
           Cvoid, (Cstring, Csize_t),
           pointer(err_handler), length(err_handler))
 end
-
 
 const TYPE_MAP = Dict{Type, Int8}(
     ### float

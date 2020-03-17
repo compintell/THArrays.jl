@@ -1,0 +1,26 @@
+name: Unit Testing
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version: [1.0.5, 1.2.0, 1.3]
+        julia-arch: [x64]
+        os: [ubuntu-latest, macOS-latest] # windows-latest
+
+    steps:
+      - uses: actions/checkout@v1.0.0
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: ${{ matrix.julia-version }}
+      - run: julia --project -e 'using Pkg;Pkg.instantiate();Pkg.build()'
+      - uses: julia-actions/julia-runtest@master
