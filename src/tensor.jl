@@ -135,7 +135,7 @@ function Base.getindex(t::Tensor, I...)
 end
 Base.getindex(t::Tensor{T}) where T = item(t)
 Base.getindex(t::Tensor, i::Int64) = t[eachindex(t)[i]][]
-Base.getindex(t::Tensor, I::UnitRange{Int64}) = map(i->t[i][], eachindex(t)[I])
+Base.getindex(t::Tensor, I::UnitRange{Int64}) = Tensor(map(i->t[i][], eachindex(t)[I]))
 
 function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
     @assert length(I) > 0  "no indices given"
@@ -171,8 +171,10 @@ Base.cat(I::Vararg{Tensor}; dims) = cat(collect(I), dims)
 Base.vcat(I::Vararg{Tensor}) = cat(collect(I), 0)
 Base.hcat(I::Vararg{Tensor}) = cat(collect(I), 1)
 function Base.hvcat(rows::Tuple{Vararg{Int}}, I::Vararg{Tensor,N}) where N
-    # TODO
-    error("not implemented yet.")
+    ts = Iterators.Stateful(I)
+    hs = map(n -> collect(Iterators.take(ts, n)), rows)
+    hs = [hcat(t...) for t in hs]
+    vcat(hs...)
 end
 
 # methods
