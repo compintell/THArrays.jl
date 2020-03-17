@@ -2,6 +2,8 @@
 
 A Julia interface for PyTorch's C++ backend.
 
+![Unit Testing](https://github.com/TuringLang/Torch.jl/workflows/Unit%20Testing/badge.svg?branch=master)
+
 ## Getting Started
 
 1. Build the package: run `julia deps/build.jl` or use `Pkg.build`.
