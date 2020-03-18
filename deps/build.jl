@@ -1,6 +1,6 @@
 const PROJECT_DIR = (@__DIR__) |> dirname
 const TORCH_LIB_DIR = joinpath(PROJECT_DIR, "csrc/libtorch/lib")
-const TORCH_LIB_BUILD_DIR = joinpath(PROJECT_DIR, "csrc/build")
+const TORCH_LIB_BUILD_DIR = joinpath(PROJECT_DIR, "deps/lib")
 const JULIA_API_GENERATOR = joinpath(PROJECT_DIR, "src/api_generator.jl")
 
 
@@ -26,7 +26,7 @@ function build_locally()
     isdir(TORCH_LIB_BUILD_DIR) || mkdir(TORCH_LIB_BUILD_DIR)
 
     cd(TORCH_LIB_BUILD_DIR) do
-        cmd_cmake = `cmake -DCMAKE_PREFIX_PATH=$(joinpath(PROJECT_DIR, "csrc/libtorch")) ..`
+        cmd_cmake = `cmake -DCMAKE_PREFIX_PATH=$(joinpath(PROJECT_DIR, "csrc/libtorch")) ../../csrc`
         run(cmd_cmake)
         run(`make torch_capi`)
     end

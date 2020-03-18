@@ -42,15 +42,12 @@ script = read(joinpath(dirname(@__FILE__), "build_dylib.sh"), String)
 # platforms are passed in on the command line
 platforms = [
     Linux(:x86_64, libc=:glibc, compiler_abi=CompilerABI(:gcc8)),
-    # MacOS(:x86_64),
+    # MacOS(:x86_64), # can't build it on MacOS SDK
 ]
 
 # The products that we will ensure are always built
 products(prefix) = [
     LibraryProduct(prefix, "libtorch_capi", :libtorch_capi)
-    LibraryProduct(prefix, "libtorch", :libtorch)
-    LibraryProduct(prefix, "libc10", :libc10)
-    LibraryProduct(prefix, "libgomp-753e6e92", Symbol("libgomp-753e6e92"))
 ]
 
 # Dependencies that must be installed before this package can be built

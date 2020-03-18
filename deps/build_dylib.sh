@@ -30,17 +30,12 @@ for RELEASE in ${RELEASES[@]}; do
         continue
     fi
 
-    # dowload libtorch
+    # prepare libtorch
     rm -f *.zip
     rm -fr libtorch/
     wget $(echo $RELEASE | cut -d@ -f3)
     unzip *.zip
     LIBTORCH_PATH=$PWD/libtorch
-
-    # debug
-    ls
-    echo ${LIBTORCH_PATH}
-    ls $LIBTORCH_PATH
 
     # build capi
     mkdir -p ${PROJECT_DIR}/csrc/build
@@ -68,6 +63,5 @@ for RELEASE in ${RELEASES[@]}; do
         # patch dylib
         patchelf --replace-needed "libtorch.so" "\$ORIGIN/libtorch.so" ${PREFIX}/lib/libtorch_capi.so
         patchelf --replace-needed "libc10.so" "\$ORIGIN/libc10.so" ${PREFIX}/lib/libtorch_capi.so
-        # patchelf --replace-needed "libgomp-753e6e92.so.1" "\$ORIGIN/libgomp.so" ${PREFIX}/lib/libtorch_capi.so
     fi
 done

@@ -9,8 +9,8 @@ export TorchNumber, Tensor, Scalar,
 const PROJECT_DIR = (@__DIR__) |> dirname
 
 function __init__()
-    push!(Libdl.DL_LOAD_PATH, joinpath(PROJECT_DIR, "csrc/build"))
-    Libdl.dlopen(joinpath(PROJECT_DIR, "csrc/build/libtorch_capi"))
+    push!(Libdl.DL_LOAD_PATH, joinpath(PROJECT_DIR, "deps/lib"))
+    Libdl.dlopen(joinpath(PROJECT_DIR, "deps/lib/libtorch_capi"))
 end
 
 function handle_error_in_julia()
