@@ -36,5 +36,4 @@ jobs:
       - name: Upload to release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          KDR2_CXAN_TOKEN: ______
         run: deps/gh-update-to-release

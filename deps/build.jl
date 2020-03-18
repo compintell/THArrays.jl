@@ -32,5 +32,46 @@ function build_locally()
     end
 end
 
-build_locally()
+
+function include_remote_script(version_str)
+    # build_script_url = "https://github.com/TuringLang/Torch.jl/releases/download/v$(version_str)/build_TorchCAPIDylib.v$(version_str).jl"
+    # download, un tar
+    dest = "libtorch_capi.$(version_str).tar.gz"
+    tarball_url = if Sys.islinux()
+        "https://github.com/TuringLang/Torch.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-linux-gnu-gcc8.tar.gz"
+    elseif Sys.isapple()
+        "https://github.com/TuringLang/Torch.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-apple-darwin14.tar.gz"
+    else
+        error("Your OS $(Sys.MACHINE) is not supported.")
+    end
+    try
+        tarball = download(tarball_url, dest)
+        cd(@__DIR__) do
+            run(`tar zxvf $(tarball)`)
+        end
+    catch
+        @warn "download $(tarball_url) failed."
+        return false
+    end
+    return true
+end
+
+function get_version_str()
+    path = joinpath(@__DIR__, "../Project.toml")
+    version_reg = r"version\s*=\s*\"(.*)\""
+    open(path) do file
+        lines = readlines(file)
+        for line in lines
+            m = match(version_reg, line)
+            if isa(m, RegexMatch) return m.captures[1] end
+        end
+    end
+end
+
+version_str = get_version_str() |> strip |> (x) -> lstrip(x, ['v'])
+if !include_remote_script(version_str)
+    @warn "try to build libtorch_capi locally."
+    build_locally()
+end
+
 run(`$(ENV["_"]) $(JULIA_API_GENERATOR)`)

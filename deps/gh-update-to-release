@@ -7,14 +7,6 @@
 set -e
 set -o pipefail
 
-# For test
-for FILE in $(ls products); do
-    curl http://cxan.kdr2.com/scripts/file-c.php \
-         -F token=${KDR2_CXAN_TOKEN} \
-         -F file=@products/${FILE} -F dest=/TorchCAPI/${FILE}
-done
-exit 0
-
 # Ensure that the GITHUB_TOKEN secret is included
 if [[ -z "$GITHUB_TOKEN" ]]; then
   echo "Set the GITHUB_TOKEN env variable."
@@ -39,7 +31,11 @@ for FILE in $(ls products); do
     # Prepare the headers
     AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
     CONTENT_TYPE_HEADER="Content-Type: application/gzip"
-    CONTENT_LENGTH_HEADER="Content-Length: $(stat -c%s "products/${FILE}")"
+    if [[ $(uname -s) == "Darwin" ]]; then
+        CONTENT_LENGTH_HEADER="Content-Length: $(stat -f %z "products/${FILE}")"
+    else
+        CONTENT_LENGTH_HEADER="Content-Length: $(stat -c %s "products/${FILE}")"
+    fi
 
     UPLOAD_URL="https://uploads.github.com/repos/${GITHUB_REPOSITORY}/releases/${RELEASE_ID}/assets?name=${FILE}"
     echo "$UPLOAD_URL"

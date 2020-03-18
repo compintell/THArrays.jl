@@ -49,10 +49,13 @@ for RELEASE in ${RELEASES[@]}; do
         cp ${PROJECT_DIR}/csrc/build/libtorch_capi.dylib ${PREFIX}/lib/
         cp ${LIBTORCH_PATH}/lib/libtorch.dylib ${PREFIX}/lib/
         cp ${LIBTORCH_PATH}/lib/libc10.dylib ${PREFIX}/lib/
+        cp ${LIBTORCH_PATH}/lib/libiomp5.dylib ${PREFIX}/lib/
 
         # patch dylib
         install_name_tool -change  @rpath/libtorch.dylib @loader_path/libtorch.dylib ${PREFIX}/lib/libtorch_capi.dylib
         install_name_tool -change  @rpath/libc10.dylib @loader_path/libc10.dylib ${PREFIX}/lib/libtorch_capi.dylib
+        install_name_tool -change  @rpath/libc10.dylib @loader_path/libc10.dylib ${PREFIX}/lib/libtorch.dylib
+        install_name_tool -change  @rpath/libiomp5.dylib @loader_path/libiomp5.dylib ${PREFIX}/lib/libtorch.dylib
     elif [[ $OS == "linux" ]]; then
         # copy libs
         cp ${PROJECT_DIR}/csrc/build/libtorch_capi.so ${PREFIX}/lib/
