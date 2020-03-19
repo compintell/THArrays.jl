@@ -74,4 +74,5 @@ if !include_remote_script(version_str)
     build_locally()
 end
 
-run(`$(ENV["_"]) $(JULIA_API_GENERATOR)`)
+JULIA_EXE = joinpath(Sys.BINDIR, "julia")
+run(`$(JULIA_EXE) $(JULIA_API_GENERATOR)`)
