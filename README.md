@@ -1,4 +1,4 @@
-# Torch
+# ThArrays
 
 A Julia interface for PyTorch's C++ backend.
 
