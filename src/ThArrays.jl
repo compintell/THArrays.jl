@@ -1,4 +1,4 @@
-module Torch
+module ThArrays
 
 using Libdl
 

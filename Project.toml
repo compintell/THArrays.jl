@@ -1,8 +1,8 @@
-name = "Torch"
+name = "ThArrays"
 uuid = "3ba4a88b-5b67-4a96-bb04-131d22fbab27"
 license = "MIT"
 desc = "Julia interface of PyTorch"
-repo = "https://github.com/TuringLang/Torch.jl.git"
+repo = "https://github.com/TuringLang/ThArrays.jl.git"
 version = "0.0.1"
 
 [deps]

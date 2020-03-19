@@ -2,7 +2,7 @@
 
 A Julia interface for PyTorch's C++ backend.
 
-![Unit Testing](https://github.com/TuringLang/Torch.jl/workflows/Unit%20Testing/badge.svg?branch=master)
+![Unit Testing](https://github.com/TuringLang/ThArrays.jl/workflows/Unit%20Testing/badge.svg?branch=master)
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ A Julia interface for PyTorch's C++ backend.
 2. Run an example:
 
    ```julia
-    julia> using Torch
+    julia> using ThArrays
 
     julia> t = Tensor( -rand(3, 3) )
     PyTorch.Tensor{Float64, 2}:

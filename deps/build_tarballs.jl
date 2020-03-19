@@ -31,7 +31,7 @@ function get_commit_id()
 end
 
 sources = [
-    "https://github.com/TuringLang/Torch.jl.git" => get_commit_id(),
+    "https://github.com/TuringLang/ThArrays.jl.git" => get_commit_id(),
 ]
 
 

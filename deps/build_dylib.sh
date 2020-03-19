@@ -16,7 +16,7 @@ PREFIX=${prefix-$PWD}
 # target=x86_64-linux-gnu
 cd $WORKSPACE/srcdir
 
-PROJECT_DIR=$WORKSPACE/srcdir/Torch.jl
+PROJECT_DIR=$WORKSPACE/srcdir/ThArrays.jl
 
 RELEASES=(
     x86_64-linux-gnu@v1_4_0@https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.4.0%2Bcpu.zip

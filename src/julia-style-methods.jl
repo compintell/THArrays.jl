@@ -26,4 +26,4 @@ Base.div(a::Tensor{T, N}, b::Tensor{T, N}, r::RoundingMode=RoundToZero) where {T
 
 Base.:^(t::Tensor, r::TorchNumber) = pow(t, r)
 
-Base.:(==)(t1::Tensor, t2::Tensor) = Torch.all(eq1(t1, t2))[]
+Base.:(==)(t1::Tensor, t2::Tensor) = ThArrays.all(eq1(t1, t2))[]

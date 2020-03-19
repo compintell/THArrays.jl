@@ -1,4 +1,4 @@
-using Torch
+using ThArrays
 using Test
 
 @testset "Tensor Array interface (except indexing)" begin
