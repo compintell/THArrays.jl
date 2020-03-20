@@ -11,6 +11,7 @@ const PROJECT_DIR = (@__DIR__) |> dirname
 function __init__()
     push!(Libdl.DL_LOAD_PATH, joinpath(PROJECT_DIR, "deps/lib"))
     Libdl.dlopen(joinpath(PROJECT_DIR, "deps/lib/libtorch_capi"))
+    @async handle_error_in_julia()
 end
 
 function handle_error_in_julia()

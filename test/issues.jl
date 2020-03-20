@@ -4,7 +4,6 @@ using Test
 @testset "Issues Regression" begin
 
     @testset "Issue 4" begin
-        handle_error_in_julia()
         Test.@test_throws ErrorException Tensor(3, requires_grad=true)
     end
 

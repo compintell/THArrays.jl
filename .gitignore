@@ -57,4 +57,5 @@ src/autogen-methods.jl
 csrc/build/
 csrc/libtorch/
 deps/lib/
+deps/logs/
 deps/build.log
