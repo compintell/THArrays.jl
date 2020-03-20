@@ -2,7 +2,7 @@
 Base.Broadcast.broadcasted(f, t::Tensor, args...) = f(t, args...)
 
 # operators
-Base.sum(t::Tensor{T}) where T = sum(t, TYPE_MAP[T])
+Base.sum(t::Tensor{T}) where T = sum(t, eltype_id(T))
 
 Base.:+(r::TorchNumber, t::Tensor) = add1(t, r)
 Base.:+(t::Tensor, r::TorchNumber) = r + t
