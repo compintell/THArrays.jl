@@ -8,7 +8,7 @@ using Test
 
     @testset "Indexing with Int" begin
         for i in 1:length(j_data)
-            @test t_data[i] == j_data[i]
+            @test t_data[i][] == j_data[i]
         end
     end
 
@@ -31,14 +31,14 @@ using Test
             t_data[i] = i
         end
         for i in 1:length(j_data)
-            @test t_data[i] == i
+            @test t_data[i][] == i
         end
     end
 
     @testset "Set Index with Range" begin
         t_data[1:4] = collect(1:4)
         for i in 1:4
-            @test t_data[i] == i
+            @test t_data[i][] == i
         end
     end
 

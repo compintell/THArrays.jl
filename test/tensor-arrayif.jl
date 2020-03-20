@@ -15,7 +15,7 @@ using Test
         ary = rand(2, 3)
         ten = Tensor(ary)
         for (idx, val) in enumerate(ten)
-            @test ary[idx] == val
+            @test ary[idx] == val[]
         end
     end
 

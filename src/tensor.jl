@@ -98,7 +98,7 @@ function Base.display(t::Tensor)
 end
 
 # array interface
-Base.eltype(::Type{Tensor{T}}) where {T} = T
+Base.eltype(::Type{Tensor{T}}) where {T} = Tensor{T, 0}
 Base.ndims(t::Tensor{T, N}) where {T, N} = N
 
 eltype_id(::Tensor{T}) where {T} = Int(TYPE_MAP[T])
@@ -123,19 +123,24 @@ function _tensor_indices(t::Tensor, I)
     collect(indices), shape
 end
 
+_to_dim_0(t::Tensor) = reshape_as(t, Tensor(0))
+_to_dim_1_1(t::Tensor) = reshape(t, [1, 1])
+
 function Base.getindex(t::Tensor, I...)
     ts, shape = _tensor_indices(t, I)
     ret = t
     for i in 1:length(ts)
         ret = index_select(ret, i - 1, Tensor(ts[i]))
     end
-    all(x -> x == 1, size(ret)) && shape == Union{}[] && return ret[]
-    sret = new_zeros(ret, shape, eltype_id(ret), -1)
-    reshape_as(ret, sret)
+    all(x -> x == 1, size(ret)) && shape == Union{}[] && return _to_dim_0(ret)
+    reshape(ret, shape)
 end
 Base.getindex(t::Tensor{T}) where T = item(t)
-Base.getindex(t::Tensor, i::Int64) = t[eachindex(t)[i]][]
-Base.getindex(t::Tensor, I::UnitRange{Int64}) = Tensor(map(i->t[i][], eachindex(t)[I]))
+Base.getindex(t::Tensor, i::Int64) = t[eachindex(t)[i]]
+function Base.getindex(t::Tensor, I::UnitRange{Int64})
+    t = vcat(map(i->_to_dim_1_1(t[i]), eachindex(t)[I])...)
+    reshape(t, [length(t)])
+end
 
 function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
     @assert length(I) > 0  "no indices given"
@@ -164,7 +169,7 @@ end
 function Base.iterate(t::Tensor, state=(eachindex(t),))
     y = iterate(state...)
     y === nothing && return nothing
-    t[y[1]][], (state[1], Base.tail(y)...)
+    t[y[1]], (state[1], Base.tail(y)...)
 end
 
 Base.cat(I::Vararg{Tensor}; dims) = cat(collect(I), dims)
