@@ -2,6 +2,8 @@
 #include <sstream>
 #include <iostream>
 
+#include <dlfcn.h>
+
 #include "torch_capi_tensor.h"
 
 #include <c10/core/ScalarType.h>
@@ -26,21 +28,32 @@ std::map<int8_t, torch::ScalarType> TYPE_MAP_REV = \
      // {15, torch::kBFloat16}, // _(at::BFloat16, BFloat16) /* 15 */
     };
 
+void (*error_handler)(const char *str) = NULL;
+void set_error_handler(const char *sym, size_t len) {
+    char hsym[32];
+    memcpy(hsym, sym, len);
+    hsym[len] = 0;
+    error_handler = (void (*)(const char*))dlsym(RTLD_DEFAULT, hsym);
+}
+
 // creation and repr
 torch::Tensor* tensor_from_data(
     void *data, size_t datalen, int8_t tid,
     int64_t *size_data, size_t dim,
     int grad) {
-    c10::ArrayRef<int64_t> sizes(size_data, dim);
+    PROTECT(
+        c10::ArrayRef<int64_t> sizes(size_data, dim);
 
-    uint8_t *buf = new uint8_t[datalen];
-    memcpy(buf, data, datalen);
+        uint8_t *buf = new uint8_t[datalen];
+        memcpy(buf, data, datalen);
 
-    torch::Tensor res = torch::from_blob(
-        buf, sizes,
-        [=](void *p) -> void { delete[] buf; },
-        at::dtype(TYPE_MAP_REV.at(tid)).requires_grad(grad));
-    return new torch::Tensor(res);
+        torch::Tensor res = torch::from_blob(
+            buf, sizes,
+            [=](void *p) -> void { delete[] buf; },
+            at::dtype(TYPE_MAP_REV.at(tid)).requires_grad(grad));
+        return new torch::Tensor(res);
+    );
+    return nullptr;
 }
 
 void tensor_destroy(torch::Tensor *tensor) {
@@ -122,15 +135,11 @@ void tensor_method_item(torch::Tensor *t, int8_t tid, void *data) {
 void tensor_method_backward(
     torch::Tensor *t, torch::Tensor *g,
     bool keep_graph=false, bool create_graph=false) {
-    if (g) {
-        t->backward(*g, keep_graph, create_graph);
-    } else {
-        t->backward({}, keep_graph, create_graph);
-    }
-}
-
-// operators
-torch::Tensor* tensor_op_add(torch::Tensor *a, torch::Tensor *b) {
-    torch::Tensor sum = *a + *b;
-    return new torch::Tensor(sum);
+    PROTECT(
+        if (g) {
+            t->backward(*g, keep_graph, create_graph);
+        } else {
+            t->backward({}, keep_graph, create_graph);
+        }
+    );
 }

@@ -14,6 +14,8 @@ A Julia interface for PyTorch's C++ backend.
    ```julia
     julia> using ThArrays
 
+    julia> handle_error_in_julia() # don't crash when error in libtorch
+
     julia> t = Tensor( -rand(3, 3) )
     PyTorch.Tensor{Float64, 2}:
     -0.1428 -0.7099 -0.1446

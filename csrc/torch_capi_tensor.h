@@ -1,15 +1,16 @@
 // -*- mode: c++ -*-
-
 #ifndef _TORCH_CAPI_TENSOR_H
 #define _TORCH_CAPI_TENSOR_H
 
-#include "torch_capi.h"
-
 #include <torch/torch.h>
+
+#include "torch_capi.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+    // global utilities
+    void set_error_handler(const char *sym, size_t len);
 
     // creation and repr
     CAPI_DLLEXPORT torch::Tensor* tensor_from_data(
