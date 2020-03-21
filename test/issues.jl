@@ -3,11 +3,11 @@ using Test
 
 @testset "Issues Regression" begin
 
-    @testset "Issue 4" begin
+    @testset "Issue 7" begin
         Test.@test_throws ErrorException Tensor(3, requires_grad=true)
     end
 
-    @testset "Issue 5" begin
+    @testset "Issue 8" begin
         x = Tensor(rand(1, 10), requires_grad=true);
 
         f(x) = begin

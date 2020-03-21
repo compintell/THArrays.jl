@@ -123,7 +123,7 @@ function _tensor_indices(t::Tensor, I)
     collect(indices), shape
 end
 
-_to_dim_0(t::Tensor) = reshape_as(t, Tensor(0))
+_to_dim_0(t::Tensor) = reshape(t, Int64[])
 _to_dim_1_1(t::Tensor) = reshape(t, [1, 1])
 
 function Base.getindex(t::Tensor, I...)

@@ -3,7 +3,6 @@ module ThArrays
 using Libdl
 
 export TorchNumber, Tensor, Scalar,
-    handle_error_in_julia,
     eltype_id, grad, backward
 
 const PROJECT_DIR = (@__DIR__) |> dirname
