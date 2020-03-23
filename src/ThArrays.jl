@@ -51,5 +51,6 @@ include("tensor.jl")
 include("scalar.jl")
 include("autogen-methods.jl")
 include("julia-style-methods.jl")
+include("grad.jl")
 
 end

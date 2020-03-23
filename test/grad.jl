@@ -24,4 +24,22 @@ using Test
 
         @test grad(ta) == Tensor(ad_reseult)
     end
+
+    @testset "ThArrays.gradient" begin
+        f(x, y) = x^2 + 3x + sin(y) - y
+        res_and_grads = ThArrays.gradient(f, a, b; g=Tensor(ones(3,2)))
+        @test res_and_grads[2] == Tensor(ad_reseult)
+    end
+
+    @testset "Reset gradient" begin
+        t = Tensor(a, requires_grad=true)
+        res_and_grads = ThArrays.gradient(x -> sum(2x), t)
+        @test res_and_grads[2] == Tensor(ones(3, 2)) * 2
+        res_and_grads = ThArrays.gradient(x -> sum(2x), t)
+        @test res_and_grads[2] == Tensor(ones(3, 2)) * 4
+
+        ThArrays.reset_grad!(t)
+        res_and_grads = ThArrays.gradient(x -> sum(2x), t)
+        @test res_and_grads[2] == Tensor(ones(3, 2)) * 2
+    end
 end
