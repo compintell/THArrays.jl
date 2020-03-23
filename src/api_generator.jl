@@ -116,6 +116,8 @@ function julia_source(f::APIFunction)
         push!(lines, "export $(jl_fname)")
     end
 
+    push!(lines, doc(f, jl_fname)) # docs
+
     start = f.args[1].first == "out__" ? 2 : 1
     para_type = any(x -> x.second == "tensor*", f.args[start:end]) ?
         " where {T,N}" : ""
@@ -130,6 +132,17 @@ function julia_source(f::APIFunction)
     push!(lines, "end")
 
     return join(lines, "\n")
+end
+
+function doc(f::APIFunction, jl_fname::AbstractString)
+    cpp_sig = replace(f.cpp_signature, "_" => "\\\\_")
+    lines = ["\n"]
+    push!(lines, "\"\"\"")
+    push!(lines, "    $(jl_fname)($(julia_args(f)))")
+    push!(lines, "")
+    push!(lines, " Wrapper of C++ function $(cpp_sig)")
+    push!(lines, "\"\"\"")
+    join(lines, "\n")
 end
 
 function julia_args(f::APIFunction)
