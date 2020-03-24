@@ -42,7 +42,7 @@ A Julia interface for PyTorch's C++ backend.
     -0.2692 -0.0501 -0.2092
     [ CPUDoubleType{3,3} ]
 
-    julia> abs!(t)
+    julia> ThArrays.ThC.abs!(t)
     PyTorch.Tensor{Float64, 2}:
      0.1428  0.7099  0.1446
      0.3447  0.0686  0.8287

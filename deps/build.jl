@@ -1,7 +1,7 @@
 const PROJECT_DIR = (@__DIR__) |> dirname
 const TORCH_LIB_DIR = joinpath(PROJECT_DIR, "csrc/libtorch/lib")
 const TORCH_LIB_BUILD_DIR = joinpath(PROJECT_DIR, "deps/lib")
-const JULIA_THC_GENERATOR = joinpath(PROJECT_DIR, "src/thc-generator.jl")
+const JULIA_THC_GENERATOR = joinpath(PROJECT_DIR, "src/thc/thc-generator.jl")
 
 
 function build_locally()

@@ -19,9 +19,9 @@ function abs_out(out::Tensor, self::Tensor)
 end
 """
 
-const PROJECT_DIR = (@__DIR__) |> dirname
+const PROJECT_DIR = (@__DIR__) |> dirname |> dirname
 const CPP_API_FILE = joinpath(PROJECT_DIR, "csrc", "torch_api_generated.cpp.h")
-const JUL_API_FILE = joinpath(PROJECT_DIR, "src", "thc.jl")
+const JUL_API_FILE = joinpath(PROJECT_DIR, "src", "thc", "thc.jl")
 
 const FUNC_SIG_REG = r"(\w+)\s+(\*?atg_\w+)\((.+)\)\s*{"
 
@@ -100,7 +100,7 @@ function julia_source(f::APIFunction)
         end
     end
 
-    lines = ["\n"]
+    lines = [""]
     # in-place op: pow_ -> pow!, pow_1 -> pow1!, ...
     jl_fname = f.func_name
     sufix_m = match(r"(\w+)_(\d*)$", jl_fname)
@@ -110,8 +110,6 @@ function julia_source(f::APIFunction)
         if !in(jl_fname, ["div"])
             push!(lines, "import Base.$(jl_fname)")
         end
-    else
-        push!(lines, "export $(jl_fname)")
     end
 
     push!(lines, doc(f, jl_fname)) # docs
@@ -239,7 +237,6 @@ function main()
             if func_match != nothing # deal with the previous function
                 f = APIFunction(func_match, output_count)
                 write(output, julia_source(f))
-                write(output, "\n\n")
                 output_count = 0
                 count += 1
             end
@@ -258,11 +255,11 @@ function main()
     if func_match != nothing # the last function
         f = APIFunction(func_match, output_count)
         write(output, julia_source(f))
-        write(output, "\n\n")
         count += 1
     end
 
-    write(output, "end") # module end
+    write(output, "\n\n")
+    write(output, "end\n") # module end
 
     close(output)
 

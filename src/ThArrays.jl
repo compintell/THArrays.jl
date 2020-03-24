@@ -49,7 +49,7 @@ TorchNumber = Union{Float16, Float32, Float64,
 
 include("tensor.jl")
 include("scalar.jl")
-include("thc.jl")
+include("thc/thc.jl")
 include("common-methods.jl")
 include("grad.jl")
 

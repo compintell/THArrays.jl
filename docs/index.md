@@ -23,15 +23,16 @@ dependency, add a generic error handling approach, etc.).
 ## The auto-generated `ThArrays.ThC` module
 
 As we said in the last section, we borrowed some C++ sources from the
-ocaml-torch project, and these files are auto-generated (by a
-programming in the ocaml-torch project and based on the YAML
-declaration files, for example the file
+ocaml-torch project, and these files are auto-generated (by a program
+in the ocaml-torch project and based on the YAML declaration files,
+for example the file
 [native_functions.yaml](https://github.com/pytorch/pytorch/blob/master/aten/src/ATen/native/native_functions.yaml),
 in the PyTorch project).
 
-In this project, we use a Julia program, `src/thc-generator.jl` to
+In this project, we use a Julia program, `src/thc/thc-generator.jl` to
 generate Julia functions who call the auto-generated C/C++ functions
-via `ccall`, and put them into module `ThArrays.ThC` (`src/thc.jl`).
+via `ccall`, and put them into module `ThArrays.ThC`
+(`src/thc/thc.jl`).
 
 Beside the functions in `ThArrays.ThC` module, we can find the Python
 API of type `Tensor`
