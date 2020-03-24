@@ -20,6 +20,6 @@ using Test
         y = f(x)
         backward(y)
 
-        @test grad(x) == Tensor(ones(1, 10))
+        @test ThArrays.ThC.grad(x) == Tensor(ones(1, 10))
     end
 end

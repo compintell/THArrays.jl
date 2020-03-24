@@ -22,7 +22,7 @@ using Test
 
         backward(tc, tg)
 
-        @test grad(ta) == Tensor(ad_reseult)
+        @test ThArrays.ThC.grad(ta) == Tensor(ad_reseult)
     end
 
     @testset "ThArrays.gradient" begin

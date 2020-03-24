@@ -10,5 +10,5 @@ end
 function gradient(f, tensors::Vararg{Tensor}; g::Union{Ptr{Nothing}, Tensor}=C_NULL)
     result = f(tensors...)
     backward(result, g)
-    return (result, grad.(tensors)...)
+    return (result, ThC.grad.(tensors)...)
 end

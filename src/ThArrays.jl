@@ -1,7 +1,6 @@
 module ThArrays
 
 using Libdl
-using Reexport
 
 export TorchNumber, Tensor, Scalar,
     eltype_id, backward
@@ -53,7 +52,5 @@ include("scalar.jl")
 include("thc.jl")
 include("common-methods.jl")
 include("grad.jl")
-
-@reexport using .ThC
 
 end
