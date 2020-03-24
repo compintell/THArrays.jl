@@ -1,7 +1,7 @@
 const PROJECT_DIR = (@__DIR__) |> dirname
 const TORCH_LIB_DIR = joinpath(PROJECT_DIR, "csrc/libtorch/lib")
 const TORCH_LIB_BUILD_DIR = joinpath(PROJECT_DIR, "deps/lib")
-const JULIA_API_GENERATOR = joinpath(PROJECT_DIR, "src/api_generator.jl")
+const JULIA_THC_GENERATOR = joinpath(PROJECT_DIR, "src/thc-generator.jl")
 
 
 function build_locally()
@@ -75,4 +75,4 @@ if !include_remote_script(version_str)
 end
 
 JULIA_EXE = joinpath(Sys.BINDIR, "julia")
-run(`$(JULIA_EXE) $(JULIA_API_GENERATOR)`)
+run(`$(JULIA_EXE) $(JULIA_THC_GENERATOR)`)

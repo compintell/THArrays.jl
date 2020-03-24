@@ -21,7 +21,7 @@ end
 
 const PROJECT_DIR = (@__DIR__) |> dirname
 const CPP_API_FILE = joinpath(PROJECT_DIR, "csrc", "torch_api_generated.cpp.h")
-const JUL_API_FILE = joinpath(PROJECT_DIR, "src", "autogen-methods.jl")
+const JUL_API_FILE = joinpath(PROJECT_DIR, "src", "thc.jl")
 
 const FUNC_SIG_REG = r"(\w+)\s+(\*?atg_\w+)\((.+)\)\s*{"
 

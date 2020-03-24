@@ -50,8 +50,8 @@ TorchNumber = Union{Float16, Float32, Float64,
 
 include("tensor.jl")
 include("scalar.jl")
-include("autogen-methods.jl")
-include("julia-style-methods.jl")
+include("thc.jl")
+include("common-methods.jl")
 include("grad.jl")
 
 @reexport using .ThC
