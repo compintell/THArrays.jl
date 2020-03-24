@@ -1,9 +1,10 @@
 module ThArrays
 
 using Libdl
+using Reexport
 
 export TorchNumber, Tensor, Scalar,
-    eltype_id, grad, backward
+    eltype_id, backward
 
 const PROJECT_DIR = (@__DIR__) |> dirname
 
@@ -52,5 +53,7 @@ include("scalar.jl")
 include("autogen-methods.jl")
 include("julia-style-methods.jl")
 include("grad.jl")
+
+@reexport using .ThC
 
 end

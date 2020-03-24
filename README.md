@@ -6,9 +6,9 @@ A Julia interface for PyTorch's C++ backend.
 
 ## Getting Started
 
-1. Build the package: run `] build ThArrays`.
-   The build script will download the libtorch zip file, compile the
-   shared library, and generate many Julia methods.
+1. Build the package: run `] build ThArrays`. The build script will
+   download the libtorch zip file, compile the shared library, and
+   generate many Julia methods in module `ThArrays.ThC`.
 2. Run an example:
 
    ```julia
@@ -55,7 +55,7 @@ A Julia interface for PyTorch's C++ backend.
      0.3447  0.0686  0.8287
      0.2692  0.0501  0.2092
     [ CPUDoubleType{3,3} ]
-    
+
     julia> ThArrays.gradient(x->sum(sin(x)+x^2), rand(3,3))
     (PyTorch.Tensor{Float64, 0}:
     6.54403

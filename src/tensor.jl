@@ -123,14 +123,14 @@ function _tensor_indices(t::Tensor, I)
     collect(indices), shape
 end
 
-_to_dim_0(t::Tensor) = reshape(t, Int64[])
-_to_dim_1_1(t::Tensor) = reshape(t, [1, 1])
+_to_dim_0(t::Tensor) = ThC.reshape(t, Int64[])
+_to_dim_1_1(t::Tensor) = ThC.reshape(t, [1, 1])
 
 function Base.getindex(t::Tensor, I...)
     ts, shape = _tensor_indices(t, I)
     ret = t
     for i in 1:length(ts)
-        ret = index_select(ret, i - 1, Tensor(ts[i]))
+        ret = ThC.index_select(ret, i - 1, Tensor(ts[i]))
     end
     all(x -> x == 1, size(ret)) && shape == Union{}[] && return _to_dim_0(ret)
     reshape(ret, shape)
@@ -149,10 +149,10 @@ function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
     ts, _1 = _tensor_indices(t, I)
     ret = t
     for i in 1:(length(ts) - 1)
-        ret = narrow(ret, i - 1, ts[i][1], length(ts[i]))
+        ret = ThC.narrow(ret, i - 1, ts[i][1], length(ts[i]))
     end
     dshape = length.(ts)
-    index_copy!(ret, length(ts) - 1, Tensor(ts[end]), reshape(v, dshape))
+    ThC.index_copy!(ret, length(ts) - 1, Tensor(ts[end]), reshape(v, dshape))
     v
 end
 Base.setindex!(t::Tensor{T}, v::Array, I...) where T = setindex!(t, Tensor{T}(v), I...)

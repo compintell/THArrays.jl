@@ -100,9 +100,7 @@ function julia_source(f::APIFunction)
         end
     end
 
-    lines = [
-        "# $(f.cpp_signature)"
-    ]
+    lines = ["\n"]
     # in-place op: pow_ -> pow!, pow_1 -> pow1!, ...
     jl_fname = f.func_name
     sufix_m = match(r"(\w+)_(\d*)$", jl_fname)
@@ -229,6 +227,12 @@ function main()
     output = open(JUL_API_FILE, "w")
     func_match = nothing
     output_count = 0
+
+    write(output, "# !!! THIS FILE IS AUTO-GENERATED, PLEASE DO NOT MODIFY. !!!\n\n")
+    write(output, "module ThC\n") # module start
+    write(output, "using ..ThArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr\n")
+
+
     for line in source_lines
         m = match(FUNC_SIG_REG, line)
         if m != nothing # start of a function
@@ -257,6 +261,8 @@ function main()
         write(output, "\n\n")
         count += 1
     end
+
+    write(output, "end") # module end
 
     close(output)
 
