@@ -3,7 +3,7 @@ uuid = "3ba4a88b-5b67-4a96-bb04-131d22fbab27"
 license = "MIT"
 desc = "Julia interface of PyTorch"
 repo = "https://github.com/TuringLang/ThArrays.jl.git"
-version = "0.0.1"
+version = "0.0.2"
 
 [deps]
 Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
