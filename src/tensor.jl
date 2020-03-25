@@ -73,7 +73,7 @@ function tensor_from_ptr(p::Ptr)
     #       Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
     #       p, sizes)
     dtype = ccall((:tensor_method_dtype, :libtorch_capi),
-          Cchar, (Ptr{Cvoid},),
+                  Cchar, (Ptr{Cvoid},),
                   p)
     Tensor{REVERSE_TYPE_MAP[dtype], n_dims}(p, nothing)
 end
@@ -163,6 +163,8 @@ function Base.getindex(t::Tensor, I...)
 end
 Base.getindex(t::Tensor{T}) where T = item(t)
 Base.getindex(t::Tensor, i::Int64) = t[eachindex(t)[i]]
+Base.getindex(t::Tensor{T, 1}, i::Int64) where T =
+    ThC.index_select(t, 0, Tensor(i - 1)) |> _to_dim_0
 function Base.getindex(t::Tensor, I::UnitRange{Int64})
     t = vcat(map(i->_to_dim_1_1(t[i]), eachindex(t)[I])...)
     reshape(t, [length(t)])
@@ -181,8 +183,13 @@ function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
     ThC.index_copy!(ret, length(ts) - 1, Tensor(ts[end]), reshape(v, dshape))
     v
 end
-Base.setindex!(t::Tensor{T}, v::Array, I...) where T = setindex!(t, Tensor{T}(v), I...)
-Base.setindex!(t::Tensor{T}, v, i::Int64) where T = setindex!(t, Tensor{T}([v]), (eachindex(t)[i].I)...)
+Base.setindex!(t::Tensor{T}, v::Array, I...) where T =
+    setindex!(t, Tensor{T}(v), I...)
+Base.setindex!(t::Tensor{T}, v::TorchNumber, i::Int64) where T =
+    setindex!(t, Tensor{T}([v]), (eachindex(t)[i].I)...)
+Base.setindex!(t::Tensor{T, 1}, v::TorchNumber, i::Int64) where T =
+    setindex!(t, Tensor{T}([v]), i)
+
 function Base.setindex!(t::Tensor{T}, v::Array, I::UnitRange{Int64}) where T
     indices = eachindex(t)[I]
     @assert length(v) == length(indices)

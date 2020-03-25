@@ -3,10 +3,15 @@ using Test
 
 @testset "Tensor Indexing" begin
 
+    j_vect = rand(10)
+    t_vect = Tensor(j_vect)
     j_data = rand(2, 3, 4)
     t_data = Tensor(j_data)
 
     @testset "Indexing with Int" begin
+        for i in 1:length(j_vect)
+            @test t_vect[i][] == j_vect[i]
+        end
         for i in 1:length(j_data)
             @test t_data[i][] == j_data[i]
         end
