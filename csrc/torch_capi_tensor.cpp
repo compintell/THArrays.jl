@@ -39,17 +39,25 @@ void set_error_handler(const char *sym, size_t len) {
 // creation and repr
 torch::Tensor* tensor_from_data(
     void *data, size_t datalen, int8_t tid,
-    int64_t *size_data, size_t dim,
-    int grad) {
+    int64_t *size_data, int64_t *strides_data, size_t dim,
+    int copy_data, int grad) {
+
     PROTECT(
         c10::ArrayRef<int64_t> sizes(size_data, dim);
+        c10::ArrayRef<int64_t> strides(strides_data, dim);
 
-        uint8_t *buf = new uint8_t[datalen];
-        memcpy(buf, data, datalen);
+        uint8_t *buf = static_cast<uint8_t*>(data);
+        std::function<void(void *)> deleter = [=](void *p) -> void {};
+
+        if(copy_data) {
+            buf = new uint8_t[datalen];
+            memcpy(buf, data, datalen);
+            deleter = [=](void *p) -> void { delete[] buf; };
+        }
 
         torch::Tensor res = torch::from_blob(
-            buf, sizes,
-            [=](void *p) -> void { delete[] buf; },
+            buf, sizes, strides,
+            deleter,
             at::dtype(TYPE_MAP_REV.at(tid)).requires_grad(grad));
         return new torch::Tensor(res);
     );
@@ -86,6 +94,15 @@ void tensor_method_sizes(torch::Tensor *tensor, int64_t *buf) {
     torch::IntArrayRef sizes = tensor->sizes();
     for (auto sz : sizes) {
         *p = sz;
+        p++;
+    }
+}
+
+void tensor_method_strides(torch::Tensor *tensor, int64_t *buf) {
+    int64_t *p = buf;
+    torch::IntArrayRef strides = tensor->strides();
+    for (auto s : strides) {
+        *p = s;
         p++;
     }
 }

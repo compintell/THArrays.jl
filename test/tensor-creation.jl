@@ -9,6 +9,20 @@ using Test
         @test convert(Array, Tensor(ary)) == ary
     end
 
+    @testset "Creation with Array (sharing data)" begin
+        ary = rand(2, 3)
+        t = Tensor(ary)
+        ThArrays.ThC.sin!(t)
+        @test t == Tensor(ary)
+    end
+
+    @testset "Creation with Array (copying data)" begin
+        ary = rand(2, 3)
+        t = Tensor(ary, detach=true)
+        ThArrays.ThC.sin!(t)
+        @test isapprox(convert(Array, t), sin.(ary), atol=0.001)
+    end
+
     @testset "Create with Number (0-dim Tensor)" begin
         t = Tensor(1.0)
         @test size(t) == ()

@@ -14,7 +14,9 @@ extern "C" {
 
     // creation and repr
     CAPI_DLLEXPORT torch::Tensor* tensor_from_data(
-        void *data, size_t datalen, int8_t tid, int64_t *size_data, size_t dim, int grad);
+        void *data, size_t datalen, int8_t tid,
+        int64_t *size_data, int64_t *strides_data, size_t dim,
+        int copy_data, int grad);
     CAPI_DLLEXPORT void tensor_destroy(torch::Tensor *tensor);
     CAPI_DLLEXPORT const char* tensor_to_string(torch::Tensor *tensor);
 
@@ -22,6 +24,7 @@ extern "C" {
     CAPI_DLLEXPORT int8_t tensor_method_dtype(torch::Tensor *tensor);
     int64_t tensor_method_ndimension(torch::Tensor *tensor);
     void tensor_method_sizes(torch::Tensor *tensor, int64_t *buf);
+    void tensor_method_strides(torch::Tensor *tensor, int64_t *buf);
     void* tensor_method_data_ptr(torch::Tensor *tensor);
     void tensor_method_data_copy(torch::Tensor *tensor, void *buf, size_t len);
 

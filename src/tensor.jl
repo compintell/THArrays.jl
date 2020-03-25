@@ -2,12 +2,13 @@ mutable struct Tensor{T, N} <: AbstractArray{T, N}
     type::Type
     ndims::Int64
     pointer::Ptr
+    data::Union{Nothing,Array{T, N}}
 
-    function Tensor{T, N}(p::Ptr) where {T, N}
+    function Tensor{T, N}(p::Ptr, data) where {T, N}
         if !haskey(TYPE_MAP, T)
             error("Type $T is not supported.")
         end
-        ret = new(T, N, p)
+        ret = new(T, N, p, data)
         finalizer(ret) do t
             ccall((:tensor_destroy, :libtorch_capi),
                   Ptr{Cvoid}, (Ptr{Cvoid},),
@@ -18,26 +19,33 @@ mutable struct Tensor{T, N} <: AbstractArray{T, N}
 
 end
 
-function Tensor{T}(array::Array{U, N}; requires_grad=false) where {T, U, N}
+Base.setproperty!(::Tensor, ::Symbol, x) = error("Can't change field of Tensor.")
+
+function Tensor{T}(array::Array{U, N};
+                   detach=false, requires_grad=false) where {T, U, N}
     if !haskey(TYPE_MAP, T)
         error("Type $T is not supported.")
     end
 
     dims = collect(size(array))
+    stri = collect(strides(array))
     if T != U
         array = convert.(T, array)
     end
-    row_major = permutedims(array, collect(N:-1:1))
     grad = requires_grad ? 1 : 0
+    copy_data = detach ? 1 : 0
+
     ptr = ccall((:tensor_from_data, :libtorch_capi),
                 Ptr{Cvoid},
-                (Ptr{Cvoid}, Csize_t, Cchar, Ptr{Clonglong}, Csize_t, Cint),
-                row_major, sizeof(array), TYPE_MAP[T], dims, N, grad)
-    Tensor{T, N}(ptr)
+                (Ptr{Cvoid}, Csize_t, Cchar,
+                 Ptr{Clonglong}, Ptr{Clonglong}, Csize_t, Cint, Cint),
+                array, sizeof(array), TYPE_MAP[T], dims, stri, N, copy_data, grad)
+    Tensor{T, N}(ptr, detach ? nothing : array)
 end
 
-function Tensor(array::Array{T, N}; requires_grad=false) where {T, N}
-    Tensor{T}(array, requires_grad=requires_grad)
+
+function Tensor(array::Array{T, N}; detach=false, requires_grad=false) where {T, N}
+    Tensor{T}(array, detach=detach, requires_grad=requires_grad)
 end
 
 # 0-dim Tensor
@@ -46,13 +54,14 @@ function Tensor(s::T; requires_grad=false) where {T <: TorchNumber}
     grad = requires_grad ? 1 : 0
     ptr = ccall((:tensor_from_data, :libtorch_capi),
                 Ptr{Cvoid},
-                (Ptr{Cvoid}, Csize_t, Cchar, Ptr{Clonglong}, Csize_t, Cint),
-                data, sizeof(T), TYPE_MAP[T], C_NULL, 0, grad)
-    Tensor{T, 0}(ptr)
+                (Ptr{Cvoid}, Csize_t, Cchar,
+                 Ptr{Clonglong}, Ptr{Clonglong}, Csize_t, Cint, Cint),
+                data, sizeof(T), TYPE_MAP[T], C_NULL, C_NULL, 0, 0, grad)
+    Tensor{T, 0}(ptr, nothing)
 end
 
 function Tensor(a0::Array{T, 0}; requires_grad=false) where {T <: TorchNumber}
-    Tensor(a0[])
+    Tensor(a0[], requires_grad=requires_grad)
 end
 
 function tensor_from_ptr(p::Ptr)
@@ -65,17 +74,23 @@ function tensor_from_ptr(p::Ptr)
     #       p, sizes)
     dtype = ccall((:tensor_method_dtype, :libtorch_capi),
           Cchar, (Ptr{Cvoid},),
-          p)
-    Tensor{REVERSE_TYPE_MAP[dtype], n_dims}(p)
+                  p)
+    Tensor{REVERSE_TYPE_MAP[dtype], n_dims}(p, nothing)
 end
 
 function Base.convert(::Type{Array}, t::Tensor{T, N}) where {T, N}
+    if t.data != nothing
+        return t.data
+    end
     dims = size(t)
     ret = Array{T, N}(undef, reverse(dims))
     ccall((:tensor_method_data_copy, :libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Csize_t),
           t.pointer, ret, sizeof(T) * prod(dims))
-    permutedims(ret, collect(N:-1:1))
+    if strides(t)[1] != 1
+        return permutedims(ret, collect(N:-1:1))
+    end
+    return reshape(ret, dims)
 end
 
 function Base.string(t::Tensor)
@@ -103,6 +118,17 @@ Base.ndims(t::Tensor{T, N}) where {T, N} = N
 
 eltype_id(::Tensor{T}) where {T} = Int(TYPE_MAP[T])
 eltype_id(::Type{T}) where {T <: TorchNumber} = Int(TYPE_MAP[T])
+
+function Base.strides(t::Tensor)
+    n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
+                   Clonglong, (Ptr{Cvoid},),
+                   t.pointer)
+    strides = zeros(Int64, n_dims)
+    ccall((:tensor_method_strides, :libtorch_capi),
+          Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+          t.pointer, strides)
+    strides
+end
 
 function Base.size(t::Tensor{T, N}) where {T, N}
     n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
