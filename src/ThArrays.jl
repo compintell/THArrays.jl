@@ -2,7 +2,7 @@ module ThArrays
 
 using Libdl
 
-export TorchNumber, Tensor, Scalar, ThC
+export TorchNumber, Tensor, Scalar, ThC,
     eltype_id, backward
 
 const PROJECT_DIR = (@__DIR__) |> dirname
