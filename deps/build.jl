@@ -69,7 +69,7 @@ function get_version_str()
 end
 
 version_str = get_version_str() |> strip |> (x) -> lstrip(x, ['v'])
-if !include_remote_script(version_str)
+if !isempty(get(ENV, "THARRAYS_DEV", "")) || !include_remote_script(version_str)
     @warn "try to build libtorch_capi locally."
     build_locally()
 end
