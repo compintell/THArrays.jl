@@ -26,6 +26,7 @@ extern "C" {
     int64_t tensor_method_ndimension(torch::Tensor *tensor);
     void tensor_method_sizes(torch::Tensor *tensor, int64_t *buf);
     void tensor_method_strides(torch::Tensor *tensor, int64_t *buf);
+    void tensor_method_device(torch::Tensor *tensor, int64_t *buf);
     void* tensor_method_data_ptr(torch::Tensor *tensor);
     void tensor_method_data_copy(torch::Tensor *tensor, void *buf, size_t len);
 

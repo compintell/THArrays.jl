@@ -29,20 +29,22 @@ Base.:^(t::Tensor, r::TorchNumber) = ThC.pow(t, r)
 Base.:(==)(t1::Tensor, t2::Tensor) = ThArrays.ThC.all(ThArrays.ThC.eq1(t1, t2))[]
 
 
-function Base.ones(::Type{Tensor{T}}, I::Vararg{Int}; device=-1) where T
+function Base.ones(::Type{Tensor{T}}, I::Vararg{Int}; dev::Device=CPU()) where T
     dims = Int64[I...]
-    ThC.ones(dims, eltype_id(T), device)
+    ThC.ones(dims, eltype_id(T), convert(Int, dev))
 end
 
-function Base.zeros(::Type{Tensor{T}}, I::Vararg{Int}; device=-1) where T
+function Base.zeros(::Type{Tensor{T}}, I::Vararg{Int}; dev::Device=CPU()) where T
     dims = Int64[I...]
-    ThC.zeros(dims, eltype_id(T), device)
+    ThC.zeros(dims, eltype_id(T), convert(Int, dev))
 end
 
-function Base.rand(::Type{Tensor{T}}, I::Vararg{Int}; device=-1) where T
+function Base.rand(::Type{Tensor{T}}, I::Vararg{Int}; dev::Device=CPU()) where T
     dims = Int64[I...]
-    ThC.rand(dims, eltype_id(T), device)
+    ThC.rand(dims, eltype_id(T), convert(Int, dev))
 end
 
-ThC.eye(::Type{T}, n::Int64; device=-1) where T = ThC.eye(n, eltype_id(T), device)
-ThC.eye(::Type{Tensor{T}}, n::Int64; device=-1) where T = ThC.eye(T, n, device=device)
+ThC.eye(::Type{T}, n::Int64; dev::Device=CPU()) where T =
+    ThC.eye(n, eltype_id(T), convert(Int, dev))
+ThC.eye(::Type{Tensor{T}}, n::Int64; dev::Device=CPU()) where T =
+    ThC.eye(T, n, dev=dev)

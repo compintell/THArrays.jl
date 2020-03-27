@@ -49,3 +49,15 @@ package, tell us and we can add it in.
 
 Another place to find functions on `Tensor` is [the C++ API
 document](https://pytorch.org/cppdocs/api/namespace_at.html#functions).
+
+## Build with CUDA support
+
+By default, if you install this package using Julia's package
+manager(`Pkg`), it only supports Tensor on CPU. But it also supports
+Tensors on CUDA GPU if you:
+
+1. have CUDA installed on your machine
+2. download libtorch with CUDA support and unzip it to the
+   `csrc/libtorch` directory of this package
+3. `export THARRAYS_DEV=1`
+4. start Julia, run `] build ThArrays`

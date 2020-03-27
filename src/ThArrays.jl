@@ -3,7 +3,8 @@ module ThArrays
 using Libdl
 
 export TorchNumber, Tensor, Scalar, ThC,
-    eltype_id, backward
+    eltype_id, backward,
+    Device, CPU, CUDA, to, on
 
 const PROJECT_DIR = (@__DIR__) |> dirname
 

@@ -114,6 +114,13 @@ void tensor_method_strides(torch::Tensor *tensor, int64_t *buf) {
     }
 }
 
+void tensor_method_device(torch::Tensor *tensor, int64_t *buf) {
+    int64_t *p = buf;
+    torch::Device d = tensor->device();
+    *p = d.is_cpu() ? -1 : 0;
+    *(p + 1) = d.index();
+}
+
 void* tensor_method_data_ptr(torch::Tensor *tensor) {
     return tensor->data_ptr();
 }

@@ -244,3 +244,29 @@ function backward(a::Tensor, g::Union{Ptr{Nothing}, Tensor}=C_NULL;
           a.pointer, g, keep_graph, create_graph)
     nothing
 end
+
+# devices
+
+abstract type Device end
+struct CPU <: Device end
+struct CUDA <: Device
+    index::Int
+end
+
+Base.convert(::Type{Int}, ::CPU) = -1
+Base.convert(::Type{Int}, d::CUDA) = d.index
+
+to(t::Tensor, d::Device) = ThC.to(t, convert(Int, d))
+to(t::Tensor, ::Type{T}) where T <: TorchNumber = ThC.to2(t, eltype_id(T), 0, 0)
+to(t::Tensor, ::Type{T}, d::Device) where T <: TorchNumber = to(t, d, T)
+to(t::Tensor, d::Device, ::Type{T}) where T <: TorchNumber =
+    ThC.to4(t, convert(Int, d), eltype_id(T), 0, 0)
+
+function on(t::Tensor)
+    data = Int64[0, 0]
+    ccall((:tensor_method_device, :libtorch_capi),
+          Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}), t.pointer, data)
+
+    data[1] == -1 && return CPU()
+    return CUDA(data[2])
+end
