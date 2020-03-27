@@ -193,7 +193,9 @@ function ccall_julia_args(f::APIFunction)
 end
 
 function return_statement(f::APIFunction)
-    if f.return_type == "void" && f.args[1].first == "out__"
+    if match(r"_\d*$", f.func_name) != nothing
+        return "    return self"
+    elseif f.return_type == "void" && f.args[1].first == "out__"
         lines = []
         for i in 1:f.output_count
             push!(lines,
@@ -258,7 +260,9 @@ function main()
         count += 1
     end
 
-    write(output, "\n\n")
+    write(output, "\n")
+    write(output, "include(\"thc-opt.jl\")\n")
+    write(output, "\n")
     write(output, "end\n") # module end
 
     close(output)

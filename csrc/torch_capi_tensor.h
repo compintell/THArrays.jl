@@ -17,6 +17,7 @@ extern "C" {
         void *data, size_t datalen, int8_t tid,
         int64_t *size_data, int64_t *strides_data, size_t dim,
         int copy_data, int grad);
+    CAPI_DLLEXPORT torch::Tensor* tensor_int64_0dim(int64_t i, int grad);
     CAPI_DLLEXPORT void tensor_destroy(torch::Tensor *tensor);
     CAPI_DLLEXPORT const char* tensor_to_string(torch::Tensor *tensor);
 
@@ -30,6 +31,8 @@ extern "C" {
 
     // methods on Tensor
     CAPI_DLLEXPORT void tensor_method_item(torch::Tensor *t, int8_t tid, void *data);
+    CAPI_DLLEXPORT torch::Tensor* tensor_method_index_select_int64(
+        torch::Tensor *t, int64_t dim, int64_t idx);
     CAPI_DLLEXPORT void tensor_method_backward(
         torch::Tensor *t, torch::Tensor *g, bool keep_graph, bool create_graph);
 

@@ -31,8 +31,7 @@ function abs!(self::Tensor)
     __cret = ccall((:atg_abs_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -77,8 +76,7 @@ function acos!(self::Tensor)
     __cret = ccall((:atg_acos_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -393,8 +391,7 @@ function add!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_add_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -409,8 +406,7 @@ function add1!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_add_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -454,8 +450,7 @@ function addbmm!(self::Tensor, batch1::Tensor, batch2::Tensor)
     __cret = ccall((:atg_addbmm_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, batch1.pointer, batch2.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -499,8 +494,7 @@ function addcdiv!(self::Tensor, tensor1::Tensor, tensor2::Tensor)
     __cret = ccall((:atg_addcdiv_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, tensor1.pointer, tensor2.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -544,8 +538,7 @@ function addcmul!(self::Tensor, tensor1::Tensor, tensor2::Tensor)
     __cret = ccall((:atg_addcmul_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, tensor1.pointer, tensor2.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -589,8 +582,7 @@ function addmm!(self::Tensor, mat1::Tensor, mat2::Tensor)
     __cret = ccall((:atg_addmm_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, mat1.pointer, mat2.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -634,8 +626,7 @@ function addmv!(self::Tensor, mat::Tensor, vec::Tensor)
     __cret = ccall((:atg_addmv_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, mat.pointer, vec.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -679,8 +670,7 @@ function addr!(self::Tensor, vec1::Tensor, vec2::Tensor)
     __cret = ccall((:atg_addr_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, vec1.pointer, vec2.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -855,8 +845,7 @@ function alpha_dropout!(self::Tensor, p::Float64, train::Int)
     __cret = ccall((:atg_alpha_dropout_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cint),
                  outputs__, self.pointer, p, train)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 import Base.angle
 
@@ -1097,8 +1086,7 @@ function as_strided!(self::Tensor, size_data::Array{Int64}, stride_data::Array{I
     __cret = ccall((:atg_as_strided_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong),
                  outputs__, self.pointer, size_data, size_len, stride_data, stride_len, storage_offset)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 import Base.asin
 
@@ -1128,8 +1116,7 @@ function asin!(self::Tensor)
     __cret = ccall((:atg_asin_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -1189,8 +1176,7 @@ function atan2!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_atan2_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -1219,8 +1205,7 @@ function atan!(self::Tensor)
     __cret = ccall((:atg_atan_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -1426,8 +1411,7 @@ function baddbmm!(self::Tensor, batch1::Tensor, batch2::Tensor)
     __cret = ccall((:atg_baddbmm_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, batch1.pointer, batch2.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -1659,8 +1643,7 @@ function bernoulli!(self::Tensor, p::Tensor)
     __cret = ccall((:atg_bernoulli_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, p.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -1674,8 +1657,7 @@ function bernoulli1!(self::Tensor, p::Float64)
     __cret = ccall((:atg_bernoulli_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
                  outputs__, self.pointer, p)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -1839,8 +1821,7 @@ function bitwise_not!(self::Tensor)
     __cret = ccall((:atg_bitwise_not_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -1901,8 +1882,7 @@ function bitwise_xor!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_bitwise_xor_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -1916,8 +1896,7 @@ function bitwise_xor1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_bitwise_xor_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -2097,8 +2076,7 @@ function cauchy!(self::Tensor, median::Float64, sigma::Float64)
     __cret = ccall((:atg_cauchy_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble),
                  outputs__, self.pointer, median, sigma)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -2143,8 +2121,7 @@ function ceil!(self::Tensor)
     __cret = ccall((:atg_ceil_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -2188,8 +2165,7 @@ function celu!(self::Tensor)
     __cret = ccall((:atg_celu_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -2353,8 +2329,7 @@ function clamp!(self::Tensor, min::TorchNumber, max::TorchNumber)
     __cret = ccall((:atg_clamp_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, min_s_.pointer, max_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -2385,8 +2360,7 @@ function clamp_max!(self::Tensor, max::TorchNumber)
     __cret = ccall((:atg_clamp_max_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, max_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -2433,8 +2407,7 @@ function clamp_min!(self::Tensor, min::TorchNumber)
     __cret = ccall((:atg_clamp_min_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, min_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -2848,8 +2821,7 @@ function copy_sparse_to_sparse!(self::Tensor, src::Tensor, non_blocking::Int)
     __cret = ccall((:atg_copy_sparse_to_sparse_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, src.pointer, non_blocking)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 import Base.cos
 
@@ -2879,8 +2851,7 @@ function cos!(self::Tensor)
     __cret = ccall((:atg_cos_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -2925,8 +2896,7 @@ function cosh!(self::Tensor)
     __cret = ccall((:atg_cosh_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -3408,8 +3378,7 @@ function detach!(self::Tensor)
     __cret = ccall((:atg_detach_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -3513,8 +3482,7 @@ function digamma!(self::Tensor)
     __cret = ccall((:atg_digamma_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -3589,8 +3557,7 @@ function div!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_div_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -3605,8 +3572,7 @@ function div1!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_div_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -3680,8 +3646,7 @@ function dropout!(self::Tensor, p::Float64, train::Int)
     __cret = ccall((:atg_dropout_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cint),
                  outputs__, self.pointer, p, train)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -3742,8 +3707,7 @@ function elu!(self::Tensor)
     __cret = ccall((:atg_elu_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -3871,8 +3835,7 @@ function embedding_renorm!(self::Tensor, indices::Tensor, max_norm::Float64, nor
     __cret = ccall((:atg_embedding_renorm_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble),
                  outputs__, self.pointer, indices.pointer, max_norm, norm_type)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4013,8 +3976,7 @@ function eq!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_eq_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4028,8 +3990,7 @@ function eq1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_eq_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4089,8 +4050,7 @@ function erf!(self::Tensor)
     __cret = ccall((:atg_erf_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4134,8 +4094,7 @@ function erfc!(self::Tensor)
     __cret = ccall((:atg_erfc_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4179,8 +4138,7 @@ function erfinv!(self::Tensor)
     __cret = ccall((:atg_erfinv_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4225,8 +4183,7 @@ function exp!(self::Tensor)
     __cret = ccall((:atg_exp_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4302,8 +4259,7 @@ function expm1!(self::Tensor)
     __cret = ccall((:atg_expm1_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4332,8 +4288,7 @@ function exponential!(self::Tensor, lambd::Float64)
     __cret = ccall((:atg_exponential_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
                  outputs__, self.pointer, lambd)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4591,8 +4546,7 @@ function feature_alpha_dropout!(self::Tensor, p::Float64, train::Int)
     __cret = ccall((:atg_feature_alpha_dropout_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cint),
                  outputs__, self.pointer, p, train)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4621,8 +4575,7 @@ function feature_dropout!(self::Tensor, p::Float64, train::Int)
     __cret = ccall((:atg_feature_dropout_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cint),
                  outputs__, self.pointer, p, train)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4653,8 +4606,7 @@ function fill!(self::Tensor, value::TorchNumber)
     __cret = ccall((:atg_fill_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, value_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4668,8 +4620,7 @@ function fill1!(self::Tensor, value::Tensor)
     __cret = ccall((:atg_fill_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, value.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4684,8 +4635,7 @@ function fill_diagonal!(self::Tensor, fill_value::TorchNumber, wrap::Int)
     __cret = ccall((:atg_fill_diagonal_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, fill_value_s_.pointer, wrap)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4746,8 +4696,7 @@ function floor!(self::Tensor)
     __cret = ccall((:atg_floor_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4808,8 +4757,7 @@ function fmod!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_fmod_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4823,8 +4771,7 @@ function fmod1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_fmod_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -4884,8 +4831,7 @@ function frac!(self::Tensor)
     __cret = ccall((:atg_frac_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -5229,8 +5175,7 @@ function ge!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_ge_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -5244,8 +5189,7 @@ function ge1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_ge_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -5320,8 +5264,7 @@ function geometric!(self::Tensor, p::Float64)
     __cret = ccall((:atg_geometric_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
                  outputs__, self.pointer, p)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -5647,8 +5590,7 @@ function gt!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_gt_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -5662,8 +5604,7 @@ function gt1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_gt_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -5844,8 +5785,7 @@ function hardtanh!(self::Tensor)
     __cret = ccall((:atg_hardtanh_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6139,8 +6079,7 @@ function index_add!(self::Tensor, dim::Int64, index::Tensor, source::Tensor)
     __cret = ccall((:atg_index_add_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, dim, index.pointer, source.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6169,8 +6108,7 @@ function index_copy!(self::Tensor, dim::Int64, index::Tensor, source::Tensor)
     __cret = ccall((:atg_index_copy_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, dim, index.pointer, source.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6216,8 +6154,7 @@ function index_fill!(self::Tensor, dim::Int64, index::Tensor, value::TorchNumber
     __cret = ccall((:atg_index_fill_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, dim, index.pointer, value_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6231,8 +6168,7 @@ function index_fill1!(self::Tensor, dim::Int64, index::Tensor, value::Tensor)
     __cret = ccall((:atg_index_fill_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, dim, index.pointer, value.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6265,8 +6201,7 @@ function index_put!(self::Tensor, indices_data::Array{Tensor{T,N}}, values::Tens
     __cret = ccall((:atg_index_put_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, indices_data_ta_, indices_len, values.pointer, accumulate)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6618,8 +6553,7 @@ function le!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_le_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6633,8 +6567,7 @@ function le1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_le_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6694,8 +6627,7 @@ function leaky_relu!(self::Tensor)
     __cret = ccall((:atg_leaky_relu_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6788,8 +6720,7 @@ function lerp!(self::Tensor, end_::Tensor, weight::TorchNumber)
     __cret = ccall((:atg_lerp_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, end_.pointer, weight_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6803,8 +6734,7 @@ function lerp1!(self::Tensor, end_::Tensor, weight::Tensor)
     __cret = ccall((:atg_lerp_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, end_.pointer, weight.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6864,8 +6794,7 @@ function lgamma!(self::Tensor)
     __cret = ccall((:atg_lgamma_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -6975,8 +6904,7 @@ function log10!(self::Tensor)
     __cret = ccall((:atg_log10_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7021,8 +6949,7 @@ function log1p!(self::Tensor)
     __cret = ccall((:atg_log1p_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7067,8 +6994,7 @@ function log2!(self::Tensor)
     __cret = ccall((:atg_log2_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7097,8 +7023,7 @@ function log!(self::Tensor)
     __cret = ccall((:atg_log_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7112,8 +7037,7 @@ function log_normal!(self::Tensor, mean::Float64, std::Float64)
     __cret = ccall((:atg_log_normal_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble),
                  outputs__, self.pointer, mean, std)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7247,8 +7171,7 @@ function logical_not!(self::Tensor)
     __cret = ccall((:atg_logical_not_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7292,8 +7215,7 @@ function logical_xor!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_logical_xor_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7512,8 +7434,7 @@ function lt!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_lt_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7527,8 +7448,7 @@ function lt1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_lt_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7650,8 +7570,7 @@ function masked_fill!(self::Tensor, mask::Tensor, value::TorchNumber)
     __cret = ccall((:atg_masked_fill_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, mask.pointer, value_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7665,8 +7584,7 @@ function masked_fill1!(self::Tensor, mask::Tensor, value::Tensor)
     __cret = ccall((:atg_masked_fill_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, mask.pointer, value.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -7695,8 +7613,7 @@ function masked_scatter!(self::Tensor, mask::Tensor, source::Tensor)
     __cret = ccall((:atg_masked_scatter_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, mask.pointer, source.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -9006,8 +8923,7 @@ function mul!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_mul_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -9022,8 +8938,7 @@ function mul1!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_mul_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -9222,8 +9137,7 @@ function mvlgamma!(self::Tensor, p::Int64)
     __cret = ccall((:atg_mvlgamma_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
                  outputs__, self.pointer, p)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -9348,8 +9262,7 @@ function ne!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_ne_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -9363,8 +9276,7 @@ function ne1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_ne_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -9424,8 +9336,7 @@ function neg!(self::Tensor)
     __cret = ccall((:atg_neg_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -9789,8 +9700,7 @@ function normal!(self::Tensor, mean::Float64, std::Float64)
     __cret = ccall((:atg_normal_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble),
                  outputs__, self.pointer, mean, std)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -10216,8 +10126,7 @@ function polygamma!(self::Tensor, n::Int64)
     __cret = ccall((:atg_polygamma_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
                  outputs__, self.pointer, n)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -10294,8 +10203,7 @@ function pow!(self::Tensor, exponent::TorchNumber)
     __cret = ccall((:atg_pow_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, exponent_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -10309,8 +10217,7 @@ function pow1!(self::Tensor, exponent::Tensor)
     __cret = ccall((:atg_pow_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, exponent.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -10449,8 +10356,7 @@ function put!(self::Tensor, index::Tensor, source::Tensor, accumulate::Int)
     __cret = ccall((:atg_put_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, index.pointer, source.pointer, accumulate)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -10982,8 +10888,7 @@ function random!(self::Tensor)
     __cret = ccall((:atg_random_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -10997,8 +10902,7 @@ function random1!(self::Tensor, to::Int64)
     __cret = ccall((:atg_random_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
                  outputs__, self.pointer, to)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11012,8 +10916,7 @@ function random2!(self::Tensor, from::Int64, to::Int64)
     __cret = ccall((:atg_random_2, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
                  outputs__, self.pointer, from, to)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11155,8 +11058,7 @@ function reciprocal!(self::Tensor)
     __cret = ccall((:atg_reciprocal_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11328,8 +11230,7 @@ function relu!(self::Tensor)
     __cret = ccall((:atg_relu_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11375,8 +11276,7 @@ function remainder!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_remainder_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11390,8 +11290,7 @@ function remainder1!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_remainder_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11455,8 +11354,7 @@ function renorm!(self::Tensor, p::TorchNumber, dim::Int64, maxnorm::TorchNumber)
     __cret = ccall((:atg_renorm_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}),
                  outputs__, self.pointer, p_s_.pointer, dim, maxnorm_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11741,8 +11639,7 @@ function requires_grad!(self::Tensor, _requires_grad::Int)
     __cret = ccall((:atg_requires_grad_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, _requires_grad)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 import Base.reshape
 
@@ -11790,8 +11687,7 @@ function resize!(self::Tensor, size_data::Array{Int64})
     __cret = ccall((:atg_resize_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, size_data, size_len)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11805,8 +11701,7 @@ function resize_as!(self::Tensor, the_template::Tensor)
     __cret = ccall((:atg_resize_as_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, the_template.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -11986,8 +11881,7 @@ function round!(self::Tensor)
     __cret = ccall((:atg_round_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12031,8 +11925,7 @@ function rrelu!(self::Tensor, training::Int)
     __cret = ccall((:atg_rrelu_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, training)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12061,8 +11954,7 @@ function rrelu_with_noise!(self::Tensor, noise::Tensor, training::Int)
     __cret = ccall((:atg_rrelu_with_noise_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, noise.pointer, training)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12140,8 +12032,7 @@ function rsqrt!(self::Tensor)
     __cret = ccall((:atg_rsqrt_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12248,8 +12139,7 @@ function scatter!(self::Tensor, dim::Int64, index::Tensor, src::Tensor)
     __cret = ccall((:atg_scatter_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, dim, index.pointer, src.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12264,8 +12154,7 @@ function scatter1!(self::Tensor, dim::Int64, index::Tensor, value::TorchNumber)
     __cret = ccall((:atg_scatter_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, dim, index.pointer, value_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12294,8 +12183,7 @@ function scatter_add!(self::Tensor, dim::Int64, index::Tensor, src::Tensor)
     __cret = ccall((:atg_scatter_add_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, dim, index.pointer, src.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12339,8 +12227,7 @@ function selu!(self::Tensor)
     __cret = ccall((:atg_selu_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12354,8 +12241,7 @@ function set!(self::Tensor)
     __cret = ccall((:atg_set_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12369,8 +12255,7 @@ function set1!(self::Tensor, source::Tensor)
     __cret = ccall((:atg_set_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, source.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12414,8 +12299,7 @@ function sigmoid!(self::Tensor)
     __cret = ccall((:atg_sigmoid_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12490,8 +12374,7 @@ function sign!(self::Tensor)
     __cret = ccall((:atg_sign_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12536,8 +12419,7 @@ function sin!(self::Tensor)
     __cret = ccall((:atg_sin_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -12582,8 +12464,7 @@ function sinh!(self::Tensor)
     __cret = ccall((:atg_sinh_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13201,8 +13082,7 @@ function sparse_resize!(self::Tensor, size_data::Array{Int64}, sparse_dim::Int64
     __cret = ccall((:atg_sparse_resize_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Clonglong),
                  outputs__, self.pointer, size_data, size_len, sparse_dim, dense_dim)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13217,8 +13097,7 @@ function sparse_resize_and_clear!(self::Tensor, size_data::Array{Int64}, sparse_
     __cret = ccall((:atg_sparse_resize_and_clear_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Clonglong),
                  outputs__, self.pointer, size_data, size_len, sparse_dim, dense_dim)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 import Base.split
 
@@ -13293,8 +13172,7 @@ function sqrt!(self::Tensor)
     __cret = ccall((:atg_sqrt_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13353,8 +13231,7 @@ function squeeze!(self::Tensor)
     __cret = ccall((:atg_squeeze_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13368,8 +13245,7 @@ function squeeze1!(self::Tensor, dim::Int64)
     __cret = ccall((:atg_squeeze_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
                  outputs__, self.pointer, dim)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13573,8 +13449,7 @@ function sub!(self::Tensor, other::Tensor)
     __cret = ccall((:atg_sub_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13589,8 +13464,7 @@ function sub1!(self::Tensor, other::TorchNumber)
     __cret = ccall((:atg_sub_1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13764,8 +13638,7 @@ function t!(self::Tensor)
     __cret = ccall((:atg_t_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13825,8 +13698,7 @@ function tan!(self::Tensor)
     __cret = ccall((:atg_tan_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13871,8 +13743,7 @@ function tanh!(self::Tensor)
     __cret = ccall((:atg_tanh_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -13967,8 +13838,7 @@ function threshold!(self::Tensor, threshold::TorchNumber, value::TorchNumber)
     __cret = ccall((:atg_threshold_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, threshold_s_.pointer, value_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -14258,8 +14128,7 @@ function transpose!(self::Tensor, dim0::Int64, dim1::Int64)
     __cret = ccall((:atg_transpose_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
                  outputs__, self.pointer, dim0, dim1)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -14350,8 +14219,7 @@ function tril!(self::Tensor, diagonal::Int64)
     __cret = ccall((:atg_tril_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
                  outputs__, self.pointer, diagonal)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -14425,8 +14293,7 @@ function triu!(self::Tensor, diagonal::Int64)
     __cret = ccall((:atg_triu_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
                  outputs__, self.pointer, diagonal)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -14486,8 +14353,7 @@ function trunc!(self::Tensor)
     __cret = ccall((:atg_trunc_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -14568,8 +14434,7 @@ function uniform!(self::Tensor, from::Float64, to::Float64)
     __cret = ccall((:atg_uniform_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble),
                  outputs__, self.pointer, from, to)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -14649,8 +14514,7 @@ function unsqueeze!(self::Tensor, dim::Int64)
     __cret = ccall((:atg_unsqueeze_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
                  outputs__, self.pointer, dim)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 
 
@@ -15291,8 +15155,7 @@ function zero!(self::Tensor)
     __cret = ccall((:atg_zero_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
+    return self
 end
 import Base.zeros
 
@@ -15357,5 +15220,6 @@ function zeros_out(out::Tensor, size_data::Array{Int64})
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+include("thc-opt.jl")
 
 end

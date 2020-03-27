@@ -6,7 +6,7 @@ Base.sum(t::Tensor{T}) where T = ThC.sum(t, eltype_id(T))
 
 Base.:+(r::TorchNumber, t::Tensor) = ThC.add1(t, r)
 Base.:+(t::Tensor, r::TorchNumber) = r + t
-Base.:+(a::Tensor{T, N}, b::Tensor{T, N}) where {T, N} = ThC.add(a, b)
+Base.:+(a::Tensor{T, N}, b::Tensor{T, N}) where {T, N} = ThC.opt_add(a, b)
 
 Base.:-(r::TorchNumber, t::Tensor) = ThC.ones_like(t) * r - t
 Base.:-(t::Tensor, r::TorchNumber) = ThC.sub1(t, r)

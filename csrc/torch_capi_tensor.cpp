@@ -64,6 +64,13 @@ torch::Tensor* tensor_from_data(
     return nullptr;
 }
 
+torch::Tensor* tensor_int64_0dim(int64_t i, int grad) {
+    PROTECT(
+        return new torch::Tensor(torch::tensor(i, at::requires_grad(grad)));
+    );
+    return nullptr;
+}
+
 void tensor_destroy(torch::Tensor *tensor) {
     // std::cout << "DEBUG: Tensor " << tensor << " is destroyed!\n";
     if(tensor) delete tensor;
@@ -147,6 +154,14 @@ void tensor_method_item(torch::Tensor *t, int8_t tid, void *data) {
     default:
         return;
     }
+}
+
+torch::Tensor* tensor_method_index_select_int64(
+    torch::Tensor *t, int64_t dim, int64_t idx) {
+    PROTECT(
+        return new torch::Tensor(t->index_select(dim, torch::tensor(idx)));
+    );
+    return nullptr;
 }
 
 void tensor_method_backward(

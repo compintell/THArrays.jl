@@ -49,6 +49,14 @@ function Tensor(array::Array{T, N}; detach=false, requires_grad=false) where {T,
 end
 
 # 0-dim Tensor
+function Tensor(s::Int64; requires_grad=false)
+    grad = requires_grad ? 1 : 0
+    ptr = ccall((:tensor_int64_0dim, :libtorch_capi),
+                Ptr{Cvoid},
+                (Clonglong, Cint), s, grad)
+    Tensor{Int64, 0}(ptr, nothing)
+end
+
 function Tensor(s::T; requires_grad=false) where {T <: TorchNumber}
     data = T[s]
     grad = requires_grad ? 1 : 0
@@ -56,7 +64,7 @@ function Tensor(s::T; requires_grad=false) where {T <: TorchNumber}
                 Ptr{Cvoid},
                 (Ptr{Cvoid}, Csize_t, Cchar,
                  Ptr{Clonglong}, Ptr{Clonglong}, Csize_t, Cint, Cint),
-                data, sizeof(T), TYPE_MAP[T], C_NULL, C_NULL, 0, 0, grad)
+                data, sizeof(T), TYPE_MAP[T], C_NULL, C_NULL, 0, 1, grad)
     Tensor{T, 0}(ptr, nothing)
 end
 
@@ -149,25 +157,25 @@ function _tensor_indices(t::Tensor, I)
     collect(indices), shape
 end
 
-_to_dim_0(t::Tensor) = ThC.reshape(t, Int64[])
-_to_dim_1_1(t::Tensor) = ThC.reshape(t, [1, 1])
+_to_dim_0(t::Tensor) = ThC.opt_reshape(t, Int64[])
+_to_dim_1_1(t::Tensor) = ThC.opt_reshape(t, [1, 1])
 
 function Base.getindex(t::Tensor, I...)
     ts, shape = _tensor_indices(t, I)
     ret = t
     for i in 1:length(ts)
-        ret = ThC.index_select(ret, i - 1, Tensor(ts[i]))
+        ret = ThC.opt_index_select(ret, i - 1, ts[i])
     end
     all(x -> x == 1, size(ret)) && shape == Union{}[] && return _to_dim_0(ret)
-    reshape(ret, shape)
+    ThC.opt_reshape(ret, shape)
 end
 Base.getindex(t::Tensor{T}) where T = item(t)
 Base.getindex(t::Tensor, i::Int64) = t[eachindex(t)[i]]
 Base.getindex(t::Tensor{T, 1}, i::Int64) where T =
-    ThC.index_select(t, 0, Tensor(i - 1)) |> _to_dim_0
+    ThC.opt_index_select(t, 0, (i - 1)) |> _to_dim_0
 function Base.getindex(t::Tensor, I::UnitRange{Int64})
     t = vcat(map(i->_to_dim_1_1(t[i]), eachindex(t)[I])...)
-    reshape(t, [length(t)])
+    ThC.opt_reshape(t, [length(t)])
 end
 
 function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
