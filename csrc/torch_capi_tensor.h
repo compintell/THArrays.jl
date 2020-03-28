@@ -34,6 +34,7 @@ extern "C" {
     CAPI_DLLEXPORT void tensor_method_item(torch::Tensor *t, int8_t tid, void *data);
     CAPI_DLLEXPORT torch::Tensor* tensor_method_index_select_int64(
         torch::Tensor *t, int64_t dim, int64_t idx);
+    CAPI_DLLEXPORT int tensor_method_has_grad(torch::Tensor *t);
     CAPI_DLLEXPORT void tensor_method_backward(
         torch::Tensor *t, torch::Tensor *g, bool keep_graph, bool create_graph);
 

@@ -171,6 +171,10 @@ torch::Tensor* tensor_method_index_select_int64(
     return nullptr;
 }
 
+int tensor_method_has_grad(torch::Tensor *t) {
+    return (t->requires_grad() && t->grad().defined()) ? 1 : 0;
+}
+
 void tensor_method_backward(
     torch::Tensor *t, torch::Tensor *g,
     bool keep_graph=false, bool create_graph=false) {

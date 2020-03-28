@@ -48,7 +48,9 @@ param(xs::AbstractArray) = Tensor(float.(xs); requires_grad=true)
 function forward(f, ps::Params)
     y = f()
     back = (d) -> begin
-        g = IdDict() # TODO: reset grad!
+        g = IdDict()
+        # reset grad!
+        foreach((t) -> has_grad(t) && reset_grad!(t), ps)
         backward(y, param(d))
         foreach((t) -> g[t] = ThC.grad(t), ps)
         return g
