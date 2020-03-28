@@ -234,23 +234,6 @@ function item(t::Tensor{T,N}) where {T,N}
     return data[1]
 end
 
-function has_grad(a::Tensor)
-    ret = ccall((:tensor_method_has_grad, :libtorch_capi),
-                Cint, (Ptr{Cvoid},), a.pointer)
-    return ret != 0
-end
-
-function backward(a::Tensor, d::Union{Ptr{Nothing}, Tensor}=C_NULL;
-                  keep_graph::Bool=false, create_graph::Bool=false)
-    if d isa Tensor
-        d = d.pointer
-    end
-    ccall((:tensor_method_backward, :libtorch_capi),
-          Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-          a.pointer, d, keep_graph, create_graph)
-    nothing
-end
-
 # devices
 
 abstract type Device end

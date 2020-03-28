@@ -1,7 +1,31 @@
+module ThAD
+
 using MacroTools: @forward
+using ..ThArrays: Tensor, Scalar, TorchNumber
+using ..ThC
+
+import ..ThC: grad, requires_grad!
+
+function has_grad(a::Tensor)
+    ret = ccall((:tensor_method_has_grad, :libtorch_capi),
+                Cint, (Ptr{Cvoid},), a.pointer)
+    return ret != 0
+end
+
+function backward(a::Tensor, d::Union{Ptr{Nothing}, Tensor}=C_NULL;
+                  keep_graph::Bool=false, create_graph::Bool=false)
+    if d isa Tensor
+        d = d.pointer
+    end
+    ccall((:tensor_method_backward, :libtorch_capi),
+          Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+          a.pointer, d, keep_graph, create_graph)
+    nothing
+end
+
 
 reset_grad!(t::Tensor) = ThC.zero!(ThC.grad(t))
-ThC.requires_grad!(t::Tensor, r::Bool) = ThC.requires_grad!(t, r ? 1 : 0)
+requires_grad!(t::Tensor, r::Bool) = requires_grad!(t, r ? 1 : 0)
 
 function gradient(f, data...; d::Union{Ptr{Nothing}, Tensor}=C_NULL)
     tensors = map(d -> Tensor(d, requires_grad=true), data)
@@ -16,8 +40,6 @@ end
 
 
 # tracker compatible API
-
-export forward, data, param
 
 struct Params
     order::Vector{Any}
@@ -62,4 +84,6 @@ function forward(f, args...)
     args = param.(args)
     y, back = forward(()->f(args...), Params(args))
     y, (d) -> getindex.(Ref(back(d)), args)
+end
+
 end

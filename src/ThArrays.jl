@@ -2,8 +2,8 @@ module ThArrays
 
 using Libdl
 
-export TorchNumber, Tensor, Scalar, ThC,
-    eltype_id, backward,
+export TorchNumber, Tensor, Scalar, eltype_id,
+    ThC, ThAD,
     Device, CPU, CUDA, to, on
 
 const PROJECT_DIR = (@__DIR__) |> dirname
@@ -52,6 +52,6 @@ include("tensor.jl")
 include("scalar.jl")
 include("thc/thc.jl")
 include("common-methods.jl")
-include("grad.jl")
+include("ad.jl")
 
 end
