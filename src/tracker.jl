@@ -80,7 +80,7 @@ Base.sum(a::TrackedTensor) = track(Base.sum, a)
 Tracker.@grad function Base.sum(a::TrackedTensor)
     r = sum(data(a))
     r, (d) -> begin
-        ThAD.get_grad(data(a), (d,))
+        (ThAD.get_grad(data(a), d),)
     end
 end
 
@@ -88,7 +88,7 @@ Base.sin(a::TrackedTensor) = track(Base.sin, a)
 Tracker.@grad function Base.sin(a::TrackedTensor)
     r = sin(data(a))
     r, (d) -> begin
-        ThAD.get_grad(data(a), (d,))
+        (ThAD.get_grad(data(a), d),)
     end
 end
 
@@ -134,6 +134,22 @@ Tracker.@grad function _th(x::Tracker.TrackedArray)
     r = TrackedTensor(Tensor(data(x), requires_grad=true))
     r, (d) -> begin
         (ThC.ones_like(data(r)) * d,)
+    end
+end
+
+_tr(x) = track(_tr, x)
+Tracker.@grad function _tr(x)
+    x, (d) -> begin
+        (ones(size(x)) .* d,)
+    end
+end
+
+_tr(x::TrackedTensor{T, N}) where {T, N} = track(_tr, x)
+Tracker.@grad function _tr(x::TrackedTensor{T, N}) where {T, N}
+    r = convert(Array, data(x))
+    r, (d) -> begin
+        ThAD.backward(data(x), Tensor(d))
+        (ones(size(r)) .* d,)
     end
 end
 
