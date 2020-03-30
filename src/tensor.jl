@@ -100,6 +100,7 @@ function Base.convert(::Type{Array}, t::Tensor{T, N}) where {T, N}
     end
     return reshape(ret, dims)
 end
+Base.convert(::Type{T}, x::Tensor{T, 0}) where T = x[]
 
 function Base.string(t::Tensor)
     str = ccall((:tensor_to_string, :libtorch_capi),

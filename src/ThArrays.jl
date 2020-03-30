@@ -3,7 +3,7 @@ module ThArrays
 using Libdl
 
 export TorchNumber, Tensor, Scalar, eltype_id,
-    ThC, ThAD,
+    ThC, ThAD, TrackerAD,
     Device, CPU, CUDA, to, on
 
 const PROJECT_DIR = (@__DIR__) |> dirname
@@ -53,5 +53,6 @@ include("scalar.jl")
 include("thc/thc.jl")
 include("common-methods.jl")
 include("ad.jl")
+include("tracker.jl")
 
 end

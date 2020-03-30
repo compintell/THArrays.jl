@@ -12,6 +12,15 @@ function has_grad(a::Tensor)
     return ret != 0
 end
 
+function get_grad(a::Tensor, default=nothing)
+    if has_grad(a)
+        return grad(a)
+    else
+        default == nothing ? ThC.zeros_like(a) : default
+    end
+end
+
+
 function backward(a::Tensor, d::Union{Ptr{Nothing}, Tensor}=C_NULL;
                   keep_graph::Bool=false, create_graph::Bool=false)
     if d isa Tensor
