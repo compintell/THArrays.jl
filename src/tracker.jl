@@ -48,7 +48,7 @@ function Base.show(io::IO, x::TrackedTensor)
 end
 
 Base.copy(x::TrackedTensor) = x
-collect(xs::TrackedTensor) = xs
+Base.collect(xs::TrackedTensor) = xs
 
 Base.setindex!(xs::TrackedTensor, v, i...; kwargs...) =
     error("Can't differentiate `setindex!`")
@@ -68,28 +68,36 @@ Tracker.@grad function Base.Broadcast.broadcasted(f, t::TrackedTensor, args...)
     end
 end
 
-Base.:+(a::TrackedTensor{T, N}, b::TrackedTensor{T, N}) where {T, N} =
-    track(Base.:+, a, b)
-Tracker.@grad function Base.:+(
-    a::TrackedTensor{T, N}, b::TrackedTensor{T, N}) where {T, N}
-    r = data(a) + data(b)
-    r, (d) -> (ThAD.get_grad(data(a)), ThAD.get_grad(data(b)))
+macro names(n...)
+    [n...]
 end
 
-Base.sum(a::TrackedTensor) = track(Base.sum, a)
-Tracker.@grad function Base.sum(a::TrackedTensor)
-    r = sum(data(a))
-    r, (d) -> begin
-        (ThAD.get_grad(data(a), d),)
-    end
+macro grad_1(name)
+    esc(quote
+        $name(a::TrackedTensor) = track($name, a)
+        Tracker.@grad function $name(a::TrackedTensor)
+        r = $name(data(a))
+        r, (d) -> (ThAD.get_grad(data(a), d),)
+        end
+        end)
 end
 
-Base.sin(a::TrackedTensor) = track(Base.sin, a)
-Tracker.@grad function Base.sin(a::TrackedTensor)
-    r = sin(data(a))
-    r, (d) -> begin
-        (ThAD.get_grad(data(a), d),)
-    end
+for name in @names(Base.sum, Base.sin, Base.cos)
+    @eval @grad_1($name)
+end
+
+macro grad_2(name)
+    esc(quote
+        $name(a::TrackedTensor, b::TrackedTensor) = track($name, a, b)
+        Tracker.@grad function $name(a::TrackedTensor, b::TrackedTensor)
+        r = $name(data(a), data(b))
+        r, (d) -> (ThAD.get_grad(data(a)), ThAD.get_grad(data(b)))
+        end
+        end)
+end
+
+for name in @names(Base.:+, Base.:-, Base.:*, Base.:/)
+    @eval @grad_2($name)
 end
 
 ## patches to Tracker.jl
@@ -98,6 +106,7 @@ Tracker.param(x::Tensor) = TrackedTensor(ThC.requires_grad!(x, true))
 Tracker.init_grad(x::Tensor) = ThC.zeros_like(x)
 Tracker.zero_grad!(x::Tensor) = (x .= 0)
 
+"""
 const __FORWARD_RESULT = IdDict{Any, Any}()
 Tracker.collectmemaybe(x::TrackedTensor) = begin
     __FORWARD_RESULT[Tracker.tracker(x)] = x
@@ -120,6 +129,10 @@ function Tracker.back(g::Tracker.Grads, x::Tracker.Tracked{Tensor{T, N}}, Δ) wh
     return
 end
 
+# we use `_tr` to instead of the above patch now
+"""
+Tracker.collectmemaybe(x::TrackedTensor) = _tr(x)
+
 ## Switches
 _th(x) = track(_th, x)
 Tracker.@grad function _th(x)
@@ -141,6 +154,15 @@ _tr(x) = track(_tr, x)
 Tracker.@grad function _tr(x)
     x, (d) -> begin
         (ones(size(x)) .* d,)
+    end
+end
+
+_tr(x::TrackedTensor{T, 0}) where {T} = track(_tr, x)
+Tracker.@grad function _tr(x::TrackedTensor{T, 0}) where {T}
+    r = convert(T, data(x))
+    r, (d) -> begin
+        ThAD.backward(data(x), Tensor(float(d)))
+        (float(d),)
     end
 end
 

@@ -13,10 +13,15 @@ using ThArrays.TrackerAD: _th, _tr
     b = rand(3, 2)
 
     @testset "Simple Mixed AD" begin
+        # all with th(PyTorch Backend)
         f1(x, y) = sum(sin.(_th(x)) + sin.(_th(y)))
+        # sin with tr, (+, sum) wtih th
         f2(x, y) = sum(_th(sin.(x)) + _th(sin.(y)))
+        # all with tr(Tracker Backend)
         f3(x, y) = sum((sin.(x)) + (sin.(y)))
+        # (sin, +) with th, sum with tr
         f4(x, y) = sum(_tr(sin.(_th(x)) + sin.(_th(y))))
+        # (sin, +) with tr, sum with th
         f5(x, y) = sum(_th(sin.(x) + sin.(y)))
 
         y1, back1 = forward(f1, a, b)
@@ -31,6 +36,8 @@ using ThArrays.TrackerAD: _th, _tr
         b4 = data(back4(2))
         b5 = data(back5(2))
 
+        # @show y1, y2, y3, y4, y5
+        # @show b1, b2, b3, b4, b5
         @test b1 == b2 == b3 == b4 == b5
     end
 
