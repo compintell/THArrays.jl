@@ -1,5 +1,6 @@
 # broadcast
 Base.Broadcast.broadcasted(f, t::Tensor, args...) = f(t, args...)
+Base.Broadcast.broadcasted(::typeof(Base.:*), a::Tensor, b::Tensor) = ThC.mul(a, b)
 
 # operators
 Base.sum(t::Tensor{T}) where T = ThC.sum(t, eltype_id(T))
@@ -15,7 +16,7 @@ Base.:-(a::Tensor) = 0 - a
 
 Base.:*(r::TorchNumber, t::Tensor) = ThC.mul1(t, r)
 Base.:*(t::Tensor, r::TorchNumber) = r * t
-Base.:*(a::Tensor{T, N}, b::Tensor{T, N}) where {T, N} = ThC.mul(a, b)
+Base.:*(a::Tensor{T, N}, b::Tensor{T, N}) where {T, N} = ThC.mm(a, b)
 
 Base.:/(n::TorchNumber, t::Tensor) = ThC.ones_like(t) * n / t
 Base.:/(t::Tensor, n::TorchNumber) = ThC.div1(t, n)

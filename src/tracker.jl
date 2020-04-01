@@ -58,48 +58,6 @@ for f in :[Base.size, Base.ndims, Base.collect].args
     @eval @inline $f(x::TrackedTensor, a...) = $f(data(x), a...)
 end
 
-## Methods and Grads
-
-Base.Broadcast.broadcasted(f, t::TrackedTensor, args...) = track(Base.Broadcast.broadcasted, f, t, args...)
-Tracker.@grad function Base.Broadcast.broadcasted(f, t::TrackedTensor, args...)
-    r = f(data(t), args...)
-    r, (d) -> begin
-        (nothing, ThAD.get_grad(data(t), d))
-    end
-end
-
-macro names(n...)
-    [n...]
-end
-
-macro grad_1(name)
-    esc(quote
-        $name(a::TrackedTensor) = track($name, a)
-        Tracker.@grad function $name(a::TrackedTensor)
-        r = $name(data(a))
-        r, (d) -> (ThAD.get_grad(data(a), d),)
-        end
-        end)
-end
-
-for name in @names(Base.sum, Base.sin, Base.cos)
-    @eval @grad_1($name)
-end
-
-macro grad_2(name)
-    esc(quote
-        $name(a::TrackedTensor, b::TrackedTensor) = track($name, a, b)
-        Tracker.@grad function $name(a::TrackedTensor, b::TrackedTensor)
-        r = $name(data(a), data(b))
-        r, (d) -> (ThAD.get_grad(data(a)), ThAD.get_grad(data(b)))
-        end
-        end)
-end
-
-for name in @names(Base.:+, Base.:-, Base.:*, Base.:/)
-    @eval @grad_2($name)
-end
-
 ## patches to Tracker.jl
 
 Tracker.param(x::Tensor) = TrackedTensor(ThC.requires_grad!(x, true))
@@ -138,7 +96,7 @@ _th(x) = track(_th, x)
 Tracker.@grad function _th(x)
     r = TrackedTensor(Tensor(x, requires_grad=true))
     r, (d) -> begin
-        (ThC.ones_like(data(r)) * d,)
+        (ThC.ones_like(data(r)) .* d,)
     end
 end
 
@@ -146,7 +104,7 @@ _th(x::Tracker.TrackedArray) = track(_th, x)
 Tracker.@grad function _th(x::Tracker.TrackedArray)
     r = TrackedTensor(Tensor(data(x), requires_grad=true))
     r, (d) -> begin
-        (ThC.ones_like(data(r)) * d,)
+        (ThC.ones_like(data(r)) .* d,)
     end
 end
 
@@ -174,5 +132,52 @@ Tracker.@grad function _tr(x::TrackedTensor{T, N}) where {T, N}
         (ones(size(r)) .* d,)
     end
 end
+
+
+## Methods and Grads
+
+Base.Broadcast.broadcasted(f, t::TrackedTensor, args...) = track(Base.Broadcast.broadcasted, f, t, args...)
+Tracker.@grad function Base.Broadcast.broadcasted(f, t::TrackedTensor, args...)
+    r = Base.Broadcast.broadcasted(f, data(t), data.(args)...)
+    r, (d) -> begin
+        grads = map(args) do arg
+            (arg isa TrackedTensor) ? ThAD.get_grad(data(arg), d) : nothing
+        end
+        (nothing, ThAD.get_grad(data(t), d), grads...)
+    end
+end
+
+macro names(n...)
+    [n...]
+end
+
+macro grad_1(name)
+    esc(quote
+        $name(a::TrackedTensor) = track($name, a)
+        Tracker.@grad function $name(a::TrackedTensor)
+        r = $name(data(a))
+        r, (d) -> (ThAD.get_grad(data(a), d),)
+        end
+        end)
+end
+
+for name in @names(Base.sum, Base.sin, Base.cos)
+    @eval @grad_1($name)
+end
+
+macro grad_2(name)
+    esc(quote
+        $name(a::TrackedTensor, b::TrackedTensor) = track($name, a, b)
+        Tracker.@grad function $name(a::TrackedTensor, b::TrackedTensor)
+        r = $name(data(a), data(b))
+        r, (d) -> (ThAD.get_grad(data(a)), ThAD.get_grad(data(b)))
+        end
+        end)
+end
+
+for name in @names(Base.:+, Base.:-, Base.:*, Base.:/)
+    @eval @grad_2($name)
+end
+
 
 end
