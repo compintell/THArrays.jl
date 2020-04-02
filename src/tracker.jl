@@ -48,8 +48,6 @@ function Base.show(io::IO, x::TrackedTensor)
 end
 
 Base.copy(x::TrackedTensor) = x
-Base.collect(xs::TrackedTensor) = xs
-
 Base.setindex!(xs::TrackedTensor, v, i...; kwargs...) =
     error("Can't differentiate `setindex!`")
 
@@ -147,36 +145,58 @@ Tracker.@grad function Base.Broadcast.broadcasted(f, t::TrackedTensor, args...)
     end
 end
 
-macro names(n...)
-    [n...]
-end
-
-macro grad_1(name)
+macro grad_for_tensor(name)
     esc(quote
-        $name(a::TrackedTensor) = track($name, a)
-        Tracker.@grad function $name(a::TrackedTensor)
-        r = $name(data(a))
-        r, (d) -> (ThAD.get_grad(data(a), d),)
+        $name(t::TrackedTensor, args...) = track($name, t, args...)
+        Tracker.@grad function $name(t::TrackedTensor, args...)
+            r = $name(data(t), data.(args)...)
+            r, (d) -> begin
+                grads = map(args) do arg
+                    (arg isa TrackedTensor) ? ThAD.get_grad(data(arg), d) : nothing
+                end
+                (ThAD.get_grad(data(t), d), grads...)
+            end
         end
         end)
 end
 
-for name in @names(Base.sum, Base.sin, Base.cos)
-    @eval @grad_1($name)
+
+#
+# Methods in src/thc/thc.jl, can be extracted by the command:
+# perl -n -e \
+#   'if(m/import (Base\..*)/){ $i++; print "$1, "; print "\n" unless $i % 5;}' \
+#   src/thc/thc.jl
+#
+for name in :[Base.abs, Base.acos, Base.all, Base.angle, Base.any,
+              Base.argmax, Base.argmin, Base.asin, Base.atan, Base.cat,
+              Base.ceil, Base.clamp, Base.clamp!, Base.coalesce, Base.conj,
+              Base.cos, Base.cosh, Base.cumprod, Base.cumsum, Base.detach,
+              Base.empty, Base.exp, Base.expm1, Base.fill!, Base.floor,
+              Base.imag, Base.isfinite, Base.isnan, Base.log, Base.log10,
+              Base.log1p, Base.log2, Base.max, Base.min, Base.mv,
+              Base.ones, Base.prod, Base.put!, Base.rand, Base.randn,
+              Base.range, Base.real, Base.repeat, Base.reshape, Base.resize!,
+              Base.round, Base.sign, Base.sin, Base.sinh, Base.sort,
+              Base.split, Base.sqrt, Base.sum, Base.tan, Base.tanh,
+              Base.transpose, Base.trunc, Base.values, Base.view, Base.zeros,
+              ].args
+    @eval @grad_for_tensor($name)
 end
 
-macro grad_2(name)
-    esc(quote
-        $name(a::TrackedTensor, b::TrackedTensor) = track($name, a, b)
-        Tracker.@grad function $name(a::TrackedTensor, b::TrackedTensor)
-        r = $name(data(a), data(b))
-        r, (d) -> (ThAD.get_grad(data(a)), ThAD.get_grad(data(b)))
-        end
-        end)
+
+#
+# Methods in src/tensor.jl
+#
+for name in :[Base.getindex, Base.cat, Base.hcat, Base.vcat].args
+    @eval @grad_for_tensor($name)
 end
 
-for name in @names(Base.:+, Base.:-, Base.:*, Base.:/)
-    @eval @grad_2($name)
+#
+# Methods in src/common-methods.jl
+#
+for name in :[Base.:+, Base.:-, Base.:*, Base.:/, Base.div, Base.:^,
+              Base.adjoint,].args
+    @eval @grad_for_tensor($name)
 end
 
 
