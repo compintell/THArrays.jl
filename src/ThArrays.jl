@@ -1,6 +1,7 @@
 module ThArrays
 
 using Libdl
+using Requires
 
 export TorchNumber, Tensor, Scalar, eltype_id,
     ThC, ThAD, TrackerAD,
@@ -12,6 +13,7 @@ function __init__()
     push!(Libdl.DL_LOAD_PATH, joinpath(PROJECT_DIR, "deps/lib"))
     Libdl.dlopen(joinpath(PROJECT_DIR, "deps/lib/libtorch_capi"))
     @async handle_error_in_julia()
+    @require Tracker = "9f7883ad-71c0-57eb-9f7f-b5c9e6d3789c" @eval include("compat/tracker.jl")
 end
 
 function handle_error_in_julia()
@@ -53,6 +55,5 @@ include("scalar.jl")
 include("thc/thc.jl")
 include("common-methods.jl")
 include("ad.jl")
-include("tracker.jl")
 
 end
