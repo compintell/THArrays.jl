@@ -56,7 +56,7 @@ A Julia interface for PyTorch's C++ backend.
      0.2692  0.0501  0.2092
     [ CPUDoubleType{3,3} ]
 
-    julia> ThArrays.gradient(x->sum(sin(x)+x^2), rand(3,3))
+    julia> ThAD.gradient(x->sum(sin(x)+x^2), rand(3,3))
     (PyTorch.Tensor{Float64, 0}:
     6.54403
     [ CPUDoubleType{} ]

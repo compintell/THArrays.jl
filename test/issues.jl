@@ -11,15 +11,15 @@ using Test
         x = Tensor(rand(1, 10), requires_grad=true);
 
         f(x) = begin
-            y=Tensor(0.0, requires_grad=true)
-            for i=1:length(x)
+            y = Tensor(0.0, requires_grad=true)
+            for i = 1:length(x)
                 y += x[i]
             end
             y
         end
         y = f(x)
-        backward(y)
+        ThAD.backward(y)
 
-        @test ThArrays.ThC.grad(x) == Tensor(ones(1, 10))
+        @test ThAD.grad(x) == Tensor(ones(1, 10))
     end
 end

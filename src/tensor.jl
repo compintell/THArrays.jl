@@ -100,6 +100,7 @@ function Base.convert(::Type{Array}, t::Tensor{T, N}) where {T, N}
     end
     return reshape(ret, dims)
 end
+Base.convert(::Type{T}, x::Tensor{T, 0}) where T = x[]
 
 function Base.string(t::Tensor)
     str = ccall((:tensor_to_string, :libtorch_capi),
@@ -232,17 +233,6 @@ function item(t::Tensor{T,N}) where {T,N}
           Cvoid, (Ptr{Cvoid}, Cchar, Ptr{Cvoid}),
           t.pointer, TYPE_MAP[T], data)
     return data[1]
-end
-
-function backward(a::Tensor, g::Union{Ptr{Nothing}, Tensor}=C_NULL;
-                  keep_graph::Bool=false, create_graph::Bool=false)
-    if g isa Tensor
-        g = g.pointer
-    end
-    ccall((:tensor_method_backward, :libtorch_capi),
-          Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-          a.pointer, g, keep_graph, create_graph)
-    nothing
 end
 
 # devices

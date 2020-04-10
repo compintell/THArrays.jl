@@ -22,5 +22,11 @@ jobs:
       - uses: julia-actions/setup-julia@latest
         with:
           version: ${{ matrix.julia-version }}
-      - run: julia --project -e 'using Pkg;Pkg.instantiate();Pkg.build()'
+      - run: |
+          julia --project -e '
+          using Pkg;
+          Pkg.instantiate();
+          Pkg.build();
+          Pkg.add("Tracker");
+          '
       - uses: julia-actions/julia-runtest@master

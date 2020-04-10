@@ -1,9 +1,8 @@
 # broadcast
 Base.Broadcast.broadcasted(f, t::Tensor, args...) = f(t, args...)
+Base.Broadcast.broadcasted(::typeof(Base.:*), a::Tensor, b::Tensor) = ThC.mul(a, b)
 
 # operators
-Base.sum(t::Tensor{T}) where T = ThC.sum(t, eltype_id(T))
-
 Base.:+(r::TorchNumber, t::Tensor) = ThC.add1(t, r)
 Base.:+(t::Tensor, r::TorchNumber) = r + t
 Base.:+(a::Tensor{T, N}, b::Tensor{T, N}) where {T, N} = ThC.opt_add(a, b)
@@ -15,7 +14,7 @@ Base.:-(a::Tensor) = 0 - a
 
 Base.:*(r::TorchNumber, t::Tensor) = ThC.mul1(t, r)
 Base.:*(t::Tensor, r::TorchNumber) = r * t
-Base.:*(a::Tensor{T, N}, b::Tensor{T, N}) where {T, N} = ThC.mul(a, b)
+Base.:*(a::Tensor{T, N}, b::Tensor{T, N}) where {T, N} = ThC.mm(a, b)
 
 Base.:/(n::TorchNumber, t::Tensor) = ThC.ones_like(t) * n / t
 Base.:/(t::Tensor, n::TorchNumber) = ThC.div1(t, n)
@@ -48,3 +47,30 @@ ThC.eye(::Type{T}, n::Int64; dev::Device=CPU()) where T =
     ThC.eye(n, eltype_id(T), convert(Int, dev))
 ThC.eye(::Type{Tensor{T}}, n::Int64; dev::Device=CPU()) where T =
     ThC.eye(T, n, dev=dev)
+
+Base.sum(t::Tensor{T}) where T = ThC.sum(t, eltype_id(T))
+Base.view(t::Tensor{T}, I...) where T = error("Not implement yet.")
+Base.transpose(t::Tensor{T, 2}) where T = ThC.t(t)
+Base.adjoint(t::Tensor) = error("Not implement yet.")
+# LinearAlgebra.det(t::Tensor) = error("Not implement yet.")
+# LinearAlgebra.logdet(t::Tensor) = error("Not implement yet.")
+# LinearAlgebra.logabsdet(t::Tensor) = error("Not implement yet.")
+# Base.repeat(t::Tensor; kw...) = error("Not implement yet.")
+# Base.reshape(t::Tensor, dims...) = error("Not implement yet.")
+# Base.permutedims(t::Tensor, perm) = error("Not implement yet.")
+# Base.PermutedDimsArray(t::Tensor, perm) = error("Not implement yet.")
+# Base.reverse(t::Tensor; dims) = error("Not implement yet.")
+# Base.reverse(t::Tensor) = error("Not implement yet.")
+# Base.reverse(t::Tensor, start, stop) = error("Not implement yet.")
+# Base.inv(t::Tensor) = error("Not implement yet.")
+# Base.:\(a::Tensor, b::Tensor) = error("Not implement yet.")
+# Base.prod(t::Tensor, dim) = error("Not implement yet.")
+# Base.prod(t::Tensor) = error("Not implement yet.")
+# Base.prod(f::Union{Function, Type}, t::Tensor) = error("Not implement yet.")
+# Statistics.mean(t::Tensor; dims = :) = error("Not implement yet.")
+# Base.maximum(t::Tensor; dims = :) = error("Not implement yet.")
+# Base.minimum(t::Tensor; dims = :) = error("Not implement yet.")
+# Base.dot(a::Tensor, b::Tensor) = error("Not implement yet.")
+# LinearAlgebra.diagm(...)
+# NNlib
+# softmax, logsoftmax, depthwiseconv, conv, ∇conv_data, maxpool, meanpool

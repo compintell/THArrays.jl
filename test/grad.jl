@@ -20,26 +20,35 @@ using Test
 
         tg = Tensor(ones(3, 2))
 
-        backward(tc, tg)
+        ThAD.backward(tc, tg)
 
-        @test ThArrays.ThC.grad(ta) == Tensor(ad_reseult)
+        @test ThC.grad(ta) == Tensor(ad_reseult)
     end
 
-    @testset "ThArrays.gradient" begin
+    @testset "ThAD.gradient" begin
         f(x, y) = x^2 + 3x + sin(y) - y
-        res_and_grads = ThArrays.gradient(f, a, b; g=Tensor(ones(3,2)))
-        @test res_and_grads[2] == Tensor(ad_reseult)
+        grads = ThAD.gradient(f, a, b; d=Tensor(ones(3,2)))
+        @test grads[1] == Tensor(ad_reseult)
     end
 
     @testset "Reset gradient" begin
         t = Tensor(a, requires_grad=true)
-        res_and_grads = ThArrays.gradient(x -> sum(2x), t)
-        @test res_and_grads[2] == Tensor(ones(3, 2)) * 2
-        res_and_grads = ThArrays.gradient(x -> sum(2x), t)
-        @test res_and_grads[2] == Tensor(ones(3, 2)) * 4
+        grads = ThAD.gradient(x -> sum(2x), t)
+        @test grads[1] == Tensor(ones(3, 2)) * 2
+        grads = ThAD.gradient(x -> sum(2x), t)
+        @test grads[1] == Tensor(ones(3, 2)) * 4
 
-        ThArrays.reset_grad!(t)
-        res_and_grads = ThArrays.gradient(x -> sum(2x), t)
-        @test res_and_grads[2] == Tensor(ones(3, 2)) * 2
+        ThAD.reset_grad!(t)
+        grads = ThAD.gradient(x -> sum(2x), t)
+        @test grads[1] == Tensor(ones(3, 2)) * 2
     end
+
+    @testset "ThAD.forward" begin
+        f(x, y) = sum(2x + 2y)
+        y, back = ThAD.forward(f, a, b)
+        grads = back(1)
+        @test grads[1] == grads[2] == Tensor(ones(3, 2)) * 2
+    end
+
+
 end
