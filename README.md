@@ -4,6 +4,13 @@ A Julia interface for PyTorch's C++ backend.
 
 ![Unit Testing](https://github.com/TuringLang/ThArrays.jl/workflows/Unit%20Testing/badge.svg?branch=master)
 
+## Features
+   - `ThArrays.Tensor`: PyTorch Tensor as an Array-like data type in
+      Julia
+   - `ThArrays.ThAD`: AD using PyTorch C++ backend
+   - `ThArrays.TrackerAD`: AD using Tracker.jl and PyTorch C++
+      backend mixed, on your choice.
+
 ## Getting Started
 
 1. Build the package: run `] build ThArrays`. The build script will
@@ -57,15 +64,12 @@ A Julia interface for PyTorch's C++ backend.
     [ CPUDoubleType{3,3} ]
 
     julia> ThAD.gradient(x->sum(sin(x)+x^2), rand(3,3))
-    (PyTorch.Tensor{Float64, 0}:
-    6.54403
-    [ CPUDoubleType{} ]
-    , PyTorch.Tensor{Float64, 2}:
+    (PyTorch.Tensor{Float64, 2}:
      2.3776  1.5465  2.0206
      1.2542  1.2081  2.1156
      2.1034  1.1568  2.2599
     [ CPUDoubleType{3,3} ]
-    )
+    ,)
 
     julia>
 
