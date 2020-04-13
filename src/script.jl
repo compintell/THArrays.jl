@@ -49,4 +49,9 @@ Base.getindex(cu::CompilationUnit, method::AbstractString) =
 Base.getindex(cu::CompilationUnit, method::Symbol) =
     Function(cu, string(method))
 
+function Base.getproperty(cu::CompilationUnit, p::Symbol)
+    p in fieldnames(CompilationUnit) && return getfield(cu, p)
+    return cu[p]
+end
+
 end

@@ -12,7 +12,8 @@ def main(a, b):
 
         ta = Tensor(rand(3, 2))
         tb = Tensor(rand(3, 2))
-        res = cu[:main](ta, tb)
+        # cu["main"], cu[:main], cu.main
+        res = cu.main(ta, tb)
 
         @test res == ta + tb
     end
