@@ -4,7 +4,7 @@ using Libdl
 using Requires
 
 export TorchNumber, Tensor, Scalar, eltype_id,
-    ThC, ThAD, TrackerAD,
+    ThC, ThAD, TrackerAD, Script,
     Device, CPU, CUDA, to, on
 
 const PROJECT_DIR = (@__DIR__) |> dirname
@@ -55,5 +55,6 @@ include("scalar.jl")
 include("thc/thc.jl")
 include("common-methods.jl")
 include("ad.jl")
+include("script.jl")
 
 end

@@ -11,7 +11,7 @@ mutable struct Tensor{T, N} <: AbstractArray{T, N}
         ret = new(T, N, p, data)
         finalizer(ret) do t
             ccall((:tensor_destroy, :libtorch_capi),
-                  Ptr{Cvoid}, (Ptr{Cvoid},),
+                  Cvoid, (Ptr{Cvoid},),
                   t.pointer)
         end
         return ret

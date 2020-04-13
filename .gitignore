@@ -54,7 +54,9 @@ dkms.conf
 # Projects files
 Manifest.toml
 csrc/build/
+csrc/libtorch
 csrc/libtorch/
+csrc/libtorch-*
 deps/lib/
 deps/logs/
 deps/build.log

@@ -5,4 +5,6 @@ include("tensor-indexing.jl")
 
 include("grad.jl")
 
+include("simple-script.jl")
+
 include("issues.jl")
