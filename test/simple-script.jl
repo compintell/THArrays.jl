@@ -8,7 +8,7 @@ using Test
 def main(a, b):
     return a + b
 """
-        cu = Script.compile(script)
+        cu = ThJIT.compile(script)
 
         ta = Tensor(rand(3, 2))
         tb = Tensor(rand(3, 2))

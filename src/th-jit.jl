@@ -1,4 +1,5 @@
-module Script
+module ThJIT
+
 using ..ThArrays
 
 mutable struct CompilationUnit
