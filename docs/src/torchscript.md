@@ -1,3 +1,4 @@
-[//]: # ( -*- mode: markdown; mode: auto-fill -*- )
+<!-- # ( -*- mode: markdown; mode: auto-fill -*- )
+-->
 
 # TorchScript Support: `ThArrays.ThJIT`

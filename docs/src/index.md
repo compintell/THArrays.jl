@@ -1,15 +1,100 @@
-[//]: # ( -*- mode: markdown; mode: auto-fill -*- )
+<!-- # ( -*- mode: markdown; mode: auto-fill -*- )
+-->
 
 # ThArrays
+
+ThArrays is a Julia interface for the PyTorch's C++ backend. It aims
+on bringing the fundamental facilities, e.g., `Tensor`, `AutoGrad`,
+`TorchScript`, etc., to the Julia ecosystem.
+
+## Getting Started
+1. Install the package by `] add Tharrays`, or if you cloned the code
+   repository and intend to build it from source, set the environment
+   variable `export THARRAYS_DEV=1` and run `] build ThArrays`. The
+   build script will download the libtorch zip file, compile the
+   shared library, and generate many Julia methods in module
+   `ThArrays.ThC`. Without setting `THARRAYS_DEV`, the build script
+   will download the pre-built binary library instead of building it
+   locally.
+2. Run a simple example:
+
+   ```julia
+    julia> using ThArrays
+
+    julia> t = Tensor( -rand(3, 3) )
+    PyTorch.Tensor{Float64, 2}:
+    -0.1428 -0.7099 -0.1446
+    -0.3447 -0.0686 -0.8287
+    -0.2692 -0.0501 -0.2092
+    [ CPUDoubleType{3,3} ]
+
+    julia> abs(t)
+    PyTorch.Tensor{Float64, 2}:
+     0.1428  0.7099  0.1446
+     0.3447  0.0686  0.8287
+     0.2692  0.0501  0.2092
+    [ CPUDoubleType{3,3} ]
+
+    julia> sin(t)^2 + cos(t)^2
+    PyTorch.Tensor{Float64, 2}:
+     1.0000  1.0000  1.0000
+     1.0000  1.0000  1.0000
+     1.0000  1.0000  1.0000
+    [ CPUDoubleType{3,3} ]
+
+    julia> t
+    PyTorch.Tensor{Float64, 2}:
+    -0.1428 -0.7099 -0.1446
+    -0.3447 -0.0686 -0.8287
+    -0.2692 -0.0501 -0.2092
+    [ CPUDoubleType{3,3} ]
+
+    julia> ThC.abs!(t)
+    PyTorch.Tensor{Float64, 2}:
+     0.1428  0.7099  0.1446
+     0.3447  0.0686  0.8287
+     0.2692  0.0501  0.2092
+    [ CPUDoubleType{3,3} ]
+
+    julia> t
+    PyTorch.Tensor{Float64, 2}:
+     0.1428  0.7099  0.1446
+     0.3447  0.0686  0.8287
+     0.2692  0.0501  0.2092
+    [ CPUDoubleType{3,3} ]
+
+    julia> ThAD.gradient(x->sum(sin(x)+x^2), rand(3,3))
+    (PyTorch.Tensor{Float64, 2}:
+     2.3776  1.5465  2.0206
+     1.2542  1.2081  2.1156
+     2.1034  1.1568  2.2599
+    [ CPUDoubleType{3,3} ]
+    ,)
+
+    julia>
+
+   ```
+   Read on the documents to learn more about ThArrays.
+
+## Features
+
+ThArrays provides:
+
+   - `ThArrays.Tensor`: PyTorch Tensor as an Array-like data type in
+      Julia
+   - `ThArrays.ThAD`: AD using PyTorch C++ backend
+   - `ThArrays.TrackerAD`: AD using Tracker.jl and PyTorch C++
+      backend mixed, on your choice
+   - `ThArrays.ThJIT`: using TorchScript in Julia
 
 ## The shared library
 
 We wrap libtorch to a shared library (`libtorch_capi`) to expose
-symboles that can be called using Julia's `ccall` directly. That
-shared library depends on nothing but the libtorch C++ library, that
-is, it does NOT depend on Julia either, so every language or platform
-who has an FFI facility like Juiia's `ccall` can use it to wrap a
-PyTorch library.
+symbols that can be called by Julia's `ccall` directly. That shared
+library depends on nothing but the libtorch C++ library, that is, it
+does NOT depend on Julia either, so every language or platform who has
+an FFI facility like Juiia's `ccall` can use it to wrap a PyTorch
+library.
 
 The files `csrc/torch_capi*` are maintianed by this project and they
 are used to provide consturctors and several crucial functions of the

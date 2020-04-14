@@ -1,3 +1,6 @@
+<!-- # ( -*- mode: markdown; mode: auto-fill -*- )
+-->
+
 # ThArrays
 
 A Julia interface for PyTorch's C++ backend.
@@ -9,14 +12,14 @@ A Julia interface for PyTorch's C++ backend.
       Julia
    - `ThArrays.ThAD`: AD using PyTorch C++ backend
    - `ThArrays.TrackerAD`: AD using Tracker.jl and PyTorch C++
-      backend mixed, on your choice.
+      backend mixed, on your choice
+   - `ThArrays.ThJIT`: using TorchScript in Julia
 
 ## Getting Started
 
-1. Build the package: run `] build ThArrays`. The build script will
-   download the libtorch zip file, compile the shared library, and
-   generate many Julia methods in module `ThArrays.ThC`.
-2. Run an example:
+1. Install the package: `] add ThArrays`
+2. Read the docs [here](https://turinglang.github.io/ThArrays.jl), or
+3. Experiment in the Julia REPL directly:
 
    ```julia
     julia> using ThArrays
@@ -28,39 +31,11 @@ A Julia interface for PyTorch's C++ backend.
     -0.2692 -0.0501 -0.2092
     [ CPUDoubleType{3,3} ]
 
-    julia> abs(t)
-    PyTorch.Tensor{Float64, 2}:
-     0.1428  0.7099  0.1446
-     0.3447  0.0686  0.8287
-     0.2692  0.0501  0.2092
-    [ CPUDoubleType{3,3} ]
-
     julia> sin(t)^2 + cos(t)^2
     PyTorch.Tensor{Float64, 2}:
      1.0000  1.0000  1.0000
      1.0000  1.0000  1.0000
      1.0000  1.0000  1.0000
-    [ CPUDoubleType{3,3} ]
-
-    julia> t
-    PyTorch.Tensor{Float64, 2}:
-    -0.1428 -0.7099 -0.1446
-    -0.3447 -0.0686 -0.8287
-    -0.2692 -0.0501 -0.2092
-    [ CPUDoubleType{3,3} ]
-
-    julia> ThC.abs!(t)
-    PyTorch.Tensor{Float64, 2}:
-     0.1428  0.7099  0.1446
-     0.3447  0.0686  0.8287
-     0.2692  0.0501  0.2092
-    [ CPUDoubleType{3,3} ]
-
-    julia> t
-    PyTorch.Tensor{Float64, 2}:
-     0.1428  0.7099  0.1446
-     0.3447  0.0686  0.8287
-     0.2692  0.0501  0.2092
     [ CPUDoubleType{3,3} ]
 
     julia> ThAD.gradient(x->sum(sin(x)+x^2), rand(3,3))
@@ -74,4 +49,4 @@ A Julia interface for PyTorch's C++ backend.
     julia>
 
    ```
-   See the test directory for more examples.
+   You can find more examples under the `test` directory.
