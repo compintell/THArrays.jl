@@ -88,7 +88,7 @@ PyTorch.Tensor{Float64, 2}:
 Calling `Convert(::Type{Array}, t::Tensor)` will convert a Tensor to a
 Julia array.
 
-`ThArrays.Tensor` also supports many other operation like Julia arrays
+`ThArrays.Tensor` also supports many other operations like Julia arrays
 do, including iteration, indexing, assignment via indexing,
 concatenating (`cat`, `hcat`, `vcat`), etc.
 

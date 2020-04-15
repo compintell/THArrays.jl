@@ -1,6 +1,3 @@
-<!-- # ( -*- mode: markdown; mode: auto-fill -*- )
--->
-
 # API Reference
 
 This page provides a comprehensive reference for ThArrays functionality.
@@ -10,3 +7,8 @@ This page provides a comprehensive reference for ThArrays functionality.
 ```@docs
 ThArrays.Tensor
 ```
+
+<!-- Local Variables: -->
+<!-- mode: markdown -->
+<!-- mode: auto-fill -->
+<!-- End: -->

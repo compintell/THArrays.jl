@@ -1,5 +1,3 @@
-<!-- # ( -*- mode: markdown; mode: auto-fill -*- ) -->
-
 # TorchScript Support: `ThArrays.ThJIT`
 
 Currently we have a limit support to the PyTorch JIT (TorchScript):
@@ -29,3 +27,8 @@ The current limitations includes:
 - All arguments we pass to a function must be Tensors;
 - The return value of the called function must be a single Tensor (not
   list or tuple of Tensors).
+
+<!-- Local Variables: -->
+<!-- mode: markdown -->
+<!-- mode: auto-fill -->
+<!-- End: -->
