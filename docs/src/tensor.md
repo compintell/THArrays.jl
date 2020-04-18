@@ -136,8 +136,3 @@ PyTorch.Tensor{Float64, 2}:
 
 As you see, `on` can be used to determine which device a Thensor is
 on.
-
-<!-- Local Variables: -->
-<!-- mode: markdown -->
-<!-- mode: auto-fill -->
-<!-- End: -->

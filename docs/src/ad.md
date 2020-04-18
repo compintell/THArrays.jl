@@ -141,9 +141,3 @@ Tracker.jl.
 
 In `f5`, `sin` and `+` are tracked by Tracker.jl while sum is tracked
 by PyTorch.
-
-
-<!-- Local Variables: -->
-<!-- mode: markdown -->
-<!-- mode: auto-fill -->
-<!-- End: -->

@@ -143,9 +143,3 @@ Tensors on CUDA GPU if you:
    `csrc/libtorch` directory of this package
 3. `export THARRAYS_DEV=1`
 4. start Julia, run `] build ThArrays`
-
-
-<!-- Local Variables: -->
-<!-- mode: markdown -->
-<!-- mode: auto-fill -->
-<!-- End: -->
