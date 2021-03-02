@@ -31,7 +31,7 @@ function get_commit_id()
 end
 
 sources = [
-    "https://github.com/TuringLang/ThArrays.jl.git" => get_commit_id(),
+    GitSource("https://github.com/TuringLang/ThArrays.jl.git", get_commit_id()),
 ]
 
 
@@ -41,13 +41,13 @@ script = read(joinpath(dirname(@__FILE__), "build_dylib.sh"), String)
 # These are the platforms we will build for by default, unless further
 # platforms are passed in on the command line
 platforms = [
-    Linux(:x86_64, libc=:glibc, compiler_abi=CompilerABI(:gcc8)),
+    Linux(:x86_64, libc=:glibc, compiler_abi=CompilerABI()),
     # MacOS(:x86_64), # can't build it on MacOS SDK
 ]
 
 # The products that we will ensure are always built
-products(prefix) = [
-    LibraryProduct(prefix, "libtorch_capi", :libtorch_capi)
+products = [
+    LibraryProduct("libtorch_capi", :libtorch_capi),
 ]
 
 # Dependencies that must be installed before this package can be built
@@ -56,4 +56,5 @@ dependencies = [
 
 # Build the tarballs, and possibly a `build.jl` as well.
 # build_file = "products/build_$(name).v$(version_str).jl"
-build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
+build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies;
+               preferred_gcc_version=v"8")

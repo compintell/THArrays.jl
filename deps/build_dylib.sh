@@ -19,9 +19,9 @@ cd $WORKSPACE/srcdir
 PROJECT_DIR=$WORKSPACE/srcdir/ThArrays.jl
 
 RELEASES=(
-    x86_64-linux-gnu@v1_4_0@https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.7.1%2Bcpu.zip
-    x86_64-apple-darwin14@v1_4_0@https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.7.1.zip
-    x86_64-w64-mingw32@v1_4_0@https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-1.7.1.zip
+    x86_64-linux-gnu@v1_7_1@https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.7.1%2Bcpu.zip
+    x86_64-apple-darwin14@v1_7_1@https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.7.1.zip
+    x86_64-w64-mingw32@v1_7_1@https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-1.7.1.zip
 )
 
 for RELEASE in ${RELEASES[@]}; do
@@ -53,7 +53,10 @@ for RELEASE in ${RELEASES[@]}; do
 
         # patch dylib
         install_name_tool -change  @rpath/libtorch.dylib @loader_path/libtorch.dylib ${PREFIX}/lib/libtorch_capi.dylib
+        install_name_tool -change  @rpath/libtorch_cpu.dylib @loader_path/libtorch_cpu.dylib ${PREFIX}/lib/libtorch_capi.dylib
         install_name_tool -change  @rpath/libc10.dylib @loader_path/libc10.dylib ${PREFIX}/lib/libtorch_capi.dylib
+
+        install_name_tool -change  @rpath/libtorch_cpu.dylib @loader_path/libtorch_cpu.dylib ${PREFIX}/lib/libtorch.dylib
         install_name_tool -change  @rpath/libc10.dylib @loader_path/libc10.dylib ${PREFIX}/lib/libtorch.dylib
         install_name_tool -change  @rpath/libiomp5.dylib @loader_path/libiomp5.dylib ${PREFIX}/lib/libtorch.dylib
     elif [[ $OS == "linux" ]]; then

@@ -26,7 +26,7 @@ function build_locally()
     isdir(TORCH_LIB_BUILD_DIR) || mkdir(TORCH_LIB_BUILD_DIR)
 
     cd(TORCH_LIB_BUILD_DIR) do
-        cmd_cmake = `cmake -DCMAKE_PREFIX_PATH=$(joinpath(PROJECT_DIR, "csrc/libtorch")) -S ../../csrc -B .`
+        cmd_cmake = `cmake -DCMAKE_PREFIX_PATH=$(joinpath(PROJECT_DIR, "csrc/libtorch")) ../../csrc`
         run(cmd_cmake)
         run(`make torch_capi`)
     end
