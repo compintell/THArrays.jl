@@ -30,6 +30,7 @@ make torch_capi
 mkdir -p $PREFIX/lib
 cp ${PROJECT_DIR}/csrc/build/libtorch_capi.dylib ${PREFIX}/lib/
 cp ${LIBTORCH_PATH}/lib/libtorch.dylib ${PREFIX}/lib/
+cp ${LIBTORCH_PATH}/lib/libtorch_cpu.dylib ${PREFIX}/lib/
 cp ${LIBTORCH_PATH}/lib/libc10.dylib ${PREFIX}/lib/
 cp ${LIBTORCH_PATH}/lib/libiomp5.dylib ${PREFIX}/lib/
 
