@@ -42,6 +42,7 @@ install_name_tool -change  @rpath/libc10.dylib @loader_path/libc10.dylib ${PREFI
 install_name_tool -change  @rpath/libtorch_cpu.dylib @loader_path/libtorch_cpu.dylib ${PREFIX}/lib/libtorch.dylib
 install_name_tool -change  @rpath/libc10.dylib @loader_path/libc10.dylib ${PREFIX}/lib/libtorch.dylib
 install_name_tool -change  @rpath/libiomp5.dylib @loader_path/libiomp5.dylib ${PREFIX}/lib/libtorch.dylib
+install_name_tool -change  @rpath/libiomp5.dylib @loader_path/libiomp5.dylib ${PREFIX}/lib/libtorch_cpu.dylib
 
 # tar
 cd $PREFIX
