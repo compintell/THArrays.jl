@@ -3,6 +3,2607 @@
 module ThC
 using ..ThArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr
 
+
+
+"""
+    __and__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_and\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __and__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___and__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __and__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_and\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __and__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___and__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __iand__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_iand\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __iand__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___iand__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __iand__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_iand\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __iand__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___iand__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __ilshift__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_ilshift\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __ilshift__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___ilshift__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __ilshift__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_ilshift\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __ilshift__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___ilshift__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __ior__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_ior\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __ior__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___ior__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __ior__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_ior\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __ior__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___ior__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __irshift__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_irshift\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __irshift__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___irshift__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __irshift__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_irshift\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __irshift__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___irshift__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __ixor__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_ixor\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __ixor__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___ixor__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __ixor__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_ixor\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __ixor__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___ixor__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __lshift__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_lshift\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __lshift__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___lshift__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __lshift__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_lshift\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __lshift__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___lshift__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __or__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_or\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __or__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___or__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __or__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_or\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __or__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___or__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __rshift__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_rshift\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __rshift__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___rshift__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __rshift__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_rshift\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __rshift__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___rshift__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    __xor__(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_\\_\\_xor\\_\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function __xor__(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg___xor__, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    __xor__1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_\\_xor\\_\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function __xor__1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg___xor__1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    _adaptive_avg_pool2d(self::Tensor, output_size_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_adaptive\\_avg\\_pool2d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len)
+"""
+function _adaptive_avg_pool2d(self::Tensor, output_size_data::Array{Int64})
+    outputs__ = Int[0]
+    output_size_len = length(output_size_data)
+    __cret = ccall((:atg__adaptive_avg_pool2d, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, output_size_data, output_size_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _adaptive_avg_pool2d_backward(grad_output::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_adaptive\\_avg\\_pool2d\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self)
+"""
+function _adaptive_avg_pool2d_backward(grad_output::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__adaptive_avg_pool2d_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad_output.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _add_batch_dim(self::Tensor, batch_dim::Int64, level::Int64)
+
+ Wrapper of C++ function void atg\\_\\_add\\_batch\\_dim(tensor *out\\_\\_, tensor self, int64\\_t batch\\_dim, int64\\_t level)
+"""
+function _add_batch_dim(self::Tensor, batch_dim::Int64, level::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__add_batch_dim, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
+                 outputs__, self.pointer, batch_dim, level)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _add_relu(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_add\\_relu(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function _add_relu(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__add_relu, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _add_relu!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_add\\_relu\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function _add_relu!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__add_relu_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    _add_relu_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_add\\_relu\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function _add_relu_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__add_relu_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _addmv_impl!(self::Tensor, self2::Tensor, mat::Tensor, vec::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_addmv\\_impl\\_(tensor *out\\_\\_, tensor self, tensor self2, tensor mat, tensor vec)
+"""
+function _addmv_impl!(self::Tensor, self2::Tensor, mat::Tensor, vec::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__addmv_impl_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, self2.pointer, mat.pointer, vec.pointer)
+    return self
+end
+
+
+"""
+    _aminmax(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_aminmax(tensor *out\\_\\_, tensor self)
+"""
+function _aminmax(self::Tensor)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__aminmax, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _aminmax1(self::Tensor, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_\\_aminmax1(tensor *out\\_\\_, tensor self, int64\\_t dim, int keepdim)
+"""
+function _aminmax1(self::Tensor, dim::Int64, keepdim::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__aminmax1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _amp_update_scale(growth_tracker::Tensor, current_scale::Tensor, found_inf::Tensor, scale_growth_factor::Float64, scale_backoff_factor::Float64, growth_interval::Int64)
+
+ Wrapper of C++ function void atg\\_\\_amp\\_update\\_scale(tensor *out\\_\\_, tensor growth\\_tracker, tensor current\\_scale, tensor found\\_inf, double scale\\_growth\\_factor, double scale\\_backoff\\_factor, int64\\_t growth\\_interval)
+"""
+function _amp_update_scale(growth_tracker::Tensor, current_scale::Tensor, found_inf::Tensor, scale_growth_factor::Float64, scale_backoff_factor::Float64, growth_interval::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__amp_update_scale, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble, Clonglong),
+                 outputs__, growth_tracker.pointer, current_scale.pointer, found_inf.pointer, scale_growth_factor, scale_backoff_factor, growth_interval)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _baddbmm_mkl!(self::Tensor, batch1::Tensor, batch2::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_baddbmm\\_mkl\\_(tensor *out\\_\\_, tensor self, tensor batch1, tensor batch2)
+"""
+function _baddbmm_mkl!(self::Tensor, batch1::Tensor, batch2::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__baddbmm_mkl_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, batch1.pointer, batch2.pointer)
+    return self
+end
+
+
+"""
+    _bmm(self::Tensor, mat2::Tensor, deterministic::Int)
+
+ Wrapper of C++ function void atg\\_\\_bmm(tensor *out\\_\\_, tensor self, tensor mat2, int deterministic)
+"""
+function _bmm(self::Tensor, mat2::Tensor, deterministic::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__bmm, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, mat2.pointer, deterministic)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _bmm_out(out::Tensor, self::Tensor, mat2::Tensor, deterministic::Int)
+
+ Wrapper of C++ function void atg\\_\\_bmm\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor mat2, int deterministic)
+"""
+function _bmm_out(out::Tensor, self::Tensor, mat2::Tensor, deterministic::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__bmm_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, out.pointer, self.pointer, mat2.pointer, deterministic)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cast_byte(self::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_cast\\_byte(tensor *out\\_\\_, tensor self, int non\\_blocking)
+"""
+function _cast_byte(self::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cast_byte, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cast_char(self::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_cast\\_char(tensor *out\\_\\_, tensor self, int non\\_blocking)
+"""
+function _cast_char(self::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cast_char, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cast_double(self::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_cast\\_double(tensor *out\\_\\_, tensor self, int non\\_blocking)
+"""
+function _cast_double(self::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cast_double, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cast_float(self::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_cast\\_float(tensor *out\\_\\_, tensor self, int non\\_blocking)
+"""
+function _cast_float(self::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cast_float, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cast_half(self::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_cast\\_half(tensor *out\\_\\_, tensor self, int non\\_blocking)
+"""
+function _cast_half(self::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cast_half, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cast_int(self::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_cast\\_int(tensor *out\\_\\_, tensor self, int non\\_blocking)
+"""
+function _cast_int(self::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cast_int, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cast_long(self::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_cast\\_long(tensor *out\\_\\_, tensor self, int non\\_blocking)
+"""
+function _cast_long(self::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cast_long, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cast_short(self::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_cast\\_short(tensor *out\\_\\_, tensor self, int non\\_blocking)
+"""
+function _cast_short(self::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cast_short, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cat(tensors_data::Array{Tensor{T,N}}, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_cat(tensor *out\\_\\_, tensor *tensors\\_data, int tensors\\_len, int64\\_t dim)
+"""
+function _cat(tensors_data::Array{Tensor{T,N}}, dim::Int64) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg__cat, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong),
+                 outputs__, tensors_data_ta_, tensors_len, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cat_out(out::Tensor, tensors_data::Array{Tensor{T,N}}, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_cat\\_out(tensor *out\\_\\_, tensor out, tensor *tensors\\_data, int tensors\\_len, int64\\_t dim)
+"""
+function _cat_out(out::Tensor, tensors_data::Array{Tensor{T,N}}, dim::Int64) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg__cat_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong),
+                 outputs__, out.pointer, tensors_data_ta_, tensors_len, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cdist_backward(grad::Tensor, x1::Tensor, x2::Tensor, p::Float64, cdist::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_cdist\\_backward(tensor *out\\_\\_, tensor grad, tensor x1, tensor x2, double p, tensor cdist)
+"""
+function _cdist_backward(grad::Tensor, x1::Tensor, x2::Tensor, p::Float64, cdist::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cdist_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Ptr{Cvoid}),
+                 outputs__, grad.pointer, x1.pointer, x2.pointer, p, cdist.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cholesky_helper(self::Tensor, upper::Int)
+
+ Wrapper of C++ function void atg\\_\\_cholesky\\_helper(tensor *out\\_\\_, tensor self, int upper)
+"""
+function _cholesky_helper(self::Tensor, upper::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cholesky_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, upper)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cholesky_solve_helper(self::Tensor, A::Tensor, upper::Int)
+
+ Wrapper of C++ function void atg\\_\\_cholesky\\_solve\\_helper(tensor *out\\_\\_, tensor self, tensor A, int upper)
+"""
+function _cholesky_solve_helper(self::Tensor, A::Tensor, upper::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cholesky_solve_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, A.pointer, upper)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _coalesced!(self::Tensor, coalesced::Int)
+
+ Wrapper of C++ function void atg\\_\\_coalesced\\_(tensor *out\\_\\_, tensor self, int coalesced)
+"""
+function _coalesced!(self::Tensor, coalesced::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__coalesced_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, coalesced)
+    return self
+end
+
+
+"""
+    _compute_linear_combination(input::Tensor, coefficients::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_compute\\_linear\\_combination(tensor *out\\_\\_, tensor input, tensor coefficients)
+"""
+function _compute_linear_combination(input::Tensor, coefficients::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__compute_linear_combination, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, input.pointer, coefficients.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _compute_linear_combination_out(out::Tensor, input::Tensor, coefficients::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_compute\\_linear\\_combination\\_out(tensor *out\\_\\_, tensor out, tensor input, tensor coefficients)
+"""
+function _compute_linear_combination_out(out::Tensor, input::Tensor, coefficients::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__compute_linear_combination_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, input.pointer, coefficients.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _conj(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_conj(tensor *out\\_\\_, tensor self)
+"""
+function _conj(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__conj, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _convolution(input::Tensor, weight::Tensor, bias::Tensor, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, transposed::Int, output_padding_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, cudnn_enabled::Int)
+
+ Wrapper of C++ function void atg\\_\\_convolution(tensor *out\\_\\_, tensor input, tensor weight, tensor bias, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int transposed, int64\\_t *output\\_padding\\_data, int output\\_padding\\_len, int64\\_t groups, int benchmark, int deterministic, int cudnn\\_enabled)
+"""
+function _convolution(input::Tensor, weight::Tensor, bias::Tensor, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, transposed::Int, output_padding_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, cudnn_enabled::Int)
+    outputs__ = Int[0]
+    stride_len = length(stride_data)
+    padding_len = length(padding_data)
+    dilation_len = length(dilation_data)
+    output_padding_len = length(output_padding_data)
+    __cret = ccall((:atg__convolution, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint, Cint),
+                 outputs__, input.pointer, weight.pointer, bias.pointer, stride_data, stride_len, padding_data, padding_len, dilation_data, dilation_len, transposed, output_padding_data, output_padding_len, groups, benchmark, deterministic, cudnn_enabled)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _convolution1(input::Tensor, weight::Tensor, bias::Tensor, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, transposed::Int, output_padding_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, cudnn_enabled::Int, allow_tf32::Int)
+
+ Wrapper of C++ function void atg\\_\\_convolution1(tensor *out\\_\\_, tensor input, tensor weight, tensor bias, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int transposed, int64\\_t *output\\_padding\\_data, int output\\_padding\\_len, int64\\_t groups, int benchmark, int deterministic, int cudnn\\_enabled, int allow\\_tf32)
+"""
+function _convolution1(input::Tensor, weight::Tensor, bias::Tensor, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, transposed::Int, output_padding_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, cudnn_enabled::Int, allow_tf32::Int)
+    outputs__ = Int[0]
+    stride_len = length(stride_data)
+    padding_len = length(padding_data)
+    dilation_len = length(dilation_data)
+    output_padding_len = length(output_padding_data)
+    __cret = ccall((:atg__convolution1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint, Cint, Cint),
+                 outputs__, input.pointer, weight.pointer, bias.pointer, stride_data, stride_len, padding_data, padding_len, dilation_data, dilation_len, transposed, output_padding_data, output_padding_len, groups, benchmark, deterministic, cudnn_enabled, allow_tf32)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _convolution_nogroup(input::Tensor, weight::Tensor, bias::Tensor, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, transposed::Int, output_padding_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_convolution\\_nogroup(tensor *out\\_\\_, tensor input, tensor weight, tensor bias, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int transposed, int64\\_t *output\\_padding\\_data, int output\\_padding\\_len)
+"""
+function _convolution_nogroup(input::Tensor, weight::Tensor, bias::Tensor, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, transposed::Int, output_padding_data::Array{Int64})
+    outputs__ = Int[0]
+    stride_len = length(stride_data)
+    padding_len = length(padding_data)
+    dilation_len = length(dilation_data)
+    output_padding_len = length(output_padding_data)
+    __cret = ccall((:atg__convolution_nogroup, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, input.pointer, weight.pointer, bias.pointer, stride_data, stride_len, padding_data, padding_len, dilation_data, dilation_len, transposed, output_padding_data, output_padding_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _copy_from(self::Tensor, dst::Tensor, non_blocking::Int)
+
+ Wrapper of C++ function void atg\\_\\_copy\\_from(tensor *out\\_\\_, tensor self, tensor dst, int non\\_blocking)
+"""
+function _copy_from(self::Tensor, dst::Tensor, non_blocking::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__copy_from, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, dst.pointer, non_blocking)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _ctc_loss(log_probs::Tensor, targets::Tensor, input_lengths_data::Array{Int64}, target_lengths_data::Array{Int64}, blank::Int64, zero_infinity::Int)
+
+ Wrapper of C++ function void atg\\_\\_ctc\\_loss(tensor *out\\_\\_, tensor log\\_probs, tensor targets, int64\\_t *input\\_lengths\\_data, int input\\_lengths\\_len, int64\\_t *target\\_lengths\\_data, int target\\_lengths\\_len, int64\\_t blank, int zero\\_infinity)
+"""
+function _ctc_loss(log_probs::Tensor, targets::Tensor, input_lengths_data::Array{Int64}, target_lengths_data::Array{Int64}, blank::Int64, zero_infinity::Int)
+    outputs__ = Int[0, 0]
+    input_lengths_len = length(input_lengths_data)
+    target_lengths_len = length(target_lengths_data)
+    __cret = ccall((:atg__ctc_loss, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint),
+                 outputs__, log_probs.pointer, targets.pointer, input_lengths_data, input_lengths_len, target_lengths_data, target_lengths_len, blank, zero_infinity)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _ctc_loss_backward(grad::Tensor, log_probs::Tensor, targets::Tensor, input_lengths_data::Array{Int64}, target_lengths_data::Array{Int64}, neg_log_likelihood::Tensor, log_alpha::Tensor, blank::Int64, zero_infinity::Int)
+
+ Wrapper of C++ function void atg\\_\\_ctc\\_loss\\_backward(tensor *out\\_\\_, tensor grad, tensor log\\_probs, tensor targets, int64\\_t *input\\_lengths\\_data, int input\\_lengths\\_len, int64\\_t *target\\_lengths\\_data, int target\\_lengths\\_len, tensor neg\\_log\\_likelihood, tensor log\\_alpha, int64\\_t blank, int zero\\_infinity)
+"""
+function _ctc_loss_backward(grad::Tensor, log_probs::Tensor, targets::Tensor, input_lengths_data::Array{Int64}, target_lengths_data::Array{Int64}, neg_log_likelihood::Tensor, log_alpha::Tensor, blank::Int64, zero_infinity::Int)
+    outputs__ = Int[0]
+    input_lengths_len = length(input_lengths_data)
+    target_lengths_len = length(target_lengths_data)
+    __cret = ccall((:atg__ctc_loss_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, grad.pointer, log_probs.pointer, targets.pointer, input_lengths_data, input_lengths_len, target_lengths_data, target_lengths_len, neg_log_likelihood.pointer, log_alpha.pointer, blank, zero_infinity)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cudnn_ctc_loss(log_probs::Tensor, targets::Tensor, input_lengths_data::Array{Int64}, target_lengths_data::Array{Int64}, blank::Int64, deterministic::Int, zero_infinity::Int)
+
+ Wrapper of C++ function void atg\\_\\_cudnn\\_ctc\\_loss(tensor *out\\_\\_, tensor log\\_probs, tensor targets, int64\\_t *input\\_lengths\\_data, int input\\_lengths\\_len, int64\\_t *target\\_lengths\\_data, int target\\_lengths\\_len, int64\\_t blank, int deterministic, int zero\\_infinity)
+"""
+function _cudnn_ctc_loss(log_probs::Tensor, targets::Tensor, input_lengths_data::Array{Int64}, target_lengths_data::Array{Int64}, blank::Int64, deterministic::Int, zero_infinity::Int)
+    outputs__ = Int[0, 0]
+    input_lengths_len = length(input_lengths_data)
+    target_lengths_len = length(target_lengths_data)
+    __cret = ccall((:atg__cudnn_ctc_loss, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
+                 outputs__, log_probs.pointer, targets.pointer, input_lengths_data, input_lengths_len, target_lengths_data, target_lengths_len, blank, deterministic, zero_infinity)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _cudnn_init_dropout_state(dropout::Float64, train::Int, dropout_seed::Int64, options_kind::Int, options_device::Int)
+
+ Wrapper of C++ function void atg\\_\\_cudnn\\_init\\_dropout\\_state(tensor *out\\_\\_, double dropout, int train, int64\\_t dropout\\_seed, int options\\_kind, int options\\_device)
+"""
+function _cudnn_init_dropout_state(dropout::Float64, train::Int, dropout_seed::Int64, options_kind::Int, options_device::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cudnn_init_dropout_state, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Cdouble, Cint, Clonglong, Cint, Cint),
+                 outputs__, dropout, train, dropout_seed, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cudnn_rnn(input::Tensor, weight_data::Array{Tensor{T,N}}, weight_stride0::Int64, weight_buf::Tensor, hx::Tensor, cx::Tensor, mode::Int64, hidden_size::Int64, num_layers::Int64, batch_first::Int, dropout::Float64, train::Int, bidirectional::Int, batch_sizes_data::Array{Int64}, dropout_state::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_cudnn\\_rnn(tensor *out\\_\\_, tensor input, tensor *weight\\_data, int weight\\_len, int64\\_t weight\\_stride0, tensor weight\\_buf, tensor hx, tensor cx, int64\\_t mode, int64\\_t hidden\\_size, int64\\_t num\\_layers, int batch\\_first, double dropout, int train, int bidirectional, int64\\_t *batch\\_sizes\\_data, int batch\\_sizes\\_len, tensor dropout\\_state)
+"""
+function _cudnn_rnn(input::Tensor, weight_data::Array{Tensor{T,N}}, weight_stride0::Int64, weight_buf::Tensor, hx::Tensor, cx::Tensor, mode::Int64, hidden_size::Int64, num_layers::Int64, batch_first::Int, dropout::Float64, train::Int, bidirectional::Int, batch_sizes_data::Array{Int64}, dropout_state::Tensor) where {T,N}
+    outputs__ = Int[0, 0, 0, 0, 0]
+    weight_data_ta_ = map(x->x.pointer, weight_data)
+    weight_len = length(weight_data)
+    batch_sizes_len = length(batch_sizes_data)
+    __cret = ccall((:atg__cudnn_rnn, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong, Cint, Cdouble, Cint, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}),
+                 outputs__, input.pointer, weight_data_ta_, weight_len, weight_stride0, weight_buf.pointer, hx.pointer, cx.pointer, mode, hidden_size, num_layers, batch_first, dropout, train, bidirectional, batch_sizes_data, batch_sizes_len, dropout_state.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    __o_4 = tensor_from_ptr(Ptr{Cvoid}(outputs__[4]))
+    __o_5 = tensor_from_ptr(Ptr{Cvoid}(outputs__[5]))
+    return __o_1, __o_2, __o_3, __o_4, __o_5
+end
+
+
+"""
+    _cudnn_rnn_flatten_weight(weight_arr_data::Array{Tensor{T,N}}, weight_stride0::Int64, input_size::Int64, mode::Int64, hidden_size::Int64, num_layers::Int64, batch_first::Int, bidirectional::Int)
+
+ Wrapper of C++ function void atg\\_\\_cudnn\\_rnn\\_flatten\\_weight(tensor *out\\_\\_, tensor *weight\\_arr\\_data, int weight\\_arr\\_len, int64\\_t weight\\_stride0, int64\\_t input\\_size, int64\\_t mode, int64\\_t hidden\\_size, int64\\_t num\\_layers, int batch\\_first, int bidirectional)
+"""
+function _cudnn_rnn_flatten_weight(weight_arr_data::Array{Tensor{T,N}}, weight_stride0::Int64, input_size::Int64, mode::Int64, hidden_size::Int64, num_layers::Int64, batch_first::Int, bidirectional::Int) where {T,N}
+    outputs__ = Int[0]
+    weight_arr_data_ta_ = map(x->x.pointer, weight_arr_data)
+    weight_arr_len = length(weight_arr_data)
+    __cret = ccall((:atg__cudnn_rnn_flatten_weight, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Clonglong, Clonglong, Clonglong, Clonglong, Cint, Cint),
+                 outputs__, weight_arr_data_ta_, weight_arr_len, weight_stride0, input_size, mode, hidden_size, num_layers, batch_first, bidirectional)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cumprod(self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_cumprod(tensor *out\\_\\_, tensor self, int64\\_t dim)
+"""
+function _cumprod(self::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cumprod, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cumprod_out(out::Tensor, self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_cumprod\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t dim)
+"""
+function _cumprod_out(out::Tensor, self::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cumprod_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, out.pointer, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cumsum(self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_cumsum(tensor *out\\_\\_, tensor self, int64\\_t dim)
+"""
+function _cumsum(self::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cumsum, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _cumsum_out(out::Tensor, self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_cumsum\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t dim)
+"""
+function _cumsum_out(out::Tensor, self::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__cumsum_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, out.pointer, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _dim_arange(like::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_dim\\_arange(tensor *out\\_\\_, tensor like, int64\\_t dim)
+"""
+function _dim_arange(like::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__dim_arange, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, like.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _dirichlet_grad(x::Tensor, alpha::Tensor, total::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_dirichlet\\_grad(tensor *out\\_\\_, tensor x, tensor alpha, tensor total)
+"""
+function _dirichlet_grad(x::Tensor, alpha::Tensor, total::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__dirichlet_grad, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, x.pointer, alpha.pointer, total.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _embedding_bag(weight::Tensor, indices::Tensor, offsets::Tensor, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor, include_last_offset::Int)
+
+ Wrapper of C++ function void atg\\_\\_embedding\\_bag(tensor *out\\_\\_, tensor weight, tensor indices, tensor offsets, int scale\\_grad\\_by\\_freq, int64\\_t mode, int sparse, tensor per\\_sample\\_weights, int include\\_last\\_offset)
+"""
+function _embedding_bag(weight::Tensor, indices::Tensor, offsets::Tensor, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor, include_last_offset::Int)
+    outputs__ = Int[0, 0, 0, 0]
+    __cret = ccall((:atg__embedding_bag, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, weight.pointer, indices.pointer, offsets.pointer, scale_grad_by_freq, mode, sparse, per_sample_weights.pointer, include_last_offset)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    __o_4 = tensor_from_ptr(Ptr{Cvoid}(outputs__[4]))
+    return __o_1, __o_2, __o_3, __o_4
+end
+
+
+"""
+    _embedding_bag_backward(grad::Tensor, indices::Tensor, offsets::Tensor, offset2bag::Tensor, bag_size::Tensor, maximum_indices::Tensor, num_weights::Int64, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_embedding\\_bag\\_backward(tensor *out\\_\\_, tensor grad, tensor indices, tensor offsets, tensor offset2bag, tensor bag\\_size, tensor maximum\\_indices, int64\\_t num\\_weights, int scale\\_grad\\_by\\_freq, int64\\_t mode, int sparse, tensor per\\_sample\\_weights)
+"""
+function _embedding_bag_backward(grad::Tensor, indices::Tensor, offsets::Tensor, offset2bag::Tensor, bag_size::Tensor, maximum_indices::Tensor, num_weights::Int64, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__embedding_bag_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint, Clonglong, Cint, Ptr{Cvoid}),
+                 outputs__, grad.pointer, indices.pointer, offsets.pointer, offset2bag.pointer, bag_size.pointer, maximum_indices.pointer, num_weights, scale_grad_by_freq, mode, sparse, per_sample_weights.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _embedding_bag_dense_backward(grad::Tensor, indices::Tensor, offsets::Tensor, offset2bag::Tensor, bag_size::Tensor, maximum_indices::Tensor, num_weights::Int64, scale_grad_by_freq::Int, mode::Int64, per_sample_weights::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_embedding\\_bag\\_dense\\_backward(tensor *out\\_\\_, tensor grad, tensor indices, tensor offsets, tensor offset2bag, tensor bag\\_size, tensor maximum\\_indices, int64\\_t num\\_weights, int scale\\_grad\\_by\\_freq, int64\\_t mode, tensor per\\_sample\\_weights)
+"""
+function _embedding_bag_dense_backward(grad::Tensor, indices::Tensor, offsets::Tensor, offset2bag::Tensor, bag_size::Tensor, maximum_indices::Tensor, num_weights::Int64, scale_grad_by_freq::Int, mode::Int64, per_sample_weights::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__embedding_bag_dense_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint, Clonglong, Ptr{Cvoid}),
+                 outputs__, grad.pointer, indices.pointer, offsets.pointer, offset2bag.pointer, bag_size.pointer, maximum_indices.pointer, num_weights, scale_grad_by_freq, mode, per_sample_weights.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _embedding_bag_forward_only(weight::Tensor, indices::Tensor, offsets::Tensor, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor, include_last_offset::Int)
+
+ Wrapper of C++ function void atg\\_\\_embedding\\_bag\\_forward\\_only(tensor *out\\_\\_, tensor weight, tensor indices, tensor offsets, int scale\\_grad\\_by\\_freq, int64\\_t mode, int sparse, tensor per\\_sample\\_weights, int include\\_last\\_offset)
+"""
+function _embedding_bag_forward_only(weight::Tensor, indices::Tensor, offsets::Tensor, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor, include_last_offset::Int)
+    outputs__ = Int[0, 0, 0, 0]
+    __cret = ccall((:atg__embedding_bag_forward_only, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, weight.pointer, indices.pointer, offsets.pointer, scale_grad_by_freq, mode, sparse, per_sample_weights.pointer, include_last_offset)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    __o_4 = tensor_from_ptr(Ptr{Cvoid}(outputs__[4]))
+    return __o_1, __o_2, __o_3, __o_4
+end
+
+
+"""
+    _embedding_bag_per_sample_weights_backward(grad::Tensor, weight::Tensor, indices::Tensor, offsets::Tensor, offset2bag::Tensor, mode::Int64)
+
+ Wrapper of C++ function void atg\\_\\_embedding\\_bag\\_per\\_sample\\_weights\\_backward(tensor *out\\_\\_, tensor grad, tensor weight, tensor indices, tensor offsets, tensor offset2bag, int64\\_t mode)
+"""
+function _embedding_bag_per_sample_weights_backward(grad::Tensor, weight::Tensor, indices::Tensor, offsets::Tensor, offset2bag::Tensor, mode::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__embedding_bag_per_sample_weights_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, grad.pointer, weight.pointer, indices.pointer, offsets.pointer, offset2bag.pointer, mode)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _embedding_bag_sparse_backward(grad::Tensor, indices::Tensor, offsets::Tensor, offset2bag::Tensor, bag_size::Tensor, num_weights::Int64, scale_grad_by_freq::Int, mode::Int64, per_sample_weights::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_embedding\\_bag\\_sparse\\_backward(tensor *out\\_\\_, tensor grad, tensor indices, tensor offsets, tensor offset2bag, tensor bag\\_size, int64\\_t num\\_weights, int scale\\_grad\\_by\\_freq, int64\\_t mode, tensor per\\_sample\\_weights)
+"""
+function _embedding_bag_sparse_backward(grad::Tensor, indices::Tensor, offsets::Tensor, offset2bag::Tensor, bag_size::Tensor, num_weights::Int64, scale_grad_by_freq::Int, mode::Int64, per_sample_weights::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__embedding_bag_sparse_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint, Clonglong, Ptr{Cvoid}),
+                 outputs__, grad.pointer, indices.pointer, offsets.pointer, offset2bag.pointer, bag_size.pointer, num_weights, scale_grad_by_freq, mode, per_sample_weights.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _empty_affine_quantized(size_data::Array{Int64}, options_kind::Int, options_device::Int, scale::Float64, zero_point::Int64)
+
+ Wrapper of C++ function void atg\\_\\_empty\\_affine\\_quantized(tensor *out\\_\\_, int64\\_t *size\\_data, int size\\_len, int options\\_kind, int options\\_device, double scale, int64\\_t zero\\_point)
+"""
+function _empty_affine_quantized(size_data::Array{Int64}, options_kind::Int, options_device::Int, scale::Float64, zero_point::Int64)
+    outputs__ = Int[0]
+    size_len = length(size_data)
+    __cret = ccall((:atg__empty_affine_quantized, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint, Cdouble, Clonglong),
+                 outputs__, size_data, size_len, options_kind, options_device, scale, zero_point)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _empty_per_channel_affine_quantized(size_data::Array{Int64}, scales::Tensor, zero_points::Tensor, axis::Int64, options_kind::Int, options_device::Int)
+
+ Wrapper of C++ function void atg\\_\\_empty\\_per\\_channel\\_affine\\_quantized(tensor *out\\_\\_, int64\\_t *size\\_data, int size\\_len, tensor scales, tensor zero\\_points, int64\\_t axis, int options\\_kind, int options\\_device)
+"""
+function _empty_per_channel_affine_quantized(size_data::Array{Int64}, scales::Tensor, zero_points::Tensor, axis::Int64, options_kind::Int, options_device::Int)
+    outputs__ = Int[0]
+    size_len = length(size_data)
+    __cret = ccall((:atg__empty_per_channel_affine_quantized, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint, Cint),
+                 outputs__, size_data, size_len, scales.pointer, zero_points.pointer, axis, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _euclidean_dist(x1::Tensor, x2::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_euclidean\\_dist(tensor *out\\_\\_, tensor x1, tensor x2)
+"""
+function _euclidean_dist(x1::Tensor, x2::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__euclidean_dist, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, x1.pointer, x2.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _fake_quantize_learnable_per_channel_affine(self::Tensor, scale::Tensor, zero_point::Tensor, axis::Int64, quant_min::Int64, quant_max::Int64)
+
+ Wrapper of C++ function void atg\\_\\_fake\\_quantize\\_learnable\\_per\\_channel\\_affine(tensor *out\\_\\_, tensor self, tensor scale, tensor zero\\_point, int64\\_t axis, int64\\_t quant\\_min, int64\\_t quant\\_max)
+"""
+function _fake_quantize_learnable_per_channel_affine(self::Tensor, scale::Tensor, zero_point::Tensor, axis::Int64, quant_min::Int64, quant_max::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__fake_quantize_learnable_per_channel_affine, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong),
+                 outputs__, self.pointer, scale.pointer, zero_point.pointer, axis, quant_min, quant_max)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _fake_quantize_learnable_per_channel_affine_backward(grad::Tensor, self::Tensor, scale::Tensor, zero_point::Tensor, axis::Int64, quant_min::Int64, quant_max::Int64)
+
+ Wrapper of C++ function void atg\\_\\_fake\\_quantize\\_learnable\\_per\\_channel\\_affine\\_backward(tensor *out\\_\\_, tensor grad, tensor self, tensor scale, tensor zero\\_point, int64\\_t axis, int64\\_t quant\\_min, int64\\_t quant\\_max)
+"""
+function _fake_quantize_learnable_per_channel_affine_backward(grad::Tensor, self::Tensor, scale::Tensor, zero_point::Tensor, axis::Int64, quant_min::Int64, quant_max::Int64)
+    outputs__ = Int[0, 0, 0]
+    __cret = ccall((:atg__fake_quantize_learnable_per_channel_affine_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong),
+                 outputs__, grad.pointer, self.pointer, scale.pointer, zero_point.pointer, axis, quant_min, quant_max)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    return __o_1, __o_2, __o_3
+end
+
+
+"""
+    _fake_quantize_learnable_per_tensor_affine(self::Tensor, scale::Tensor, zero_point::Tensor, quant_min::Int64, quant_max::Int64)
+
+ Wrapper of C++ function void atg\\_\\_fake\\_quantize\\_learnable\\_per\\_tensor\\_affine(tensor *out\\_\\_, tensor self, tensor scale, tensor zero\\_point, int64\\_t quant\\_min, int64\\_t quant\\_max)
+"""
+function _fake_quantize_learnable_per_tensor_affine(self::Tensor, scale::Tensor, zero_point::Tensor, quant_min::Int64, quant_max::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__fake_quantize_learnable_per_tensor_affine, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
+                 outputs__, self.pointer, scale.pointer, zero_point.pointer, quant_min, quant_max)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _fake_quantize_learnable_per_tensor_affine_backward(grad::Tensor, self::Tensor, scale::Tensor, zero_point::Tensor, quant_min::Int64, quant_max::Int64)
+
+ Wrapper of C++ function void atg\\_\\_fake\\_quantize\\_learnable\\_per\\_tensor\\_affine\\_backward(tensor *out\\_\\_, tensor grad, tensor self, tensor scale, tensor zero\\_point, int64\\_t quant\\_min, int64\\_t quant\\_max)
+"""
+function _fake_quantize_learnable_per_tensor_affine_backward(grad::Tensor, self::Tensor, scale::Tensor, zero_point::Tensor, quant_min::Int64, quant_max::Int64)
+    outputs__ = Int[0, 0, 0]
+    __cret = ccall((:atg__fake_quantize_learnable_per_tensor_affine_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
+                 outputs__, grad.pointer, self.pointer, scale.pointer, zero_point.pointer, quant_min, quant_max)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    return __o_1, __o_2, __o_3
+end
+
+
+"""
+    _fft_with_size(self::Tensor, signal_ndim::Int64, complex_input::Int, complex_output::Int, inverse::Int, checked_signal_sizes_data::Array{Int64}, normalized::Int, onesided::Int, output_sizes_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_fft\\_with\\_size(tensor *out\\_\\_, tensor self, int64\\_t signal\\_ndim, int complex\\_input, int complex\\_output, int inverse, int64\\_t *checked\\_signal\\_sizes\\_data, int checked\\_signal\\_sizes\\_len, int normalized, int onesided, int64\\_t *output\\_sizes\\_data, int output\\_sizes\\_len)
+"""
+function _fft_with_size(self::Tensor, signal_ndim::Int64, complex_input::Int, complex_output::Int, inverse::Int, checked_signal_sizes_data::Array{Int64}, normalized::Int, onesided::Int, output_sizes_data::Array{Int64})
+    outputs__ = Int[0]
+    checked_signal_sizes_len = length(checked_signal_sizes_data)
+    output_sizes_len = length(output_sizes_data)
+    __cret = ccall((:atg__fft_with_size, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint, Cint, Cint, Ptr{Cvoid}, Cint, Cint, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, signal_ndim, complex_input, complex_output, inverse, checked_signal_sizes_data, checked_signal_sizes_len, normalized, onesided, output_sizes_data, output_sizes_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _fft_with_size1(self::Tensor, signal_ndim::Int64, complex_input::Int, complex_output::Int, inverse::Int, checked_signal_sizes_data::Array{Int64}, normalization::Int64, onesided::Int, output_sizes_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_fft\\_with\\_size1(tensor *out\\_\\_, tensor self, int64\\_t signal\\_ndim, int complex\\_input, int complex\\_output, int inverse, int64\\_t *checked\\_signal\\_sizes\\_data, int checked\\_signal\\_sizes\\_len, int64\\_t normalization, int onesided, int64\\_t *output\\_sizes\\_data, int output\\_sizes\\_len)
+"""
+function _fft_with_size1(self::Tensor, signal_ndim::Int64, complex_input::Int, complex_output::Int, inverse::Int, checked_signal_sizes_data::Array{Int64}, normalization::Int64, onesided::Int, output_sizes_data::Array{Int64})
+    outputs__ = Int[0]
+    checked_signal_sizes_len = length(checked_signal_sizes_data)
+    output_sizes_len = length(output_sizes_data)
+    __cret = ccall((:atg__fft_with_size1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint, Cint, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, signal_ndim, complex_input, complex_output, inverse, checked_signal_sizes_data, checked_signal_sizes_len, normalization, onesided, output_sizes_data, output_sizes_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _fused_dropout(self::Tensor, p::Float64)
+
+ Wrapper of C++ function void atg\\_\\_fused\\_dropout(tensor *out\\_\\_, tensor self, double p)
+"""
+function _fused_dropout(self::Tensor, p::Float64)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__fused_dropout, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
+                 outputs__, self.pointer, p)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _gather_sparse_backward(self::Tensor, dim::Int64, index::Tensor, grad::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_gather\\_sparse\\_backward(tensor *out\\_\\_, tensor self, int64\\_t dim, tensor index, tensor grad)
+"""
+function _gather_sparse_backward(self::Tensor, dim::Int64, index::Tensor, grad::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__gather_sparse_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, dim, index.pointer, grad.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _grid_sampler_2d_cpu_fallback(input::Tensor, grid::Tensor, interpolation_mode::Int64, padding_mode::Int64, align_corners::Int)
+
+ Wrapper of C++ function void atg\\_\\_grid\\_sampler\\_2d\\_cpu\\_fallback(tensor *out\\_\\_, tensor input, tensor grid, int64\\_t interpolation\\_mode, int64\\_t padding\\_mode, int align\\_corners)
+"""
+function _grid_sampler_2d_cpu_fallback(input::Tensor, grid::Tensor, interpolation_mode::Int64, padding_mode::Int64, align_corners::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__grid_sampler_2d_cpu_fallback, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Cint),
+                 outputs__, input.pointer, grid.pointer, interpolation_mode, padding_mode, align_corners)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _grid_sampler_2d_cpu_fallback_backward(grad_output::Tensor, input::Tensor, grid::Tensor, interpolation_mode::Int64, padding_mode::Int64, align_corners::Int)
+
+ Wrapper of C++ function void atg\\_\\_grid\\_sampler\\_2d\\_cpu\\_fallback\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor input, tensor grid, int64\\_t interpolation\\_mode, int64\\_t padding\\_mode, int align\\_corners)
+"""
+function _grid_sampler_2d_cpu_fallback_backward(grad_output::Tensor, input::Tensor, grid::Tensor, interpolation_mode::Int64, padding_mode::Int64, align_corners::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__grid_sampler_2d_cpu_fallback_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Cint),
+                 outputs__, grad_output.pointer, input.pointer, grid.pointer, interpolation_mode, padding_mode, align_corners)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _index_copy!(self::Tensor, dim::Int64, index::Tensor, source::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_index\\_copy\\_(tensor *out\\_\\_, tensor self, int64\\_t dim, tensor index, tensor source)
+"""
+function _index_copy!(self::Tensor, dim::Int64, index::Tensor, source::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__index_copy_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, dim, index.pointer, source.pointer)
+    return self
+end
+
+
+"""
+    _index_put_impl!(self::Tensor, indices_data::Array{Tensor{T,N}}, values::Tensor, accumulate::Int, unsafe::Int)
+
+ Wrapper of C++ function void atg\\_\\_index\\_put\\_impl\\_(tensor *out\\_\\_, tensor self, tensor *indices\\_data, int indices\\_len, tensor values, int accumulate, int unsafe)
+"""
+function _index_put_impl!(self::Tensor, indices_data::Array{Tensor{T,N}}, values::Tensor, accumulate::Int, unsafe::Int) where {T,N}
+    outputs__ = Int[0]
+    indices_data_ta_ = map(x->x.pointer, indices_data)
+    indices_len = length(indices_data)
+    __cret = ccall((:atg__index_put_impl_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, indices_data_ta_, indices_len, values.pointer, accumulate, unsafe)
+    return self
+end
+
+
+"""
+    _indices(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_indices(tensor *out\\_\\_, tensor self)
+"""
+function _indices(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__indices, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _inverse_helper(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_inverse\\_helper(tensor *out\\_\\_, tensor self)
+"""
+function _inverse_helper(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__inverse_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _log_softmax(self::Tensor, dim::Int64, half_to_float::Int)
+
+ Wrapper of C++ function void atg\\_\\_log\\_softmax(tensor *out\\_\\_, tensor self, int64\\_t dim, int half\\_to\\_float)
+"""
+function _log_softmax(self::Tensor, dim::Int64, half_to_float::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__log_softmax, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, dim, half_to_float)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _log_softmax_backward_data(grad_output::Tensor, output::Tensor, dim::Int64, self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_log\\_softmax\\_backward\\_data(tensor *out\\_\\_, tensor grad\\_output, tensor output, int64\\_t dim, tensor self)
+"""
+function _log_softmax_backward_data(grad_output::Tensor, output::Tensor, dim::Int64, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__log_softmax_backward_data, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}),
+                 outputs__, grad_output.pointer, output.pointer, dim, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _logcumsumexp(self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_logcumsumexp(tensor *out\\_\\_, tensor self, int64\\_t dim)
+"""
+function _logcumsumexp(self::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__logcumsumexp, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _logcumsumexp_out(out::Tensor, self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_logcumsumexp\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t dim)
+"""
+function _logcumsumexp_out(out::Tensor, self::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__logcumsumexp_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, out.pointer, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _lu_solve_helper(self::Tensor, LU_data::Tensor, LU_pivots::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_lu\\_solve\\_helper(tensor *out\\_\\_, tensor self, tensor LU\\_data, tensor LU\\_pivots)
+"""
+function _lu_solve_helper(self::Tensor, LU_data::Tensor, LU_pivots::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__lu_solve_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, LU_data.pointer, LU_pivots.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _lu_with_info(self::Tensor, pivot::Int, check_errors::Int)
+
+ Wrapper of C++ function void atg\\_\\_lu\\_with\\_info(tensor *out\\_\\_, tensor self, int pivot, int check\\_errors)
+"""
+function _lu_with_info(self::Tensor, pivot::Int, check_errors::Int)
+    outputs__ = Int[0, 0, 0]
+    __cret = ccall((:atg__lu_with_info, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, pivot, check_errors)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    return __o_1, __o_2, __o_3
+end
+
+
+"""
+    _make_per_channel_quantized_tensor(self::Tensor, scale::Tensor, zero_point::Tensor, axis::Int64)
+
+ Wrapper of C++ function void atg\\_\\_make\\_per\\_channel\\_quantized\\_tensor(tensor *out\\_\\_, tensor self, tensor scale, tensor zero\\_point, int64\\_t axis)
+"""
+function _make_per_channel_quantized_tensor(self::Tensor, scale::Tensor, zero_point::Tensor, axis::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__make_per_channel_quantized_tensor, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, scale.pointer, zero_point.pointer, axis)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _make_per_tensor_quantized_tensor(self::Tensor, scale::Float64, zero_point::Int64)
+
+ Wrapper of C++ function void atg\\_\\_make\\_per\\_tensor\\_quantized\\_tensor(tensor *out\\_\\_, tensor self, double scale, int64\\_t zero\\_point)
+"""
+function _make_per_tensor_quantized_tensor(self::Tensor, scale::Float64, zero_point::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__make_per_tensor_quantized_tensor, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Clonglong),
+                 outputs__, self.pointer, scale, zero_point)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _masked_scale(self::Tensor, mask::Tensor, scale::Float64)
+
+ Wrapper of C++ function void atg\\_\\_masked\\_scale(tensor *out\\_\\_, tensor self, tensor mask, double scale)
+"""
+function _masked_scale(self::Tensor, mask::Tensor, scale::Float64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__masked_scale, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
+                 outputs__, self.pointer, mask.pointer, scale)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _mkldnn_reshape(self::Tensor, shape_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_mkldnn\\_reshape(tensor *out\\_\\_, tensor self, int64\\_t *shape\\_data, int shape\\_len)
+"""
+function _mkldnn_reshape(self::Tensor, shape_data::Array{Int64})
+    outputs__ = Int[0]
+    shape_len = length(shape_data)
+    __cret = ccall((:atg__mkldnn_reshape, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, shape_data, shape_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _mkldnn_transpose(self::Tensor, dim0::Int64, dim1::Int64)
+
+ Wrapper of C++ function void atg\\_\\_mkldnn\\_transpose(tensor *out\\_\\_, tensor self, int64\\_t dim0, int64\\_t dim1)
+"""
+function _mkldnn_transpose(self::Tensor, dim0::Int64, dim1::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__mkldnn_transpose, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
+                 outputs__, self.pointer, dim0, dim1)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _mkldnn_transpose!(self::Tensor, dim0::Int64, dim1::Int64)
+
+ Wrapper of C++ function void atg\\_\\_mkldnn\\_transpose\\_(tensor *out\\_\\_, tensor self, int64\\_t dim0, int64\\_t dim1)
+"""
+function _mkldnn_transpose!(self::Tensor, dim0::Int64, dim1::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__mkldnn_transpose_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
+                 outputs__, self.pointer, dim0, dim1)
+    return self
+end
+
+
+"""
+    _mode(self::Tensor, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_\\_mode(tensor *out\\_\\_, tensor self, int64\\_t dim, int keepdim)
+"""
+function _mode(self::Tensor, dim::Int64, keepdim::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__mode, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _mode_out(values::Tensor, indices::Tensor, self::Tensor, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_\\_mode\\_out(tensor *out\\_\\_, tensor values, tensor indices, tensor self, int64\\_t dim, int keepdim)
+"""
+function _mode_out(values::Tensor, indices::Tensor, self::Tensor, dim::Int64, keepdim::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__mode_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, values.pointer, indices.pointer, self.pointer, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _multinomial_alias_draw(J::Tensor, q::Tensor, num_samples::Int64)
+
+ Wrapper of C++ function void atg\\_\\_multinomial\\_alias\\_draw(tensor *out\\_\\_, tensor J, tensor q, int64\\_t num\\_samples)
+"""
+function _multinomial_alias_draw(J::Tensor, q::Tensor, num_samples::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__multinomial_alias_draw, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, J.pointer, q.pointer, num_samples)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _multinomial_alias_setup(probs::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_multinomial\\_alias\\_setup(tensor *out\\_\\_, tensor probs)
+"""
+function _multinomial_alias_setup(probs::Tensor)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__multinomial_alias_setup, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, probs.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _nnpack_spatial_convolution(input::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_nnpack\\_spatial\\_convolution(tensor *out\\_\\_, tensor input, tensor weight, tensor bias, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len)
+"""
+function _nnpack_spatial_convolution(input::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64})
+    outputs__ = Int[0]
+    padding_len = length(padding_data)
+    stride_len = length(stride_data)
+    __cret = ccall((:atg__nnpack_spatial_convolution, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, input.pointer, weight.pointer, bias.pointer, padding_data, padding_len, stride_data, stride_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _nnpack_spatial_convolution_backward_input(input::Tensor, grad_output::Tensor, weight::Tensor, padding_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_nnpack\\_spatial\\_convolution\\_backward\\_input(tensor *out\\_\\_, tensor input, tensor grad\\_output, tensor weight, int64\\_t *padding\\_data, int padding\\_len)
+"""
+function _nnpack_spatial_convolution_backward_input(input::Tensor, grad_output::Tensor, weight::Tensor, padding_data::Array{Int64})
+    outputs__ = Int[0]
+    padding_len = length(padding_data)
+    __cret = ccall((:atg__nnpack_spatial_convolution_backward_input, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, input.pointer, grad_output.pointer, weight.pointer, padding_data, padding_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _nnpack_spatial_convolution_backward_weight(input::Tensor, weightsize_data::Array{Int64}, grad_output::Tensor, padding_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_nnpack\\_spatial\\_convolution\\_backward\\_weight(tensor *out\\_\\_, tensor input, int64\\_t *weightsize\\_data, int weightsize\\_len, tensor grad\\_output, int64\\_t *padding\\_data, int padding\\_len)
+"""
+function _nnpack_spatial_convolution_backward_weight(input::Tensor, weightsize_data::Array{Int64}, grad_output::Tensor, padding_data::Array{Int64})
+    outputs__ = Int[0]
+    weightsize_len = length(weightsize_data)
+    padding_len = length(padding_data)
+    __cret = ccall((:atg__nnpack_spatial_convolution_backward_weight, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, input.pointer, weightsize_data, weightsize_len, grad_output.pointer, padding_data, padding_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _pack_padded_sequence(input::Tensor, lengths::Tensor, batch_first::Int)
+
+ Wrapper of C++ function void atg\\_\\_pack\\_padded\\_sequence(tensor *out\\_\\_, tensor input, tensor lengths, int batch\\_first)
+"""
+function _pack_padded_sequence(input::Tensor, lengths::Tensor, batch_first::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__pack_padded_sequence, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, input.pointer, lengths.pointer, batch_first)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _pack_padded_sequence_backward(grad::Tensor, input_size_data::Array{Int64}, batch_sizes::Tensor, batch_first::Int)
+
+ Wrapper of C++ function void atg\\_\\_pack\\_padded\\_sequence\\_backward(tensor *out\\_\\_, tensor grad, int64\\_t *input\\_size\\_data, int input\\_size\\_len, tensor batch\\_sizes, int batch\\_first)
+"""
+function _pack_padded_sequence_backward(grad::Tensor, input_size_data::Array{Int64}, batch_sizes::Tensor, batch_first::Int)
+    outputs__ = Int[0]
+    input_size_len = length(input_size_data)
+    __cret = ccall((:atg__pack_padded_sequence_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, grad.pointer, input_size_data, input_size_len, batch_sizes.pointer, batch_first)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _pad_packed_sequence(data::Tensor, batch_sizes::Tensor, batch_first::Int, padding_value::TorchNumber, total_length::Int64)
+
+ Wrapper of C++ function void atg\\_\\_pad\\_packed\\_sequence(tensor *out\\_\\_, tensor data, tensor batch\\_sizes, int batch\\_first, scalar padding\\_value, int64\\_t total\\_length)
+"""
+function _pad_packed_sequence(data::Tensor, batch_sizes::Tensor, batch_first::Int, padding_value::TorchNumber, total_length::Int64)
+    outputs__ = Int[0, 0]
+    padding_value_s_ = Scalar(padding_value)
+    __cret = ccall((:atg__pad_packed_sequence, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Clonglong),
+                 outputs__, data.pointer, batch_sizes.pointer, batch_first, padding_value_s_.pointer, total_length)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _pdist_backward(grad::Tensor, self::Tensor, p::Float64, pdist::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_pdist\\_backward(tensor *out\\_\\_, tensor grad, tensor self, double p, tensor pdist)
+"""
+function _pdist_backward(grad::Tensor, self::Tensor, p::Float64, pdist::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__pdist_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Ptr{Cvoid}),
+                 outputs__, grad.pointer, self.pointer, p, pdist.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _qr_helper(self::Tensor, some::Int)
+
+ Wrapper of C++ function void atg\\_\\_qr\\_helper(tensor *out\\_\\_, tensor self, int some)
+"""
+function _qr_helper(self::Tensor, some::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__qr_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, some)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _remove_batch_dim(self::Tensor, level::Int64, batch_size::Int64, out_dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_remove\\_batch\\_dim(tensor *out\\_\\_, tensor self, int64\\_t level, int64\\_t batch\\_size, int64\\_t out\\_dim)
+"""
+function _remove_batch_dim(self::Tensor, level::Int64, batch_size::Int64, out_dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__remove_batch_dim, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong),
+                 outputs__, self.pointer, level, batch_size, out_dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _reshape_from_tensor(self::Tensor, shape::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_reshape\\_from\\_tensor(tensor *out\\_\\_, tensor self, tensor shape)
+"""
+function _reshape_from_tensor(self::Tensor, shape::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__reshape_from_tensor, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, shape.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _s_where(condition::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_s\\_where(tensor *out\\_\\_, tensor condition, tensor self, tensor other)
+"""
+function _s_where(condition::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__s_where, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, condition.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sample_dirichlet(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_sample\\_dirichlet(tensor *out\\_\\_, tensor self)
+"""
+function _sample_dirichlet(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sample_dirichlet, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _saturate_weight_to_fp16(weight::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_saturate\\_weight\\_to\\_fp16(tensor *out\\_\\_, tensor weight)
+"""
+function _saturate_weight_to_fp16(weight::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__saturate_weight_to_fp16, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, weight.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _shape_as_tensor(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_shape\\_as\\_tensor(tensor *out\\_\\_, tensor self)
+"""
+function _shape_as_tensor(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__shape_as_tensor, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sobol_engine_draw(quasi::Tensor, n::Int64, sobolstate::Tensor, dimension::Int64, num_generated::Int64, dtype::Int)
+
+ Wrapper of C++ function void atg\\_\\_sobol\\_engine\\_draw(tensor *out\\_\\_, tensor quasi, int64\\_t n, tensor sobolstate, int64\\_t dimension, int64\\_t num\\_generated, int dtype)
+"""
+function _sobol_engine_draw(quasi::Tensor, n::Int64, sobolstate::Tensor, dimension::Int64, num_generated::Int64, dtype::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__sobol_engine_draw, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Clonglong, Clonglong, Cint),
+                 outputs__, quasi.pointer, n, sobolstate.pointer, dimension, num_generated, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _sobol_engine_ff!(self::Tensor, n::Int64, sobolstate::Tensor, dimension::Int64, num_generated::Int64)
+
+ Wrapper of C++ function void atg\\_\\_sobol\\_engine\\_ff\\_(tensor *out\\_\\_, tensor self, int64\\_t n, tensor sobolstate, int64\\_t dimension, int64\\_t num\\_generated)
+"""
+function _sobol_engine_ff!(self::Tensor, n::Int64, sobolstate::Tensor, dimension::Int64, num_generated::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sobol_engine_ff_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Clonglong, Clonglong),
+                 outputs__, self.pointer, n, sobolstate.pointer, dimension, num_generated)
+    return self
+end
+
+
+"""
+    _sobol_engine_initialize_state!(self::Tensor, dimension::Int64)
+
+ Wrapper of C++ function void atg\\_\\_sobol\\_engine\\_initialize\\_state\\_(tensor *out\\_\\_, tensor self, int64\\_t dimension)
+"""
+function _sobol_engine_initialize_state!(self::Tensor, dimension::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sobol_engine_initialize_state_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, dimension)
+    return self
+end
+
+
+"""
+    _sobol_engine_scramble!(self::Tensor, ltm::Tensor, dimension::Int64)
+
+ Wrapper of C++ function void atg\\_\\_sobol\\_engine\\_scramble\\_(tensor *out\\_\\_, tensor self, tensor ltm, int64\\_t dimension)
+"""
+function _sobol_engine_scramble!(self::Tensor, ltm::Tensor, dimension::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sobol_engine_scramble_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, ltm.pointer, dimension)
+    return self
+end
+
+
+"""
+    _softmax(self::Tensor, dim::Int64, half_to_float::Int)
+
+ Wrapper of C++ function void atg\\_\\_softmax(tensor *out\\_\\_, tensor self, int64\\_t dim, int half\\_to\\_float)
+"""
+function _softmax(self::Tensor, dim::Int64, half_to_float::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__softmax, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, dim, half_to_float)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _softmax_backward_data(grad_output::Tensor, output::Tensor, dim::Int64, self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_softmax\\_backward\\_data(tensor *out\\_\\_, tensor grad\\_output, tensor output, int64\\_t dim, tensor self)
+"""
+function _softmax_backward_data(grad_output::Tensor, output::Tensor, dim::Int64, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__softmax_backward_data, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}),
+                 outputs__, grad_output.pointer, output.pointer, dim, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _solve_helper(self::Tensor, A::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_solve\\_helper(tensor *out\\_\\_, tensor self, tensor A)
+"""
+function _solve_helper(self::Tensor, A::Tensor)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__solve_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, A.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _sparse_addmm(self::Tensor, sparse::Tensor, dense::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_addmm(tensor *out\\_\\_, tensor self, tensor sparse, tensor dense)
+"""
+function _sparse_addmm(self::Tensor, sparse::Tensor, dense::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_addmm, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, sparse.pointer, dense.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_coo_tensor_unsafe(indices::Tensor, values::Tensor, size_data::Array{Int64}, options_kind::Int, options_device::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_coo\\_tensor\\_unsafe(tensor *out\\_\\_, tensor indices, tensor values, int64\\_t *size\\_data, int size\\_len, int options\\_kind, int options\\_device)
+"""
+function _sparse_coo_tensor_unsafe(indices::Tensor, values::Tensor, size_data::Array{Int64}, options_kind::Int, options_device::Int)
+    outputs__ = Int[0]
+    size_len = length(size_data)
+    __cret = ccall((:atg__sparse_coo_tensor_unsafe, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, indices.pointer, values.pointer, size_data, size_len, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_coo_tensor_with_dims(sparse_dim::Int64, dense_dim::Int64, size_data::Array{Int64}, options_kind::Int, options_device::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_coo\\_tensor\\_with\\_dims(tensor *out\\_\\_, int64\\_t sparse\\_dim, int64\\_t dense\\_dim, int64\\_t *size\\_data, int size\\_len, int options\\_kind, int options\\_device)
+"""
+function _sparse_coo_tensor_with_dims(sparse_dim::Int64, dense_dim::Int64, size_data::Array{Int64}, options_kind::Int, options_device::Int)
+    outputs__ = Int[0]
+    size_len = length(size_data)
+    __cret = ccall((:atg__sparse_coo_tensor_with_dims, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Clonglong, Clonglong, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, sparse_dim, dense_dim, size_data, size_len, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_coo_tensor_with_dims_and_tensors(sparse_dim::Int64, dense_dim::Int64, size_data::Array{Int64}, indices::Tensor, values::Tensor, options_kind::Int, options_device::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_coo\\_tensor\\_with\\_dims\\_and\\_tensors(tensor *out\\_\\_, int64\\_t sparse\\_dim, int64\\_t dense\\_dim, int64\\_t *size\\_data, int size\\_len, tensor indices, tensor values, int options\\_kind, int options\\_device)
+"""
+function _sparse_coo_tensor_with_dims_and_tensors(sparse_dim::Int64, dense_dim::Int64, size_data::Array{Int64}, indices::Tensor, values::Tensor, options_kind::Int, options_device::Int)
+    outputs__ = Int[0]
+    size_len = length(size_data)
+    __cret = ccall((:atg__sparse_coo_tensor_with_dims_and_tensors, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Clonglong, Clonglong, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, sparse_dim, dense_dim, size_data, size_len, indices.pointer, values.pointer, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_log_softmax(self::Tensor, dim::Int64, dtype::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_log\\_softmax(tensor *out\\_\\_, tensor self, int64\\_t dim, int dtype)
+"""
+function _sparse_log_softmax(self::Tensor, dim::Int64, dtype::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_log_softmax, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, dim, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_log_softmax1(self::Tensor, dim::Int64, half_to_float::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_log\\_softmax1(tensor *out\\_\\_, tensor self, int64\\_t dim, int half\\_to\\_float)
+"""
+function _sparse_log_softmax1(self::Tensor, dim::Int64, half_to_float::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_log_softmax1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, dim, half_to_float)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_log_softmax_backward_data(grad_output::Tensor, output::Tensor, dim::Int64, self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_log\\_softmax\\_backward\\_data(tensor *out\\_\\_, tensor grad\\_output, tensor output, int64\\_t dim, tensor self)
+"""
+function _sparse_log_softmax_backward_data(grad_output::Tensor, output::Tensor, dim::Int64, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_log_softmax_backward_data, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}),
+                 outputs__, grad_output.pointer, output.pointer, dim, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_mm(sparse::Tensor, dense::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_mm(tensor *out\\_\\_, tensor sparse, tensor dense)
+"""
+function _sparse_mm(sparse::Tensor, dense::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_mm, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, sparse.pointer, dense.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_softmax(self::Tensor, dim::Int64, dtype::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_softmax(tensor *out\\_\\_, tensor self, int64\\_t dim, int dtype)
+"""
+function _sparse_softmax(self::Tensor, dim::Int64, dtype::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_softmax, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, dim, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_softmax1(self::Tensor, dim::Int64, half_to_float::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_softmax1(tensor *out\\_\\_, tensor self, int64\\_t dim, int half\\_to\\_float)
+"""
+function _sparse_softmax1(self::Tensor, dim::Int64, half_to_float::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_softmax1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, dim, half_to_float)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_softmax_backward_data(grad_output::Tensor, output::Tensor, dim::Int64, self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_softmax\\_backward\\_data(tensor *out\\_\\_, tensor grad\\_output, tensor output, int64\\_t dim, tensor self)
+"""
+function _sparse_softmax_backward_data(grad_output::Tensor, output::Tensor, dim::Int64, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_softmax_backward_data, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}),
+                 outputs__, grad_output.pointer, output.pointer, dim, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_sum(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_sum(tensor *out\\_\\_, tensor self)
+"""
+function _sparse_sum(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_sum, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_sum1(self::Tensor, dtype::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_sum1(tensor *out\\_\\_, tensor self, int dtype)
+"""
+function _sparse_sum1(self::Tensor, dtype::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__sparse_sum1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_sum2(self::Tensor, dim_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_sum2(tensor *out\\_\\_, tensor self, int64\\_t *dim\\_data, int dim\\_len)
+"""
+function _sparse_sum2(self::Tensor, dim_data::Array{Int64})
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg__sparse_sum2, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, dim_data, dim_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_sum3(self::Tensor, dim_data::Array{Int64}, dtype::Int)
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_sum3(tensor *out\\_\\_, tensor self, int64\\_t *dim\\_data, int dim\\_len, int dtype)
+"""
+function _sparse_sum3(self::Tensor, dim_data::Array{Int64}, dtype::Int)
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg__sparse_sum3, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, dim_data, dim_len, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _sparse_sum_backward(grad::Tensor, self::Tensor, dim_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_sparse\\_sum\\_backward(tensor *out\\_\\_, tensor grad, tensor self, int64\\_t *dim\\_data, int dim\\_len)
+"""
+function _sparse_sum_backward(grad::Tensor, self::Tensor, dim_data::Array{Int64})
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg__sparse_sum_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, grad.pointer, self.pointer, dim_data, dim_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _standard_gamma(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_standard\\_gamma(tensor *out\\_\\_, tensor self)
+"""
+function _standard_gamma(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__standard_gamma, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _standard_gamma_grad(self::Tensor, output::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_standard\\_gamma\\_grad(tensor *out\\_\\_, tensor self, tensor output)
+"""
+function _standard_gamma_grad(self::Tensor, output::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__standard_gamma_grad, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, output.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _std(self::Tensor, unbiased::Int)
+
+ Wrapper of C++ function void atg\\_\\_std(tensor *out\\_\\_, tensor self, int unbiased)
+"""
+function _std(self::Tensor, unbiased::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__std, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, unbiased)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _svd_helper(self::Tensor, some::Int, compute_uv::Int)
+
+ Wrapper of C++ function void atg\\_\\_svd\\_helper(tensor *out\\_\\_, tensor self, int some, int compute\\_uv)
+"""
+function _svd_helper(self::Tensor, some::Int, compute_uv::Int)
+    outputs__ = Int[0, 0, 0]
+    __cret = ccall((:atg__svd_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, some, compute_uv)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    return __o_1, __o_2, __o_3
+end
+
+
+"""
+    _symeig_helper(self::Tensor, eigenvectors::Int, upper::Int)
+
+ Wrapper of C++ function void atg\\_\\_symeig\\_helper(tensor *out\\_\\_, tensor self, int eigenvectors, int upper)
+"""
+function _symeig_helper(self::Tensor, eigenvectors::Int, upper::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__symeig_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, eigenvectors, upper)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _test_optional_filled_intlist(values::Tensor, addends_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_test\\_optional\\_filled\\_intlist(tensor *out\\_\\_, tensor values, int64\\_t *addends\\_data, int addends\\_len)
+"""
+function _test_optional_filled_intlist(values::Tensor, addends_data::Array{Int64})
+    outputs__ = Int[0]
+    addends_len = length(addends_data)
+    __cret = ccall((:atg__test_optional_filled_intlist, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, values.pointer, addends_data, addends_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _test_optional_intlist(values::Tensor, addends_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_test\\_optional\\_intlist(tensor *out\\_\\_, tensor values, int64\\_t *addends\\_data, int addends\\_len)
+"""
+function _test_optional_intlist(values::Tensor, addends_data::Array{Int64})
+    outputs__ = Int[0]
+    addends_len = length(addends_data)
+    __cret = ccall((:atg__test_optional_intlist, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, values.pointer, addends_data, addends_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _test_serialization_subcmul(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_test\\_serialization\\_subcmul(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function _test_serialization_subcmul(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__test_serialization_subcmul, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _thnn_differentiable_gru_cell_backward(grad_hy::Tensor, input_gates::Tensor, hidden_gates::Tensor, hx::Tensor, input_bias::Tensor, hidden_bias::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_thnn\\_differentiable\\_gru\\_cell\\_backward(tensor *out\\_\\_, tensor grad\\_hy, tensor input\\_gates, tensor hidden\\_gates, tensor hx, tensor input\\_bias, tensor hidden\\_bias)
+"""
+function _thnn_differentiable_gru_cell_backward(grad_hy::Tensor, input_gates::Tensor, hidden_gates::Tensor, hx::Tensor, input_bias::Tensor, hidden_bias::Tensor)
+    outputs__ = Int[0, 0, 0, 0, 0]
+    __cret = ccall((:atg__thnn_differentiable_gru_cell_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad_hy.pointer, input_gates.pointer, hidden_gates.pointer, hx.pointer, input_bias.pointer, hidden_bias.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    __o_4 = tensor_from_ptr(Ptr{Cvoid}(outputs__[4]))
+    __o_5 = tensor_from_ptr(Ptr{Cvoid}(outputs__[5]))
+    return __o_1, __o_2, __o_3, __o_4, __o_5
+end
+
+
+"""
+    _thnn_differentiable_lstm_cell_backward(grad_hy::Tensor, grad_cy::Tensor, input_gates::Tensor, hidden_gates::Tensor, input_bias::Tensor, hidden_bias::Tensor, cx::Tensor, cy::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_thnn\\_differentiable\\_lstm\\_cell\\_backward(tensor *out\\_\\_, tensor grad\\_hy, tensor grad\\_cy, tensor input\\_gates, tensor hidden\\_gates, tensor input\\_bias, tensor hidden\\_bias, tensor cx, tensor cy)
+"""
+function _thnn_differentiable_lstm_cell_backward(grad_hy::Tensor, grad_cy::Tensor, input_gates::Tensor, hidden_gates::Tensor, input_bias::Tensor, hidden_bias::Tensor, cx::Tensor, cy::Tensor)
+    outputs__ = Int[0, 0, 0, 0, 0]
+    __cret = ccall((:atg__thnn_differentiable_lstm_cell_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad_hy.pointer, grad_cy.pointer, input_gates.pointer, hidden_gates.pointer, input_bias.pointer, hidden_bias.pointer, cx.pointer, cy.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    __o_4 = tensor_from_ptr(Ptr{Cvoid}(outputs__[4]))
+    __o_5 = tensor_from_ptr(Ptr{Cvoid}(outputs__[5]))
+    return __o_1, __o_2, __o_3, __o_4, __o_5
+end
+
+
+"""
+    _thnn_fused_gru_cell(input_gates::Tensor, hidden_gates::Tensor, hx::Tensor, input_bias::Tensor, hidden_bias::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_thnn\\_fused\\_gru\\_cell(tensor *out\\_\\_, tensor input\\_gates, tensor hidden\\_gates, tensor hx, tensor input\\_bias, tensor hidden\\_bias)
+"""
+function _thnn_fused_gru_cell(input_gates::Tensor, hidden_gates::Tensor, hx::Tensor, input_bias::Tensor, hidden_bias::Tensor)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__thnn_fused_gru_cell, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, input_gates.pointer, hidden_gates.pointer, hx.pointer, input_bias.pointer, hidden_bias.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _thnn_fused_gru_cell_backward(grad_hy::Tensor, workspace::Tensor, has_bias::Int)
+
+ Wrapper of C++ function void atg\\_\\_thnn\\_fused\\_gru\\_cell\\_backward(tensor *out\\_\\_, tensor grad\\_hy, tensor workspace, int has\\_bias)
+"""
+function _thnn_fused_gru_cell_backward(grad_hy::Tensor, workspace::Tensor, has_bias::Int)
+    outputs__ = Int[0, 0, 0, 0, 0]
+    __cret = ccall((:atg__thnn_fused_gru_cell_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, grad_hy.pointer, workspace.pointer, has_bias)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    __o_4 = tensor_from_ptr(Ptr{Cvoid}(outputs__[4]))
+    __o_5 = tensor_from_ptr(Ptr{Cvoid}(outputs__[5]))
+    return __o_1, __o_2, __o_3, __o_4, __o_5
+end
+
+
+"""
+    _thnn_fused_lstm_cell(input_gates::Tensor, hidden_gates::Tensor, cx::Tensor, input_bias::Tensor, hidden_bias::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_thnn\\_fused\\_lstm\\_cell(tensor *out\\_\\_, tensor input\\_gates, tensor hidden\\_gates, tensor cx, tensor input\\_bias, tensor hidden\\_bias)
+"""
+function _thnn_fused_lstm_cell(input_gates::Tensor, hidden_gates::Tensor, cx::Tensor, input_bias::Tensor, hidden_bias::Tensor)
+    outputs__ = Int[0, 0, 0]
+    __cret = ccall((:atg__thnn_fused_lstm_cell, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, input_gates.pointer, hidden_gates.pointer, cx.pointer, input_bias.pointer, hidden_bias.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    return __o_1, __o_2, __o_3
+end
+
+
+"""
+    _thnn_fused_lstm_cell_backward(grad_hy::Tensor, grad_cy::Tensor, cx::Tensor, cy::Tensor, workspace::Tensor, has_bias::Int)
+
+ Wrapper of C++ function void atg\\_\\_thnn\\_fused\\_lstm\\_cell\\_backward(tensor *out\\_\\_, tensor grad\\_hy, tensor grad\\_cy, tensor cx, tensor cy, tensor workspace, int has\\_bias)
+"""
+function _thnn_fused_lstm_cell_backward(grad_hy::Tensor, grad_cy::Tensor, cx::Tensor, cy::Tensor, workspace::Tensor, has_bias::Int)
+    outputs__ = Int[0, 0, 0, 0, 0]
+    __cret = ccall((:atg__thnn_fused_lstm_cell_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, grad_hy.pointer, grad_cy.pointer, cx.pointer, cy.pointer, workspace.pointer, has_bias)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    __o_4 = tensor_from_ptr(Ptr{Cvoid}(outputs__[4]))
+    __o_5 = tensor_from_ptr(Ptr{Cvoid}(outputs__[5]))
+    return __o_1, __o_2, __o_3, __o_4, __o_5
+end
+
+
+"""
+    _triangular_solve_helper(self::Tensor, A::Tensor, upper::Int, transpose::Int, unitriangular::Int)
+
+ Wrapper of C++ function void atg\\_\\_triangular\\_solve\\_helper(tensor *out\\_\\_, tensor self, tensor A, int upper, int transpose, int unitriangular)
+"""
+function _triangular_solve_helper(self::Tensor, A::Tensor, upper::Int, transpose::Int, unitriangular::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__triangular_solve_helper, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, self.pointer, A.pointer, upper, transpose, unitriangular)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _trilinear(i1::Tensor, i2::Tensor, i3::Tensor, expand1_data::Array{Int64}, expand2_data::Array{Int64}, expand3_data::Array{Int64}, sumdim_data::Array{Int64}, unroll_dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_trilinear(tensor *out\\_\\_, tensor i1, tensor i2, tensor i3, int64\\_t *expand1\\_data, int expand1\\_len, int64\\_t *expand2\\_data, int expand2\\_len, int64\\_t *expand3\\_data, int expand3\\_len, int64\\_t *sumdim\\_data, int sumdim\\_len, int64\\_t unroll\\_dim)
+"""
+function _trilinear(i1::Tensor, i2::Tensor, i3::Tensor, expand1_data::Array{Int64}, expand2_data::Array{Int64}, expand3_data::Array{Int64}, sumdim_data::Array{Int64}, unroll_dim::Int64)
+    outputs__ = Int[0]
+    expand1_len = length(expand1_data)
+    expand2_len = length(expand2_data)
+    expand3_len = length(expand3_data)
+    sumdim_len = length(sumdim_data)
+    __cret = ccall((:atg__trilinear, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong),
+                 outputs__, i1.pointer, i2.pointer, i3.pointer, expand1_data, expand1_len, expand2_data, expand2_len, expand3_data, expand3_len, sumdim_data, sumdim_len, unroll_dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _unique(self::Tensor, sorted::Int, return_inverse::Int)
+
+ Wrapper of C++ function void atg\\_\\_unique(tensor *out\\_\\_, tensor self, int sorted, int return\\_inverse)
+"""
+function _unique(self::Tensor, sorted::Int, return_inverse::Int)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__unique, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, sorted, return_inverse)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _unique2(self::Tensor, sorted::Int, return_inverse::Int, return_counts::Int)
+
+ Wrapper of C++ function void atg\\_\\_unique2(tensor *out\\_\\_, tensor self, int sorted, int return\\_inverse, int return\\_counts)
+"""
+function _unique2(self::Tensor, sorted::Int, return_inverse::Int, return_counts::Int)
+    outputs__ = Int[0, 0, 0]
+    __cret = ccall((:atg__unique2, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, self.pointer, sorted, return_inverse, return_counts)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    return __o_1, __o_2, __o_3
+end
+
+
+"""
+    _unsafe_view(self::Tensor, size_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_\\_unsafe\\_view(tensor *out\\_\\_, tensor self, int64\\_t *size\\_data, int size\\_len)
+"""
+function _unsafe_view(self::Tensor, size_data::Array{Int64})
+    outputs__ = Int[0]
+    size_len = length(size_data)
+    __cret = ccall((:atg__unsafe_view, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, size_data, size_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _values(self::Tensor)
+
+ Wrapper of C++ function void atg\\_\\_values(tensor *out\\_\\_, tensor self)
+"""
+function _values(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__values, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _var(self::Tensor, unbiased::Int)
+
+ Wrapper of C++ function void atg\\_\\_var(tensor *out\\_\\_, tensor self, int unbiased)
+"""
+function _var(self::Tensor, unbiased::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__var, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, unbiased)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _weight_norm(v::Tensor, g::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_weight\\_norm(tensor *out\\_\\_, tensor v, tensor g, int64\\_t dim)
+"""
+function _weight_norm(v::Tensor, g::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg__weight_norm, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, v.pointer, g.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    _weight_norm_cuda_interface(v::Tensor, g::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_weight\\_norm\\_cuda\\_interface(tensor *out\\_\\_, tensor v, tensor g, int64\\_t dim)
+"""
+function _weight_norm_cuda_interface(v::Tensor, g::Tensor, dim::Int64)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__weight_norm_cuda_interface, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, v.pointer, g.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _weight_norm_cuda_interface_backward(grad_w::Tensor, saved_v::Tensor, saved_g::Tensor, saved_norms::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_weight\\_norm\\_cuda\\_interface\\_backward(tensor *out\\_\\_, tensor grad\\_w, tensor saved\\_v, tensor saved\\_g, tensor saved\\_norms, int64\\_t dim)
+"""
+function _weight_norm_cuda_interface_backward(grad_w::Tensor, saved_v::Tensor, saved_g::Tensor, saved_norms::Tensor, dim::Int64)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__weight_norm_cuda_interface_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, grad_w.pointer, saved_v.pointer, saved_g.pointer, saved_norms.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    _weight_norm_differentiable_backward(grad_w::Tensor, saved_v::Tensor, saved_g::Tensor, saved_norms::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_\\_weight\\_norm\\_differentiable\\_backward(tensor *out\\_\\_, tensor grad\\_w, tensor saved\\_v, tensor saved\\_g, tensor saved\\_norms, int64\\_t dim)
+"""
+function _weight_norm_differentiable_backward(grad_w::Tensor, saved_v::Tensor, saved_g::Tensor, saved_norms::Tensor, dim::Int64)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg__weight_norm_differentiable_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, grad_w.pointer, saved_v.pointer, saved_g.pointer, saved_norms.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
 import Base.abs
 
 
@@ -48,6 +2649,50 @@ function abs_out(out::Tensor, self::Tensor)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+
+
+"""
+    absolute(self::Tensor)
+
+ Wrapper of C++ function void atg\\_absolute(tensor *out\\_\\_, tensor self)
+"""
+function absolute(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_absolute, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    absolute!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_absolute\\_(tensor *out\\_\\_, tensor self)
+"""
+function absolute!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_absolute_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    absolute_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_absolute\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function absolute_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_absolute_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.acos
 
 
@@ -88,6 +2733,51 @@ end
 function acos_out(out::Tensor, self::Tensor)
     outputs__ = Int[0]
     __cret = ccall((:atg_acos_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+import Base.acosh
+
+
+"""
+    acosh(self::Tensor)
+
+ Wrapper of C++ function void atg\\_acosh(tensor *out\\_\\_, tensor self)
+"""
+function acosh(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_acosh, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    acosh!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_acosh\\_(tensor *out\\_\\_, tensor self)
+"""
+function acosh!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_acosh_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    acosh_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_acosh\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function acosh_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_acosh_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, out.pointer, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
@@ -847,6 +3537,70 @@ function alpha_dropout!(self::Tensor, p::Float64, train::Int)
                  outputs__, self.pointer, p, train)
     return self
 end
+
+
+"""
+    amax(self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_amax(tensor *out\\_\\_, tensor self, int64\\_t *dim\\_data, int dim\\_len, int keepdim)
+"""
+function amax(self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_amax, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, dim_data, dim_len, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    amax_out(out::Tensor, self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_amax\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *dim\\_data, int dim\\_len, int keepdim)
+"""
+function amax_out(out::Tensor, self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_amax_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, out.pointer, self.pointer, dim_data, dim_len, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    amin(self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_amin(tensor *out\\_\\_, tensor self, int64\\_t *dim\\_data, int dim\\_len, int keepdim)
+"""
+function amin(self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_amin, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, dim_data, dim_len, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    amin_out(out::Tensor, self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_amin\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *dim\\_data, int dim\\_len, int keepdim)
+"""
+function amin_out(out::Tensor, self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_amin_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, out.pointer, self.pointer, dim_data, dim_len, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.angle
 
 
@@ -1008,6 +3762,270 @@ function arange_out1(out::Tensor, start::TorchNumber, end_::TorchNumber)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+
+
+"""
+    arccos(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arccos(tensor *out\\_\\_, tensor self)
+"""
+function arccos(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arccos, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arccos!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arccos\\_(tensor *out\\_\\_, tensor self)
+"""
+function arccos!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arccos_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    arccos_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_arccos\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function arccos_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arccos_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arccosh(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arccosh(tensor *out\\_\\_, tensor self)
+"""
+function arccosh(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arccosh, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arccosh!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arccosh\\_(tensor *out\\_\\_, tensor self)
+"""
+function arccosh!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arccosh_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    arccosh_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_arccosh\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function arccosh_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arccosh_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arcsin(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arcsin(tensor *out\\_\\_, tensor self)
+"""
+function arcsin(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arcsin, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arcsin!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arcsin\\_(tensor *out\\_\\_, tensor self)
+"""
+function arcsin!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arcsin_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    arcsin_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_arcsin\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function arcsin_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arcsin_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arcsinh(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arcsinh(tensor *out\\_\\_, tensor self)
+"""
+function arcsinh(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arcsinh, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arcsinh!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arcsinh\\_(tensor *out\\_\\_, tensor self)
+"""
+function arcsinh!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arcsinh_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    arcsinh_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_arcsinh\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function arcsinh_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arcsinh_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arctan(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arctan(tensor *out\\_\\_, tensor self)
+"""
+function arctan(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arctan, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arctan!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arctan\\_(tensor *out\\_\\_, tensor self)
+"""
+function arctan!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arctan_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    arctan_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_arctan\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function arctan_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arctan_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arctanh(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arctanh(tensor *out\\_\\_, tensor self)
+"""
+function arctanh(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arctanh, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    arctanh!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_arctanh\\_(tensor *out\\_\\_, tensor self)
+"""
+function arctanh!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arctanh_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    arctanh_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_arctanh\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function arctanh_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_arctanh_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.argmax
 
 
@@ -1133,6 +4151,51 @@ function asin_out(out::Tensor, self::Tensor)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+import Base.asinh
+
+
+"""
+    asinh(self::Tensor)
+
+ Wrapper of C++ function void atg\\_asinh(tensor *out\\_\\_, tensor self)
+"""
+function asinh(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_asinh, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    asinh!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_asinh\\_(tensor *out\\_\\_, tensor self)
+"""
+function asinh!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_asinh_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    asinh_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_asinh\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function asinh_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_asinh_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.atan
 
 
@@ -1221,6 +4284,165 @@ function atan_out(out::Tensor, self::Tensor)
                  outputs__, out.pointer, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
+end
+import Base.atanh
+
+
+"""
+    atanh(self::Tensor)
+
+ Wrapper of C++ function void atg\\_atanh(tensor *out\\_\\_, tensor self)
+"""
+function atanh(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_atanh, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    atanh!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_atanh\\_(tensor *out\\_\\_, tensor self)
+"""
+function atanh!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_atanh_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    atanh_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_atanh\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function atanh_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_atanh_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    atleast_1d(self::Tensor)
+
+ Wrapper of C++ function void atg\\_atleast\\_1d(tensor *out\\_\\_, tensor self)
+"""
+function atleast_1d(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_atleast_1d, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    atleast_1d1(tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function tensor *atg\\_atleast\\_1d1(tensor *tensors\\_data, int tensors\\_len)
+"""
+function atleast_1d1(tensors_data::Array{Tensor{T,N}}) where {T,N}
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_atleast_1d1, :libtorch_capi),
+                 Ptr{Int}, (Ptr{Cvoid}, Cint),
+                 tensors_data_ta_, tensors_len)
+    ptrs__, i__ = Int[], 1
+    while true
+        ptr__ = unsafe_load(__cret, i__)
+        ptr__ == 0 && break
+        push!(ptrs__, ptr__)
+        i__ += 1
+    end
+    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
+    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
+end
+
+
+"""
+    atleast_2d(self::Tensor)
+
+ Wrapper of C++ function void atg\\_atleast\\_2d(tensor *out\\_\\_, tensor self)
+"""
+function atleast_2d(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_atleast_2d, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    atleast_2d1(tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function tensor *atg\\_atleast\\_2d1(tensor *tensors\\_data, int tensors\\_len)
+"""
+function atleast_2d1(tensors_data::Array{Tensor{T,N}}) where {T,N}
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_atleast_2d1, :libtorch_capi),
+                 Ptr{Int}, (Ptr{Cvoid}, Cint),
+                 tensors_data_ta_, tensors_len)
+    ptrs__, i__ = Int[], 1
+    while true
+        ptr__ = unsafe_load(__cret, i__)
+        ptr__ == 0 && break
+        push!(ptrs__, ptr__)
+        i__ += 1
+    end
+    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
+    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
+end
+
+
+"""
+    atleast_3d(self::Tensor)
+
+ Wrapper of C++ function void atg\\_atleast\\_3d(tensor *out\\_\\_, tensor self)
+"""
+function atleast_3d(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_atleast_3d, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    atleast_3d1(tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function tensor *atg\\_atleast\\_3d1(tensor *tensors\\_data, int tensors\\_len)
+"""
+function atleast_3d1(tensors_data::Array{Tensor{T,N}}) where {T,N}
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_atleast_3d1, :libtorch_capi),
+                 Ptr{Int}, (Ptr{Cvoid}, Cint),
+                 tensors_data_ta_, tensors_len)
+    ptrs__, i__ = Int[], 1
+    while true
+        ptr__ = unsafe_load(__cret, i__)
+        ptr__ == 0 && break
+        push!(ptrs__, ptr__)
+        i__ += 1
+    end
+    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
+    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
 end
 
 
@@ -1555,16 +4777,15 @@ end
 
 
 """
-    batch_norm_gather_stats_with_counts(input::Tensor, mean::Tensor, invstd::Tensor, running_mean::Tensor, running_var::Tensor, momentum::Float64, eps::Float64, counts_data::Array{Int64})
+    batch_norm_gather_stats_with_counts(input::Tensor, mean::Tensor, invstd::Tensor, running_mean::Tensor, running_var::Tensor, momentum::Float64, eps::Float64, counts::Tensor)
 
- Wrapper of C++ function void atg\\_batch\\_norm\\_gather\\_stats\\_with\\_counts(tensor *out\\_\\_, tensor input, tensor mean, tensor invstd, tensor running\\_mean, tensor running\\_var, double momentum, double eps, int64\\_t *counts\\_data, int counts\\_len)
+ Wrapper of C++ function void atg\\_batch\\_norm\\_gather\\_stats\\_with\\_counts(tensor *out\\_\\_, tensor input, tensor mean, tensor invstd, tensor running\\_mean, tensor running\\_var, double momentum, double eps, tensor counts)
 """
-function batch_norm_gather_stats_with_counts(input::Tensor, mean::Tensor, invstd::Tensor, running_mean::Tensor, running_var::Tensor, momentum::Float64, eps::Float64, counts_data::Array{Int64})
+function batch_norm_gather_stats_with_counts(input::Tensor, mean::Tensor, invstd::Tensor, running_mean::Tensor, running_var::Tensor, momentum::Float64, eps::Float64, counts::Tensor)
     outputs__ = Int[0, 0]
-    counts_len = length(counts_data)
     __cret = ccall((:atg_batch_norm_gather_stats_with_counts, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble, Ptr{Cvoid}, Cint),
-                 outputs__, input.pointer, mean.pointer, invstd.pointer, running_mean.pointer, running_var.pointer, momentum, eps, counts_data, counts_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble, Ptr{Cvoid}),
+                 outputs__, input.pointer, mean.pointer, invstd.pointer, running_mean.pointer, running_var.pointer, momentum, eps, counts.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
     return __o_1, __o_2
@@ -1794,6 +5015,113 @@ function bincount(self::Tensor, weights::Tensor, minlength::Int64)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+import Base.binomial
+
+
+"""
+    binomial(count::Tensor, prob::Tensor)
+
+ Wrapper of C++ function void atg\\_binomial(tensor *out\\_\\_, tensor count, tensor prob)
+"""
+function binomial(count::Tensor, prob::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_binomial, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, count.pointer, prob.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bitwise_and(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_bitwise\\_and(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function bitwise_and(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_bitwise_and, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bitwise_and1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_bitwise\\_and1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function bitwise_and1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_bitwise_and1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bitwise_and!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_bitwise\\_and\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function bitwise_and!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_bitwise_and_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    bitwise_and1!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_bitwise\\_and\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function bitwise_and1!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_bitwise_and_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    bitwise_and_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_bitwise\\_and\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function bitwise_and_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_bitwise_and_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bitwise_and_out1(out::Tensor, self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_bitwise\\_and\\_out1(tensor *out\\_\\_, tensor out, tensor self, scalar other)
+"""
+function bitwise_and_out1(out::Tensor, self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_bitwise_and_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 
 
 """
@@ -1835,6 +5163,97 @@ function bitwise_not_out(out::Tensor, self::Tensor)
     __cret = ccall((:atg_bitwise_not_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bitwise_or(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_bitwise\\_or(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function bitwise_or(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_bitwise_or, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bitwise_or1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_bitwise\\_or1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function bitwise_or1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_bitwise_or1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bitwise_or!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_bitwise\\_or\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function bitwise_or!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_bitwise_or_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    bitwise_or1!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_bitwise\\_or\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function bitwise_or1!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_bitwise_or_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    bitwise_or_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_bitwise\\_or\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function bitwise_or_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_bitwise_or_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bitwise_or_out1(out::Tensor, self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_bitwise\\_or\\_out1(tensor *out\\_\\_, tensor out, tensor self, scalar other)
+"""
+function bitwise_or_out1(out::Tensor, self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_bitwise_or_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other_s_.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -1962,6 +5381,23 @@ end
 
 
 """
+    block_diag(tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function void atg\\_block\\_diag(tensor *out\\_\\_, tensor *tensors\\_data, int tensors\\_len)
+"""
+function block_diag(tensors_data::Array{Tensor{T,N}}) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_block_diag, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, tensors_data_ta_, tensors_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     bmm(self::Tensor, mat2::Tensor)
 
  Wrapper of C++ function void atg\\_bmm(tensor *out\\_\\_, tensor self, tensor mat2)
@@ -2011,6 +5447,52 @@ function broadcast_tensors(tensors_data::Array{Tensor{T,N}}) where {T,N}
     end
     ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
     return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
+end
+
+
+"""
+    bucketize(self::Tensor, boundaries::Tensor, out_int32::Int, right::Int)
+
+ Wrapper of C++ function void atg\\_bucketize(tensor *out\\_\\_, tensor self, tensor boundaries, int out\\_int32, int right)
+"""
+function bucketize(self::Tensor, boundaries::Tensor, out_int32::Int, right::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_bucketize, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, boundaries.pointer, out_int32, right)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bucketize1(self::TorchNumber, boundaries::Tensor, out_int32::Int, right::Int)
+
+ Wrapper of C++ function void atg\\_bucketize1(tensor *out\\_\\_, scalar self, tensor boundaries, int out\\_int32, int right)
+"""
+function bucketize1(self::TorchNumber, boundaries::Tensor, out_int32::Int, right::Int)
+    outputs__ = Int[0]
+    self_s_ = Scalar(self)
+    __cret = ccall((:atg_bucketize1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self_s_.pointer, boundaries.pointer, out_int32, right)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    bucketize_out(out::Tensor, self::Tensor, boundaries::Tensor, out_int32::Int, right::Int)
+
+ Wrapper of C++ function void atg\\_bucketize\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor boundaries, int out\\_int32, int right)
+"""
+function bucketize_out(out::Tensor, self::Tensor, boundaries::Tensor, out_int32::Int, right::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_bucketize_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, out.pointer, self.pointer, boundaries.pointer, out_int32, right)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
 end
 
 
@@ -2181,6 +5663,21 @@ function chain_matmul(matrices_data::Array{Tensor{T,N}}) where {T,N}
     __cret = ccall((:atg_chain_matmul, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, matrices_data_ta_, matrices_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    channel_shuffle(self::Tensor, groups::Int64)
+
+ Wrapper of C++ function void atg\\_channel\\_shuffle(tensor *out\\_\\_, tensor self, int64\\_t groups)
+"""
+function channel_shuffle(self::Tensor, groups::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_channel_shuffle, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, groups)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -2445,6 +5942,56 @@ end
 
 
 """
+    clip(self::Tensor, min::TorchNumber, max::TorchNumber)
+
+ Wrapper of C++ function void atg\\_clip(tensor *out\\_\\_, tensor self, scalar min, scalar max)
+"""
+function clip(self::Tensor, min::TorchNumber, max::TorchNumber)
+    outputs__ = Int[0]
+    min_s_ = Scalar(min)
+    max_s_ = Scalar(max)
+    __cret = ccall((:atg_clip, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, min_s_.pointer, max_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    clip!(self::Tensor, min::TorchNumber, max::TorchNumber)
+
+ Wrapper of C++ function void atg\\_clip\\_(tensor *out\\_\\_, tensor self, scalar min, scalar max)
+"""
+function clip!(self::Tensor, min::TorchNumber, max::TorchNumber)
+    outputs__ = Int[0]
+    min_s_ = Scalar(min)
+    max_s_ = Scalar(max)
+    __cret = ccall((:atg_clip_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, min_s_.pointer, max_s_.pointer)
+    return self
+end
+
+
+"""
+    clip_out(out::Tensor, self::Tensor, min::TorchNumber, max::TorchNumber)
+
+ Wrapper of C++ function void atg\\_clip\\_out(tensor *out\\_\\_, tensor out, tensor self, scalar min, scalar max)
+"""
+function clip_out(out::Tensor, self::Tensor, min::TorchNumber, max::TorchNumber)
+    outputs__ = Int[0]
+    min_s_ = Scalar(min)
+    max_s_ = Scalar(max)
+    __cret = ccall((:atg_clip_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, min_s_.pointer, max_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     clone(self::Tensor)
 
  Wrapper of C++ function void atg\\_clone(tensor *out\\_\\_, tensor self)
@@ -2563,6 +6110,37 @@ function combinations(self::Tensor, r::Int64, with_replacement::Int)
     __cret = ccall((:atg_combinations, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
                  outputs__, self.pointer, r, with_replacement)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+import Base.complex
+
+
+"""
+    complex(real::Tensor, imag::Tensor)
+
+ Wrapper of C++ function void atg\\_complex(tensor *out\\_\\_, tensor real, tensor imag)
+"""
+function complex(real::Tensor, imag::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_complex, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, real.pointer, imag.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    complex_out(out::Tensor, real::Tensor, imag::Tensor)
+
+ Wrapper of C++ function void atg\\_complex\\_out(tensor *out\\_\\_, tensor out, tensor real, tensor imag)
+"""
+function complex_out(out::Tensor, real::Tensor, imag::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_complex_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, real.pointer, imag.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -3073,16 +6651,34 @@ end
 
 
 """
-    cudnn_convolution(self::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+    cudnn_convolution(self::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
 
- Wrapper of C++ function void atg\\_cudnn\\_convolution(tensor *out\\_\\_, tensor self, tensor weight, tensor bias, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
+ Wrapper of C++ function void atg\\_cudnn\\_convolution(tensor *out\\_\\_, tensor self, tensor weight, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
 """
-function cudnn_convolution(self::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+function cudnn_convolution(self::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
     outputs__ = Int[0]
     padding_len = length(padding_data)
     stride_len = length(stride_data)
     dilation_len = length(dilation_data)
     __cret = ccall((:atg_cudnn_convolution, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
+                 outputs__, self.pointer, weight.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    cudnn_convolution1(self::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+
+ Wrapper of C++ function void atg\\_cudnn\\_convolution1(tensor *out\\_\\_, tensor self, tensor weight, tensor bias, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
+"""
+function cudnn_convolution1(self::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+    outputs__ = Int[0]
+    padding_len = length(padding_data)
+    stride_len = length(stride_data)
+    dilation_len = length(dilation_data)
+    __cret = ccall((:atg_cudnn_convolution1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
                  outputs__, self.pointer, weight.pointer, bias.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
@@ -3091,70 +6687,92 @@ end
 
 
 """
-    cudnn_convolution_backward_bias(grad_output::Tensor)
+    cudnn_convolution2(self::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
 
- Wrapper of C++ function void atg\\_cudnn\\_convolution\\_backward\\_bias(tensor *out\\_\\_, tensor grad\\_output)
+ Wrapper of C++ function void atg\\_cudnn\\_convolution2(tensor *out\\_\\_, tensor self, tensor weight, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic, int allow\\_tf32)
 """
-function cudnn_convolution_backward_bias(grad_output::Tensor)
+function cudnn_convolution2(self::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
     outputs__ = Int[0]
-    __cret = ccall((:atg_cudnn_convolution_backward_bias, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
-                 outputs__, grad_output.pointer)
+    padding_len = length(padding_data)
+    stride_len = length(stride_data)
+    dilation_len = length(dilation_data)
+    __cret = ccall((:atg_cudnn_convolution2, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint, Cint),
+                 outputs__, self.pointer, weight.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic, allow_tf32)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    cudnn_convolution_backward_input(self_size_data::Array{Int64}, grad_output::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+    cudnn_convolution_backward_input(self_size_data::Array{Int64}, grad_output::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
 
- Wrapper of C++ function void atg\\_cudnn\\_convolution\\_backward\\_input(tensor *out\\_\\_, int64\\_t *self\\_size\\_data, int self\\_size\\_len, tensor grad\\_output, tensor weight, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
+ Wrapper of C++ function void atg\\_cudnn\\_convolution\\_backward\\_input(tensor *out\\_\\_, int64\\_t *self\\_size\\_data, int self\\_size\\_len, tensor grad\\_output, tensor weight, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic, int allow\\_tf32)
 """
-function cudnn_convolution_backward_input(self_size_data::Array{Int64}, grad_output::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+function cudnn_convolution_backward_input(self_size_data::Array{Int64}, grad_output::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
     outputs__ = Int[0]
     self_size_len = length(self_size_data)
     padding_len = length(padding_data)
     stride_len = length(stride_data)
     dilation_len = length(dilation_data)
     __cret = ccall((:atg_cudnn_convolution_backward_input, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
-                 outputs__, self_size_data, self_size_len, grad_output.pointer, weight.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint, Cint),
+                 outputs__, self_size_data, self_size_len, grad_output.pointer, weight.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic, allow_tf32)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    cudnn_convolution_backward_weight(weight_size_data::Array{Int64}, grad_output::Tensor, self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+    cudnn_convolution_backward_weight(weight_size_data::Array{Int64}, grad_output::Tensor, self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
 
- Wrapper of C++ function void atg\\_cudnn\\_convolution\\_backward\\_weight(tensor *out\\_\\_, int64\\_t *weight\\_size\\_data, int weight\\_size\\_len, tensor grad\\_output, tensor self, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
+ Wrapper of C++ function void atg\\_cudnn\\_convolution\\_backward\\_weight(tensor *out\\_\\_, int64\\_t *weight\\_size\\_data, int weight\\_size\\_len, tensor grad\\_output, tensor self, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic, int allow\\_tf32)
 """
-function cudnn_convolution_backward_weight(weight_size_data::Array{Int64}, grad_output::Tensor, self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+function cudnn_convolution_backward_weight(weight_size_data::Array{Int64}, grad_output::Tensor, self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
     outputs__ = Int[0]
     weight_size_len = length(weight_size_data)
     padding_len = length(padding_data)
     stride_len = length(stride_data)
     dilation_len = length(dilation_data)
     __cret = ccall((:atg_cudnn_convolution_backward_weight, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
-                 outputs__, weight_size_data, weight_size_len, grad_output.pointer, self.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint, Cint),
+                 outputs__, weight_size_data, weight_size_len, grad_output.pointer, self.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic, allow_tf32)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    cudnn_convolution_transpose(self::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, output_padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+    cudnn_convolution_transpose(self::Tensor, weight::Tensor, padding_data::Array{Int64}, output_padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
 
- Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose(tensor *out\\_\\_, tensor self, tensor weight, tensor bias, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *output\\_padding\\_data, int output\\_padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
+ Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose(tensor *out\\_\\_, tensor self, tensor weight, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *output\\_padding\\_data, int output\\_padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
 """
-function cudnn_convolution_transpose(self::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, output_padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+function cudnn_convolution_transpose(self::Tensor, weight::Tensor, padding_data::Array{Int64}, output_padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
     outputs__ = Int[0]
     padding_len = length(padding_data)
     output_padding_len = length(output_padding_data)
     stride_len = length(stride_data)
     dilation_len = length(dilation_data)
     __cret = ccall((:atg_cudnn_convolution_transpose, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
+                 outputs__, self.pointer, weight.pointer, padding_data, padding_len, output_padding_data, output_padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    cudnn_convolution_transpose1(self::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, output_padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+
+ Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose1(tensor *out\\_\\_, tensor self, tensor weight, tensor bias, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *output\\_padding\\_data, int output\\_padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
+"""
+function cudnn_convolution_transpose1(self::Tensor, weight::Tensor, bias::Tensor, padding_data::Array{Int64}, output_padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+    outputs__ = Int[0]
+    padding_len = length(padding_data)
+    output_padding_len = length(output_padding_data)
+    stride_len = length(stride_data)
+    dilation_len = length(dilation_data)
+    __cret = ccall((:atg_cudnn_convolution_transpose1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
                  outputs__, self.pointer, weight.pointer, bias.pointer, padding_data, padding_len, output_padding_data, output_padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
@@ -3163,52 +6781,56 @@ end
 
 
 """
-    cudnn_convolution_transpose_backward_bias(grad_output::Tensor)
+    cudnn_convolution_transpose2(self::Tensor, weight::Tensor, padding_data::Array{Int64}, output_padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
 
- Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose\\_backward\\_bias(tensor *out\\_\\_, tensor grad\\_output)
+ Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose2(tensor *out\\_\\_, tensor self, tensor weight, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *output\\_padding\\_data, int output\\_padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic, int allow\\_tf32)
 """
-function cudnn_convolution_transpose_backward_bias(grad_output::Tensor)
+function cudnn_convolution_transpose2(self::Tensor, weight::Tensor, padding_data::Array{Int64}, output_padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
     outputs__ = Int[0]
-    __cret = ccall((:atg_cudnn_convolution_transpose_backward_bias, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
-                 outputs__, grad_output.pointer)
+    padding_len = length(padding_data)
+    output_padding_len = length(output_padding_data)
+    stride_len = length(stride_data)
+    dilation_len = length(dilation_data)
+    __cret = ccall((:atg_cudnn_convolution_transpose2, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint, Cint),
+                 outputs__, self.pointer, weight.pointer, padding_data, padding_len, output_padding_data, output_padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic, allow_tf32)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    cudnn_convolution_transpose_backward_input(grad_output::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+    cudnn_convolution_transpose_backward_input(grad_output::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
 
- Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose\\_backward\\_input(tensor *out\\_\\_, tensor grad\\_output, tensor weight, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
+ Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose\\_backward\\_input(tensor *out\\_\\_, tensor grad\\_output, tensor weight, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic, int allow\\_tf32)
 """
-function cudnn_convolution_transpose_backward_input(grad_output::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+function cudnn_convolution_transpose_backward_input(grad_output::Tensor, weight::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
     outputs__ = Int[0]
     padding_len = length(padding_data)
     stride_len = length(stride_data)
     dilation_len = length(dilation_data)
     __cret = ccall((:atg_cudnn_convolution_transpose_backward_input, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
-                 outputs__, grad_output.pointer, weight.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint, Cint),
+                 outputs__, grad_output.pointer, weight.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic, allow_tf32)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    cudnn_convolution_transpose_backward_weight(weight_size_data::Array{Int64}, grad_output::Tensor, self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+    cudnn_convolution_transpose_backward_weight(weight_size_data::Array{Int64}, grad_output::Tensor, self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
 
- Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose\\_backward\\_weight(tensor *out\\_\\_, int64\\_t *weight\\_size\\_data, int weight\\_size\\_len, tensor grad\\_output, tensor self, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic)
+ Wrapper of C++ function void atg\\_cudnn\\_convolution\\_transpose\\_backward\\_weight(tensor *out\\_\\_, int64\\_t *weight\\_size\\_data, int weight\\_size\\_len, tensor grad\\_output, tensor self, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups, int benchmark, int deterministic, int allow\\_tf32)
 """
-function cudnn_convolution_transpose_backward_weight(weight_size_data::Array{Int64}, grad_output::Tensor, self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int)
+function cudnn_convolution_transpose_backward_weight(weight_size_data::Array{Int64}, grad_output::Tensor, self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64, benchmark::Int, deterministic::Int, allow_tf32::Int)
     outputs__ = Int[0]
     weight_size_len = length(weight_size_data)
     padding_len = length(padding_data)
     stride_len = length(stride_data)
     dilation_len = length(dilation_data)
     __cret = ccall((:atg_cudnn_convolution_transpose_backward_weight, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint),
-                 outputs__, weight_size_data, weight_size_len, grad_output.pointer, self.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong, Cint, Cint, Cint),
+                 outputs__, weight_size_data, weight_size_len, grad_output.pointer, self.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups, benchmark, deterministic, allow_tf32)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -3243,6 +6865,85 @@ function cudnn_grid_sampler_backward(self::Tensor, grid::Tensor, grad_output::Te
     __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
     return __o_1, __o_2
 end
+
+
+"""
+    cummax(self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_cummax(tensor *out\\_\\_, tensor self, int64\\_t dim)
+"""
+function cummax(self::Tensor, dim::Int64)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg_cummax, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    cummax_out(values::Tensor, indices::Tensor, self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_cummax\\_out(tensor *out\\_\\_, tensor values, tensor indices, tensor self, int64\\_t dim)
+"""
+function cummax_out(values::Tensor, indices::Tensor, self::Tensor, dim::Int64)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg_cummax_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, values.pointer, indices.pointer, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    cummaxmin_backward(grad::Tensor, input::Tensor, indices::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_cummaxmin\\_backward(tensor *out\\_\\_, tensor grad, tensor input, tensor indices, int64\\_t dim)
+"""
+function cummaxmin_backward(grad::Tensor, input::Tensor, indices::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_cummaxmin_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, grad.pointer, input.pointer, indices.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    cummin(self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_cummin(tensor *out\\_\\_, tensor self, int64\\_t dim)
+"""
+function cummin(self::Tensor, dim::Int64)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg_cummin, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
+
+
+"""
+    cummin_out(values::Tensor, indices::Tensor, self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_cummin\\_out(tensor *out\\_\\_, tensor values, tensor indices, tensor self, int64\\_t dim)
+"""
+function cummin_out(values::Tensor, indices::Tensor, self::Tensor, dim::Int64)
+    outputs__ = Int[0, 0]
+    __cret = ccall((:atg_cummin_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, values.pointer, indices.pointer, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    return __o_1, __o_2
+end
 import Base.cumprod
 
 
@@ -3256,6 +6957,21 @@ function cumprod(self::Tensor, dim::Int64, dtype::Int)
     __cret = ccall((:atg_cumprod, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
                  outputs__, self.pointer, dim, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    cumprod_backward(grad::Tensor, input::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_cumprod\\_backward(tensor *out\\_\\_, tensor grad, tensor input, int64\\_t dim)
+"""
+function cumprod_backward(grad::Tensor, input::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_cumprod_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, grad.pointer, input.pointer, dim)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -3320,6 +7036,51 @@ function data(self::Tensor)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+import Base.deg2rad
+
+
+"""
+    deg2rad(self::Tensor)
+
+ Wrapper of C++ function void atg\\_deg2rad(tensor *out\\_\\_, tensor self)
+"""
+function deg2rad(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_deg2rad, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    deg2rad!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_deg2rad\\_(tensor *out\\_\\_, tensor self)
+"""
+function deg2rad!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_deg2rad_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    deg2rad_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_deg2rad\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function deg2rad_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_deg2rad_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 
 
 """
@@ -3334,6 +7095,29 @@ function dequantize(self::Tensor)
                  outputs__, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
+end
+
+
+"""
+    dequantize1(tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function tensor *atg\\_dequantize1(tensor *tensors\\_data, int tensors\\_len)
+"""
+function dequantize1(tensors_data::Array{Tensor{T,N}}) where {T,N}
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_dequantize1, :libtorch_capi),
+                 Ptr{Int}, (Ptr{Cvoid}, Cint),
+                 tensors_data_ta_, tensors_len)
+    ptrs__, i__ = Int[], 1
+    while true
+        ptr__ = unsafe_load(__cret, i__)
+        ptr__ == 0 && break
+        push!(ptrs__, ptr__)
+        i__ += 1
+    end
+    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
+    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
 end
 
 
@@ -3398,6 +7182,22 @@ end
 
 
 """
+    diag_backward(grad::Tensor, input_sizes_data::Array{Int64}, diagonal::Int64)
+
+ Wrapper of C++ function void atg\\_diag\\_backward(tensor *out\\_\\_, tensor grad, int64\\_t *input\\_sizes\\_data, int input\\_sizes\\_len, int64\\_t diagonal)
+"""
+function diag_backward(grad::Tensor, input_sizes_data::Array{Int64}, diagonal::Int64)
+    outputs__ = Int[0]
+    input_sizes_len = length(input_sizes_data)
+    __cret = ccall((:atg_diag_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong),
+                 outputs__, grad.pointer, input_sizes_data, input_sizes_len, diagonal)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     diag_embed(self::Tensor, offset::Int64, dim1::Int64, dim2::Int64)
 
  Wrapper of C++ function void atg\\_diag\\_embed(tensor *out\\_\\_, tensor self, int64\\_t offset, int64\\_t dim1, int64\\_t dim2)
@@ -3452,6 +7252,22 @@ function diagonal(self::Tensor, offset::Int64, dim1::Int64, dim2::Int64)
     __cret = ccall((:atg_diagonal, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong),
                  outputs__, self.pointer, offset, dim1, dim2)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    diagonal_backward(grad::Tensor, input_sizes_data::Array{Int64}, offset::Int64, dim1::Int64, dim2::Int64)
+
+ Wrapper of C++ function void atg\\_diagonal\\_backward(tensor *out\\_\\_, tensor grad, int64\\_t *input\\_sizes\\_data, int input\\_sizes\\_len, int64\\_t offset, int64\\_t dim1, int64\\_t dim2)
+"""
+function diagonal_backward(grad::Tensor, input_sizes_data::Array{Int64}, offset::Int64, dim1::Int64, dim2::Int64)
+    outputs__ = Int[0]
+    input_sizes_len = length(input_sizes_data)
+    __cret = ccall((:atg_diagonal_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Clonglong, Clonglong),
+                 outputs__, grad.pointer, input_sizes_data, input_sizes_len, offset, dim1, dim2)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -3592,6 +7408,81 @@ end
 
 
 """
+    divide(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_divide(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function divide(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_divide, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    divide1(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_divide1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function divide1(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_divide1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    divide!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_divide\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function divide!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_divide_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    divide1!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_divide\\_1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function divide1!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_divide_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    divide_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_divide\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function divide_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_divide_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     dot(self::Tensor, tensor::Tensor)
 
  Wrapper of C++ function void atg\\_dot(tensor *out\\_\\_, tensor self, tensor tensor)
@@ -3651,6 +7542,40 @@ end
 
 
 """
+    dstack(tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function void atg\\_dstack(tensor *out\\_\\_, tensor *tensors\\_data, int tensors\\_len)
+"""
+function dstack(tensors_data::Array{Tensor{T,N}}) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_dstack, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, tensors_data_ta_, tensors_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    dstack_out(out::Tensor, tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function void atg\\_dstack\\_out(tensor *out\\_\\_, tensor out, tensor *tensors\\_data, int tensors\\_len)
+"""
+function dstack_out(out::Tensor, tensors_data::Array{Tensor{T,N}}) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_dstack_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, out.pointer, tensors_data_ta_, tensors_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     eig(self::Tensor, eigenvectors::Int)
 
  Wrapper of C++ function void atg\\_eig(tensor *out\\_\\_, tensor self, int eigenvectors)
@@ -3679,7 +7604,7 @@ function eig_out(e::Tensor, v::Tensor, self::Tensor, eigenvectors::Int)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
     return __o_1, __o_2
-end
+end# einsum ignored
 
 
 """
@@ -3793,15 +7718,15 @@ end
 
 
 """
-    embedding_bag(weight::Tensor, indices::Tensor, offsets::Tensor, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor)
+    embedding_bag(weight::Tensor, indices::Tensor, offsets::Tensor, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor, include_last_offset::Int)
 
- Wrapper of C++ function void atg\\_embedding\\_bag(tensor *out\\_\\_, tensor weight, tensor indices, tensor offsets, int scale\\_grad\\_by\\_freq, int64\\_t mode, int sparse, tensor per\\_sample\\_weights)
+ Wrapper of C++ function void atg\\_embedding\\_bag(tensor *out\\_\\_, tensor weight, tensor indices, tensor offsets, int scale\\_grad\\_by\\_freq, int64\\_t mode, int sparse, tensor per\\_sample\\_weights, int include\\_last\\_offset)
 """
-function embedding_bag(weight::Tensor, indices::Tensor, offsets::Tensor, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor)
+function embedding_bag(weight::Tensor, indices::Tensor, offsets::Tensor, scale_grad_by_freq::Int, mode::Int64, sparse::Int, per_sample_weights::Tensor, include_last_offset::Int)
     outputs__ = Int[0, 0, 0, 0]
     __cret = ccall((:atg_embedding_bag, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Cint, Ptr{Cvoid}),
-                 outputs__, weight.pointer, indices.pointer, offsets.pointer, scale_grad_by_freq, mode, sparse, per_sample_weights.pointer)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, weight.pointer, indices.pointer, offsets.pointer, scale_grad_by_freq, mode, sparse, per_sample_weights.pointer, include_last_offset)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
     __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
@@ -3887,15 +7812,16 @@ end
 
 
 """
-    empty_like1(self::Tensor, options_kind::Int, options_device::Int)
+    empty_meta(size_data::Array{Int64}, options_kind::Int, options_device::Int)
 
- Wrapper of C++ function void atg\\_empty\\_like1(tensor *out\\_\\_, tensor self, int options\\_kind, int options\\_device)
+ Wrapper of C++ function void atg\\_empty\\_meta(tensor *out\\_\\_, int64\\_t *size\\_data, int size\\_len, int options\\_kind, int options\\_device)
 """
-function empty_like1(self::Tensor, options_kind::Int, options_device::Int)
+function empty_meta(size_data::Array{Int64}, options_kind::Int, options_device::Int)
     outputs__ = Int[0]
-    __cret = ccall((:atg_empty_like1, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, options_kind, options_device)
+    size_len = length(size_data)
+    __cret = ccall((:atg_empty_meta, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, size_data, size_len, options_kind, options_device)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -3912,6 +7838,22 @@ function empty_out(out::Tensor, size_data::Array{Int64})
     __cret = ccall((:atg_empty_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, out.pointer, size_data, size_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    empty_quantized(size_data::Array{Int64}, qtensor::Tensor)
+
+ Wrapper of C++ function void atg\\_empty\\_quantized(tensor *out\\_\\_, int64\\_t *size\\_data, int size\\_len, tensor qtensor)
+"""
+function empty_quantized(size_data::Array{Int64}, qtensor::Tensor)
+    outputs__ = Int[0]
+    size_len = length(size_data)
+    __cret = ccall((:atg_empty_quantized, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}),
+                 outputs__, size_data, size_len, qtensor.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -4168,6 +8110,51 @@ function exp(self::Tensor)
     __cret = ccall((:atg_exp, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+import Base.exp2
+
+
+"""
+    exp2(self::Tensor)
+
+ Wrapper of C++ function void atg\\_exp2(tensor *out\\_\\_, tensor self)
+"""
+function exp2(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_exp2, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    exp2!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_exp2\\_(tensor *out\\_\\_, tensor self)
+"""
+function exp2!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_exp2_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    exp2_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_exp2\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function exp2_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_exp2_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -4591,7 +8578,7 @@ function fft(self::Tensor, signal_ndim::Int64, normalized::Int)
                  outputs__, self.pointer, signal_ndim, normalized)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
-end
+end# fft_fft ignored# fft_fftn ignored# fft_hfft ignored# fft_ifft ignored# fft_ifftn ignored# fft_ihfft ignored# fft_irfft ignored# fft_irfftn ignored# fft_rfft ignored# fft_rfftn ignored
 import Base.fill!
 
 
@@ -4640,6 +8627,50 @@ end
 
 
 """
+    fix(self::Tensor)
+
+ Wrapper of C++ function void atg\\_fix(tensor *out\\_\\_, tensor self)
+"""
+function fix(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_fix, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    fix!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_fix\\_(tensor *out\\_\\_, tensor self)
+"""
+function fix!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_fix_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    fix_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_fix\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function fix_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_fix_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     flatten(self::Tensor, start_dim::Int64, end_dim::Int64)
 
  Wrapper of C++ function void atg\\_flatten(tensor *out\\_\\_, tensor self, int64\\_t start\\_dim, int64\\_t end\\_dim)
@@ -4665,6 +8696,36 @@ function flip(self::Tensor, dims_data::Array{Int64})
     __cret = ccall((:atg_flip, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, dims_data, dims_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    fliplr(self::Tensor)
+
+ Wrapper of C++ function void atg\\_fliplr(tensor *out\\_\\_, tensor self)
+"""
+function fliplr(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_fliplr, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    flipud(self::Tensor)
+
+ Wrapper of C++ function void atg\\_flipud(tensor *out\\_\\_, tensor self)
+"""
+function flipud(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_flipud, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -4697,6 +8758,81 @@ function floor!(self::Tensor)
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
     return self
+end
+
+
+"""
+    floor_divide(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_floor\\_divide(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function floor_divide(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_floor_divide, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    floor_divide1(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_floor\\_divide1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function floor_divide1(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_floor_divide1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    floor_divide!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_floor\\_divide\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function floor_divide!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_floor_divide_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    floor_divide1!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_floor\\_divide\\_1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function floor_divide1!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_floor_divide_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    floor_divide_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_floor\\_divide\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function floor_divide_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_floor_divide_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
 end
 
 
@@ -5034,7 +9170,7 @@ function frobenius_norm_out(out::Tensor, self::Tensor, dim_data::Array{Int64}, k
                  outputs__, out.pointer, self.pointer, dim_data, dim_len, keepdim)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
-end
+end# from_file ignored
 
 
 """
@@ -5065,22 +9201,6 @@ function full_like(self::Tensor, fill_value::TorchNumber)
     __cret = ccall((:atg_full_like, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, fill_value_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    full_like1(self::Tensor, fill_value::TorchNumber, options_kind::Int, options_device::Int)
-
- Wrapper of C++ function void atg\\_full\\_like1(tensor *out\\_\\_, tensor self, scalar fill\\_value, int options\\_kind, int options\\_device)
-"""
-function full_like1(self::Tensor, fill_value::TorchNumber, options_kind::Int, options_device::Int)
-    outputs__ = Int[0]
-    fill_value_s_ = Scalar(fill_value)
-    __cret = ccall((:atg_full_like1, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, fill_value_s_.pointer, options_kind, options_device)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -5119,6 +9239,21 @@ end
 
 
 """
+    gather_backward(grad::Tensor, self::Tensor, dim::Int64, index::Tensor, sparse_grad::Int)
+
+ Wrapper of C++ function void atg\\_gather\\_backward(tensor *out\\_\\_, tensor grad, tensor self, int64\\_t dim, tensor index, int sparse\\_grad)
+"""
+function gather_backward(grad::Tensor, self::Tensor, dim::Int64, index::Tensor, sparse_grad::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_gather_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Cint),
+                 outputs__, grad.pointer, self.pointer, dim, index.pointer, sparse_grad)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     gather_out(out::Tensor, self::Tensor, dim::Int64, index::Tensor, sparse_grad::Int)
 
  Wrapper of C++ function void atg\\_gather\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t dim, tensor index, int sparse\\_grad)
@@ -5128,6 +9263,51 @@ function gather_out(out::Tensor, self::Tensor, dim::Int64, index::Tensor, sparse
     __cret = ccall((:atg_gather_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Cint),
                  outputs__, out.pointer, self.pointer, dim, index.pointer, sparse_grad)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+import Base.gcd
+
+
+"""
+    gcd(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_gcd(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function gcd(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_gcd, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    gcd!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_gcd\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function gcd!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_gcd_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    gcd_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_gcd\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function gcd_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_gcd_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -5400,6 +9580,188 @@ function grad(self::Tensor)
     __cret = ccall((:atg_grad, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    greater(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_greater(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function greater(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_greater, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    greater1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_greater1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function greater1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_greater1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    greater!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_greater\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function greater!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_greater_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    greater1!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_greater\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function greater1!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_greater_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    greater_equal(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_greater\\_equal(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function greater_equal(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_greater_equal, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    greater_equal1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_greater\\_equal1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function greater_equal1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_greater_equal1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    greater_equal!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_greater\\_equal\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function greater_equal!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_greater_equal_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    greater_equal1!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_greater\\_equal\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function greater_equal1!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_greater_equal_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    greater_equal_out(out::Tensor, self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_greater\\_equal\\_out(tensor *out\\_\\_, tensor out, tensor self, scalar other)
+"""
+function greater_equal_out(out::Tensor, self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_greater_equal_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    greater_equal_out1(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_greater\\_equal\\_out1(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function greater_equal_out1(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_greater_equal_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    greater_out(out::Tensor, self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_greater\\_out(tensor *out\\_\\_, tensor out, tensor self, scalar other)
+"""
+function greater_out(out::Tensor, self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_greater_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    greater_out1(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_greater\\_out1(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function greater_out1(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_greater_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -5761,6 +10123,124 @@ end
 
 
 """
+    hardsigmoid(self::Tensor)
+
+ Wrapper of C++ function void atg\\_hardsigmoid(tensor *out\\_\\_, tensor self)
+"""
+function hardsigmoid(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hardsigmoid, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    hardsigmoid!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_hardsigmoid\\_(tensor *out\\_\\_, tensor self)
+"""
+function hardsigmoid!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hardsigmoid_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    hardsigmoid_backward(grad_output::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_hardsigmoid\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self)
+"""
+function hardsigmoid_backward(grad_output::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hardsigmoid_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad_output.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    hardsigmoid_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_hardsigmoid\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function hardsigmoid_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hardsigmoid_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    hardswish(self::Tensor)
+
+ Wrapper of C++ function void atg\\_hardswish(tensor *out\\_\\_, tensor self)
+"""
+function hardswish(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hardswish, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    hardswish!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_hardswish\\_(tensor *out\\_\\_, tensor self)
+"""
+function hardswish!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hardswish_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    hardswish_backward(grad_output::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_hardswish\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self)
+"""
+function hardswish_backward(grad_output::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hardswish_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad_output.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    hardswish_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_hardswish\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function hardswish_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hardswish_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     hardtanh(self::Tensor)
 
  Wrapper of C++ function void atg\\_hardtanh(tensor *out\\_\\_, tensor self)
@@ -5839,6 +10319,50 @@ end
 
 
 """
+    heaviside(self::Tensor, values::Tensor)
+
+ Wrapper of C++ function void atg\\_heaviside(tensor *out\\_\\_, tensor self, tensor values)
+"""
+function heaviside(self::Tensor, values::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_heaviside, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, values.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    heaviside!(self::Tensor, values::Tensor)
+
+ Wrapper of C++ function void atg\\_heaviside\\_(tensor *out\\_\\_, tensor self, tensor values)
+"""
+function heaviside!(self::Tensor, values::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_heaviside_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, values.pointer)
+    return self
+end
+
+
+"""
+    heaviside_out(out::Tensor, self::Tensor, values::Tensor)
+
+ Wrapper of C++ function void atg\\_heaviside\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor values)
+"""
+function heaviside_out(out::Tensor, self::Tensor, values::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_heaviside_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, values.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     hinge_embedding_loss(self::Tensor, target::Tensor, margin::Float64, reduction::Int64)
 
  Wrapper of C++ function void atg\\_hinge\\_embedding\\_loss(tensor *out\\_\\_, tensor self, tensor target, double margin, int64\\_t reduction)
@@ -5908,6 +10432,129 @@ function hspmm_out(out::Tensor, mat1::Tensor, mat2::Tensor)
     __cret = ccall((:atg_hspmm_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, out.pointer, mat1.pointer, mat2.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    hstack(tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function void atg\\_hstack(tensor *out\\_\\_, tensor *tensors\\_data, int tensors\\_len)
+"""
+function hstack(tensors_data::Array{Tensor{T,N}}) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_hstack, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, tensors_data_ta_, tensors_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    hstack_out(out::Tensor, tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function void atg\\_hstack\\_out(tensor *out\\_\\_, tensor out, tensor *tensors\\_data, int tensors\\_len)
+"""
+function hstack_out(out::Tensor, tensors_data::Array{Tensor{T,N}}) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_hstack_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, out.pointer, tensors_data_ta_, tensors_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+import Base.hypot
+
+
+"""
+    hypot(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_hypot(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function hypot(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hypot, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    hypot!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_hypot\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function hypot!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hypot_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    hypot_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_hypot\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function hypot_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_hypot_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    i0(self::Tensor)
+
+ Wrapper of C++ function void atg\\_i0(tensor *out\\_\\_, tensor self)
+"""
+function i0(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_i0, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    i0!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_i0\\_(tensor *out\\_\\_, tensor self)
+"""
+function i0!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_i0_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    i0_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_i0\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function i0_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_i0_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -6017,21 +10664,6 @@ function imag(self::Tensor)
     __cret = ccall((:atg_imag, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    imag_out(out::Tensor, self::Tensor)
-
- Wrapper of C++ function void atg\\_imag\\_out(tensor *out\\_\\_, tensor out, tensor self)
-"""
-function imag_out(out::Tensor, self::Tensor)
-    outputs__ = Int[0]
-    __cret = ccall((:atg_imag_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
-                 outputs__, out.pointer, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -6221,6 +10853,22 @@ end
 
 
 """
+    index_select_backward(grad::Tensor, self_sizes_data::Array{Int64}, dim::Int64, index::Tensor)
+
+ Wrapper of C++ function void atg\\_index\\_select\\_backward(tensor *out\\_\\_, tensor grad, int64\\_t *self\\_sizes\\_data, int self\\_sizes\\_len, int64\\_t dim, tensor index)
+"""
+function index_select_backward(grad::Tensor, self_sizes_data::Array{Int64}, dim::Int64, index::Tensor)
+    outputs__ = Int[0]
+    self_sizes_len = length(self_sizes_data)
+    __cret = ccall((:atg_index_select_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Ptr{Cvoid}),
+                 outputs__, grad.pointer, self_sizes_data, self_sizes_len, dim, index.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     index_select_out(out::Tensor, self::Tensor, dim::Int64, index::Tensor)
 
  Wrapper of C++ function void atg\\_index\\_select\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t dim, tensor index)
@@ -6245,6 +10893,21 @@ function indices(self::Tensor)
     __cret = ccall((:atg_indices, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    infinitely_differentiable_gelu_backward(grad::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_infinitely\\_differentiable\\_gelu\\_backward(tensor *out\\_\\_, tensor grad, tensor self)
+"""
+function infinitely_differentiable_gelu_backward(grad::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_infinitely_differentiable_gelu_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad.pointer, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -6355,6 +11018,22 @@ function isfinite(self::Tensor)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+import Base.isinf
+
+
+"""
+    isinf(self::Tensor)
+
+ Wrapper of C++ function void atg\\_isinf(tensor *out\\_\\_, tensor self)
+"""
+function isinf(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_isinf, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.isnan
 
 
@@ -6374,30 +11053,166 @@ end
 
 
 """
-    kl_div(self::Tensor, target::Tensor, reduction::Int64)
+    isneginf(self::Tensor)
 
- Wrapper of C++ function void atg\\_kl\\_div(tensor *out\\_\\_, tensor self, tensor target, int64\\_t reduction)
+ Wrapper of C++ function void atg\\_isneginf(tensor *out\\_\\_, tensor self)
 """
-function kl_div(self::Tensor, target::Tensor, reduction::Int64)
+function isneginf(self::Tensor)
     outputs__ = Int[0]
-    __cret = ccall((:atg_kl_div, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
-                 outputs__, self.pointer, target.pointer, reduction)
+    __cret = ccall((:atg_isneginf, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    kl_div_backward(grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64)
+    isneginf_out(out::Tensor, self::Tensor)
 
- Wrapper of C++ function void atg\\_kl\\_div\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, tensor target, int64\\_t reduction)
+ Wrapper of C++ function void atg\\_isneginf\\_out(tensor *out\\_\\_, tensor out, tensor self)
 """
-function kl_div_backward(grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64)
+function isneginf_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_isneginf_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    isposinf(self::Tensor)
+
+ Wrapper of C++ function void atg\\_isposinf(tensor *out\\_\\_, tensor self)
+"""
+function isposinf(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_isposinf, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    isposinf_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_isposinf\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function isposinf_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_isposinf_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+import Base.isreal
+
+
+"""
+    isreal(self::Tensor)
+
+ Wrapper of C++ function void atg\\_isreal(tensor *out\\_\\_, tensor self)
+"""
+function isreal(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_isreal, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    istft(self::Tensor, n_fft::Int64, hop_length::Int64, win_length::Int64, window::Tensor, center::Int, normalized::Int, onesided::Int, length::Int64, return_complex::Int)
+
+ Wrapper of C++ function void atg\\_istft(tensor *out\\_\\_, tensor self, int64\\_t n\\_fft, int64\\_t hop\\_length, int64\\_t win\\_length, tensor window, int center, int normalized, int onesided, int64\\_t length, int return\\_complex)
+"""
+function istft(self::Tensor, n_fft::Int64, hop_length::Int64, win_length::Int64, window::Tensor, center::Int, normalized::Int, onesided::Int, length::Int64, return_complex::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_istft, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong, Ptr{Cvoid}, Cint, Cint, Cint, Clonglong, Cint),
+                 outputs__, self.pointer, n_fft, hop_length, win_length, window.pointer, center, normalized, onesided, length, return_complex)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    kaiser_window(window_length::Int64, options_kind::Int, options_device::Int)
+
+ Wrapper of C++ function void atg\\_kaiser\\_window(tensor *out\\_\\_, int64\\_t window\\_length, int options\\_kind, int options\\_device)
+"""
+function kaiser_window(window_length::Int64, options_kind::Int, options_device::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_kaiser_window, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Clonglong, Cint, Cint),
+                 outputs__, window_length, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    kaiser_window1(window_length::Int64, periodic::Int, options_kind::Int, options_device::Int)
+
+ Wrapper of C++ function void atg\\_kaiser\\_window1(tensor *out\\_\\_, int64\\_t window\\_length, int periodic, int options\\_kind, int options\\_device)
+"""
+function kaiser_window1(window_length::Int64, periodic::Int, options_kind::Int, options_device::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_kaiser_window1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Clonglong, Cint, Cint, Cint),
+                 outputs__, window_length, periodic, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    kaiser_window2(window_length::Int64, periodic::Int, beta::Float64, options_kind::Int, options_device::Int)
+
+ Wrapper of C++ function void atg\\_kaiser\\_window2(tensor *out\\_\\_, int64\\_t window\\_length, int periodic, double beta, int options\\_kind, int options\\_device)
+"""
+function kaiser_window2(window_length::Int64, periodic::Int, beta::Float64, options_kind::Int, options_device::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_kaiser_window2, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Clonglong, Cint, Cdouble, Cint, Cint),
+                 outputs__, window_length, periodic, beta, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    kl_div(self::Tensor, target::Tensor, reduction::Int64, log_target::Int)
+
+ Wrapper of C++ function void atg\\_kl\\_div(tensor *out\\_\\_, tensor self, tensor target, int64\\_t reduction, int log\\_target)
+"""
+function kl_div(self::Tensor, target::Tensor, reduction::Int64, log_target::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_kl_div, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, target.pointer, reduction, log_target)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    kl_div_backward(grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64, log_target::Int)
+
+ Wrapper of C++ function void atg\\_kl\\_div\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, tensor target, int64\\_t reduction, int log\\_target)
+"""
+function kl_div_backward(grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64, log_target::Int)
     outputs__ = Int[0]
     __cret = ccall((:atg_kl_div_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
-                 outputs__, grad_output.pointer, self.pointer, target.pointer, reduction)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, grad_output.pointer, self.pointer, target.pointer, reduction, log_target)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -6506,6 +11321,51 @@ function layer_norm(input::Tensor, normalized_shape_data::Array{Int64}, weight::
     __cret = ccall((:atg_layer_norm, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cint),
                  outputs__, input.pointer, normalized_shape_data, normalized_shape_len, weight.pointer, bias.pointer, eps, cudnn_enable)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+import Base.lcm
+
+
+"""
+    lcm(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_lcm(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function lcm(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_lcm, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    lcm!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_lcm\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function lcm!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_lcm_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    lcm_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_lcm\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function lcm_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_lcm_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -6632,32 +11492,16 @@ end
 
 
 """
-    leaky_relu_backward(grad_output::Tensor, self::Tensor, negative_slope::TorchNumber)
+    leaky_relu_backward(grad_output::Tensor, self::Tensor, negative_slope::TorchNumber, self_is_result::Int)
 
- Wrapper of C++ function void atg\\_leaky\\_relu\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, scalar negative\\_slope)
+ Wrapper of C++ function void atg\\_leaky\\_relu\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, scalar negative\\_slope, int self\\_is\\_result)
 """
-function leaky_relu_backward(grad_output::Tensor, self::Tensor, negative_slope::TorchNumber)
+function leaky_relu_backward(grad_output::Tensor, self::Tensor, negative_slope::TorchNumber, self_is_result::Int)
     outputs__ = Int[0]
     negative_slope_s_ = Scalar(negative_slope)
     __cret = ccall((:atg_leaky_relu_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
-                 outputs__, grad_output.pointer, self.pointer, negative_slope_s_.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    leaky_relu_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, negative_slope::TorchNumber)
-
- Wrapper of C++ function void atg\\_leaky\\_relu\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, tensor self, scalar negative\\_slope)
-"""
-function leaky_relu_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, negative_slope::TorchNumber)
-    outputs__ = Int[0]
-    negative_slope_s_ = Scalar(negative_slope)
-    __cret = ccall((:atg_leaky_relu_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
-                 outputs__, grad_input.pointer, grad_output.pointer, self.pointer, negative_slope_s_.pointer)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, grad_output.pointer, self.pointer, negative_slope_s_.pointer, self_is_result)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -6770,6 +11614,188 @@ end
 
 
 """
+    less(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_less(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function less(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_less, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    less1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_less1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function less1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_less1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    less!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_less\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function less!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_less_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    less1!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_less\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function less1!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_less_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    less_equal(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_less\\_equal(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function less_equal(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_less_equal, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    less_equal1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_less\\_equal1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function less_equal1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_less_equal1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    less_equal!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_less\\_equal\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function less_equal!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_less_equal_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    less_equal1!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_less\\_equal\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function less_equal1!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_less_equal_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    less_equal_out(out::Tensor, self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_less\\_equal\\_out(tensor *out\\_\\_, tensor out, tensor self, scalar other)
+"""
+function less_equal_out(out::Tensor, self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_less_equal_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    less_equal_out1(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_less\\_equal\\_out1(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function less_equal_out1(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_less_equal_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    less_out(out::Tensor, self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_less\\_out(tensor *out\\_\\_, tensor out, tensor self, scalar other)
+"""
+function less_out(out::Tensor, self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_less_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    less_out1(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_less\\_out1(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function less_out1(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_less_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     lgamma(self::Tensor)
 
  Wrapper of C++ function void atg\\_lgamma(tensor *out\\_\\_, tensor self)
@@ -6811,6 +11837,55 @@ function lgamma_out(out::Tensor, self::Tensor)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+
+
+"""
+    linalg_det(self::Tensor)
+
+ Wrapper of C++ function void atg\\_linalg\\_det(tensor *out\\_\\_, tensor self)
+"""
+function linalg_det(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_linalg_det, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    linalg_norm(self::Tensor, ord::TorchNumber, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+
+ Wrapper of C++ function void atg\\_linalg\\_norm(tensor *out\\_\\_, tensor self, scalar ord, int64\\_t *dim\\_data, int dim\\_len, int keepdim, int dtype)
+"""
+function linalg_norm(self::Tensor, ord::TorchNumber, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+    outputs__ = Int[0]
+    ord_s_ = Scalar(ord)
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_linalg_norm, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, self.pointer, ord_s_.pointer, dim_data, dim_len, keepdim, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end# linalg_norm1 ignored
+
+
+"""
+    linalg_norm_out(out::Tensor, self::Tensor, ord::TorchNumber, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+
+ Wrapper of C++ function void atg\\_linalg\\_norm\\_out(tensor *out\\_\\_, tensor out, tensor self, scalar ord, int64\\_t *dim\\_data, int dim\\_len, int keepdim, int dtype)
+"""
+function linalg_norm_out(out::Tensor, self::Tensor, ord::TorchNumber, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+    outputs__ = Int[0]
+    ord_s_ = Scalar(ord)
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_linalg_norm_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, out.pointer, self.pointer, ord_s_.pointer, dim_data, dim_len, keepdim, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end# linalg_norm_out1 ignored
 
 
 """
@@ -7132,6 +12207,96 @@ end
 
 
 """
+    logaddexp(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logaddexp(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function logaddexp(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logaddexp, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logaddexp2(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logaddexp2(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function logaddexp2(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logaddexp2, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logaddexp2_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logaddexp2\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function logaddexp2_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logaddexp2_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logaddexp_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logaddexp\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function logaddexp_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logaddexp_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logcumsumexp(self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_logcumsumexp(tensor *out\\_\\_, tensor self, int64\\_t dim)
+"""
+function logcumsumexp(self::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logcumsumexp, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logcumsumexp_out(out::Tensor, self::Tensor, dim::Int64)
+
+ Wrapper of C++ function void atg\\_logcumsumexp\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t dim)
+"""
+function logcumsumexp_out(out::Tensor, self::Tensor, dim::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logcumsumexp_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
+                 outputs__, out.pointer, self.pointer, dim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     logdet(self::Tensor)
 
  Wrapper of C++ function void atg\\_logdet(tensor *out\\_\\_, tensor self)
@@ -7141,6 +12306,50 @@ function logdet(self::Tensor)
     __cret = ccall((:atg_logdet, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logical_and(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logical\\_and(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function logical_and(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logical_and, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logical_and!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logical\\_and\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function logical_and!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logical_and_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    logical_and_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logical\\_and\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function logical_and_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logical_and_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -7191,6 +12400,50 @@ end
 
 
 """
+    logical_or(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logical\\_or(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function logical_or(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logical_or, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logical_or!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logical\\_or\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function logical_or!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logical_or_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    logical_or_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_logical\\_or\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function logical_or_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logical_or_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     logical_xor(self::Tensor, other::Tensor)
 
  Wrapper of C++ function void atg\\_logical\\_xor(tensor *out\\_\\_, tensor self, tensor other)
@@ -7229,6 +12482,80 @@ function logical_xor_out(out::Tensor, self::Tensor, other::Tensor)
     __cret = ccall((:atg_logical_xor_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logit(self::Tensor, eps::Float64)
+
+ Wrapper of C++ function void atg\\_logit(tensor *out\\_\\_, tensor self, double eps)
+"""
+function logit(self::Tensor, eps::Float64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logit, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
+                 outputs__, self.pointer, eps)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logit!(self::Tensor, eps::Float64)
+
+ Wrapper of C++ function void atg\\_logit\\_(tensor *out\\_\\_, tensor self, double eps)
+"""
+function logit!(self::Tensor, eps::Float64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logit_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
+                 outputs__, self.pointer, eps)
+    return self
+end
+
+
+"""
+    logit_backward(grad_output::Tensor, self::Tensor, eps::Float64)
+
+ Wrapper of C++ function void atg\\_logit\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, double eps)
+"""
+function logit_backward(grad_output::Tensor, self::Tensor, eps::Float64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logit_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
+                 outputs__, grad_output.pointer, self.pointer, eps)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logit_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, eps::Float64)
+
+ Wrapper of C++ function void atg\\_logit\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, tensor self, double eps)
+"""
+function logit_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, eps::Float64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logit_backward_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, self.pointer, eps)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    logit_out(out::Tensor, self::Tensor, eps::Float64)
+
+ Wrapper of C++ function void atg\\_logit\\_out(tensor *out\\_\\_, tensor out, tensor self, double eps)
+"""
+function logit_out(out::Tensor, self::Tensor, eps::Float64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_logit_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble),
+                 outputs__, out.pointer, self.pointer, eps)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -7633,6 +12960,21 @@ end
 
 
 """
+    masked_select_backward(grad::Tensor, input::Tensor, mask::Tensor)
+
+ Wrapper of C++ function void atg\\_masked\\_select\\_backward(tensor *out\\_\\_, tensor grad, tensor input, tensor mask)
+"""
+function masked_select_backward(grad::Tensor, input::Tensor, mask::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_masked_select_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad.pointer, input.pointer, mask.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     masked_select_out(out::Tensor, self::Tensor, mask::Tensor)
 
  Wrapper of C++ function void atg\\_masked\\_select\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor mask)
@@ -7672,6 +13014,36 @@ function matmul_out(out::Tensor, self::Tensor, other::Tensor)
     __cret = ccall((:atg_matmul_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    matrix_exp(self::Tensor)
+
+ Wrapper of C++ function void atg\\_matrix\\_exp(tensor *out\\_\\_, tensor self)
+"""
+function matrix_exp(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_matrix_exp, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    matrix_exp_backward(self::Tensor, grad::Tensor)
+
+ Wrapper of C++ function void atg\\_matrix\\_exp\\_backward(tensor *out\\_\\_, tensor self, tensor grad)
+"""
+function matrix_exp_backward(self::Tensor, grad::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_matrix_exp_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, grad.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -8167,19 +13539,34 @@ function max_unpool3d_out(out::Tensor, self::Tensor, indices::Tensor, output_siz
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+import Base.maximum
 
 
 """
-    max_values(self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+    maximum(self::Tensor, other::Tensor)
 
- Wrapper of C++ function void atg\\_max\\_values(tensor *out\\_\\_, tensor self, int64\\_t *dim\\_data, int dim\\_len, int keepdim)
+ Wrapper of C++ function void atg\\_maximum(tensor *out\\_\\_, tensor self, tensor other)
 """
-function max_values(self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+function maximum(self::Tensor, other::Tensor)
     outputs__ = Int[0]
-    dim_len = length(dim_data)
-    __cret = ccall((:atg_max_values, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, dim_data, dim_len, keepdim)
+    __cret = ccall((:atg_maximum, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    maximum_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_maximum\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function maximum_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_maximum_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -8378,19 +13765,34 @@ function min_out1(min::Tensor, min_indices::Tensor, self::Tensor, dim::Int64, ke
     __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
     return __o_1, __o_2
 end
+import Base.minimum
 
 
 """
-    min_values(self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+    minimum(self::Tensor, other::Tensor)
 
- Wrapper of C++ function void atg\\_min\\_values(tensor *out\\_\\_, tensor self, int64\\_t *dim\\_data, int dim\\_len, int keepdim)
+ Wrapper of C++ function void atg\\_minimum(tensor *out\\_\\_, tensor self, tensor other)
 """
-function min_values(self::Tensor, dim_data::Array{Int64}, keepdim::Int)
+function minimum(self::Tensor, other::Tensor)
     outputs__ = Int[0]
-    dim_len = length(dim_data)
-    __cret = ccall((:atg_min_values, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, dim_data, dim_len, keepdim)
+    __cret = ccall((:atg_minimum, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    minimum_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_minimum\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function minimum_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_minimum_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -8743,6 +14145,25 @@ end
 
 
 """
+    mkldnn_max_pool3d(self::Tensor, kernel_size_data::Array{Int64}, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, ceil_mode::Int)
+
+ Wrapper of C++ function void atg\\_mkldnn\\_max\\_pool3d(tensor *out\\_\\_, tensor self, int64\\_t *kernel\\_size\\_data, int kernel\\_size\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int ceil\\_mode)
+"""
+function mkldnn_max_pool3d(self::Tensor, kernel_size_data::Array{Int64}, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, ceil_mode::Int)
+    outputs__ = Int[0]
+    kernel_size_len = length(kernel_size_data)
+    stride_len = length(stride_data)
+    padding_len = length(padding_data)
+    dilation_len = length(dilation_data)
+    __cret = ccall((:atg_mkldnn_max_pool3d, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, kernel_size_data, kernel_size_len, stride_data, stride_len, padding_data, padding_len, dilation_data, dilation_len, ceil_mode)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     mkldnn_reorder_conv2d_weight(self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64)
 
  Wrapper of C++ function void atg\\_mkldnn\\_reorder\\_conv2d\\_weight(tensor *out\\_\\_, tensor self, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups)
@@ -8753,6 +14174,24 @@ function mkldnn_reorder_conv2d_weight(self::Tensor, padding_data::Array{Int64}, 
     stride_len = length(stride_data)
     dilation_len = length(dilation_data)
     __cret = ccall((:atg_mkldnn_reorder_conv2d_weight, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong),
+                 outputs__, self.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    mkldnn_reorder_conv3d_weight(self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64)
+
+ Wrapper of C++ function void atg\\_mkldnn\\_reorder\\_conv3d\\_weight(tensor *out\\_\\_, tensor self, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int64\\_t groups)
+"""
+function mkldnn_reorder_conv3d_weight(self::Tensor, padding_data::Array{Int64}, stride_data::Array{Int64}, dilation_data::Array{Int64}, groups::Int64)
+    outputs__ = Int[0]
+    padding_len = length(padding_data)
+    stride_len = length(stride_data)
+    dilation_len = length(dilation_data)
+    __cret = ccall((:atg_mkldnn_reorder_conv3d_weight, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Clonglong),
                  outputs__, self.pointer, padding_data, padding_len, stride_data, stride_len, dilation_data, dilation_len, groups)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
@@ -8819,6 +14258,38 @@ function mode_out(values::Tensor, indices::Tensor, self::Tensor, dim::Int64, kee
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
     return __o_1, __o_2
+end
+
+
+"""
+    movedim(self::Tensor, source_data::Array{Int64}, destination_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_movedim(tensor *out\\_\\_, tensor self, int64\\_t *source\\_data, int source\\_len, int64\\_t *destination\\_data, int destination\\_len)
+"""
+function movedim(self::Tensor, source_data::Array{Int64}, destination_data::Array{Int64})
+    outputs__ = Int[0]
+    source_len = length(source_data)
+    destination_len = length(destination_data)
+    __cret = ccall((:atg_movedim, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, source_data, source_len, destination_data, destination_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    movedim1(self::Tensor, source::Int64, destination::Int64)
+
+ Wrapper of C++ function void atg\\_movedim1(tensor *out\\_\\_, tensor self, int64\\_t source, int64\\_t destination)
+"""
+function movedim1(self::Tensor, source::Int64, destination::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_movedim1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
+                 outputs__, self.pointer, source, destination)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
 end
 
 
@@ -9079,6 +14550,81 @@ function multinomial_out(out::Tensor, self::Tensor, num_samples::Int64, replacem
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+
+
+"""
+    multiply(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_multiply(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function multiply(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_multiply, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    multiply1(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_multiply1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function multiply1(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_multiply1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    multiply!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_multiply\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function multiply!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_multiply_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    multiply1!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_multiply\\_1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function multiply1!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_multiply_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    multiply_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_multiply\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function multiply_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_multiply_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.mv
 
 
@@ -9142,6 +14688,113 @@ end
 
 
 """
+    nanquantile(self::Tensor, q::Float64, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_nanquantile(tensor *out\\_\\_, tensor self, double q, int64\\_t dim, int keepdim)
+"""
+function nanquantile(self::Tensor, q::Float64, dim::Int64, keepdim::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_nanquantile, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Clonglong, Cint),
+                 outputs__, self.pointer, q, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    nanquantile1(self::Tensor, q::Tensor, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_nanquantile1(tensor *out\\_\\_, tensor self, tensor q, int64\\_t dim, int keepdim)
+"""
+function nanquantile1(self::Tensor, q::Tensor, dim::Int64, keepdim::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_nanquantile1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, q.pointer, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    nanquantile_out(out::Tensor, self::Tensor, q::Float64, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_nanquantile\\_out(tensor *out\\_\\_, tensor out, tensor self, double q, int64\\_t dim, int keepdim)
+"""
+function nanquantile_out(out::Tensor, self::Tensor, q::Float64, dim::Int64, keepdim::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_nanquantile_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Clonglong, Cint),
+                 outputs__, out.pointer, self.pointer, q, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    nanquantile_out1(out::Tensor, self::Tensor, q::Tensor, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_nanquantile\\_out1(tensor *out\\_\\_, tensor out, tensor self, tensor q, int64\\_t dim, int keepdim)
+"""
+function nanquantile_out1(out::Tensor, self::Tensor, q::Tensor, dim::Int64, keepdim::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_nanquantile_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, out.pointer, self.pointer, q.pointer, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    nansum(self::Tensor, dtype::Int)
+
+ Wrapper of C++ function void atg\\_nansum(tensor *out\\_\\_, tensor self, int dtype)
+"""
+function nansum(self::Tensor, dtype::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_nansum, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    nansum1(self::Tensor, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+
+ Wrapper of C++ function void atg\\_nansum1(tensor *out\\_\\_, tensor self, int64\\_t *dim\\_data, int dim\\_len, int keepdim, int dtype)
+"""
+function nansum1(self::Tensor, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_nansum1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, self.pointer, dim_data, dim_len, keepdim, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    nansum_out(out::Tensor, self::Tensor, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+
+ Wrapper of C++ function void atg\\_nansum\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *dim\\_data, int dim\\_len, int keepdim, int dtype)
+"""
+function nansum_out(out::Tensor, self::Tensor, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+    outputs__ = Int[0]
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_nansum_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, out.pointer, self.pointer, dim_data, dim_len, keepdim, dtype)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     narrow(self::Tensor, dim::Int64, start::Int64, length::Int64)
 
  Wrapper of C++ function void atg\\_narrow(tensor *out\\_\\_, tensor self, int64\\_t dim, int64\\_t start, int64\\_t length)
@@ -9151,6 +14804,21 @@ function narrow(self::Tensor, dim::Int64, start::Int64, length::Int64)
     __cret = ccall((:atg_narrow, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong),
                  outputs__, self.pointer, dim, start, length)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    narrow1(self::Tensor, dim::Int64, start::Tensor, length::Int64)
+
+ Wrapper of C++ function void atg\\_narrow1(tensor *out\\_\\_, tensor self, int64\\_t dim, tensor start, int64\\_t length)
+"""
+function narrow1(self::Tensor, dim::Int64, start::Tensor, length::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_narrow1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Clonglong),
+                 outputs__, self.pointer, dim, start.pointer, length)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -9189,6 +14857,40 @@ end
 
 
 """
+    native_batch_norm_out(out::Tensor, save_mean::Tensor, save_invstd::Tensor, input::Tensor, weight::Tensor, bias::Tensor, running_mean::Tensor, running_var::Tensor, training::Int, momentum::Float64, eps::Float64)
+
+ Wrapper of C++ function void atg\\_native\\_batch\\_norm\\_out(tensor *out\\_\\_, tensor out, tensor save\\_mean, tensor save\\_invstd, tensor input, tensor weight, tensor bias, tensor running\\_mean, tensor running\\_var, int training, double momentum, double eps)
+"""
+function native_batch_norm_out(out::Tensor, save_mean::Tensor, save_invstd::Tensor, input::Tensor, weight::Tensor, bias::Tensor, running_mean::Tensor, running_var::Tensor, training::Int, momentum::Float64, eps::Float64)
+    outputs__ = Int[0, 0, 0]
+    __cret = ccall((:atg_native_batch_norm_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cdouble, Cdouble),
+                 outputs__, out.pointer, save_mean.pointer, save_invstd.pointer, input.pointer, weight.pointer, bias.pointer, running_mean.pointer, running_var.pointer, training, momentum, eps)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    return __o_1, __o_2, __o_3
+end
+
+
+"""
+    native_group_norm(input::Tensor, weight::Tensor, bias::Tensor, n::Int64, C::Int64, HxW::Int64, group::Int64, eps::Float64)
+
+ Wrapper of C++ function void atg\\_native\\_group\\_norm(tensor *out\\_\\_, tensor input, tensor weight, tensor bias, int64\\_t n, int64\\_t C, int64\\_t HxW, int64\\_t group, double eps)
+"""
+function native_group_norm(input::Tensor, weight::Tensor, bias::Tensor, n::Int64, C::Int64, HxW::Int64, group::Int64, eps::Float64)
+    outputs__ = Int[0, 0, 0]
+    __cret = ccall((:atg_native_group_norm, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong, Clonglong, Cdouble),
+                 outputs__, input.pointer, weight.pointer, bias.pointer, n, C, HxW, group, eps)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
+    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
+    return __o_1, __o_2, __o_3
+end
+
+
+"""
     native_layer_norm(input::Tensor, weight::Tensor, bias::Tensor, M::Int64, n::Int64, eps::Float64)
 
  Wrapper of C++ function void atg\\_native\\_layer\\_norm(tensor *out\\_\\_, tensor input, tensor weight, tensor bias, int64\\_t M, int64\\_t n, double eps)
@@ -9215,6 +14917,23 @@ function native_norm(self::Tensor)
     __cret = ccall((:atg_native_norm, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    native_norm1(self::Tensor, p::TorchNumber, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+
+ Wrapper of C++ function void atg\\_native\\_norm1(tensor *out\\_\\_, tensor self, scalar p, int64\\_t *dim\\_data, int dim\\_len, int keepdim, int dtype)
+"""
+function native_norm1(self::Tensor, p::TorchNumber, dim_data::Array{Int64}, keepdim::Int, dtype::Int)
+    outputs__ = Int[0]
+    p_s_ = Scalar(p)
+    dim_len = length(dim_data)
+    __cret = ccall((:atg_native_norm1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, self.pointer, p_s_.pointer, dim_data, dim_len, keepdim, dtype)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -9356,6 +15075,50 @@ end
 
 
 """
+    negative(self::Tensor)
+
+ Wrapper of C++ function void atg\\_negative(tensor *out\\_\\_, tensor self)
+"""
+function negative(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_negative, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    negative!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_negative\\_(tensor *out\\_\\_, tensor self)
+"""
+function negative!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_negative_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    negative_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_negative\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function negative_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_negative_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     new_empty(self::Tensor, size_data::Array{Int64}, options_kind::Int, options_device::Int)
 
  Wrapper of C++ function void atg\\_new\\_empty(tensor *out\\_\\_, tensor self, int64\\_t *size\\_data, int size\\_len, int options\\_kind, int options\\_device)
@@ -9399,6 +15162,50 @@ function new_zeros(self::Tensor, size_data::Array{Int64}, options_kind::Int, opt
     __cret = ccall((:atg_new_zeros, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cint),
                  outputs__, self.pointer, size_data, size_len, options_kind, options_device)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    nextafter(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_nextafter(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function nextafter(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_nextafter, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    nextafter!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_nextafter\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function nextafter!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_nextafter_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    nextafter_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_nextafter\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function nextafter_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_nextafter_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -9766,6 +15573,97 @@ end
 
 
 """
+    not_equal(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_not\\_equal(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function not_equal(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_not_equal, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    not_equal1(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_not\\_equal1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function not_equal1(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_not_equal1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    not_equal!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_not\\_equal\\_(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function not_equal!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_not_equal_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    not_equal1!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_not\\_equal\\_1(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function not_equal1!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_not_equal_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    not_equal_out(out::Tensor, self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_not\\_equal\\_out(tensor *out\\_\\_, tensor out, tensor self, scalar other)
+"""
+function not_equal_out(out::Tensor, self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_not_equal_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    not_equal_out1(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_not\\_equal\\_out1(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function not_equal_out1(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_not_equal_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     nuclear_norm(self::Tensor, keepdim::Int)
 
  Wrapper of C++ function void atg\\_nuclear\\_norm(tensor *out\\_\\_, tensor self, int keepdim)
@@ -9890,21 +15788,6 @@ end
 
 
 """
-    ones_like1(self::Tensor, options_kind::Int, options_device::Int)
-
- Wrapper of C++ function void atg\\_ones\\_like1(tensor *out\\_\\_, tensor self, int options\\_kind, int options\\_device)
-"""
-function ones_like1(self::Tensor, options_kind::Int, options_device::Int)
-    outputs__ = Int[0]
-    __cret = ccall((:atg_ones_like1, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, options_kind, options_device)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
     ones_out(out::Tensor, size_data::Array{Int64})
 
  Wrapper of C++ function void atg\\_ones\\_out(tensor *out\\_\\_, tensor out, int64\\_t *size\\_data, int size\\_len)
@@ -9975,6 +15858,36 @@ function ormqr_out(out::Tensor, self::Tensor, input2::Tensor, input3::Tensor, le
     __cret = ccall((:atg_ormqr_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
                  outputs__, out.pointer, self.pointer, input2.pointer, input3.pointer, left, transpose)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    outer(self::Tensor, vec2::Tensor)
+
+ Wrapper of C++ function void atg\\_outer(tensor *out\\_\\_, tensor self, tensor vec2)
+"""
+function outer(self::Tensor, vec2::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_outer, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, vec2.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    outer_out(out::Tensor, self::Tensor, vec2::Tensor)
+
+ Wrapper of C++ function void atg\\_outer\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor vec2)
+"""
+function outer_out(out::Tensor, self::Tensor, vec2::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_outer_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, vec2.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -10096,6 +16009,36 @@ function poisson_nll_loss(input::Tensor, target::Tensor, log_input::Int, full::I
     __cret = ccall((:atg_poisson_nll_loss, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble, Clonglong),
                  outputs__, input.pointer, target.pointer, log_input, full, eps, reduction)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    polar(abs::Tensor, angle::Tensor)
+
+ Wrapper of C++ function void atg\\_polar(tensor *out\\_\\_, tensor abs, tensor angle)
+"""
+function polar(abs::Tensor, angle::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_polar, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, abs.pointer, angle.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    polar_out(out::Tensor, abs::Tensor, angle::Tensor)
+
+ Wrapper of C++ function void atg\\_polar\\_out(tensor *out\\_\\_, tensor out, tensor abs, tensor angle)
+"""
+function polar_out(out::Tensor, abs::Tensor, angle::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_polar_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, abs.pointer, angle.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -10423,6 +16366,66 @@ end
 
 
 """
+    quantile(self::Tensor, q::Float64, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_quantile(tensor *out\\_\\_, tensor self, double q, int64\\_t dim, int keepdim)
+"""
+function quantile(self::Tensor, q::Float64, dim::Int64, keepdim::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_quantile, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Clonglong, Cint),
+                 outputs__, self.pointer, q, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    quantile1(self::Tensor, q::Tensor, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_quantile1(tensor *out\\_\\_, tensor self, tensor q, int64\\_t dim, int keepdim)
+"""
+function quantile1(self::Tensor, q::Tensor, dim::Int64, keepdim::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_quantile1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, self.pointer, q.pointer, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    quantile_out(out::Tensor, self::Tensor, q::Float64, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_quantile\\_out(tensor *out\\_\\_, tensor out, tensor self, double q, int64\\_t dim, int keepdim)
+"""
+function quantile_out(out::Tensor, self::Tensor, q::Float64, dim::Int64, keepdim::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_quantile_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Clonglong, Cint),
+                 outputs__, out.pointer, self.pointer, q, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    quantile_out1(out::Tensor, self::Tensor, q::Tensor, dim::Int64, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_quantile\\_out1(tensor *out\\_\\_, tensor out, tensor self, tensor q, int64\\_t dim, int keepdim)
+"""
+function quantile_out1(out::Tensor, self::Tensor, q::Tensor, dim::Int64, keepdim::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_quantile_out1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, out.pointer, self.pointer, q.pointer, dim, keepdim)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     quantize_per_channel(self::Tensor, scales::Tensor, zero_points::Tensor, axis::Int64, dtype::Int)
 
  Wrapper of C++ function void atg\\_quantize\\_per\\_channel(tensor *out\\_\\_, tensor self, tensor scales, tensor zero\\_points, int64\\_t axis, int dtype)
@@ -10453,38 +16456,40 @@ end
 
 
 """
-    quantized_gru(input::Tensor, hx::Tensor, params_data::Array{Tensor{T,N}}, has_biases::Int, num_layers::Int64, dropout::Float64, train::Int, bidirectional::Int, batch_first::Int)
+    quantize_per_tensor1(tensors_data::Array{Tensor{T,N}}, scales::Tensor, zero_points::Tensor, dtype::Int)
 
- Wrapper of C++ function void atg\\_quantized\\_gru(tensor *out\\_\\_, tensor input, tensor hx, tensor *params\\_data, int params\\_len, int has\\_biases, int64\\_t num\\_layers, double dropout, int train, int bidirectional, int batch\\_first)
+ Wrapper of C++ function tensor *atg\\_quantize\\_per\\_tensor1(tensor *tensors\\_data, int tensors\\_len, tensor scales, tensor zero\\_points, int dtype)
 """
-function quantized_gru(input::Tensor, hx::Tensor, params_data::Array{Tensor{T,N}}, has_biases::Int, num_layers::Int64, dropout::Float64, train::Int, bidirectional::Int, batch_first::Int) where {T,N}
-    outputs__ = Int[0, 0]
-    params_data_ta_ = map(x->x.pointer, params_data)
-    params_len = length(params_data)
-    __cret = ccall((:atg_quantized_gru, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Clonglong, Cdouble, Cint, Cint, Cint),
-                 outputs__, input.pointer, hx.pointer, params_data_ta_, params_len, has_biases, num_layers, dropout, train, bidirectional, batch_first)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
-    return __o_1, __o_2
+function quantize_per_tensor1(tensors_data::Array{Tensor{T,N}}, scales::Tensor, zero_points::Tensor, dtype::Int) where {T,N}
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_quantize_per_tensor1, :libtorch_capi),
+                 Ptr{Int}, (Ptr{Cvoid}, Cint, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 tensors_data_ta_, tensors_len, scales.pointer, zero_points.pointer, dtype)
+    ptrs__, i__ = Int[], 1
+    while true
+        ptr__ = unsafe_load(__cret, i__)
+        ptr__ == 0 && break
+        push!(ptrs__, ptr__)
+        i__ += 1
+    end
+    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
+    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
 end
 
 
 """
-    quantized_gru1(data::Tensor, batch_sizes::Tensor, hx::Tensor, params_data::Array{Tensor{T,N}}, has_biases::Int, num_layers::Int64, dropout::Float64, train::Int, bidirectional::Int)
+    quantized_batch_norm(input::Tensor, weight::Tensor, bias::Tensor, mean::Tensor, var::Tensor, eps::Float64, output_scale::Float64, output_zero_point::Int64)
 
- Wrapper of C++ function void atg\\_quantized\\_gru1(tensor *out\\_\\_, tensor data, tensor batch\\_sizes, tensor hx, tensor *params\\_data, int params\\_len, int has\\_biases, int64\\_t num\\_layers, double dropout, int train, int bidirectional)
+ Wrapper of C++ function void atg\\_quantized\\_batch\\_norm(tensor *out\\_\\_, tensor input, tensor weight, tensor bias, tensor mean, tensor var, double eps, double output\\_scale, int64\\_t output\\_zero\\_point)
 """
-function quantized_gru1(data::Tensor, batch_sizes::Tensor, hx::Tensor, params_data::Array{Tensor{T,N}}, has_biases::Int, num_layers::Int64, dropout::Float64, train::Int, bidirectional::Int) where {T,N}
-    outputs__ = Int[0, 0]
-    params_data_ta_ = map(x->x.pointer, params_data)
-    params_len = length(params_data)
-    __cret = ccall((:atg_quantized_gru1, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Clonglong, Cdouble, Cint, Cint),
-                 outputs__, data.pointer, batch_sizes.pointer, hx.pointer, params_data_ta_, params_len, has_biases, num_layers, dropout, train, bidirectional)
+function quantized_batch_norm(input::Tensor, weight::Tensor, bias::Tensor, mean::Tensor, var::Tensor, eps::Float64, output_scale::Float64, output_zero_point::Int64)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_quantized_batch_norm, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cdouble, Cdouble, Clonglong),
+                 outputs__, input.pointer, weight.pointer, bias.pointer, mean.pointer, var.pointer, eps, output_scale, output_zero_point)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
-    return __o_1, __o_2
+    return __o_1
 end
 
 
@@ -10508,48 +16513,6 @@ end
 
 
 """
-    quantized_lstm(input::Tensor, hx_data::Array{Tensor{T,N}}, params_data::Array{Tensor{T,N}}, has_biases::Int, num_layers::Int64, dropout::Float64, train::Int, bidirectional::Int, batch_first::Int, dtype::Int, use_dynamic::Int)
-
- Wrapper of C++ function void atg\\_quantized\\_lstm(tensor *out\\_\\_, tensor input, tensor *hx\\_data, int hx\\_len, tensor *params\\_data, int params\\_len, int has\\_biases, int64\\_t num\\_layers, double dropout, int train, int bidirectional, int batch\\_first, int dtype, int use\\_dynamic)
-"""
-function quantized_lstm(input::Tensor, hx_data::Array{Tensor{T,N}}, params_data::Array{Tensor{T,N}}, has_biases::Int, num_layers::Int64, dropout::Float64, train::Int, bidirectional::Int, batch_first::Int, dtype::Int, use_dynamic::Int) where {T,N}
-    outputs__ = Int[0, 0, 0]
-    hx_data_ta_ = map(x->x.pointer, hx_data)
-    hx_len = length(hx_data)
-    params_data_ta_ = map(x->x.pointer, params_data)
-    params_len = length(params_data)
-    __cret = ccall((:atg_quantized_lstm, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Clonglong, Cdouble, Cint, Cint, Cint, Cint, Cint),
-                 outputs__, input.pointer, hx_data_ta_, hx_len, params_data_ta_, params_len, has_biases, num_layers, dropout, train, bidirectional, batch_first, dtype, use_dynamic)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
-    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
-    return __o_1, __o_2, __o_3
-end
-
-
-"""
-    quantized_lstm1(data::Tensor, batch_sizes::Tensor, hx_data::Array{Tensor{T,N}}, params_data::Array{Tensor{T,N}}, has_biases::Int, num_layers::Int64, dropout::Float64, train::Int, bidirectional::Int, dtype::Int, use_dynamic::Int)
-
- Wrapper of C++ function void atg\\_quantized\\_lstm1(tensor *out\\_\\_, tensor data, tensor batch\\_sizes, tensor *hx\\_data, int hx\\_len, tensor *params\\_data, int params\\_len, int has\\_biases, int64\\_t num\\_layers, double dropout, int train, int bidirectional, int dtype, int use\\_dynamic)
-"""
-function quantized_lstm1(data::Tensor, batch_sizes::Tensor, hx_data::Array{Tensor{T,N}}, params_data::Array{Tensor{T,N}}, has_biases::Int, num_layers::Int64, dropout::Float64, train::Int, bidirectional::Int, dtype::Int, use_dynamic::Int) where {T,N}
-    outputs__ = Int[0, 0, 0]
-    hx_data_ta_ = map(x->x.pointer, hx_data)
-    hx_len = length(hx_data)
-    params_data_ta_ = map(x->x.pointer, params_data)
-    params_len = length(params_data)
-    __cret = ccall((:atg_quantized_lstm1, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Clonglong, Cdouble, Cint, Cint, Cint, Cint),
-                 outputs__, data.pointer, batch_sizes.pointer, hx_data_ta_, hx_len, params_data_ta_, params_len, has_biases, num_layers, dropout, train, bidirectional, dtype, use_dynamic)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
-    __o_3 = tensor_from_ptr(Ptr{Cvoid}(outputs__[3]))
-    return __o_1, __o_2, __o_3
-end
-
-
-"""
     quantized_lstm_cell(input::Tensor, hx_data::Array{Tensor{T,N}}, w_ih::Tensor, w_hh::Tensor, b_ih::Tensor, b_hh::Tensor, packed_ih::Tensor, packed_hh::Tensor, col_offsets_ih::Tensor, col_offsets_hh::Tensor, scale_ih::TorchNumber, scale_hh::TorchNumber, zero_point_ih::TorchNumber, zero_point_hh::TorchNumber)
 
  Wrapper of C++ function void atg\\_quantized\\_lstm\\_cell(tensor *out\\_\\_, tensor input, tensor *hx\\_data, int hx\\_len, tensor w\\_ih, tensor w\\_hh, tensor b\\_ih, tensor b\\_hh, tensor packed\\_ih, tensor packed\\_hh, tensor col\\_offsets\\_ih, tensor col\\_offsets\\_hh, scalar scale\\_ih, scalar scale\\_hh, scalar zero\\_point\\_ih, scalar zero\\_point\\_hh)
@@ -10568,6 +16531,25 @@ function quantized_lstm_cell(input::Tensor, hx_data::Array{Tensor{T,N}}, w_ih::T
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     __o_2 = tensor_from_ptr(Ptr{Cvoid}(outputs__[2]))
     return __o_1, __o_2
+end
+
+
+"""
+    quantized_max_pool1d(self::Tensor, kernel_size_data::Array{Int64}, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, ceil_mode::Int)
+
+ Wrapper of C++ function void atg\\_quantized\\_max\\_pool1d(tensor *out\\_\\_, tensor self, int64\\_t *kernel\\_size\\_data, int kernel\\_size\\_len, int64\\_t *stride\\_data, int stride\\_len, int64\\_t *padding\\_data, int padding\\_len, int64\\_t *dilation\\_data, int dilation\\_len, int ceil\\_mode)
+"""
+function quantized_max_pool1d(self::Tensor, kernel_size_data::Array{Int64}, stride_data::Array{Int64}, padding_data::Array{Int64}, dilation_data::Array{Int64}, ceil_mode::Int)
+    outputs__ = Int[0]
+    kernel_size_len = length(kernel_size_data)
+    stride_len = length(stride_data)
+    padding_len = length(padding_data)
+    dilation_len = length(dilation_data)
+    __cret = ccall((:atg_quantized_max_pool1d, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, self.pointer, kernel_size_data, kernel_size_len, stride_data, stride_len, padding_data, padding_len, dilation_data, dilation_len, ceil_mode)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
 end
 
 
@@ -10626,6 +16608,51 @@ function quantized_rnn_tanh_cell(input::Tensor, hx::Tensor, w_ih::Tensor, w_hh::
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+import Base.rad2deg
+
+
+"""
+    rad2deg(self::Tensor)
+
+ Wrapper of C++ function void atg\\_rad2deg(tensor *out\\_\\_, tensor self)
+"""
+function rad2deg(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_rad2deg, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    rad2deg!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_rad2deg\\_(tensor *out\\_\\_, tensor self)
+"""
+function rad2deg!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_rad2deg_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    rad2deg_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_rad2deg\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function rad2deg_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_rad2deg_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.rand
 
 
@@ -10655,21 +16682,6 @@ function rand_like(self::Tensor)
     __cret = ccall((:atg_rand_like, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    rand_like1(self::Tensor, options_kind::Int, options_device::Int)
-
- Wrapper of C++ function void atg\\_rand\\_like1(tensor *out\\_\\_, tensor self, int options\\_kind, int options\\_device)
-"""
-function rand_like1(self::Tensor, options_kind::Int, options_device::Int)
-    outputs__ = Int[0]
-    __cret = ccall((:atg_rand_like1, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, options_kind, options_device)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -10754,36 +16766,6 @@ end
 
 
 """
-    randint_like2(self::Tensor, high::Int64, options_kind::Int, options_device::Int)
-
- Wrapper of C++ function void atg\\_randint\\_like2(tensor *out\\_\\_, tensor self, int64\\_t high, int options\\_kind, int options\\_device)
-"""
-function randint_like2(self::Tensor, high::Int64, options_kind::Int, options_device::Int)
-    outputs__ = Int[0]
-    __cret = ccall((:atg_randint_like2, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint, Cint),
-                 outputs__, self.pointer, high, options_kind, options_device)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    randint_like3(self::Tensor, low::Int64, high::Int64, options_kind::Int, options_device::Int)
-
- Wrapper of C++ function void atg\\_randint\\_like3(tensor *out\\_\\_, tensor self, int64\\_t low, int64\\_t high, int options\\_kind, int options\\_device)
-"""
-function randint_like3(self::Tensor, low::Int64, high::Int64, options_kind::Int, options_device::Int)
-    outputs__ = Int[0]
-    __cret = ccall((:atg_randint_like3, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Cint, Cint),
-                 outputs__, self.pointer, low, high, options_kind, options_device)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
     randint_out(out::Tensor, high::Int64, size_data::Array{Int64})
 
  Wrapper of C++ function void atg\\_randint\\_out(tensor *out\\_\\_, tensor out, int64\\_t high, int64\\_t *size\\_data, int size\\_len)
@@ -10842,21 +16824,6 @@ function randn_like(self::Tensor)
     __cret = ccall((:atg_randn_like, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    randn_like1(self::Tensor, options_kind::Int, options_device::Int)
-
- Wrapper of C++ function void atg\\_randn\\_like1(tensor *out\\_\\_, tensor self, int options\\_kind, int options\\_device)
-"""
-function randn_like1(self::Tensor, options_kind::Int, options_device::Int)
-    outputs__ = Int[0]
-    __cret = ccall((:atg_randn_like1, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, options_kind, options_device)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -11013,21 +16980,6 @@ function real(self::Tensor)
     __cret = ccall((:atg_real, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    real_out(out::Tensor, self::Tensor)
-
- Wrapper of C++ function void atg\\_real\\_out(tensor *out\\_\\_, tensor out, tensor self)
-"""
-function real_out(out::Tensor, self::Tensor)
-    outputs__ = Int[0]
-    __cret = ccall((:atg_real_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
-                 outputs__, out.pointer, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -11630,15 +17582,15 @@ end
 
 
 """
-    requires_grad!(self::Tensor, _requires_grad::Int)
+    requires_grad!(self::Tensor, requires_grad::Int)
 
- Wrapper of C++ function void atg\\_requires\\_grad\\_(tensor *out\\_\\_, tensor self, int \\_requires\\_grad)
+ Wrapper of C++ function void atg\\_requires\\_grad\\_(tensor *out\\_\\_, tensor self, int requires\\_grad)
 """
-function requires_grad!(self::Tensor, _requires_grad::Int)
+function requires_grad!(self::Tensor, requires_grad::Int)
     outputs__ = Int[0]
     __cret = ccall((:atg_requires_grad_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, self.pointer, _requires_grad)
+                 outputs__, self.pointer, requires_grad)
     return self
 end
 import Base.reshape
@@ -11959,34 +17911,17 @@ end
 
 
 """
-    rrelu_with_noise_backward(grad_output::Tensor, self::Tensor, noise::Tensor, lower::TorchNumber, upper::TorchNumber, training::Int)
+    rrelu_with_noise_backward(grad_output::Tensor, self::Tensor, noise::Tensor, lower::TorchNumber, upper::TorchNumber, training::Int, self_is_result::Int)
 
- Wrapper of C++ function void atg\\_rrelu\\_with\\_noise\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, tensor noise, scalar lower, scalar upper, int training)
+ Wrapper of C++ function void atg\\_rrelu\\_with\\_noise\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, tensor noise, scalar lower, scalar upper, int training, int self\\_is\\_result)
 """
-function rrelu_with_noise_backward(grad_output::Tensor, self::Tensor, noise::Tensor, lower::TorchNumber, upper::TorchNumber, training::Int)
+function rrelu_with_noise_backward(grad_output::Tensor, self::Tensor, noise::Tensor, lower::TorchNumber, upper::TorchNumber, training::Int, self_is_result::Int)
     outputs__ = Int[0]
     lower_s_ = Scalar(lower)
     upper_s_ = Scalar(upper)
     __cret = ccall((:atg_rrelu_with_noise_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, grad_output.pointer, self.pointer, noise.pointer, lower_s_.pointer, upper_s_.pointer, training)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    rrelu_with_noise_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, noise::Tensor, lower::TorchNumber, upper::TorchNumber, training::Int)
-
- Wrapper of C++ function void atg\\_rrelu\\_with\\_noise\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, tensor self, tensor noise, scalar lower, scalar upper, int training)
-"""
-function rrelu_with_noise_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, noise::Tensor, lower::TorchNumber, upper::TorchNumber, training::Int)
-    outputs__ = Int[0]
-    lower_s_ = Scalar(lower)
-    upper_s_ = Scalar(upper)
-    __cret = ccall((:atg_rrelu_with_noise_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, grad_input.pointer, grad_output.pointer, self.pointer, noise.pointer, lower_s_.pointer, upper_s_.pointer, training)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, grad_output.pointer, self.pointer, noise.pointer, lower_s_.pointer, upper_s_.pointer, training, self_is_result)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -12155,7 +18090,7 @@ function scatter1!(self::Tensor, dim::Int64, index::Tensor, value::TorchNumber)
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, dim, index.pointer, value_s_.pointer)
     return self
-end
+end# scatter_2 ignored# scatter_3 ignored
 
 
 """
@@ -12185,6 +18120,53 @@ function scatter_add!(self::Tensor, dim::Int64, index::Tensor, src::Tensor)
                  outputs__, self.pointer, dim, index.pointer, src.pointer)
     return self
 end
+import Base.searchsorted
+
+
+"""
+    searchsorted(sorted_sequence::Tensor, self::Tensor, out_int32::Int, right::Int)
+
+ Wrapper of C++ function void atg\\_searchsorted(tensor *out\\_\\_, tensor sorted\\_sequence, tensor self, int out\\_int32, int right)
+"""
+function searchsorted(sorted_sequence::Tensor, self::Tensor, out_int32::Int, right::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_searchsorted, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, sorted_sequence.pointer, self.pointer, out_int32, right)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    searchsorted1(sorted_sequence::Tensor, self::TorchNumber, out_int32::Int, right::Int)
+
+ Wrapper of C++ function void atg\\_searchsorted1(tensor *out\\_\\_, tensor sorted\\_sequence, scalar self, int out\\_int32, int right)
+"""
+function searchsorted1(sorted_sequence::Tensor, self::TorchNumber, out_int32::Int, right::Int)
+    outputs__ = Int[0]
+    self_s_ = Scalar(self)
+    __cret = ccall((:atg_searchsorted1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, sorted_sequence.pointer, self_s_.pointer, out_int32, right)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    searchsorted_out(out::Tensor, sorted_sequence::Tensor, self::Tensor, out_int32::Int, right::Int)
+
+ Wrapper of C++ function void atg\\_searchsorted\\_out(tensor *out\\_\\_, tensor out, tensor sorted\\_sequence, tensor self, int out\\_int32, int right)
+"""
+function searchsorted_out(out::Tensor, sorted_sequence::Tensor, self::Tensor, out_int32::Int, right::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_searchsorted_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, out.pointer, sorted_sequence.pointer, self.pointer, out_int32, right)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 
 
 """
@@ -12197,6 +18179,22 @@ function select(self::Tensor, dim::Int64, index::Int64)
     __cret = ccall((:atg_select, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong),
                  outputs__, self.pointer, dim, index)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    select_backward(grad::Tensor, input_sizes_data::Array{Int64}, dim::Int64, index::Int64)
+
+ Wrapper of C++ function void atg\\_select\\_backward(tensor *out\\_\\_, tensor grad, int64\\_t *input\\_sizes\\_data, int input\\_sizes\\_len, int64\\_t dim, int64\\_t index)
+"""
+function select_backward(grad::Tensor, input_sizes_data::Array{Int64}, dim::Int64, index::Int64)
+    outputs__ = Int[0]
+    input_sizes_len = length(input_sizes_data)
+    __cret = ccall((:atg_select_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Clonglong),
+                 outputs__, grad.pointer, input_sizes_data, input_sizes_len, dim, index)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -12269,6 +18267,50 @@ function set_requires_grad(self::Tensor, r::Int)
     __cret = ccall((:atg_set_requires_grad, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
                  outputs__, self.pointer, r)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    sgn(self::Tensor)
+
+ Wrapper of C++ function void atg\\_sgn(tensor *out\\_\\_, tensor self)
+"""
+function sgn(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_sgn, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    sgn!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_sgn\\_(tensor *out\\_\\_, tensor self)
+"""
+function sgn!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_sgn_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    sgn_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_sgn\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function sgn_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_sgn_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -12391,6 +18433,96 @@ function sign_out(out::Tensor, self::Tensor)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+import Base.signbit
+
+
+"""
+    signbit(self::Tensor)
+
+ Wrapper of C++ function void atg\\_signbit(tensor *out\\_\\_, tensor self)
+"""
+function signbit(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_signbit, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    signbit_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_signbit\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function signbit_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_signbit_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    silu(self::Tensor)
+
+ Wrapper of C++ function void atg\\_silu(tensor *out\\_\\_, tensor self)
+"""
+function silu(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_silu, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    silu!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_silu\\_(tensor *out\\_\\_, tensor self)
+"""
+function silu!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_silu_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
+    silu_backward(grad_output::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_silu\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self)
+"""
+function silu_backward(grad_output::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_silu_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad_output.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    silu_out(out::Tensor, self::Tensor)
+
+ Wrapper of C++ function void atg\\_silu\\_out(tensor *out\\_\\_, tensor out, tensor self)
+"""
+function silu_out(out::Tensor, self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_silu_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.sin
 
 
@@ -12493,6 +18625,22 @@ function slice(self::Tensor, dim::Int64, start::Int64, end_::Int64, step::Int64)
     __cret = ccall((:atg_slice, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong, Clonglong),
                  outputs__, self.pointer, dim, start, end_, step)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    slice_backward(grad::Tensor, input_sizes_data::Array{Int64}, dim::Int64, start::Int64, end_::Int64, step::Int64)
+
+ Wrapper of C++ function void atg\\_slice\\_backward(tensor *out\\_\\_, tensor grad, int64\\_t *input\\_sizes\\_data, int input\\_sizes\\_len, int64\\_t dim, int64\\_t start, int64\\_t end, int64\\_t step)
+"""
+function slice_backward(grad::Tensor, input_sizes_data::Array{Int64}, dim::Int64, start::Int64, end_::Int64, step::Int64)
+    outputs__ = Int[0]
+    input_sizes_len = length(input_sizes_data)
+    __cret = ccall((:atg_slice_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Clonglong, Clonglong, Clonglong),
+                 outputs__, grad.pointer, input_sizes_data, input_sizes_len, dim, start, end_, step)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -12684,60 +18832,60 @@ end
 
 
 """
-    smooth_l1_loss(self::Tensor, target::Tensor, reduction::Int64)
+    smooth_l1_loss(self::Tensor, target::Tensor, reduction::Int64, beta::Float64)
 
- Wrapper of C++ function void atg\\_smooth\\_l1\\_loss(tensor *out\\_\\_, tensor self, tensor target, int64\\_t reduction)
+ Wrapper of C++ function void atg\\_smooth\\_l1\\_loss(tensor *out\\_\\_, tensor self, tensor target, int64\\_t reduction, double beta)
 """
-function smooth_l1_loss(self::Tensor, target::Tensor, reduction::Int64)
+function smooth_l1_loss(self::Tensor, target::Tensor, reduction::Int64, beta::Float64)
     outputs__ = Int[0]
     __cret = ccall((:atg_smooth_l1_loss, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
-                 outputs__, self.pointer, target.pointer, reduction)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cdouble),
+                 outputs__, self.pointer, target.pointer, reduction, beta)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    smooth_l1_loss_backward(grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64)
+    smooth_l1_loss_backward(grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64, beta::Float64)
 
- Wrapper of C++ function void atg\\_smooth\\_l1\\_loss\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, tensor target, int64\\_t reduction)
+ Wrapper of C++ function void atg\\_smooth\\_l1\\_loss\\_backward(tensor *out\\_\\_, tensor grad\\_output, tensor self, tensor target, int64\\_t reduction, double beta)
 """
-function smooth_l1_loss_backward(grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64)
+function smooth_l1_loss_backward(grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64, beta::Float64)
     outputs__ = Int[0]
     __cret = ccall((:atg_smooth_l1_loss_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
-                 outputs__, grad_output.pointer, self.pointer, target.pointer, reduction)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cdouble),
+                 outputs__, grad_output.pointer, self.pointer, target.pointer, reduction, beta)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    smooth_l1_loss_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64)
+    smooth_l1_loss_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64, beta::Float64)
 
- Wrapper of C++ function void atg\\_smooth\\_l1\\_loss\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, tensor self, tensor target, int64\\_t reduction)
+ Wrapper of C++ function void atg\\_smooth\\_l1\\_loss\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, tensor self, tensor target, int64\\_t reduction, double beta)
 """
-function smooth_l1_loss_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64)
+function smooth_l1_loss_backward_out(grad_input::Tensor, grad_output::Tensor, self::Tensor, target::Tensor, reduction::Int64, beta::Float64)
     outputs__ = Int[0]
     __cret = ccall((:atg_smooth_l1_loss_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
-                 outputs__, grad_input.pointer, grad_output.pointer, self.pointer, target.pointer, reduction)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, self.pointer, target.pointer, reduction, beta)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    smooth_l1_loss_out(out::Tensor, self::Tensor, target::Tensor, reduction::Int64)
+    smooth_l1_loss_out(out::Tensor, self::Tensor, target::Tensor, reduction::Int64, beta::Float64)
 
- Wrapper of C++ function void atg\\_smooth\\_l1\\_loss\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor target, int64\\_t reduction)
+ Wrapper of C++ function void atg\\_smooth\\_l1\\_loss\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor target, int64\\_t reduction, double beta)
 """
-function smooth_l1_loss_out(out::Tensor, self::Tensor, target::Tensor, reduction::Int64)
+function smooth_l1_loss_out(out::Tensor, self::Tensor, target::Tensor, reduction::Int64, beta::Float64)
     outputs__ = Int[0]
     __cret = ccall((:atg_smooth_l1_loss_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong),
-                 outputs__, out.pointer, self.pointer, target.pointer, reduction)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cdouble),
+                 outputs__, out.pointer, self.pointer, target.pointer, reduction, beta)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -13192,6 +19340,35 @@ end
 
 
 """
+    square(self::Tensor)
+
+ Wrapper of C++ function void atg\\_square(tensor *out\\_\\_, tensor self)
+"""
+function square(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_square, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    square!(self::Tensor)
+
+ Wrapper of C++ function void atg\\_square\\_(tensor *out\\_\\_, tensor self)
+"""
+function square!(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_square_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    return self
+end
+
+
+"""
     squeeze(self::Tensor)
 
  Wrapper of C++ function void atg\\_squeeze(tensor *out\\_\\_, tensor self)
@@ -13394,15 +19571,15 @@ end
 
 
 """
-    stft(self::Tensor, n_fft::Int64, hop_length::Int64, win_length::Int64, window::Tensor, normalized::Int, onesided::Int)
+    stft(self::Tensor, n_fft::Int64, hop_length::Int64, win_length::Int64, window::Tensor, normalized::Int, onesided::Int, return_complex::Int)
 
- Wrapper of C++ function void atg\\_stft(tensor *out\\_\\_, tensor self, int64\\_t n\\_fft, int64\\_t hop\\_length, int64\\_t win\\_length, tensor window, int normalized, int onesided)
+ Wrapper of C++ function void atg\\_stft(tensor *out\\_\\_, tensor self, int64\\_t n\\_fft, int64\\_t hop\\_length, int64\\_t win\\_length, tensor window, int normalized, int onesided, int return\\_complex)
 """
-function stft(self::Tensor, n_fft::Int64, hop_length::Int64, win_length::Int64, window::Tensor, normalized::Int, onesided::Int)
+function stft(self::Tensor, n_fft::Int64, hop_length::Int64, win_length::Int64, window::Tensor, normalized::Int, onesided::Int, return_complex::Int)
     outputs__ = Int[0]
     __cret = ccall((:atg_stft, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, n_fft, hop_length, win_length, window.pointer, normalized, onesided)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong, Ptr{Cvoid}, Cint, Cint, Cint),
+                 outputs__, self.pointer, n_fft, hop_length, win_length, window.pointer, normalized, onesided, return_complex)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -13476,6 +19653,81 @@ end
 function sub_out(out::Tensor, self::Tensor, other::Tensor)
     outputs__ = Int[0]
     __cret = ccall((:atg_sub_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    subtract(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_subtract(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function subtract(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_subtract, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    subtract1(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_subtract1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function subtract1(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_subtract1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    subtract!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_subtract\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function subtract!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_subtract_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    subtract1!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_subtract\\_1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function subtract1!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_subtract_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    subtract_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_subtract\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function subtract_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_subtract_out, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, out.pointer, self.pointer, other.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
@@ -13629,11 +19881,11 @@ end
 
 
 """
-    t!(self::Tensor)
+    t_(self::Tensor)
 
  Wrapper of C++ function void atg\\_t\\_(tensor *out\\_\\_, tensor self)
 """
-function t!(self::Tensor)
+function t_(self::Tensor)
     outputs__ = Int[0]
     __cret = ccall((:atg_t_, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
@@ -13652,6 +19904,21 @@ function take(self::Tensor, index::Tensor)
     __cret = ccall((:atg_take, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, index.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    take_backward(grad::Tensor, input::Tensor, index::Tensor)
+
+ Wrapper of C++ function void atg\\_take\\_backward(tensor *out\\_\\_, tensor grad, tensor input, tensor index)
+"""
+function take_backward(grad::Tensor, input::Tensor, index::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_take_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, grad.pointer, input.pointer, index.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -14100,6 +20367,22 @@ function trace(self::Tensor)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+
+
+"""
+    trace_backward(grad::Tensor, sizes_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_trace\\_backward(tensor *out\\_\\_, tensor grad, int64\\_t *sizes\\_data, int sizes\\_len)
+"""
+function trace_backward(grad::Tensor, sizes_data::Array{Int64})
+    outputs__ = Int[0]
+    sizes_len = length(sizes_data)
+    __cret = ccall((:atg_trace_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, grad.pointer, sizes_data, sizes_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.transpose
 
 
@@ -14325,6 +20608,81 @@ function triu_out(out::Tensor, self::Tensor, diagonal::Int64)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+
+
+"""
+    true_divide(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_true\\_divide(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function true_divide(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_true_divide, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    true_divide1(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_true\\_divide1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function true_divide1(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_true_divide1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    true_divide!(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_true\\_divide\\_(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function true_divide!(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_true_divide_, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    return self
+end
+
+
+"""
+    true_divide1!(self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_true\\_divide\\_1(tensor *out\\_\\_, tensor self, scalar other)
+"""
+function true_divide1!(self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_true_divide_1, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other_s_.pointer)
+    return self
+end
+
+
+"""
+    true_divide_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_true\\_divide\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function true_divide_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_true_divide_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.trunc
 
 
@@ -14410,6 +20768,22 @@ end
 
 
 """
+    unflatten(self::Tensor, dim::Int64, sizes_data::Array{Int64})
+
+ Wrapper of C++ function void atg\\_unflatten(tensor *out\\_\\_, tensor self, int64\\_t dim, int64\\_t *sizes\\_data, int sizes\\_len)
+"""
+function unflatten(self::Tensor, dim::Int64, sizes_data::Array{Int64})
+    outputs__ = Int[0]
+    sizes_len = length(sizes_data)
+    __cret = ccall((:atg_unflatten, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Cint),
+                 outputs__, self.pointer, dim, sizes_data, sizes_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
     unfold(self::Tensor, dimension::Int64, size::Int64, step::Int64)
 
  Wrapper of C++ function void atg\\_unfold(tensor *out\\_\\_, tensor self, int64\\_t dimension, int64\\_t size, int64\\_t step)
@@ -14419,6 +20793,22 @@ function unfold(self::Tensor, dimension::Int64, size::Int64, step::Int64)
     __cret = ccall((:atg_unfold, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Clonglong, Clonglong),
                  outputs__, self.pointer, dimension, size, step)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    unfold_backward(grad_in::Tensor, input_sizes_data::Array{Int64}, dim::Int64, size::Int64, step::Int64)
+
+ Wrapper of C++ function void atg\\_unfold\\_backward(tensor *out\\_\\_, tensor grad\\_in, int64\\_t *input\\_sizes\\_data, int input\\_sizes\\_len, int64\\_t dim, int64\\_t size, int64\\_t step)
+"""
+function unfold_backward(grad_in::Tensor, input_sizes_data::Array{Int64}, dim::Int64, size::Int64, step::Int64)
+    outputs__ = Int[0]
+    input_sizes_len = length(input_sizes_data)
+    __cret = ccall((:atg_unfold_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong, Clonglong, Clonglong),
+                 outputs__, grad_in.pointer, input_sizes_data, input_sizes_len, dim, size, step)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -14490,6 +20880,72 @@ end
 
 
 """
+    unsafe_chunk(self::Tensor, chunks::Int64, dim::Int64)
+
+ Wrapper of C++ function tensor *atg\\_unsafe\\_chunk(tensor self, int64\\_t chunks, int64\\_t dim)
+"""
+function unsafe_chunk(self::Tensor, chunks::Int64, dim::Int64)
+
+    __cret = ccall((:atg_unsafe_chunk, :libtorch_capi),
+                 Ptr{Int}, (Ptr{Cvoid}, Clonglong, Clonglong),
+                 self.pointer, chunks, dim)
+    ptrs__, i__ = Int[], 1
+    while true
+        ptr__ = unsafe_load(__cret, i__)
+        ptr__ == 0 && break
+        push!(ptrs__, ptr__)
+        i__ += 1
+    end
+    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
+    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
+end
+
+
+"""
+    unsafe_split(self::Tensor, split_size::Int64, dim::Int64)
+
+ Wrapper of C++ function tensor *atg\\_unsafe\\_split(tensor self, int64\\_t split\\_size, int64\\_t dim)
+"""
+function unsafe_split(self::Tensor, split_size::Int64, dim::Int64)
+
+    __cret = ccall((:atg_unsafe_split, :libtorch_capi),
+                 Ptr{Int}, (Ptr{Cvoid}, Clonglong, Clonglong),
+                 self.pointer, split_size, dim)
+    ptrs__, i__ = Int[], 1
+    while true
+        ptr__ = unsafe_load(__cret, i__)
+        ptr__ == 0 && break
+        push!(ptrs__, ptr__)
+        i__ += 1
+    end
+    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
+    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
+end
+
+
+"""
+    unsafe_split_with_sizes(self::Tensor, split_sizes_data::Array{Int64}, dim::Int64)
+
+ Wrapper of C++ function tensor *atg\\_unsafe\\_split\\_with\\_sizes(tensor self, int64\\_t *split\\_sizes\\_data, int split\\_sizes\\_len, int64\\_t dim)
+"""
+function unsafe_split_with_sizes(self::Tensor, split_sizes_data::Array{Int64}, dim::Int64)
+    split_sizes_len = length(split_sizes_data)
+    __cret = ccall((:atg_unsafe_split_with_sizes, :libtorch_capi),
+                 Ptr{Int}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Clonglong),
+                 self.pointer, split_sizes_data, split_sizes_len, dim)
+    ptrs__, i__ = Int[], 1
+    while true
+        ptr__ = unsafe_load(__cret, i__)
+        ptr__ == 0 && break
+        push!(ptrs__, ptr__)
+        i__ += 1
+    end
+    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)
+    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)
+end
+
+
+"""
     unsqueeze(self::Tensor, dim::Int64)
 
  Wrapper of C++ function void atg\\_unsqueeze(tensor *out\\_\\_, tensor self, int64\\_t dim)
@@ -14519,462 +20975,478 @@ end
 
 
 """
-    upsample_bicubic2d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+    upsample_bicubic2d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_bicubic2d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_bicubic2d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners, double scales\\_h, double scales\\_w)
 """
-function upsample_bicubic2d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+function upsample_bicubic2d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_bicubic2d, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, output_size_data, output_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble),
+                 outputs__, self.pointer, output_size_data, output_size_len, align_corners, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_bicubic2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+    upsample_bicubic2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_bicubic2d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_bicubic2d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners, double scales\\_h, double scales\\_w)
 """
-function upsample_bicubic2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+function upsample_bicubic2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_bicubic2d_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble),
+                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_bicubic2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+    upsample_bicubic2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_bicubic2d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_bicubic2d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners, double scales\\_h, double scales\\_w)
 """
-function upsample_bicubic2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+function upsample_bicubic2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_bicubic2d_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_bicubic2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+    upsample_bicubic2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_bicubic2d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_bicubic2d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners, double scales\\_h, double scales\\_w)
 """
-function upsample_bicubic2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+function upsample_bicubic2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_bicubic2d_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble),
+                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, align_corners, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_bilinear2d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+    upsample_bilinear2d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_bilinear2d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_bilinear2d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners, double scales\\_h, double scales\\_w)
 """
-function upsample_bilinear2d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+function upsample_bilinear2d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_bilinear2d, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, output_size_data, output_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble),
+                 outputs__, self.pointer, output_size_data, output_size_len, align_corners, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_bilinear2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+    upsample_bilinear2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_bilinear2d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_bilinear2d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners, double scales\\_h, double scales\\_w)
 """
-function upsample_bilinear2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+function upsample_bilinear2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_bilinear2d_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble),
+                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_bilinear2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+    upsample_bilinear2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_bilinear2d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_bilinear2d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners, double scales\\_h, double scales\\_w)
 """
-function upsample_bilinear2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+function upsample_bilinear2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_bilinear2d_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_bilinear2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+    upsample_bilinear2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_bilinear2d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_bilinear2d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners, double scales\\_h, double scales\\_w)
 """
-function upsample_bilinear2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+function upsample_bilinear2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_bilinear2d_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble),
+                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, align_corners, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_linear1d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+    upsample_linear1d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_linear1d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_linear1d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners, double scales)
 """
-function upsample_linear1d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+function upsample_linear1d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_linear1d, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, output_size_data, output_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble),
+                 outputs__, self.pointer, output_size_data, output_size_len, align_corners, scales)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_linear1d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+    upsample_linear1d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_linear1d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_linear1d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners, double scales)
 """
-function upsample_linear1d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+function upsample_linear1d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_linear1d_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Cdouble),
+                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners, scales)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_linear1d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+    upsample_linear1d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_linear1d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_linear1d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners, double scales)
 """
-function upsample_linear1d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+function upsample_linear1d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_linear1d_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners, scales)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_linear1d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+    upsample_linear1d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_linear1d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_linear1d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners, double scales)
 """
-function upsample_linear1d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+function upsample_linear1d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_linear1d_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble),
+                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, align_corners, scales)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest1d(self::Tensor, output_size_data::Array{Int64})
+    upsample_nearest1d(self::Tensor, output_size_data::Array{Int64}, scales::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest1d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest1d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, double scales)
 """
-function upsample_nearest1d(self::Tensor, output_size_data::Array{Int64})
+function upsample_nearest1d(self::Tensor, output_size_data::Array{Int64}, scales::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_nearest1d, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, self.pointer, output_size_data, output_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cdouble),
+                 outputs__, self.pointer, output_size_data, output_size_len, scales)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest1d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+    upsample_nearest1d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest1d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest1d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, double scales)
 """
-function upsample_nearest1d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+function upsample_nearest1d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_nearest1d_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
-                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cdouble),
+                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, scales)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest1d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+    upsample_nearest1d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest1d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest1d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, double scales)
 """
-function upsample_nearest1d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+function upsample_nearest1d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_nearest1d_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
-                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, scales)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest1d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64})
+    upsample_nearest1d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, scales::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest1d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest1d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, double scales)
 """
-function upsample_nearest1d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64})
+function upsample_nearest1d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, scales::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_nearest1d_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cdouble),
+                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, scales)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest2d(self::Tensor, output_size_data::Array{Int64})
+    upsample_nearest2d(self::Tensor, output_size_data::Array{Int64}, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest2d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest2d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, double scales\\_h, double scales\\_w)
 """
-function upsample_nearest2d(self::Tensor, output_size_data::Array{Int64})
+function upsample_nearest2d(self::Tensor, output_size_data::Array{Int64}, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_nearest2d, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, self.pointer, output_size_data, output_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cdouble, Cdouble),
+                 outputs__, self.pointer, output_size_data, output_size_len, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+    upsample_nearest2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest2d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest2d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, double scales\\_h, double scales\\_w)
 """
-function upsample_nearest2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+function upsample_nearest2d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_nearest2d_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
-                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cdouble, Cdouble),
+                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+    upsample_nearest2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest2d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest2d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, double scales\\_h, double scales\\_w)
 """
-function upsample_nearest2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+function upsample_nearest2d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_nearest2d_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
-                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cdouble, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64})
+    upsample_nearest2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest2d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest2d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, double scales\\_h, double scales\\_w)
 """
-function upsample_nearest2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64})
+function upsample_nearest2d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_nearest2d_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cdouble, Cdouble),
+                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest3d(self::Tensor, output_size_data::Array{Int64})
+    upsample_nearest3d(self::Tensor, output_size_data::Array{Int64}, scales_d::Float64, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest3d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest3d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, double scales\\_d, double scales\\_h, double scales\\_w)
 """
-function upsample_nearest3d(self::Tensor, output_size_data::Array{Int64})
+function upsample_nearest3d(self::Tensor, output_size_data::Array{Int64}, scales_d::Float64, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_nearest3d, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, self.pointer, output_size_data, output_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cdouble, Cdouble, Cdouble),
+                 outputs__, self.pointer, output_size_data, output_size_len, scales_d, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest3d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+    upsample_nearest3d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales_d::Float64, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest3d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest3d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, double scales\\_d, double scales\\_h, double scales\\_w)
 """
-function upsample_nearest3d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+function upsample_nearest3d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales_d::Float64, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_nearest3d_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
-                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cdouble, Cdouble, Cdouble),
+                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, scales_d, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest3d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+    upsample_nearest3d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales_d::Float64, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest3d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest3d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, double scales\\_d, double scales\\_h, double scales\\_w)
 """
-function upsample_nearest3d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64})
+function upsample_nearest3d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, scales_d::Float64, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_nearest3d_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint),
-                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cdouble, Cdouble, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, scales_d, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_nearest3d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64})
+    upsample_nearest3d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, scales_d::Float64, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_nearest3d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len)
+ Wrapper of C++ function void atg\\_upsample\\_nearest3d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, double scales\\_d, double scales\\_h, double scales\\_w)
 """
-function upsample_nearest3d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64})
+function upsample_nearest3d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, scales_d::Float64, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_nearest3d_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cdouble, Cdouble, Cdouble),
+                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, scales_d, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_trilinear3d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+    upsample_trilinear3d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_d::Float64, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_trilinear3d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_trilinear3d(tensor *out\\_\\_, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners, double scales\\_d, double scales\\_h, double scales\\_w)
 """
-function upsample_trilinear3d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+function upsample_trilinear3d(self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_d::Float64, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_trilinear3d, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, output_size_data, output_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble, Cdouble),
+                 outputs__, self.pointer, output_size_data, output_size_len, align_corners, scales_d, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_trilinear3d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+    upsample_trilinear3d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_d::Float64, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_trilinear3d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_trilinear3d\\_backward(tensor *out\\_\\_, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners, double scales\\_d, double scales\\_h, double scales\\_w)
 """
-function upsample_trilinear3d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+function upsample_trilinear3d_backward(grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_d::Float64, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_trilinear3d_backward, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble, Cdouble),
+                 outputs__, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners, scales_d, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_trilinear3d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+    upsample_trilinear3d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_d::Float64, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_trilinear3d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_trilinear3d\\_backward\\_out(tensor *out\\_\\_, tensor grad\\_input, tensor grad\\_output, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int64\\_t *input\\_size\\_data, int input\\_size\\_len, int align\\_corners, double scales\\_d, double scales\\_h, double scales\\_w)
 """
-function upsample_trilinear3d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int)
+function upsample_trilinear3d_backward_out(grad_input::Tensor, grad_output::Tensor, output_size_data::Array{Int64}, input_size_data::Array{Int64}, align_corners::Int, scales_d::Float64, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     input_size_len = length(input_size_data)
     __cret = ccall((:atg_upsample_trilinear3d_backward_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble, Cdouble),
+                 outputs__, grad_input.pointer, grad_output.pointer, output_size_data, output_size_len, input_size_data, input_size_len, align_corners, scales_d, scales_h, scales_w)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
 
 
 """
-    upsample_trilinear3d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+    upsample_trilinear3d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_d::Float64, scales_h::Float64, scales_w::Float64)
 
- Wrapper of C++ function void atg\\_upsample\\_trilinear3d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners)
+ Wrapper of C++ function void atg\\_upsample\\_trilinear3d\\_out(tensor *out\\_\\_, tensor out, tensor self, int64\\_t *output\\_size\\_data, int output\\_size\\_len, int align\\_corners, double scales\\_d, double scales\\_h, double scales\\_w)
 """
-function upsample_trilinear3d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int)
+function upsample_trilinear3d_out(out::Tensor, self::Tensor, output_size_data::Array{Int64}, align_corners::Int, scales_d::Float64, scales_h::Float64, scales_w::Float64)
     outputs__ = Int[0]
     output_size_len = length(output_size_data)
     __cret = ccall((:atg_upsample_trilinear3d_out, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, align_corners)
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint, Cdouble, Cdouble, Cdouble),
+                 outputs__, out.pointer, self.pointer, output_size_data, output_size_len, align_corners, scales_d, scales_h, scales_w)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    value_selecting_reduction_backward(grad::Tensor, dim::Int64, indices::Tensor, sizes_data::Array{Int64}, keepdim::Int)
+
+ Wrapper of C++ function void atg\\_value\\_selecting\\_reduction\\_backward(tensor *out\\_\\_, tensor grad, int64\\_t dim, tensor indices, int64\\_t *sizes\\_data, int sizes\\_len, int keepdim)
+"""
+function value_selecting_reduction_backward(grad::Tensor, dim::Int64, indices::Tensor, sizes_data::Array{Int64}, keepdim::Int)
+    outputs__ = Int[0]
+    sizes_len = length(sizes_data)
+    __cret = ccall((:atg_value_selecting_reduction_backward, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
+                 outputs__, grad.pointer, dim, indices.pointer, sizes_data, sizes_len, keepdim)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -14991,6 +21463,21 @@ function values(self::Tensor)
     __cret = ccall((:atg_values, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    vander(x::Tensor, n::Int64, increasing::Int)
+
+ Wrapper of C++ function void atg\\_vander(tensor *out\\_\\_, tensor x, int64\\_t n, int increasing)
+"""
+function vander(x::Tensor, n::Int64, increasing::Int)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_vander, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Clonglong, Cint),
+                 outputs__, x.pointer, n, increasing)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -15074,6 +21561,36 @@ function var_out(out::Tensor, self::Tensor, dim_data::Array{Int64}, unbiased::In
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+
+
+"""
+    vdot(self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_vdot(tensor *out\\_\\_, tensor self, tensor other)
+"""
+function vdot(self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_vdot, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    vdot_out(out::Tensor, self::Tensor, other::Tensor)
+
+ Wrapper of C++ function void atg\\_vdot\\_out(tensor *out\\_\\_, tensor out, tensor self, tensor other)
+"""
+function vdot_out(out::Tensor, self::Tensor, other::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_vdot_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, out.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
 import Base.view
 
 
@@ -15103,6 +21620,70 @@ function view_as(self::Tensor, other::Tensor)
     __cret = ccall((:atg_view_as, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    view_as_complex(self::Tensor)
+
+ Wrapper of C++ function void atg\\_view\\_as\\_complex(tensor *out\\_\\_, tensor self)
+"""
+function view_as_complex(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_view_as_complex, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    view_as_real(self::Tensor)
+
+ Wrapper of C++ function void atg\\_view\\_as\\_real(tensor *out\\_\\_, tensor self)
+"""
+function view_as_real(self::Tensor)
+    outputs__ = Int[0]
+    __cret = ccall((:atg_view_as_real, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, self.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    vstack(tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function void atg\\_vstack(tensor *out\\_\\_, tensor *tensors\\_data, int tensors\\_len)
+"""
+function vstack(tensors_data::Array{Tensor{T,N}}) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_vstack, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, tensors_data_ta_, tensors_len)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    vstack_out(out::Tensor, tensors_data::Array{Tensor{T,N}})
+
+ Wrapper of C++ function void atg\\_vstack\\_out(tensor *out\\_\\_, tensor out, tensor *tensors\\_data, int tensors\\_len)
+"""
+function vstack_out(out::Tensor, tensors_data::Array{Tensor{T,N}}) where {T,N}
+    outputs__ = Int[0]
+    tensors_data_ta_ = map(x->x.pointer, tensors_data)
+    tensors_len = length(tensors_data)
+    __cret = ccall((:atg_vstack_out, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 outputs__, out.pointer, tensors_data_ta_, tensors_len)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -15140,6 +21721,55 @@ function where1(condition::Tensor, self::Tensor, other::Tensor)
     __cret = ccall((:atg_where1, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, condition.pointer, self.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    where2(condition::Tensor, self::TorchNumber, other::Tensor)
+
+ Wrapper of C++ function void atg\\_where2(tensor *out\\_\\_, tensor condition, scalar self, tensor other)
+"""
+function where2(condition::Tensor, self::TorchNumber, other::Tensor)
+    outputs__ = Int[0]
+    self_s_ = Scalar(self)
+    __cret = ccall((:atg_where2, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, condition.pointer, self_s_.pointer, other.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    where3(condition::Tensor, self::Tensor, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_where3(tensor *out\\_\\_, tensor condition, tensor self, scalar other)
+"""
+function where3(condition::Tensor, self::Tensor, other::TorchNumber)
+    outputs__ = Int[0]
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_where3, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, condition.pointer, self.pointer, other_s_.pointer)
+    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
+    return __o_1
+end
+
+
+"""
+    where4(condition::Tensor, self::TorchNumber, other::TorchNumber)
+
+ Wrapper of C++ function void atg\\_where4(tensor *out\\_\\_, tensor condition, scalar self, scalar other)
+"""
+function where4(condition::Tensor, self::TorchNumber, other::TorchNumber)
+    outputs__ = Int[0]
+    self_s_ = Scalar(self)
+    other_s_ = Scalar(other)
+    __cret = ccall((:atg_where4, :libtorch_capi),
+                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
+                 outputs__, condition.pointer, self_s_.pointer, other_s_.pointer)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
@@ -15186,21 +21816,6 @@ function zeros_like(self::Tensor)
     __cret = ccall((:atg_zeros_like, :libtorch_capi),
                  Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
                  outputs__, self.pointer)
-    __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
-    return __o_1
-end
-
-
-"""
-    zeros_like1(self::Tensor, options_kind::Int, options_device::Int)
-
- Wrapper of C++ function void atg\\_zeros\\_like1(tensor *out\\_\\_, tensor self, int options\\_kind, int options\\_device)
-"""
-function zeros_like1(self::Tensor, options_kind::Int, options_device::Int)
-    outputs__ = Int[0]
-    __cret = ccall((:atg_zeros_like1, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
-                 outputs__, self.pointer, options_kind, options_device)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end

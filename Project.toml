@@ -3,7 +3,7 @@ uuid = "3ba4a88b-5b67-4a96-bb04-131d22fbab27"
 license = "MIT"
 desc = "Julia interface of PyTorch"
 repo = "https://github.com/TuringLang/ThArrays.jl.git"
-version = "0.2"
+version = "0.2.1"
 
 [deps]
 Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
@@ -12,9 +12,9 @@ Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 Requires = "ae029012-a4dd-5104-9daa-d747884805df"
 
 [compat]
-julia = "1"
 MacroTools = "0.5.1"
 Requires = "1"
+julia = "1"
 
 [extras]
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"

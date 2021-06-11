@@ -103,7 +103,7 @@ function julia_source(f::APIFunction)
     lines = [""]
     # in-place op: pow_ -> pow!, pow_1 -> pow1!, ...
     jl_fname = f.func_name
-    sufix_m = match(r"(\w+)_(\d*)$", jl_fname)
+    sufix_m = match(r"(\w+[^_])_(\d*)$", jl_fname)
     sufix_m != nothing && (jl_fname = "$(sufix_m[1])$(sufix_m[2])!")
 
     if Symbol(jl_fname) in names(Base)

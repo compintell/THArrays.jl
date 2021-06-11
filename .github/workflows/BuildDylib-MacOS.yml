@@ -17,11 +17,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        julia-version: [1.2]
+        julia-version: [1]
         julia-arch: [x64]
         os: [macOS-latest]
     steps:
-      - uses: actions/checkout@v1.0.0
+      - uses: actions/checkout@v2
       - name: Build
         run: deps/build_dylib_macos.sh
       - name: Upload to release

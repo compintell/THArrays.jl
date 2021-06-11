@@ -6,9 +6,9 @@ const JULIA_THC_GENERATOR = joinpath(PROJECT_DIR, "src/thc/thc-generator.jl")
 
 function build_locally()
     LIBTORCH_URL = if Sys.islinux()
-        "https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.4.0%2Bcpu.zip"
+        "https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.7.1%2Bcpu.zip"
     elseif Sys.isapple()
-        "https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.4.0.zip"
+        "https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.7.1.zip"
         # elseif Sys.iswindows()
         #     "https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-1.4.0.zip"
     else
@@ -38,7 +38,7 @@ function include_remote_script(version_str)
     # download, un tar
     dest = "libtorch_capi.$(version_str).tar.gz"
     tarball_url = if Sys.islinux()
-        "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-linux-gnu-gcc8.tar.gz"
+        "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-linux-gnu.tar.gz"
     elseif Sys.isapple()
         "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-apple-darwin14.tar.gz"
     else
