@@ -31,7 +31,7 @@ function get_commit_id()
 end
 
 sources = [
-    GitSource("https://github.com/TuringLang/ThArrays.jl.git", get_commit_id()),
+    GitSource("https://github.com/data-efficient-ml/ThArrays.jl.git", get_commit_id()),
 ]
 
 
