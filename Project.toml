@@ -6,7 +6,7 @@ repo = "https://github.com/TuringLang/ThArrays.jl.git"
 version = "0.2.1"
 
 [deps]
-Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
+LibTorchCAPI_jll = "35125b28-eb97-566c-9d83-c787ae32e58f"
 MacroTools = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 Requires = "ae029012-a4dd-5104-9daa-d747884805df"

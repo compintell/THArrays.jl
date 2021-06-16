@@ -1,5 +1,6 @@
 module ThJIT
 
+using LibTorchCAPI_jll
 using ..ThArrays
 
 mutable struct CompilationUnit
@@ -9,7 +10,7 @@ mutable struct CompilationUnit
     function CompilationUnit(m::Ptr{Nothing}, o::Ptr{Nothing})
         ret = new(m, o)
         finalizer(ret) do cu
-            ccall((:cunit_destroy, :libtorch_capi),
+            ccall((:cunit_destroy, libtorch_capi),
                   Cvoid, (Ptr{Cvoid},),
                   cu.owner)
         end
@@ -18,7 +19,7 @@ end
 
 function compile(code::AbstractString)
     fields = [Ptr{Nothing}(0), Ptr{Nothing}(0)]
-    cu = ccall((:cunit_compile, :libtorch_capi),
+    cu = ccall((:cunit_compile, libtorch_capi),
                Ptr{Cvoid}, (Ptr{Cvoid}, Cstring),
                fields, pointer(code))
     CompilationUnit(fields[1], fields[2])
@@ -28,7 +29,7 @@ function run_method(cu::CompilationUnit,
                     method::AbstractString,
                     args::Vararg{Tensor})
     ptrs = map(x -> x.pointer, collect(args))
-    tr = ccall((:cunit_run_method, :libtorch_capi),
+    tr = ccall((:cunit_run_method, libtorch_capi),
                Ptr{Cvoid}, (Ptr{Cvoid}, Cstring, Ptr{Cvoid}, Cint),
                cu.mod, pointer(method), ptrs, length(args))
     return ThArrays.tensor_from_ptr(tr)

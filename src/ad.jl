@@ -1,5 +1,6 @@
 module ThAD
 
+using LibTorchCAPI_jll
 using MacroTools: @forward
 using ..ThArrays: Tensor, Scalar, TorchNumber
 using ..ThC
@@ -7,7 +8,7 @@ using ..ThC
 import ..ThC: grad, requires_grad!
 
 function has_grad(a::Tensor)
-    ret = ccall((:tensor_method_has_grad, :libtorch_capi),
+    ret = ccall((:tensor_method_has_grad, libtorch_capi),
                 Cint, (Ptr{Cvoid},), a.pointer)
     return ret != 0
 end
@@ -26,7 +27,7 @@ function backward(a::Tensor, d::Union{Ptr{Nothing}, Tensor}=C_NULL;
     if d isa Tensor
         d = d.pointer
     end
-    ccall((:tensor_method_backward, :libtorch_capi),
+    ccall((:tensor_method_backward, libtorch_capi),
           Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint, Cint),
           a.pointer, d, keep_graph, create_graph)
     nothing
