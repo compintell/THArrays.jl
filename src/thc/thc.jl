@@ -1,7 +1,11 @@
 # !!! THIS FILE IS AUTO-GENERATED, PLEASE DO NOT MODIFY. !!!
 
 module ThC
-using LibTorchCAPI_jll
+@static if Sys.islinux()
+    using LibTorchCAPI_jll
+elseif Sys.isapple()
+    const libtorch_capi = :libtorch_capi
+end
 using ..ThArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr
 
 

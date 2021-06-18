@@ -1,8 +1,13 @@
 module ThArrays
 
-using LibTorchCAPI_jll
-using Requires
 using Libdl
+using Requires
+
+@static if Sys.islinux()
+    using LibTorchCAPI_jll
+elseif Sys.isapple()
+    const libtorch_capi = :libtorch_capi
+end
 
 export TorchNumber, Tensor, Scalar, eltype_id,
     ThC, ThAD, TrackerAD, ThJIT,
@@ -11,8 +16,13 @@ export TorchNumber, Tensor, Scalar, eltype_id,
 const PROJECT_DIR = (@__DIR__) |> dirname
 
 function __init__()
-    @static if VERSION < v"1.6.0"
-        Libdl.dlopen(LibTorchCAPI_jll.libtorch_capi_path)
+    @static if Sys.isapple()
+        push!(Libdl.DL_LOAD_PATH, joinpath(PROJECT_DIR, "deps/lib"))
+        Libdl.dlopen(joinpath(PROJECT_DIR, "deps/lib/libtorch_capi"))
+    else
+        @static if VERSION < v"1.6.0"
+            Libdl.dlopen(LibTorchCAPI_jll.libtorch_capi_path)
+        end
     end
     @async handle_error_in_julia()
     @require Tracker = "9f7883ad-71c0-57eb-9f7f-b5c9e6d3789c" @eval include("compat/tracker.jl")

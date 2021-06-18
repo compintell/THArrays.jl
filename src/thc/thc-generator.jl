@@ -230,7 +230,13 @@ function main()
 
     write(output, "# !!! THIS FILE IS AUTO-GENERATED, PLEASE DO NOT MODIFY. !!!\n\n")
     write(output, "module ThC\n") # module start
-    write(output, "using LibTorchCAPI_jll\n")
+    write(output, """
+@static if Sys.islinux()
+    using LibTorchCAPI_jll
+elseif Sys.isapple()
+    const libtorch_capi = :libtorch_capi
+end
+""")
     write(output, "using ..ThArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr\n")
 
 

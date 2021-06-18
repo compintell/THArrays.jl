@@ -1,7 +1,12 @@
 module ThJIT
 
-using LibTorchCAPI_jll
 using ..ThArrays
+
+@static if Sys.islinux()
+    using LibTorchCAPI_jll
+elseif Sys.isapple()
+    const libtorch_capi = :libtorch_capi
+end
 
 mutable struct CompilationUnit
     mod::Ptr{Nothing}

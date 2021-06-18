@@ -1,9 +1,14 @@
 module ThAD
 
-using LibTorchCAPI_jll
 using MacroTools: @forward
 using ..ThArrays: Tensor, Scalar, TorchNumber
 using ..ThC
+
+@static if Sys.islinux()
+    using LibTorchCAPI_jll
+elseif Sys.isapple()
+    const libtorch_capi = :libtorch_capi
+end
 
 import ..ThC: grad, requires_grad!
 
