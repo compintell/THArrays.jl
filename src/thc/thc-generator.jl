@@ -12,7 +12,7 @@ void atg_abs_out(tensor *out__, tensor out, tensor self) {
 export abs_out
 function abs_out(out::Tensor, self::Tensor)
     outputs = Int[0]
-    ccall((:atg_abs_out, :libtorch_capi),
+    ccall((:atg_abs_out, libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
           pointer(outputs), out.pointer, self.pointer)
     return tensor_from_ptr(Ptr{Cvoid}(outputs[1]))
@@ -121,7 +121,7 @@ function julia_source(f::APIFunction)
 
     push!(lines, "function $(jl_fname)($(julia_args(f)))$(para_type)")
     push!(lines, julia_locals(f))
-    push!(lines, "    __cret = ccall((:atg_$(f.func_name), :libtorch_capi),")
+    push!(lines, "    __cret = ccall((:atg_$(f.func_name), libtorch_capi),")
     push!(lines, "                 $(ccall_ret), ($(ccall_args(f))),")
     push!(lines, "                 $(ccall_julia_args(f)))")
     push!(lines, return_statement(f))
@@ -230,6 +230,13 @@ function main()
 
     write(output, "# !!! THIS FILE IS AUTO-GENERATED, PLEASE DO NOT MODIFY. !!!\n\n")
     write(output, "module ThC\n") # module start
+    write(output, """
+@static if Sys.islinux()
+    using LibTorchCAPI_jll
+elseif Sys.isapple()
+    const libtorch_capi = :libtorch_capi
+end
+""")
     write(output, "using ..ThArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr\n")
 
 

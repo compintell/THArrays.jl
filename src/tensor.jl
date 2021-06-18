@@ -10,7 +10,7 @@ mutable struct Tensor{T, N} <: AbstractArray{T, N}
         end
         ret = new(T, N, p, data)
         finalizer(ret) do t
-            ccall((:tensor_destroy, :libtorch_capi),
+            ccall((:tensor_destroy, libtorch_capi),
                   Cvoid, (Ptr{Cvoid},),
                   t.pointer)
         end
@@ -35,7 +35,7 @@ function Tensor{T}(array::Array{U, N};
     grad = requires_grad ? 1 : 0
     copy_data = detach ? 1 : 0
 
-    ptr = ccall((:tensor_from_data, :libtorch_capi),
+    ptr = ccall((:tensor_from_data, libtorch_capi),
                 Ptr{Cvoid},
                 (Ptr{Cvoid}, Csize_t, Cchar,
                  Ptr{Clonglong}, Ptr{Clonglong}, Csize_t, Cint, Cint),
@@ -51,7 +51,7 @@ end
 # 0-dim Tensor
 function Tensor(s::Int64; requires_grad=false)
     grad = requires_grad ? 1 : 0
-    ptr = ccall((:tensor_int64_0dim, :libtorch_capi),
+    ptr = ccall((:tensor_int64_0dim, libtorch_capi),
                 Ptr{Cvoid},
                 (Clonglong, Cint), s, grad)
     Tensor{Int64, 0}(ptr, nothing)
@@ -60,7 +60,7 @@ end
 function Tensor(s::T; requires_grad=false) where {T <: TorchNumber}
     data = T[s]
     grad = requires_grad ? 1 : 0
-    ptr = ccall((:tensor_from_data, :libtorch_capi),
+    ptr = ccall((:tensor_from_data, libtorch_capi),
                 Ptr{Cvoid},
                 (Ptr{Cvoid}, Csize_t, Cchar,
                  Ptr{Clonglong}, Ptr{Clonglong}, Csize_t, Cint, Cint),
@@ -73,14 +73,14 @@ function Tensor(a0::Array{T, 0}; requires_grad=false) where {T <: TorchNumber}
 end
 
 function tensor_from_ptr(p::Ptr)
-    n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
+    n_dims = ccall((:tensor_method_ndimension, libtorch_capi),
                    Clonglong, (Ptr{Cvoid},),
                    p)
     # sizes = zeros(Int64, n_dims)
-    # ccall((:tensor_method_sizes, :libtorch_capi),
+    # ccall((:tensor_method_sizes, libtorch_capi),
     #       Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
     #       p, sizes)
-    dtype = ccall((:tensor_method_dtype, :libtorch_capi),
+    dtype = ccall((:tensor_method_dtype, libtorch_capi),
                   Cchar, (Ptr{Cvoid},),
                   p)
     Tensor{REVERSE_TYPE_MAP[dtype], n_dims}(p, nothing)
@@ -92,7 +92,7 @@ function Base.convert(::Type{Array}, t::Tensor{T, N}) where {T, N}
     end
     dims = size(t)
     ret = Array{T, N}(undef, reverse(dims))
-    ccall((:tensor_method_data_copy, :libtorch_capi),
+    ccall((:tensor_method_data_copy, libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Csize_t),
           t.pointer, ret, sizeof(T) * prod(dims))
     if strides(t)[1] != 1
@@ -103,7 +103,7 @@ end
 Base.convert(::Type{T}, x::Tensor{T, 0}) where T = x[]
 
 function Base.string(t::Tensor)
-    str = ccall((:tensor_to_string, :libtorch_capi),
+    str = ccall((:tensor_to_string, libtorch_capi),
                 Ptr{UInt8}, (Ptr{Cvoid},),
                 t.pointer)
     ret = unsafe_string(str)
@@ -129,23 +129,23 @@ eltype_id(::Tensor{T}) where {T} = Int(TYPE_MAP[T])
 eltype_id(::Type{T}) where {T <: TorchNumber} = Int(TYPE_MAP[T])
 
 function Base.strides(t::Tensor)
-    n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
+    n_dims = ccall((:tensor_method_ndimension, libtorch_capi),
                    Clonglong, (Ptr{Cvoid},),
                    t.pointer)
     strides = zeros(Int64, n_dims)
-    ccall((:tensor_method_strides, :libtorch_capi),
+    ccall((:tensor_method_strides, libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
           t.pointer, strides)
     strides
 end
 
 function Base.size(t::Tensor{T, N}) where {T, N}
-    n_dims = ccall((:tensor_method_ndimension, :libtorch_capi),
+    n_dims = ccall((:tensor_method_ndimension, libtorch_capi),
                    Clonglong, (Ptr{Cvoid},),
                    t.pointer)
     @assert N == n_dims "Dimension mismatch!"
     sizes = zeros(Int64, n_dims)
-    ccall((:tensor_method_sizes, :libtorch_capi),
+    ccall((:tensor_method_sizes, libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}),
           t.pointer, sizes)
     tuple(sizes...)
@@ -229,7 +229,7 @@ function item(t::Tensor{T,N}) where {T,N}
     @assert(N == 0 || prod(size(t)) == 1,
             "The Tensor must contain only one element.")
     data = T[zero(T)]
-    ccall((:tensor_method_item, :libtorch_capi),
+    ccall((:tensor_method_item, libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Cchar, Ptr{Cvoid}),
           t.pointer, TYPE_MAP[T], data)
     return data[1]
@@ -254,7 +254,7 @@ to(t::Tensor, d::Device, ::Type{T}) where T <: TorchNumber =
 
 function on(t::Tensor)
     data = Int64[0, 0]
-    ccall((:tensor_method_device, :libtorch_capi),
+    ccall((:tensor_method_device, libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}), t.pointer, data)
 
     data[1] == -1 && return CPU()
