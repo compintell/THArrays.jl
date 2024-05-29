@@ -19454,6 +19454,7 @@ function sspaddmm_out(out::Tensor, self::Tensor, mat1::Tensor, mat2::Tensor)
     __o_1 = tensor_from_ptr(Ptr{Cvoid}(outputs__[1]))
     return __o_1
 end
+import Base.stack
 
 
 """

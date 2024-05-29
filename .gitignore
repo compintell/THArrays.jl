@@ -60,3 +60,4 @@ csrc/libtorch-*
 deps/lib/
 deps/logs/
 deps/build.log
+*.tar.gz
