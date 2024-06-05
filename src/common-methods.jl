@@ -25,7 +25,7 @@ Base.div(a::Tensor{T, N}, b::Tensor{T, N}, r::RoundingMode=RoundToZero) where {T
 
 Base.:^(t::Tensor, r::TorchNumber) = ThC.pow(t, r)
 
-Base.:(==)(t1::Tensor, t2::Tensor) = ThArrays.ThC.all(ThArrays.ThC.eq1(t1, t2))[]
+Base.:(==)(t1::Tensor, t2::Tensor) = ThArrays.ThC.all(ThArrays.ThC.eq_tensor(t1, t2))[]
 
 
 function Base.ones(::Type{Tensor{T}}, I::Vararg{Int}; dev::Device=CPU()) where T

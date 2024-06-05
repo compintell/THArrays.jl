@@ -98,9 +98,9 @@ are used to provide consturctors and several crucial functions of the
 `Tensor` and `Scalar` types.
 
 The files `csrc/torch_api*` are copied from project
-[ocaml-torch](https://github.com/LaurentMazare/ocaml-torch) (the
-`src/wrapper` directory) with a few minor modifications (remove ocaml
-dependency, add a generic error handling approach, etc.).
+[ocaml-torch](https://github.com/janestreet/torch) (the `src/wrapper`
+directory) with a few minor modifications (remove ocaml dependency,
+add a generic error handling approach, etc.).
 
 ## The auto-generated `ThArrays.ThC` module
 

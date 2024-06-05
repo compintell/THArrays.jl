@@ -6,9 +6,9 @@ const JULIA_THC_GENERATOR = joinpath(PROJECT_DIR, "src/thc/thc-generator.jl")
 
 function build_locally()
     LIBTORCH_URL = if Sys.islinux()
-        "https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-2.3.0%2Bcpu.zip"
+        "https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-2.1.0%2Bcpu.zip"
     elseif Sys.isapple()
-        "https://download.pytorch.org/libtorch/cpu/libtorch-macos-arm64-2.3.0.zip"
+        "https://download.pytorch.org/libtorch/cpu/libtorch-macos-arm64-2.1.0.zip"
     else
         error("Your OS $(Sys.MACHINE) is not supported.")
     end
