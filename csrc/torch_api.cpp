@@ -13,9 +13,11 @@ using namespace std;
 torch::Tensor tensor_from_ocaml(gc_tensor t) {
   // invoke reclaim_copy to increment the refcount by 1 (until this new Tensor
   // gets dropped by C++)
-  auto ptr = c10::intrusive_ptr<torch::TensorImpl,
-                                torch::UndefinedTensorImpl>::reclaim_copy(t);
-  return torch::Tensor(ptr);
+  // -- For Julia, we don't do this:
+  // auto ptr = c10::intrusive_ptr<torch::TensorImpl,
+  // torch::UndefinedTensorImpl>::reclaim_copy(t);
+  // return torch::Tensor(ptr);
+  return *t;
 }
 
 // It's actually better to pass tensors by reference, sparing some atomic
@@ -23,8 +25,10 @@ torch::Tensor tensor_from_ocaml(gc_tensor t) {
 // should have a refcount of exactly 1.
 // https://dev-discuss.pytorch.org/t/we-shouldnt-feel-bad-about-passing-tensor-by-reference/85
 raw_tensor tensor_to_ocaml(const torch::Tensor &cpp_tensor) {
-  auto ptr = cpp_tensor.getIntrusivePtr();
-  return ptr.release();
+  // auto ptr = cpp_tensor.getIntrusivePtr();
+  // return ptr.release();
+  // we need to delete this after use!
+  return new torch::Tensor(cpp_tensor);
 }
 
 void at_manual_seed(int64_t seed) { torch::manual_seed(seed); }

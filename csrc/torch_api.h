@@ -9,8 +9,10 @@ typedef torch::Scalar *scalar;
 typedef torch::optim::Optimizer *optimizer;
 typedef torch::jit::script::Module *module;
 typedef torch::jit::IValue *ivalue;
-typedef torch::TensorImpl *raw_tensor;
-typedef torch::TensorImpl *gc_tensor;
+// typedef torch::TensorImpl *raw_tensor;
+// typedef torch::TensorImpl *gc_tensor;
+typedef torch::Tensor *raw_tensor;
+typedef torch::Tensor *gc_tensor;
 
 extern void (*error_handler)(const char *str);
 

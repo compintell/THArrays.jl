@@ -219,6 +219,8 @@ function return_statement(f::APIFunction)
         push!(lines, "    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)")
         push!(lines, "    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)")
         return join(lines, "\n")
+    elseif f.return_type in ("raw_tensor", "gc_tensor")
+        return "    return tensor_from_ptr(__cret)"
     end
     return ""
 end
