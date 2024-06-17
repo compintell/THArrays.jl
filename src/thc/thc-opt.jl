@@ -26,10 +26,9 @@ function opt_index_select(self::Tensor{T, N}, dim::Int64, index::Tensor) where {
 end
 
 function opt_reshape(self::Tensor{T}, shape_data::Array{Int64}) where T
-    outputs__ = Int[0]
     shape_len = length(shape_data)
     __cret = ccall((:atg_reshape, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}, Cint),
-                 outputs__, self.pointer, shape_data, shape_len)
-    return Tensor{T, shape_len}(Ptr{Cvoid}(outputs__[1]), nothing)
+                 Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}, Cint),
+                 self.pointer, shape_data, shape_len)
+    return Tensor{T, shape_len}(__cret, nothing)
 end

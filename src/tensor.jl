@@ -214,9 +214,12 @@ function Base.iterate(t::Tensor, state=(eachindex(t),))
     t[y[1]], (state[1], Base.tail(y)...)
 end
 
-Base.cat(I::Vararg{Tensor}; dims) = cat(collect(I), dims)
-Base.vcat(I::Vararg{Tensor}) = cat(collect(I), 0)
-Base.hcat(I::Vararg{Tensor}) = cat(collect(I), 1)
+Base.cat(as::Tensor{T}...; dims) where {T} =
+    Base._cat(dims, as...) |> Tensor
+Base.hcat(as::Tensor{T}...) where {T} =
+    Base.typed_hcat(T, as...) |> Tensor
+Base.vcat(as::Tensor{T}...) where {T} =
+    Base.typed_vcat(T, as...) |> Tensor
 function Base.hvcat(rows::Tuple{Vararg{Int}}, I::Vararg{Tensor,N}) where N
     ts = Iterators.Stateful(I)
     hs = map(n -> collect(Iterators.take(ts, n)), rows)

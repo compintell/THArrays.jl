@@ -51,7 +51,7 @@ ThC.eye(::Type{Tensor{T}}, n::Int64; dev::Device=CPU()) where T =
 Base.sum(t::Tensor{T}) where T = ThC.sum(t, eltype_id(T))
 Base.view(t::Tensor{T}, I...) where T = error("Not implement yet.")
 Base.transpose(t::Tensor{T, 2}) where T = ThC.t(t)
-Base.adjoint(t::Tensor) = error("Not implement yet.")
+
 # LinearAlgebra.det(t::Tensor) = error("Not implement yet.")
 # LinearAlgebra.logdet(t::Tensor) = error("Not implement yet.")
 # LinearAlgebra.logabsdet(t::Tensor) = error("Not implement yet.")

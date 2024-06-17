@@ -120,7 +120,13 @@ function julia_source(f::APIFunction)
     start = f.args[1].first == "out__" ? 2 : 1
     para_type = any(x -> x.second == "tensor*", f.args[start:end]) ?
         " where {T,N}" : ""
-    ccall_ret = start == 1 ? "Ptr{Int}" : "Cvoid"
+    ccall_ret = if f.return_type in ["raw_tensor"]
+        "Ptr{Cvoid}"
+    elseif f.return_type == "int64_t"
+        "Int"
+    else
+        "Cvoid"
+    end
 
     push!(lines, "function $(jl_fname)($(julia_args(f)))$(para_type)")
     push!(lines, julia_locals(f))
@@ -162,7 +168,9 @@ function julia_locals(f::APIFunction)
     lines = []
     for i in 1:length(f.args)
         p = f.args[i]
-        if endswith(p.first, "_len") && endswith(f.args[i-1].first, "_data")
+        if p.first == "dim"
+            push!(lines, "    dim = dim - 1") # 0-based array index vs 1-based
+        elseif endswith(p.first, "_len") && endswith(f.args[i-1].first, "_data")
             push!(lines, "    $(p.first) = length($(f.args[i-1].first))")
         elseif p.second == "scalar"
             push!(lines, "    $(p.first)_s_ = Scalar($(p.first))")
@@ -222,7 +230,7 @@ function return_statement(f::APIFunction)
     elseif f.return_type in ("raw_tensor", "gc_tensor")
         return "    return tensor_from_ptr(__cret)"
     end
-    return ""
+    return "    return __cret"
 end
 
 
