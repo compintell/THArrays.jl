@@ -1,9 +1,8 @@
 function opt_add(self::Tensor{T, N}, other::Tensor{T, N}) where {T, N}
-    outputs__ = Int[0]
     __cret = ccall((:atg_add, :libtorch_capi),
-                 Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
-                   outputs__, self.pointer, other.pointer)
-    return Tensor{T, N}(Ptr{Cvoid}(outputs__[1]), nothing)
+                   Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}),
+                   self.pointer, other.pointer)
+    return Tensor{T, N}(__cret, nothing)
 end
 
 function opt_index_select(self::Tensor{T, N}, dim::Int64, index::Int64) where {T, N}
