@@ -36,8 +36,9 @@ function include_remote_script(version_str)
     # download, un tar
     dest = "libtorch_capi.$(version_str).tar.gz"
     tarball_url = if Sys.islinux()
-        "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-linux-gnu.tar.gz"
+        "https://github.com/compintell/THArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-linux-gnu-cxx11.tar.gz"
     elseif Sys.isapple()
+        error("Your OS $(Sys.MACHINE) is not supported.") # TODO
         "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-apple-darwin14.tar.gz"
     else
         error("Your OS $(Sys.MACHINE) is not supported.")
