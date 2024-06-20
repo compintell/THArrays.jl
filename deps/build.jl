@@ -34,7 +34,7 @@ end
 function include_remote_script(version_str)
     # build_script_url = "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/build_TorchCAPIDylib.v$(version_str).jl"
     # download, un tar
-    dest = "libtorch_capi.$(version_str).tar.gz"
+    dest = joinpath(@__DIR__, "libtorch_capi.v$(version_str).tar.gz")
     tarball_url = if Sys.islinux()
         "https://github.com/compintell/THArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-linux-gnu-cxx11.tar.gz"
     elseif Sys.isapple()
