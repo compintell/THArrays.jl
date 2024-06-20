@@ -27,7 +27,7 @@ if [[ -z "${RELEASE_ID}" || "${RELEASE_ID}" = null ]]; then
   exit 0
 fi
 
-for FILE in $(ls products); do
+for FILE in $(ls products/TorchCAPIDylib.v*cxx11*); do
     # Prepare the headers
     AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
     CONTENT_TYPE_HEADER="Content-Type: application/gzip"

@@ -16,12 +16,10 @@ PREFIX=${prefix-$PWD}
 # target=x86_64-linux-gnu
 cd $WORKSPACE/srcdir
 
-PROJECT_DIR=$WORKSPACE/srcdir/ThArrays.jl
+PROJECT_DIR=$WORKSPACE/srcdir/THArrays.jl
 
 RELEASES=(
-    x86_64-linux-gnu@v1_7_1@https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.7.1%2Bcpu.zip
-    x86_64-apple-darwin14@v1_7_1@https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.7.1.zip
-    x86_64-w64-mingw32@v1_7_1@https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-1.7.1.zip
+    x86_64-linux-gnu@v2_1_0@https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-2.1.0%2Bcpu.zip
 )
 
 for RELEASE in ${RELEASES[@]}; do
@@ -66,7 +64,7 @@ for RELEASE in ${RELEASES[@]}; do
         cp ${LIBTORCH_PATH}/lib/libtorch.so ${PREFIX}/lib/
         cp ${LIBTORCH_PATH}/lib/libtorch_cpu.so ${PREFIX}/lib/
         cp ${LIBTORCH_PATH}/lib/libc10.so ${PREFIX}/lib/
-        cp ${LIBTORCH_PATH}/lib/libgomp-75eea7e8.so.1 ${PREFIX}/lib/
+        cp ${LIBTORCH_PATH}/lib/libgomp-52f2fd74.so.1 ${PREFIX}/lib/
 
         # patch dylib
         patchelf --replace-needed "libtorch.so" "\$ORIGIN/libtorch.so" ${PREFIX}/lib/libtorch_capi.so
