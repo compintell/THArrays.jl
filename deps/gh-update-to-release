@@ -29,6 +29,7 @@ fi
 
 for FILE in $(ls products/TorchCAPIDylib.v*cxx11*); do
     # Prepare the headers
+    FILE=${FILE#products/}
     AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
     CONTENT_TYPE_HEADER="Content-Type: application/gzip"
     if [[ $(uname -s) == "Darwin" ]]; then
