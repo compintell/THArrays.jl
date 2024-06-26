@@ -1,9 +1,9 @@
-using ThArrays
+using THArrays
 using Tracker: forward, data
 using Random
 using Test
 
-using ThArrays.TrackerAD: _th, _tr
+using THArrays.TrackerAD: _th, _tr
 
 @testset "Torch and Tracker Mixed Gradient" begin
 

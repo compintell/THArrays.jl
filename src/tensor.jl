@@ -158,25 +158,25 @@ function _tensor_indices(t::Tensor, I)
     collect(indices), shape
 end
 
-_to_dim_0(t::Tensor) = ThC.opt_reshape(t, Int64[])
-_to_dim_1_1(t::Tensor) = ThC.opt_reshape(t, [1, 1])
+_to_dim_0(t::Tensor) = THC.opt_reshape(t, Int64[])
+_to_dim_1_1(t::Tensor) = THC.opt_reshape(t, [1, 1])
 
 function Base.getindex(t::Tensor, I...)
     ts, shape = _tensor_indices(t, I)
     ret = t
     for i in 1:length(ts)
-        ret = ThC.opt_index_select(ret, i - 1, ts[i])
+        ret = THC.opt_index_select(ret, i , ts[i])
     end
     all(x -> x == 1, size(ret)) && shape == Union{}[] && return _to_dim_0(ret)
-    ThC.opt_reshape(ret, shape)
+    THC.opt_reshape(ret, shape)
 end
 Base.getindex(t::Tensor{T}) where T = item(t)
 Base.getindex(t::Tensor, i::Int64) = t[eachindex(t)[i]]
 Base.getindex(t::Tensor{T, 1}, i::Int64) where T =
-    ThC.opt_index_select(t, 0, (i - 1)) |> _to_dim_0
+    THC.opt_index_select(t, 1, (i - 1)) |> _to_dim_0
 function Base.getindex(t::Tensor, I::UnitRange{Int64})
     t = vcat(map(i->_to_dim_1_1(t[i]), eachindex(t)[I])...)
-    ThC.opt_reshape(t, [length(t)])
+    THC.opt_reshape(t, [length(t)])
 end
 
 function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
@@ -186,10 +186,10 @@ function Base.setindex!(t::Tensor{T}, v::Tensor{T}, I...) where T
     ts, _1 = _tensor_indices(t, I)
     ret = t
     for i in 1:(length(ts) - 1)
-        ret = ThC.narrow(ret, i - 1, ts[i][1], length(ts[i]))
+        ret = THC.narrow(ret, i, ts[i][1], length(ts[i]))
     end
     dshape = length.(ts)
-    ThC.index_copy!(ret, length(ts) - 1, Tensor(ts[end]), reshape(v, dshape))
+    THC.index_copy!(ret, length(ts), Tensor(ts[end]), reshape(v, dshape))
     v
 end
 Base.setindex!(t::Tensor{T}, v::Array, I...) where T =
@@ -214,9 +214,12 @@ function Base.iterate(t::Tensor, state=(eachindex(t),))
     t[y[1]], (state[1], Base.tail(y)...)
 end
 
-Base.cat(I::Vararg{Tensor}; dims) = cat(collect(I), dims)
-Base.vcat(I::Vararg{Tensor}) = cat(collect(I), 0)
-Base.hcat(I::Vararg{Tensor}) = cat(collect(I), 1)
+Base.cat(as::Tensor{T}...; dims) where {T} =
+    Base._cat(dims, as...) |> Tensor
+Base.hcat(as::Tensor{T}...) where {T} =
+    Base.typed_hcat(T, as...) |> Tensor
+Base.vcat(as::Tensor{T}...) where {T} =
+    Base.typed_vcat(T, as...) |> Tensor
 function Base.hvcat(rows::Tuple{Vararg{Int}}, I::Vararg{Tensor,N}) where N
     ts = Iterators.Stateful(I)
     hs = map(n -> collect(Iterators.take(ts, n)), rows)
@@ -246,11 +249,11 @@ end
 Base.convert(::Type{Int}, ::CPU) = -1
 Base.convert(::Type{Int}, d::CUDA) = d.index
 
-to(t::Tensor, d::Device) = ThC.to(t, convert(Int, d))
-to(t::Tensor, ::Type{T}) where T <: TorchNumber = ThC.to2(t, eltype_id(T), 0, 0)
+to(t::Tensor, d::Device) = THC.to(t, convert(Int, d))
+to(t::Tensor, ::Type{T}) where T <: TorchNumber = THC.to2(t, eltype_id(T), 0, 0)
 to(t::Tensor, ::Type{T}, d::Device) where T <: TorchNumber = to(t, d, T)
 to(t::Tensor, d::Device, ::Type{T}) where T <: TorchNumber =
-    ThC.to4(t, convert(Int, d), eltype_id(T), 0, 0)
+    THC.to4(t, convert(Int, d), eltype_id(T), 0, 0)
 
 function on(t::Tensor)
     data = Int64[0, 0]

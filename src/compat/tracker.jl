@@ -1,13 +1,13 @@
 module TrackerAD
 
-using ..ThArrays
+using ..THArrays
 
 using Tracker
 using Tracker: Tracked, Call, data, track
 
 
 ## Tensor
-ThArrays.Tensor(x::Tracker.TrackedArray) = Tensor(data(x), requires_grad=true)
+THArrays.Tensor(x::Tracker.TrackedArray) = Tensor(data(x), requires_grad=true)
 
 ## TrackedTensor
 struct TrackedTensor{T, N} <: AbstractArray{T, N}
@@ -37,7 +37,7 @@ function TrackedTensor(c::Tracker.Call, t::Tensor{T, N}, d::Tensor{T, N}) where 
 end
 
 function TrackedTensor(t::Tensor)
-    TrackedTensor(Tracker.Call(), t, ThC.zeros_like(t))
+    TrackedTensor(Tracker.Call(), t, THC.zeros_like(t))
 end
 
 Base.eltype(x::Type{<:TrackedTensor{T}}) where T <: Real = TrackedTensor{T, 0}
@@ -58,8 +58,8 @@ end
 
 ## patches to Tracker.jl
 
-Tracker.param(x::Tensor) = TrackedTensor(ThC.requires_grad!(x, true))
-Tracker.init_grad(x::Tensor) = ThC.zeros_like(x)
+Tracker.param(x::Tensor) = TrackedTensor(THC.requires_grad!(x, true))
+Tracker.init_grad(x::Tensor) = THC.zeros_like(x)
 Tracker.zero_grad!(x::Tensor) = (x .= 0)
 
 """
@@ -71,7 +71,7 @@ end
 
 function Tracker.back(g::Tracker.Grads, x::Tracker.Tracked{Tensor{T, N}}, Δ) where {T, N}
     if haskey(__FORWARD_RESULT, x)
-        ThAD.backward(data(__FORWARD_RESULT[x]), Tensor(float.(Δ)))
+        THAD.backward(data(__FORWARD_RESULT[x]), Tensor(float.(Δ)))
         delete!(__FORWARD_RESULT, x)
     end
     x.isleaf && (Tracker.accum!(g, x, Δ); return)
@@ -94,7 +94,7 @@ _th(x) = track(_th, x)
 Tracker.@grad function _th(x)
     r = TrackedTensor(Tensor(x, requires_grad=true))
     r, (d) -> begin
-        (ThC.ones_like(data(r)) .* d,)
+        (THC.ones_like(data(r)) .* d,)
     end
 end
 
@@ -102,7 +102,7 @@ _th(x::Tracker.TrackedArray) = track(_th, x)
 Tracker.@grad function _th(x::Tracker.TrackedArray)
     r = TrackedTensor(Tensor(data(x), requires_grad=true))
     r, (d) -> begin
-        (ThC.ones_like(data(r)) .* d,)
+        (THC.ones_like(data(r)) .* d,)
     end
 end
 
@@ -117,7 +117,7 @@ _tr(x::TrackedTensor{T, 0}) where {T} = track(_tr, x)
 Tracker.@grad function _tr(x::TrackedTensor{T, 0}) where {T}
     r = convert(T, data(x))
     r, (d) -> begin
-        ThAD.backward(data(x), Tensor(float(d)))
+        THAD.backward(data(x), Tensor(float(d)))
         (float(d),)
     end
 end
@@ -126,7 +126,7 @@ _tr(x::TrackedTensor{T, N}) where {T, N} = track(_tr, x)
 Tracker.@grad function _tr(x::TrackedTensor{T, N}) where {T, N}
     r = convert(Array, data(x))
     r, (d) -> begin
-        ThAD.backward(data(x), Tensor(d))
+        THAD.backward(data(x), Tensor(d))
         (ones(size(r)) .* d,)
     end
 end
@@ -139,9 +139,9 @@ Tracker.@grad function Base.Broadcast.broadcasted(f, t::TrackedTensor, args...)
     r = Base.Broadcast.broadcasted(f, data(t), data.(args)...)
     r, (d) -> begin
         grads = map(args) do arg
-            (arg isa TrackedTensor) ? ThAD.get_grad(data(arg), d) : nothing
+            (arg isa TrackedTensor) ? THAD.get_grad(data(arg), d) : nothing
         end
-        (nothing, ThAD.get_grad(data(t), d), grads...)
+        (nothing, THAD.get_grad(data(t), d), grads...)
     end
 end
 
@@ -152,9 +152,9 @@ macro grad_for_tensor(name)
             r = $name(data(t), data.(args)...)
             r, (d) -> begin
                 grads = map(args) do arg
-                    (arg isa TrackedTensor) ? ThAD.get_grad(data(arg), d) : nothing
+                    (arg isa TrackedTensor) ? THAD.get_grad(data(arg), d) : nothing
                 end
-                (ThAD.get_grad(data(t), d), grads...)
+                (THAD.get_grad(data(t), d), grads...)
             end
         end
         end)

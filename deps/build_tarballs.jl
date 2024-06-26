@@ -31,7 +31,7 @@ function get_commit_id()
 end
 
 sources = [
-    GitSource("https://github.com/data-efficient-ml/ThArrays.jl.git", get_commit_id()),
+    GitSource("https://github.com/compintell/THArrays.jl.git", get_commit_id()),
 ]
 
 
@@ -41,9 +41,9 @@ script = read(joinpath(dirname(@__FILE__), "build_dylib.sh"), String)
 # These are the platforms we will build for by default, unless further
 # platforms are passed in on the command line
 platforms = [
-    Linux(:x86_64, libc=:glibc, compiler_abi=CompilerABI()),
-    # MacOS(:x86_64), # can't build it on MacOS SDK
+    Platform("x86_64",  "linux"; libc="glibc"),
 ]
+platforms = expand_cxxstring_abis(platforms)
 
 # The products that we will ensure are always built
 products = [
@@ -57,4 +57,4 @@ dependencies = [
 # Build the tarballs, and possibly a `build.jl` as well.
 # build_file = "products/build_$(name).v$(version_str).jl"
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies;
-               preferred_gcc_version=v"8")
+               preferred_gcc_version=v"11")

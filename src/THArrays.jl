@@ -1,10 +1,10 @@
-module ThArrays
+module THArrays
 
 using Libdl
 using Requires
 
 export TorchNumber, Tensor, Scalar, eltype_id,
-    ThC, ThAD, TrackerAD, ThJIT,
+    THC, THAD, TrackerAD, THJIT,
     Device, CPU, CUDA, to, on
 
 const PROJECT_DIR = (@__DIR__) |> dirname

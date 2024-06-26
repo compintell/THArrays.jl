@@ -21,7 +21,7 @@ jobs:
           using Pkg;
           Pkg.develop(PackageSpec(path=pwd()));
           Pkg.instantiate();
-          Pkg.build("ThArrays")
+          Pkg.build("THArrays")
           '
       - name: Build and deploy
         env:

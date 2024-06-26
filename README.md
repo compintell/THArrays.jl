@@ -1,28 +1,28 @@
 <!-- # ( -*- mode: markdown; mode: auto-fill -*- )
 -->
 
-# ThArrays
+# THArrays
 
 A Julia interface for PyTorch's C++ backend.
 
-![Unit Testing](https://github.com/TuringLang/ThArrays.jl/workflows/Unit%20Testing/badge.svg?branch=master)
+![Unit Testing](https://github.com/compintell/THArrays.jl/workflows/Unit%20Testing/badge.svg?branch=master)
 
 ## Features
-   - `ThArrays.Tensor`: PyTorch Tensor as an Array-like data type in
+   - `THArrays.Tensor`: PyTorch Tensor as an Array-like data type in
       Julia
-   - `ThArrays.ThAD`: AD using PyTorch C++ backend
-   - `ThArrays.TrackerAD`: AD using Tracker.jl and PyTorch C++
+   - `THArrays.THAD`: AD using PyTorch C++ backend
+   - `THArrays.TrackerAD`: AD using Tracker.jl and PyTorch C++
       backend mixed, on your choice
-   - `ThArrays.ThJIT`: using TorchScript in Julia
+   - `THArrays.THJIT`: using TorchScript in Julia
 
 ## Getting Started
 
-1. Install the package: `] add ThArrays`
-2. Read the docs [here](https://turinglang.github.io/ThArrays.jl), or
+1. Install the package: `] add THArrays`
+2. Read the docs [here](https://compintell.github.io/THArrays.jl), or
 3. Experiment in the Julia REPL directly:
 
    ```julia
-    julia> using ThArrays
+    julia> using THArrays
 
     julia> t = Tensor( -rand(3, 3) )
     PyTorch.Tensor{Float64, 2}:
@@ -38,7 +38,7 @@ A Julia interface for PyTorch's C++ backend.
      1.0000  1.0000  1.0000
     [ CPUDoubleType{3,3} ]
 
-    julia> ThAD.gradient(x->sum(sin(x)+x^2), rand(3,3))
+    julia> THAD.gradient(x->sum(sin(x)+x^2), rand(3,3))
     (PyTorch.Tensor{Float64, 2}:
      2.3776  1.5465  2.0206
      1.2542  1.2081  2.1156

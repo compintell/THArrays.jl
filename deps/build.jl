@@ -6,11 +6,9 @@ const JULIA_THC_GENERATOR = joinpath(PROJECT_DIR, "src/thc/thc-generator.jl")
 
 function build_locally()
     LIBTORCH_URL = if Sys.islinux()
-        "https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.7.1%2Bcpu.zip"
+        "https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-2.1.0%2Bcpu.zip"
     elseif Sys.isapple()
-        "https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.7.1.zip"
-        # elseif Sys.iswindows()
-        #     "https://download.pytorch.org/libtorch/cpu/libtorch-win-shared-with-deps-1.4.0.zip"
+        "https://download.pytorch.org/libtorch/cpu/libtorch-macos-arm64-2.1.0.zip"
     else
         error("Your OS $(Sys.MACHINE) is not supported.")
     end
@@ -34,13 +32,14 @@ end
 
 
 function include_remote_script(version_str)
-    # build_script_url = "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/build_TorchCAPIDylib.v$(version_str).jl"
+    # build_script_url = "https://github.com/compintell/THArrays.jl/releases/download/v$(version_str)/build_TorchCAPIDylib.v$(version_str).jl"
     # download, un tar
-    dest = "libtorch_capi.$(version_str).tar.gz"
+    dest = joinpath(@__DIR__, "libtorch_capi.v$(version_str).tar.gz")
     tarball_url = if Sys.islinux()
-        "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-linux-gnu.tar.gz"
+        "https://github.com/compintell/THArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-linux-gnu-cxx11.tar.gz"
     elseif Sys.isapple()
-        "https://github.com/TuringLang/ThArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-apple-darwin14.tar.gz"
+        error("Your OS $(Sys.MACHINE) is not supported.") # TODO
+        "https://github.com/compintell/THArrays.jl/releases/download/v$(version_str)/TorchCAPIDylib.v$(version_str).x86_64-apple-darwin14.tar.gz"
     else
         error("Your OS $(Sys.MACHINE) is not supported.")
     end

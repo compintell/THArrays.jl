@@ -1,4 +1,4 @@
-using ThArrays
+using THArrays
 using Test
 
 @testset "Tensor Creation" begin
@@ -12,14 +12,14 @@ using Test
     @testset "Creation with Array (sharing data)" begin
         ary = rand(2, 3)
         t = Tensor(ary)
-        ThArrays.ThC.sin!(t)
+        THArrays.THC.sin!(t)
         @test t == Tensor(ary)
     end
 
     @testset "Creation with Array (copying data)" begin
         ary = rand(2, 3)
         t = Tensor(ary, detach=true)
-        ThArrays.ThC.sin!(t)
+        THArrays.THC.sin!(t)
         @test isapprox(convert(Array, t), sin.(ary), atol=0.001)
     end
 

@@ -1,4 +1,4 @@
-using ThArrays
+using THArrays
 using Test
 
 @testset "Simple TorchScript" begin
@@ -8,7 +8,7 @@ using Test
 def main(a, b):
     return a + b
 """
-        cu = ThJIT.compile(script)
+        cu = THJIT.compile(script)
 
         ta = Tensor(rand(3, 2))
         tb = Tensor(rand(3, 2))

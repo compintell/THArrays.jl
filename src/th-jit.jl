@@ -1,6 +1,6 @@
-module ThJIT
+module THJIT
 
-using ..ThArrays
+using ..THArrays
 
 mutable struct CompilationUnit
     mod::Ptr{Nothing}
@@ -31,7 +31,7 @@ function run_method(cu::CompilationUnit,
     tr = ccall((:cunit_run_method, :libtorch_capi),
                Ptr{Cvoid}, (Ptr{Cvoid}, Cstring, Ptr{Cvoid}, Cint),
                cu.mod, pointer(method), ptrs, length(args))
-    return ThArrays.tensor_from_ptr(tr)
+    return THArrays.tensor_from_ptr(tr)
 end
 
 

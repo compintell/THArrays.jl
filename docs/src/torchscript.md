@@ -1,15 +1,15 @@
-# TorchScript Support: `ThArrays.ThJIT`
+# TorchScript Support: `THArrays.THJIT`
 
 Currently we have a limit support to the PyTorch JIT (TorchScript):
 
 ```julia
-using ThArrays
+using THArrays
 
 script = """
 def main(a, b):
     return a + b
 """
-cu = ThJIT.compile(script)
+cu = THJIT.compile(script)
 
 ta = Tensor(rand(3, 2))
 tb = Tensor(rand(3, 2))

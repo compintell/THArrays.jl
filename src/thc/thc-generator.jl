@@ -3,24 +3,23 @@
 This file intends to genrate Julia methods according C++ function:
 
 
-void atg_abs_out(tensor *out__, tensor out, tensor self) {
+raw_tensor atg_abs_out(tensor self, tensor other) {
   ...
 }
 
 ->
 
 export abs_out
-function abs_out(out::Tensor, self::Tensor)
-    outputs = Int[0]
-    ccall((:atg_abs_out, :libtorch_capi),
-          Cvoid, (Ptr{Cvoid}, Ptr{Cvoid}, Ptr{Cvoid}),
-          pointer(outputs), out.pointer, self.pointer)
-    return tensor_from_ptr(Ptr{Cvoid}(outputs[1]))
+function abs_out(self::Tensor, other::Tensor)
+    ptr = ccall((:atg_abs_out, :libtorch_capi),
+          Ptr{Cvoid}, (Ptr{Cvoid}, Ptr{Cvoid}),
+          self.pointer, other.pointer)
+    return tensor_from_ptr(ptr)
 end
 """
 
 const PROJECT_DIR = (@__DIR__) |> dirname |> dirname
-const CPP_API_FILE = joinpath(PROJECT_DIR, "csrc", "torch_api_generated.cpp.h")
+const CPP_API_FILE = joinpath(PROJECT_DIR, "csrc", "torch_api_generated.cpp")
 const JUL_API_FILE = joinpath(PROJECT_DIR, "src", "thc", "thc.jl")
 
 const FUNC_SIG_REG = r"(\w+)\s+(\*?atg_\w+)\((.+)\)\s*{"
@@ -28,27 +27,31 @@ const FUNC_SIG_REG = r"(\w+)\s+(\*?atg_\w+)\((.+)\)\s*{"
 const JULIA_KEYWORDS = Set(["function", "end"])
 
 const C_TYPE_MAP = Dict(
-    "void"     => "Cvoid",
-    "tensor*"  => "Ptr{Cvoid}",
-    "tensor"   => "Ptr{Cvoid}",
-    "scalar"   => "Ptr{Cvoid}",
-    "int"      => "Cint",
-    "int*"     => "Ptr{Cvoid}",
-    "int64_t"  => "Clonglong",
-    "int64_t*" => "Ptr{Cvoid}",
-    "double"   => "Cdouble",
+    "void"         => "Cvoid",
+    "raw_tensor"   => "Ptr{Cvoid}",
+    "gc_tensor"    => "Ptr{Cvoid}",
+    "tensor*"      => "Ptr{Cvoid}",
+    "tensor"       => "Ptr{Cvoid}",
+    "scalar"       => "Ptr{Cvoid}",
+    "int"          => "Cint",
+    "int*"         => "Ptr{Cvoid}",
+    "int64_t"      => "Clonglong",
+    "int64_t*"     => "Ptr{Cvoid}",
+    "double"       => "Cdouble",
 )
 
 const J_TYPE_MAP = Dict(
-    "void"     => "Any",
-    "tensor*"  => "Array{Tensor{T,N}}",
-    "tensor"   => "Tensor",
-    "scalar"   => "TorchNumber",
-    "int"      => "Int",
-    "int*"     => "Array{Int}",
-    "int64_t"  => "Int64",
-    "int64_t*" => "Array{Int64}",
-    "double"   => "Float64",
+    "void"         => "Any",
+    "raw_tensor"   => "Tensor",
+    "gc_tensor"    => "Tensor",
+    "tensor*"      => "Array{Tensor{T,N}}",
+    "tensor"       => "Tensor",
+    "scalar"       => "TorchNumber",
+    "int"          => "Int",
+    "int*"         => "Array{Int}",
+    "int64_t"      => "Int64",
+    "int64_t*"     => "Array{Int64}",
+    "double"       => "Float64",
 )
 
 struct APIFunction
@@ -90,13 +93,13 @@ end
 function julia_source(f::APIFunction)
     if  length(f.args) < 1
         @warn "E1: can't translate function [$(f.cpp_signature)], ignored."
-        return "# $(f.func_name) ignored"
+        return "\n# $(f.func_name) ignored\n"
     end
 
     for arg in f.args
         if !haskey(C_TYPE_MAP, arg.second)
             @warn "E2: can't translate function [$(f.cpp_signature)], ignored."
-            return "# $(f.func_name) ignored"
+            return "\n# $(f.func_name) ignored\n"
         end
     end
 
@@ -117,7 +120,13 @@ function julia_source(f::APIFunction)
     start = f.args[1].first == "out__" ? 2 : 1
     para_type = any(x -> x.second == "tensor*", f.args[start:end]) ?
         " where {T,N}" : ""
-    ccall_ret = start == 1 ? "Ptr{Int}" : "Cvoid"
+    ccall_ret = if f.return_type in ["raw_tensor"]
+        "Ptr{Cvoid}"
+    elseif f.return_type == "int64_t"
+        "Int"
+    else
+        "Cvoid"
+    end
 
     push!(lines, "function $(jl_fname)($(julia_args(f)))$(para_type)")
     push!(lines, julia_locals(f))
@@ -159,7 +168,9 @@ function julia_locals(f::APIFunction)
     lines = []
     for i in 1:length(f.args)
         p = f.args[i]
-        if endswith(p.first, "_len") && endswith(f.args[i-1].first, "_data")
+        if p.first == "dim"
+            push!(lines, "    dim = dim - 1") # 0-based array index vs 1-based
+        elseif endswith(p.first, "_len") && endswith(f.args[i-1].first, "_data")
             push!(lines, "    $(p.first) = length($(f.args[i-1].first))")
         elseif p.second == "scalar"
             push!(lines, "    $(p.first)_s_ = Scalar($(p.first))")
@@ -185,7 +196,7 @@ function ccall_julia_args(f::APIFunction)
     args = map(f.args) do p
         p.second == "tensor*" && p.first == "out__" && return "outputs__"
         p.second == "tensor*" && return "$(p.first)_ta_"
-        p.second == "tensor"  && return "$(p.first).pointer"
+        p.second in ("tensor", "gc_tensor")  && return "$(p.first).pointer"
         p.second == "scalar"  && return "$(p.first)_s_.pointer"
         return p.first
     end
@@ -216,8 +227,10 @@ function return_statement(f::APIFunction)
         push!(lines, "    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)")
         push!(lines, "    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)")
         return join(lines, "\n")
+    elseif f.return_type in ("raw_tensor", "gc_tensor")
+        return "    return tensor_from_ptr(__cret)"
     end
-    return ""
+    return "    return __cret"
 end
 
 
@@ -229,8 +242,8 @@ function main()
     output_count = 0
 
     write(output, "# !!! THIS FILE IS AUTO-GENERATED, PLEASE DO NOT MODIFY. !!!\n\n")
-    write(output, "module ThC\n") # module start
-    write(output, "using ..ThArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr\n")
+    write(output, "module THC\n") # module start
+    write(output, "using ..THArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr\n")
 
 
     for line in source_lines

@@ -2,7 +2,7 @@
 
 ## Tensor
 
-`ThArrays.Tensor` is an array-like data structure, we can create a
+`THArrays.Tensor` is an array-like data structure, we can create a
 Tensor instance from a Julia array directly:
 
 ```julia
@@ -88,7 +88,7 @@ PyTorch.Tensor{Float64, 2}:
 Calling `Convert(::Type{Array}, t::Tensor)` will convert a Tensor to a
 Julia array.
 
-`ThArrays.Tensor` also supports many other operations like Julia arrays
+`THArrays.Tensor` also supports many other operations like Julia arrays
 do, including iteration, indexing, assignment via indexing,
 concatenating (`cat`, `hcat`, `vcat`), etc.
 
@@ -101,7 +101,7 @@ t::Tensor{T, 0})` or more simply, `t[]`.
 
 ## Tensor on GPU
 
-If you installed ThArrays with CUDA support, you can move your Tensors
+If you installed THArrays with CUDA support, you can move your Tensors
 onto GPU by calling `to`:
 
 ```julia
