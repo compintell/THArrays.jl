@@ -3,8 +3,8 @@ name: Build Dylib for MacOS
 on:
   push:
     branches:
-      - master
-      - dev
+    #  - master
+    #  - dev
     # tags: '*'
   release:
     types:
