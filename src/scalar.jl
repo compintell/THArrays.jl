@@ -8,7 +8,7 @@ mutable struct Scalar{T}
         end
         ret = new(T, p)
         finalizer(ret) do s
-            ccall((:scalar_destroy, libtorch_capi),
+            ccall((:scalar_destroy, :libtorch_capi),
                   Cvoid, (Ptr{Cvoid},),
                   s.pointer)
         end
@@ -23,7 +23,7 @@ function Scalar{T}(s::U) where {T<:TorchNumber, U<:TorchNumber}
         error("Type $T is not supported.")
     end
     data = T[convert(T, s)]
-    ptr = ccall((:scalar_from_data, libtorch_capi),
+    ptr = ccall((:scalar_from_data, :libtorch_capi),
                 Ptr{Cvoid}, (Ptr{Cvoid}, Cchar),
                 data, TYPE_MAP[T])
     Scalar{T}(ptr)
@@ -33,7 +33,7 @@ Scalar(s::T) where T = Scalar{T}(s)
 
 function value(s::Scalar{T}) where T
     data = T[zero(T)]
-    ccall((:scalar_value, libtorch_capi),
+    ccall((:scalar_value, :libtorch_capi),
           Cvoid, (Ptr{Cvoid}, Cchar, Ptr{Cvoid}),
           s.pointer, TYPE_MAP[T], data)
     return data[1]

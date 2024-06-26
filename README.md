@@ -5,7 +5,7 @@
 
 A Julia interface for PyTorch's C++ backend.
 
-![Unit Testing](https://github.com/data-efficient-ml/ThArrays.jl/workflows/Unit%20Testing/badge.svg?branch=master)
+![Unit Testing](https://github.com/TuringLang/ThArrays.jl/workflows/Unit%20Testing/badge.svg?branch=master)
 
 ## Features
    - `ThArrays.Tensor`: PyTorch Tensor as an Array-like data type in
@@ -18,7 +18,7 @@ A Julia interface for PyTorch's C++ backend.
 ## Getting Started
 
 1. Install the package: `] add ThArrays`
-2. Read the docs [here](https://data-efficient-ml.github.io/ThArrays.jl), or
+2. Read the docs [here](https://turinglang.github.io/ThArrays.jl), or
 3. Experiment in the Julia REPL directly:
 
    ```julia
