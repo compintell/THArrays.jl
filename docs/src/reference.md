@@ -1,10 +1,10 @@
 # API Reference
 
-This page provides a comprehensive reference for ThArrays
+This page provides a comprehensive reference for THArrays
 functionality.
 
 ## Tensor
 
 ```@docs
-ThArrays.Tensor
+THArrays.Tensor
 ```

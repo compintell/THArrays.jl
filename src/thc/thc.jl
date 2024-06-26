@@ -1,7 +1,7 @@
 # !!! THIS FILE IS AUTO-GENERATED, PLEASE DO NOT MODIFY. !!!
 
-module ThC
-using ..ThArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr
+module THC
+using ..THArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr
 
 
 

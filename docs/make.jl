@@ -1,8 +1,8 @@
-using Documenter, ThArrays
+using Documenter, THArrays
 
 makedocs(
-  modules=[ThArrays],
-  sitename="ThArrays",
+  modules=[THArrays],
+  sitename="THArrays",
   pages = [
       "Home"        => "index.md",
       "Tensor"      => "tensor.md",
@@ -13,7 +13,7 @@ makedocs(
   format = Documenter.HTML(prettyurls = haskey(ENV, "GITHUB_EVENT_PATH")))
 
 deploydocs(
-    repo = "github.com/TuringLang/ThArrays.jl.git",
+    repo = "github.com/compintell/THArrays.jl.git",
     devbranch = "master",
     devurl = "dev",
 )

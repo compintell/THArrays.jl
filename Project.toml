@@ -1,4 +1,4 @@
-name = "ThArrays"
+name = "THArrays"
 uuid = "3ba4a88b-5b67-4a96-bb04-131d22fbab27"
 license = "MIT"
 desc = "Julia interface of PyTorch"

@@ -242,8 +242,8 @@ function main()
     output_count = 0
 
     write(output, "# !!! THIS FILE IS AUTO-GENERATED, PLEASE DO NOT MODIFY. !!!\n\n")
-    write(output, "module ThC\n") # module start
-    write(output, "using ..ThArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr\n")
+    write(output, "module THC\n") # module start
+    write(output, "using ..THArrays: Tensor, Scalar, TorchNumber, tensor_from_ptr\n")
 
 
     for line in source_lines

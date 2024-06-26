@@ -1,4 +1,4 @@
-using ThArrays
+using THArrays
 using Test
 
 @testset "Tensor Array interface (except indexing)" begin

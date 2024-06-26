@@ -1,4 +1,4 @@
-using ThArrays
+using THArrays
 using Test
 
 @testset "Scalar Creation" begin

@@ -1,4 +1,4 @@
-using ThArrays
+using THArrays
 using Test
 
 @testset "Issues Regression" begin
@@ -18,8 +18,8 @@ using Test
             y
         end
         y = f(x)
-        ThAD.backward(y)
+        THAD.backward(y)
 
-        @test ThAD.grad(x) == Tensor(ones(1, 10))
+        @test THAD.grad(x) == Tensor(ones(1, 10))
     end
 end

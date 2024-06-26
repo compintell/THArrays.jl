@@ -1,10 +1,10 @@
-module ThAD
+module THAD
 
 using MacroTools: @forward
-using ..ThArrays: Tensor, Scalar, TorchNumber
-using ..ThC
+using ..THArrays: Tensor, Scalar, TorchNumber
+using ..THC
 
-import ..ThC: grad, requires_grad!
+import ..THC: grad, requires_grad!
 
 function has_grad(a::Tensor)
     ret = ccall((:tensor_method_has_grad, :libtorch_capi),
@@ -16,7 +16,7 @@ function get_grad(a::Tensor, default=nothing)
     if has_grad(a)
         return grad(a)
     else
-        default == nothing ? ThC.zeros_like(a) : default
+        default == nothing ? THC.zeros_like(a) : default
     end
 end
 
@@ -33,7 +33,7 @@ function backward(a::Tensor, d::Union{Ptr{Nothing}, Tensor}=C_NULL;
 end
 
 
-reset_grad!(t::Tensor) = ThC.zero!(ThC.grad(t))
+reset_grad!(t::Tensor) = THC.zero!(THC.grad(t))
 requires_grad!(t::Tensor, r::Bool) = requires_grad!(t, r ? 1 : 0)
 
 function gradient(f, data...; d::Union{Ptr{Nothing}, Tensor}=C_NULL)
@@ -44,7 +44,7 @@ end
 function gradient(f, tensors::Vararg{Tensor}; d::Union{Ptr{Nothing}, Tensor}=C_NULL)
     result = f(tensors...)
     backward(result, d)
-    return ThC.grad.(tensors)
+    return THC.grad.(tensors)
 end
 
 
@@ -83,7 +83,7 @@ function forward(f, ps::Params)
         # reset grad!
         foreach((t) -> has_grad(t) && reset_grad!(t), ps)
         backward(y, param(d))
-        foreach((t) -> g[t] = ThC.grad(t), ps)
+        foreach((t) -> g[t] = THC.grad(t), ps)
         return g
     end
     return data(y), back

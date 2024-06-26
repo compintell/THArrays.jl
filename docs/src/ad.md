@@ -18,9 +18,9 @@ PyTorch.Tensor{Float64, 0}:
 7.91639
 [ CPUDoubleType{} ]
 
-julia> ThAD.backward(s)
+julia> THAD.backward(s)
 
-julia> ThAD.grad(t)
+julia> THAD.grad(t)
 PyTorch.Tensor{Float64, 2}:
  3  3
  3  3
@@ -29,10 +29,10 @@ PyTorch.Tensor{Float64, 2}:
 
 ```
 
-## `ThArrays.ThAD`
+## `THArrays.THAD`
 
 We also provide some convenient functions in the module
-`ThArrays.ThAD`, of which the most useful two are `gradient` and
+`THArrays.THAD`, of which the most useful two are `gradient` and
 `forward`:
 
 ```julia
@@ -43,7 +43,7 @@ julia> b = rand(3, 2);
 julia> f(x, y) = x^2 + 3x + sin(y) - y
 f (generic function with 1 method)
 
-julia> grads = ThAD.gradient(f, a, b; d=Tensor(ones(3,2)))
+julia> grads = THAD.gradient(f, a, b; d=Tensor(ones(3,2)))
 (PyTorch.Tensor{Float64, 2}:
  4.8802  3.5663
  3.7516  4.2127
@@ -65,7 +65,7 @@ julia> b = rand(3, 2);
 julia> f(x, y) = sum(2x + 2y)
 f (generic function with 1 method)
 
-julia> y, back = ThAD.forward(f, a, b);
+julia> y, back = THAD.forward(f, a, b);
 
 julia> y
 7.9688797507467255
@@ -85,9 +85,9 @@ julia> back(1)
 
 ```
 
-## `ThArrays.TrackerAD`
+## `THArrays.TrackerAD`
 
-With module `ThArrays.TrakcerAD`, ThArrays provides the ability to do
+With module `THArrays.TrakcerAD`, THArrays provides the ability to do
 AD using both [Tracker.jl](https://github.com/FluxML/Tracker.jl) and
 PyTorch backend. That is, you can track some computation with Tracker
 and track others with PyTorch in one forward:
@@ -95,8 +95,8 @@ and track others with PyTorch in one forward:
 ```julia
 using Tracker: forward, data
 
-using ThArrays
-using ThArrays.TrackerAD: _th, _tr
+using THArrays
+using THArrays.TrackerAD: _th, _tr
 
 a = rand(3, 2)
 b = rand(3, 2)

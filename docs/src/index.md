@@ -1,22 +1,22 @@
-# ThArrays
+# THArrays
 
-ThArrays is a Julia interface for the PyTorch's C++ backend. It aims
+THArrays is a Julia interface for the PyTorch's C++ backend. It aims
 on bringing the fundamental facilities, e.g., `Tensor`, `AutoGrad`,
 `TorchScript`, etc., to the Julia ecosystem.
 
 ## Getting Started
 1. Install the package by `] add Tharrays`, or if you cloned the code
    repository and intend to build it from source, set the environment
-   variable `export THARRAYS_DEV=1` and run `] build ThArrays`. The
+   variable `export THARRAYS_DEV=1` and run `] build THArrays`. The
    build script will download the libtorch zip file, compile the
    shared library, and generate many Julia methods in module
-   `ThArrays.ThC`. Without setting `THARRAYS_DEV`, the build script
+   `THArrays.THC`. Without setting `THARRAYS_DEV`, the build script
    will download the pre-built binary library instead of building it
    locally.
 2. Run a simple example:
 
    ```julia
-    julia> using ThArrays
+    julia> using THArrays
 
     julia> t = Tensor( -rand(3, 3) )
     PyTorch.Tensor{Float64, 2}:
@@ -46,7 +46,7 @@ on bringing the fundamental facilities, e.g., `Tensor`, `AutoGrad`,
     -0.2692 -0.0501 -0.2092
     [ CPUDoubleType{3,3} ]
 
-    julia> ThC.abs!(t)
+    julia> THC.abs!(t)
     PyTorch.Tensor{Float64, 2}:
      0.1428  0.7099  0.1446
      0.3447  0.0686  0.8287
@@ -60,7 +60,7 @@ on bringing the fundamental facilities, e.g., `Tensor`, `AutoGrad`,
      0.2692  0.0501  0.2092
     [ CPUDoubleType{3,3} ]
 
-    julia> ThAD.gradient(x->sum(sin(x)+x^2), rand(3,3))
+    julia> THAD.gradient(x->sum(sin(x)+x^2), rand(3,3))
     (PyTorch.Tensor{Float64, 2}:
      2.3776  1.5465  2.0206
      1.2542  1.2081  2.1156
@@ -71,18 +71,18 @@ on bringing the fundamental facilities, e.g., `Tensor`, `AutoGrad`,
     julia>
 
    ```
-   Read on the documents to learn more about ThArrays.
+   Read on the documents to learn more about THArrays.
 
 ## Features
 
-ThArrays provides:
+THArrays provides:
 
-   - `ThArrays.Tensor`: PyTorch Tensor as an Array-like data type in
+   - `THArrays.Tensor`: PyTorch Tensor as an Array-like data type in
       Julia
-   - `ThArrays.ThAD`: AD using PyTorch C++ backend
-   - `ThArrays.TrackerAD`: AD using Tracker.jl and PyTorch C++
+   - `THArrays.THAD`: AD using PyTorch C++ backend
+   - `THArrays.TrackerAD`: AD using Tracker.jl and PyTorch C++
       backend mixed, on your choice
-   - `ThArrays.ThJIT`: using TorchScript in Julia
+   - `THArrays.THJIT`: using TorchScript in Julia
 
 ## The shared library
 
@@ -102,7 +102,7 @@ The files `csrc/torch_api*` are copied from project
 directory) with a few minor modifications (remove ocaml dependency,
 add a generic error handling approach, etc.).
 
-## The auto-generated `ThArrays.ThC` module
+## The auto-generated `THArrays.THC` module
 
 As we said in the last section, we borrowed some C++ sources from the
 ocaml-torch project, and these files are auto-generated (by a program
@@ -113,10 +113,10 @@ in the PyTorch project).
 
 In this project, we use a Julia program, `src/thc/thc-generator.jl` to
 generate Julia functions who call the auto-generated C/C++ functions
-via `ccall`, and put them into module `ThArrays.ThC`
+via `ccall`, and put them into module `THArrays.THC`
 (`src/thc/thc.jl`).
 
-Beside the functions in `ThArrays.ThC` module, we can find the Python
+Beside the functions in `THArrays.THC` module, we can find the Python
 API of type `Tensor`
 [here](https://pytorch.org/docs/stable/tensors.html), and extract a
 list by running:
@@ -142,4 +142,4 @@ Tensors on CUDA GPU if you:
 2. download libtorch with CUDA support and unzip it to the
    `csrc/libtorch` directory of this package
 3. `export THARRAYS_DEV=1`
-4. start Julia, run `] build ThArrays`
+4. start Julia, run `] build THArrays`
