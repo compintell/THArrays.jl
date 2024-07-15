@@ -204,30 +204,7 @@ function ccall_julia_args(f::APIFunction)
 end
 
 function return_statement(f::APIFunction)
-    if match(r"_\d*$", f.func_name) != nothing
-        return "    return self"
-    elseif f.return_type == "void" && f.args[1].first == "out__"
-        lines = []
-        for i in 1:f.output_count
-            push!(lines,
-                  "    __o_$(i) = tensor_from_ptr(Ptr{Cvoid}(outputs__[$(i)]))")
-        end
-        push!(lines,
-              "    return " * join(map(x-> "__o_$x", 1:f.output_count), ", "))
-        return join(lines, "\n")
-    elseif f.return_type == "tensor*"
-        lines = []
-        push!(lines, "    ptrs__, i__ = Int[], 1")
-        push!(lines, "    while true")
-        push!(lines, "        ptr__ = unsafe_load(__cret, i__)")
-        push!(lines, "        ptr__ == 0 && break")
-        push!(lines, "        push!(ptrs__, ptr__)")
-        push!(lines, "        i__ += 1")
-        push!(lines, "    end")
-        push!(lines, "    ccall(:free, Cvoid, (Ptr{Cvoid},), __cret)")
-        push!(lines, "    return map(x -> tensor_from_ptr(Ptr{Nothing}(x)), ptrs__)")
-        return join(lines, "\n")
-    elseif f.return_type in ("raw_tensor", "gc_tensor")
+    if f.return_type in ("raw_tensor", "gc_tensor")
         return "    return tensor_from_ptr(__cret)"
     end
     return "    return __cret"
