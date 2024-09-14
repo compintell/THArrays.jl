@@ -27,7 +27,7 @@ jobs:
         with:
           version: ${{ matrix.julia-version }}
       - name: Install dependencies
-        run: julia -e 'using Pkg; Pkg.add("BinaryProvider"); Pkg.add("BinaryBuilder");'
+        run: julia -e 'using Pkg; Pkg.add("BinaryProvider"); Pkg.add(name="BinaryBuilder", version="0.5.8");'
       - name: Build
         env:
           BINARYBUILDER_DOWNLOADS_CACHE: downloads
