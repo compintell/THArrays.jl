@@ -8,3 +8,8 @@ functionality.
 ```@docs
 THArrays.Tensor
 ```
+
+```@autodocs
+Modules = [THArrays.THC]
+Order   = [:function, :type]
+```

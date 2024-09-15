@@ -1,3 +1,6 @@
+"""
+    struct Tensor
+"""
 mutable struct Tensor{T, N} <: AbstractArray{T, N}
     type::Type
     ndims::Int64

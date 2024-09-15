@@ -53,6 +53,7 @@ dkms.conf
 
 # Projects files
 Manifest.toml
+docs/build/
 csrc/build/
 csrc/libtorch
 csrc/libtorch/
