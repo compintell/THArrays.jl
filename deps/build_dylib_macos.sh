@@ -18,7 +18,7 @@ mkdir -p $PROJECT_DIR/csrc/build
 cd $PROJECT_DIR/csrc/build
 rm -f *.zip
 rm -fr libtorch/
-wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-1.7.1.zip
+wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-2.1.0.zip
 unzip *.zip
 LIBTORCH_PATH=$PWD/libtorch
 
